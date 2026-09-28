@@ -1,0 +1,5 @@
+/usr/local/lib/python3.10/site-packages/mlflow/utils/requirements_utils.py:20: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources  # noqa: TID251
+Environment String: torch-2.2.1_transformers-4.38.2_mlflow-2.11.1_faiss-1.8.0
+SHA-256 Digest: 949e9a65c4695fb4886e803300b4de2fc5e2cd908a1f84b7fa3f88c59f0df834
+CPU-Only Fallback Active
