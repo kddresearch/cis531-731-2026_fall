@@ -1,0 +1,379 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.87kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04
+#2 DONE 0.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [base-gpu 1/2] FROM docker.io/nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04@sha256:f4d8e1264366940438f0353da6f289c7bef069d993d111f8106086ccd18c4a30
+#4 resolve docker.io/nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04@sha256:f4d8e1264366940438f0353da6f289c7bef069d993d111f8106086ccd18c4a30 0.0s done
+#4 DONE 0.0s
+
+#5 [base-gpu 2/2] RUN apt-get update && apt-get install -y --no-install-recommends     python3.10 python3-pip python3.10-venv     && ln -sf /usr/bin/python3.10 /usr/bin/python3     && ln -sf /usr/bin/python3.10 /usr/bin/python     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [final 1/4] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     openjdk-11-jre-headless     ffmpeg     git     sudo     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [final 2/4] RUN pip install --upgrade pip "setuptools==68.2.2" wheel &&     pip install     pyspark==3.5.1     torch==2.2.1     transformers==4.38.2     mlflow==2.11.1     faiss-cpu==1.8.0 &&     pip install --no-build-isolation openai-whisper==20231117
+#7 0.941 Requirement already satisfied: pip in /usr/lib/python3/dist-packages (22.0.2)
+#7 1.111 Collecting pip
+#7 1.275   Downloading pip-26.2.1-py3-none-any.whl (1.8 MB)
+#7 1.393      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 16.5 MB/s eta 0:00:00
+#7 1.547 Collecting setuptools==68.2.2
+#7 1.556   Downloading setuptools-68.2.2-py3-none-any.whl (807 kB)
+#7 1.598      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 KB 20.9 MB/s eta 0:00:00
+#7 1.600 Requirement already satisfied: wheel in /usr/lib/python3/dist-packages (0.37.1)
+#7 1.626 Collecting wheel
+#7 1.723   Downloading wheel-0.48.0-py3-none-any.whl (33 kB)
+#7 1.755 Collecting packaging>=24.0
+#7 1.764   Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#7 1.771      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 KB 26.8 MB/s eta 0:00:00
+#7 1.818 Installing collected packages: setuptools, pip, packaging, wheel
+#7 1.818   Attempting uninstall: setuptools
+#7 1.818     Found existing installation: setuptools 59.6.0
+#7 1.819     Not uninstalling setuptools at /usr/lib/python3/dist-packages, outside environment /usr
+#7 1.819     Can't uninstall 'setuptools'. No files were found to uninstall.
+#7 2.160   Attempting uninstall: pip
+#7 2.160     Found existing installation: pip 22.0.2
+#7 2.161     Not uninstalling pip at /usr/lib/python3/dist-packages, outside environment /usr
+#7 2.161     Can't uninstall 'pip'. No files were found to uninstall.
+#7 2.637   Attempting uninstall: wheel
+#7 2.637     Found existing installation: wheel 0.37.1
+#7 2.638     Not uninstalling wheel at /usr/lib/python3/dist-packages, outside environment /usr
+#7 2.638     Can't uninstall 'wheel'. No files were found to uninstall.
+#7 2.651 Successfully installed packaging-26.3 pip-26.2.1 setuptools-68.2.2 wheel-0.48.0
+#7 2.651 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#7 3.001 Collecting pyspark==3.5.1
+#7 3.074   Downloading pyspark-3.5.1.tar.gz (317.0 MB)
+#7 20.16      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 317.0/317.0 MB 18.8 MB/s  0:00:17
+#7 26.16   Installing build dependencies: started
+#7 27.07   Installing build dependencies: finished with status 'done'
+#7 27.08   Getting requirements to build wheel: started
+#7 27.29   Getting requirements to build wheel: finished with status 'done'
+#7 27.29   Preparing metadata (pyproject.toml): started
+#7 27.41   Preparing metadata (pyproject.toml): finished with status 'done'
+#7 27.49 Collecting torch==2.2.1
+#7 27.50   Downloading torch-2.2.1-cp310-cp310-manylinux2014_aarch64.whl.metadata (25 kB)
+#7 27.52 Collecting transformers==4.38.2
+#7 27.53   Downloading transformers-4.38.2-py3-none-any.whl.metadata (130 kB)
+#7 27.62 Collecting mlflow==2.11.1
+#7 27.63   Downloading mlflow-2.11.1-py3-none-any.whl.metadata (15 kB)
+#7 27.66 Collecting faiss-cpu==1.8.0
+#7 27.70   Downloading faiss_cpu-1.8.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (3.6 kB)
+#7 27.71 Collecting py4j==0.10.9.7 (from pyspark==3.5.1)
+#7 27.72   Downloading py4j-0.10.9.7-py2.py3-none-any.whl.metadata (1.5 kB)
+#7 27.74 Collecting filelock (from torch==2.2.1)
+#7 27.74   Downloading filelock-4.0.1-py3-none-any.whl.metadata (2.0 kB)
+#7 27.76 Collecting typing-extensions>=4.8.0 (from torch==2.2.1)
+#7 27.77   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#7 27.78 Collecting sympy (from torch==2.2.1)
+#7 27.79   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+#7 27.81 Collecting networkx (from torch==2.2.1)
+#7 27.81   Downloading networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
+#7 27.83 Collecting jinja2 (from torch==2.2.1)
+#7 27.84   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#7 27.95 Collecting fsspec (from torch==2.2.1)
+#7 27.96   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+#7 28.06 Collecting huggingface-hub<1.0,>=0.19.3 (from transformers==4.38.2)
+#7 28.07   Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
+#7 28.30 Collecting numpy>=1.17 (from transformers==4.38.2)
+#7 28.31   Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (63 kB)
+#7 28.31 Requirement already satisfied: packaging>=20.0 in ./usr/local/lib/python3.10/dist-packages (from transformers==4.38.2) (26.3)
+#7 28.34 Collecting pyyaml>=5.1 (from transformers==4.38.2)
+#7 28.35   Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.4 kB)
+#7 28.75 Collecting regex!=2019.12.17 (from transformers==4.38.2)
+#7 28.76   Downloading regex-2026.9.10-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (40 kB)
+#7 28.78 Collecting requests (from transformers==4.38.2)
+#7 28.78   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#7 28.88 Collecting tokenizers<0.19,>=0.14 (from transformers==4.38.2)
+#7 28.98   Downloading tokenizers-0.15.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.7 kB)
+#7 29.07 Collecting safetensors>=0.4.1 (from transformers==4.38.2)
+#7 29.08   Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (4.2 kB)
+#7 29.11 Collecting tqdm>=4.27 (from transformers==4.38.2)
+#7 29.12   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+#7 29.14 Collecting click<9,>=7.0 (from mlflow==2.11.1)
+#7 29.14   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#7 29.16 Collecting cloudpickle<4 (from mlflow==2.11.1)
+#7 29.17   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+#7 29.18 Collecting entrypoints<1 (from mlflow==2.11.1)
+#7 29.19   Downloading entrypoints-0.4-py3-none-any.whl.metadata (2.6 kB)
+#7 29.21 Collecting gitpython<4,>=3.1.9 (from mlflow==2.11.1)
+#7 29.22   Downloading gitpython-3.1.62-py3-none-any.whl.metadata (13 kB)
+#7 29.31 Collecting protobuf<5,>=3.12.0 (from mlflow==2.11.1)
+#7 29.32   Downloading protobuf-4.25.9-cp37-abi3-manylinux2014_aarch64.whl.metadata (541 bytes)
+#7 29.34 Collecting pytz<2025 (from mlflow==2.11.1)
+#7 29.35   Downloading pytz-2024.2-py2.py3-none-any.whl.metadata (22 kB)
+#7 29.37 Collecting packaging>=20.0 (from transformers==4.38.2)
+#7 29.38   Downloading packaging-23.2-py3-none-any.whl.metadata (3.2 kB)
+#7 29.40 Collecting importlib-metadata!=4.7.0,<8,>=3.7.0 (from mlflow==2.11.1)
+#7 29.41   Downloading importlib_metadata-7.2.1-py3-none-any.whl.metadata (4.6 kB)
+#7 29.51 Collecting sqlparse<1,>=0.4.0 (from mlflow==2.11.1)
+#7 29.53   Downloading sqlparse-0.6.0-py3-none-any.whl.metadata (6.0 kB)
+#7 29.55 Collecting alembic!=1.10.0,<2 (from mlflow==2.11.1)
+#7 29.56   Downloading alembic-1.20.0-py3-none-any.whl.metadata (7.3 kB)
+#7 29.58 Collecting docker<8,>=4.0.0 (from mlflow==2.11.1)
+#7 29.59   Downloading docker-7.2.0-py3-none-any.whl.metadata (3.8 kB)
+#7 29.61 Collecting Flask<4 (from mlflow==2.11.1)
+#7 29.62   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+#7 29.62 Collecting numpy>=1.17 (from transformers==4.38.2)
+#7 29.66   Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (62 kB)
+#7 29.77 Collecting scipy<2 (from mlflow==2.11.1)
+#7 29.78   Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (61 kB)
+#7 29.85 Collecting pandas<3 (from mlflow==2.11.1)
+#7 29.90   Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (91 kB)
+#7 30.03 Collecting querystring-parser<2 (from mlflow==2.11.1)
+#7 30.04   Downloading querystring_parser-1.2.4-py2.py3-none-any.whl.metadata (559 bytes)
+#7 30.26 Collecting sqlalchemy<3,>=1.4.0 (from mlflow==2.11.1)
+#7 30.33   Downloading sqlalchemy-2.0.54-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (9.7 kB)
+#7 30.39 Collecting scikit-learn<2 (from mlflow==2.11.1)
+#7 30.40   Downloading scikit_learn-1.7.2-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (11 kB)
+#7 30.45 Collecting pyarrow<16,>=4.0.0 (from mlflow==2.11.1)
+#7 30.56   Downloading pyarrow-15.0.2-cp310-cp310-manylinux_2_28_aarch64.whl.metadata (3.0 kB)
+#7 30.57 Collecting markdown<4,>=3.3 (from mlflow==2.11.1)
+#7 30.58   Downloading markdown-3.10.3-py3-none-any.whl.metadata (5.1 kB)
+#7 30.68 Collecting matplotlib<4 (from mlflow==2.11.1)
+#7 30.72   Downloading matplotlib-3.10.9-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (52 kB)
+#7 30.74 Collecting graphene<4 (from mlflow==2.11.1)
+#7 30.75   Downloading graphene-3.4.3-py2.py3-none-any.whl.metadata (6.9 kB)
+#7 30.76 Collecting gunicorn<22 (from mlflow==2.11.1)
+#7 30.77   Downloading gunicorn-21.2.0-py3-none-any.whl.metadata (4.1 kB)
+#7 30.79 Collecting Mako (from alembic!=1.10.0,<2->mlflow==2.11.1)
+#7 30.80   Downloading mako-1.4.1-py3-none-any.whl.metadata (2.9 kB)
+#7 30.82 Collecting tomli (from alembic!=1.10.0,<2->mlflow==2.11.1)
+#7 30.83   Downloading tomli-2.4.1-py3-none-any.whl.metadata (10 kB)
+#7 30.85 Collecting urllib3>=1.26.0 (from docker<8,>=4.0.0->mlflow==2.11.1)
+#7 30.86   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#7 30.87 Collecting blinker>=1.9.0 (from Flask<4->mlflow==2.11.1)
+#7 30.88   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#7 30.90 Collecting itsdangerous>=2.2.0 (from Flask<4->mlflow==2.11.1)
+#7 30.90   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#7 30.97 Collecting markupsafe>=2.1.1 (from Flask<4->mlflow==2.11.1)
+#7 31.08   Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#7 31.10 Collecting werkzeug>=3.1.0 (from Flask<4->mlflow==2.11.1)
+#7 31.11   Downloading werkzeug-3.1.8-py3-none-any.whl.metadata (4.0 kB)
+#7 31.13 Collecting gitdb<5,>=4.0.1 (from gitpython<4,>=3.1.9->mlflow==2.11.1)
+#7 31.14   Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+#7 31.15 Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython<4,>=3.1.9->mlflow==2.11.1)
+#7 31.16   Downloading smmap-5.0.3-py3-none-any.whl.metadata (4.6 kB)
+#7 31.18 Collecting graphql-core<3.3,>=3.1 (from graphene<4->mlflow==2.11.1)
+#7 31.19   Downloading graphql_core-3.2.12-py3-none-any.whl.metadata (11 kB)
+#7 31.21 Collecting graphql-relay<3.3,>=3.1 (from graphene<4->mlflow==2.11.1)
+#7 31.22   Downloading graphql_relay-3.2.0-py3-none-any.whl.metadata (12 kB)
+#7 31.23 Collecting python-dateutil<3,>=2.7.0 (from graphene<4->mlflow==2.11.1)
+#7 31.24   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#7 31.29 Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub<1.0,>=0.19.3->transformers==4.38.2)
+#7 31.30   Downloading hf_xet-1.6.0-cp38-abi3-manylinux_2_28_aarch64.whl.metadata (4.9 kB)
+#7 31.32 Collecting zipp>=0.5 (from importlib-metadata!=4.7.0,<8,>=3.7.0->mlflow==2.11.1)
+#7 31.33   Downloading zipp-4.1.0-py3-none-any.whl.metadata (3.6 kB)
+#7 31.37 Collecting contourpy>=1.0.1 (from matplotlib<4->mlflow==2.11.1)
+#7 31.38   Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (5.5 kB)
+#7 31.39 Collecting cycler>=0.10 (from matplotlib<4->mlflow==2.11.1)
+#7 31.40   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+#7 31.49 Collecting fonttools>=4.22.0 (from matplotlib<4->mlflow==2.11.1)
+#7 31.50   Downloading fonttools-4.65.0-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (125 kB)
+#7 31.65 Collecting kiwisolver>=1.3.1 (from matplotlib<4->mlflow==2.11.1)
+#7 31.69   Downloading kiwisolver-1.5.1-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (5.2 kB)
+#7 31.83 Collecting pillow>=8 (from matplotlib<4->mlflow==2.11.1)
+#7 31.85   Downloading pillow-12.3.0-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (9.1 kB)
+#7 31.87 Collecting pyparsing>=3 (from matplotlib<4->mlflow==2.11.1)
+#7 31.88   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+#7 31.89 Collecting tzdata>=2022.7 (from pandas<3->mlflow==2.11.1)
+#7 31.90   Downloading tzdata-2026.4-py2.py3-none-any.whl.metadata (1.4 kB)
+#7 31.91 Collecting six>=1.5 (from python-dateutil<3,>=2.7.0->graphene<4->mlflow==2.11.1)
+#7 31.92   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#7 31.97 Collecting charset_normalizer<4,>=2 (from requests->transformers==4.38.2)
+#7 31.98   Downloading charset_normalizer-3.5.1-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (45 kB)
+#7 31.99 Collecting idna<4,>=2.5 (from requests->transformers==4.38.2)
+#7 32.00   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#7 32.10 Collecting certifi>=2023.5.7 (from requests->transformers==4.38.2)
+#7 32.11   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+#7 32.14 Collecting joblib>=1.2.0 (from scikit-learn<2->mlflow==2.11.1)
+#7 32.14   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+#7 32.16 Collecting threadpoolctl>=3.1.0 (from scikit-learn<2->mlflow==2.11.1)
+#7 32.17   Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+#7 32.32 Collecting greenlet>=1 (from sqlalchemy<3,>=1.4.0->mlflow==2.11.1)
+#7 32.33   Downloading greenlet-3.5.6-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (3.8 kB)
+#7 32.35 Collecting mpmath<1.4,>=1.1.0 (from sympy->torch==2.2.1)
+#7 32.36   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+#7 32.41 Downloading torch-2.2.1-cp310-cp310-manylinux2014_aarch64.whl (86.6 MB)
+#7 38.13    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.6/86.6 MB 15.2 MB/s  0:00:05
+#7 38.35 Downloading transformers-4.38.2-py3-none-any.whl (8.5 MB)
+#7 38.71    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.5/8.5 MB 26.9 MB/s  0:00:00
+#7 38.77 Downloading mlflow-2.11.1-py3-none-any.whl (19.7 MB)
+#7 39.80    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.7/19.7 MB 19.2 MB/s  0:00:01
+#7 39.85 Downloading faiss_cpu-1.8.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (3.6 MB)
+#7 40.10    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 14.0 MB/s  0:00:00
+#7 40.11 Downloading py4j-0.10.9.7-py2.py3-none-any.whl (200 kB)
+#7 40.13 Downloading alembic-1.20.0-py3-none-any.whl (268 kB)
+#7 40.15 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#7 40.16 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+#7 40.17 Downloading docker-7.2.0-py3-none-any.whl (148 kB)
+#7 40.19 Downloading entrypoints-0.4-py3-none-any.whl (5.3 kB)
+#7 40.20 Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+#7 40.21 Downloading gitpython-3.1.62-py3-none-any.whl (222 kB)
+#7 40.23 Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+#7 40.24 Downloading graphene-3.4.3-py2.py3-none-any.whl (114 kB)
+#7 40.26 Downloading graphql_core-3.2.12-py3-none-any.whl (216 kB)
+#7 40.28 Downloading graphql_relay-3.2.0-py3-none-any.whl (16 kB)
+#7 40.29 Downloading gunicorn-21.2.0-py3-none-any.whl (80 kB)
+#7 40.31 Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+#7 40.33    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 25.9 MB/s  0:00:00
+#7 40.34 Downloading hf_xet-1.6.0-cp38-abi3-manylinux_2_28_aarch64.whl (4.3 MB)
+#7 40.61    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 15.7 MB/s  0:00:00
+#7 40.62 Downloading importlib_metadata-7.2.1-py3-none-any.whl (25 kB)
+#7 40.63 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#7 40.65 Downloading markdown-3.10.3-py3-none-any.whl (110 kB)
+#7 40.70 Downloading matplotlib-3.10.9-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (9.6 MB)
+#7 41.19    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.6/9.6 MB 19.3 MB/s  0:00:00
+#7 41.21 Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (14.2 MB)
+#7 41.92    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.2/14.2 MB 20.1 MB/s  0:00:00
+#7 41.94 Downloading packaging-23.2-py3-none-any.whl (53 kB)
+#7 41.95 Downloading pandas-2.3.3-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl (12.1 MB)
+#7 42.66    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 17.0 MB/s  0:00:00
+#7 42.67 Downloading protobuf-4.25.9-cp37-abi3-manylinux2014_aarch64.whl (294 kB)
+#7 42.73 Downloading pyarrow-15.0.2-cp310-cp310-manylinux_2_28_aarch64.whl (35.7 MB)
+#7 44.74    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.7/35.7 MB 18.8 MB/s  0:00:02
+#7 44.75 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#7 44.78 Downloading pytz-2024.2-py2.py3-none-any.whl (508 kB)
+#7 44.81 Downloading pyyaml-6.0.3-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (740 kB)
+#7 44.84    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 740.6/740.6 kB 24.8 MB/s  0:00:00
+#7 44.85 Downloading querystring_parser-1.2.4-py2.py3-none-any.whl (7.9 kB)
+#7 44.86 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+#7 44.87 Downloading charset_normalizer-3.5.1-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (251 kB)
+#7 44.89 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#7 44.94 Downloading scikit_learn-1.7.2-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (9.5 MB)
+#7 45.42    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.5/9.5 MB 19.6 MB/s  0:00:00
+#7 45.44 Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (35.5 MB)
+#7 47.34    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.5/35.5 MB 18.6 MB/s  0:00:01
+#7 47.35 Downloading smmap-5.0.3-py3-none-any.whl (24 kB)
+#7 47.37 Downloading sqlalchemy-2.0.54-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (3.4 MB)
+#7 47.52    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 23.4 MB/s  0:00:00
+#7 47.53 Downloading sqlparse-0.6.0-py3-none-any.whl (50 kB)
+#7 47.58 Downloading tokenizers-0.15.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (3.5 MB)
+#7 47.73    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 23.7 MB/s  0:00:00
+#7 47.83 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#7 47.84 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+#7 47.85 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#7 47.86 Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+#7 47.91 Downloading contourpy-1.3.2-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (312 kB)
+#7 47.94 Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+#7 47.96 Downloading fonttools-4.65.0-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (5.3 MB)
+#7 48.19    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.3/5.3 MB 24.1 MB/s  0:00:00
+#7 48.20 Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+#7 48.22 Downloading greenlet-3.5.6-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl (609 kB)
+#7 48.35    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 609.3/609.3 kB 3.2 MB/s  0:00:00
+#7 48.37 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#7 48.38 Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+#7 48.40 Downloading kiwisolver-1.5.1-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl (1.2 MB)
+#7 48.46    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 28.4 MB/s  0:00:00
+#7 48.47 Downloading markupsafe-3.0.3-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (22 kB)
+#7 48.49 Downloading pillow-12.3.0-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (6.3 MB)
+#7 48.78    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 21.4 MB/s  0:00:00
+#7 48.88 Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+#7 48.89 Downloading regex-2026.9.10-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (787 kB)
+#7 48.93    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 787.9/787.9 kB 26.9 MB/s  0:00:00
+#7 48.94 Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (502 kB)
+#7 48.97 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#7 48.98 Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+#7 48.99 Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+#7 49.01 Downloading tzdata-2026.4-py2.py3-none-any.whl (347 kB)
+#7 49.04 Downloading werkzeug-3.1.8-py3-none-any.whl (226 kB)
+#7 49.06 Downloading zipp-4.1.0-py3-none-any.whl (10 kB)
+#7 49.06 Downloading filelock-4.0.1-py3-none-any.whl (106 kB)
+#7 49.08 Downloading mako-1.4.1-py3-none-any.whl (80 kB)
+#7 49.09 Downloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+#7 49.17    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 23.2 MB/s  0:00:00
+#7 49.18 Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+#7 49.56    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 16.6 MB/s  0:00:00
+#7 49.58 Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+#7 49.71    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 5.4 MB/s  0:00:00
+#7 49.72 Downloading tomli-2.4.1-py3-none-any.whl (14 kB)
+#7 50.22 Building wheels for collected packages: pyspark
+#7 50.23   Building wheel for pyspark (pyproject.toml): started
+#7 73.64   Building wheel for pyspark (pyproject.toml): finished with status 'done'
+#7 73.89   Created wheel for pyspark: filename=pyspark-3.5.1-py2.py3-none-any.whl size=317488552 sha256=97def7fdbfbc69b20af9333b48c0c6bb402097298ff8d1fe0c91e3f3570dfe66
+#7 73.89   Stored in directory: /tmp/pip-ephem-wheel-cache-ve9ivkij/wheels/80/1d/60/2c256ed38dddce2fdd93be545214a63e02fbd8d74fb0b7f3a6
+#7 73.92 Successfully built pyspark
+#7 74.43 Installing collected packages: pytz, py4j, mpmath, zipp, urllib3, tzdata, typing-extensions, tqdm, tomli, threadpoolctl, sympy, sqlparse, smmap, six, safetensors, regex, pyyaml, pyspark, pyparsing, protobuf, pillow, packaging, numpy, networkx, markupsafe, markdown, kiwisolver, itsdangerous, idna, hf-xet, greenlet, graphql-core, fsspec, fonttools, filelock, entrypoints, cycler, cloudpickle, click, charset_normalizer, certifi, blinker, werkzeug, sqlalchemy, scipy, requests, querystring-parser, python-dateutil, pyarrow, Mako, joblib, jinja2, importlib-metadata, gunicorn, graphql-relay, gitdb, faiss-cpu, contourpy, torch, scikit-learn, pandas, matplotlib, huggingface-hub, graphene, gitpython, Flask, docker, alembic, tokenizers, mlflow, transformers
+#7 80.25   Attempting uninstall: packaging
+#7 80.25     Found existing installation: packaging 26.3
+#7 80.26     Uninstalling packaging-26.3:
+#7 80.26       Successfully uninstalled packaging-26.3
+#7 104.0 
+#7 104.0 Successfully installed Flask-3.1.3 Mako-1.4.1 alembic-1.20.0 blinker-1.9.0 certifi-2026.7.22 charset_normalizer-3.5.1 click-8.5.0 cloudpickle-3.1.2 contourpy-1.3.2 cycler-0.12.1 docker-7.2.0 entrypoints-0.4 faiss-cpu-1.8.0 filelock-4.0.1 fonttools-4.65.0 fsspec-2026.9.0 gitdb-4.0.12 gitpython-3.1.62 graphene-3.4.3 graphql-core-3.2.12 graphql-relay-3.2.0 greenlet-3.5.6 gunicorn-21.2.0 hf-xet-1.6.0 huggingface-hub-0.36.2 idna-3.20 importlib-metadata-7.2.1 itsdangerous-2.2.0 jinja2-3.1.6 joblib-1.6.0 kiwisolver-1.5.1 markdown-3.10.3 markupsafe-3.0.3 matplotlib-3.10.9 mlflow-2.11.1 mpmath-1.3.0 networkx-3.4.2 numpy-1.26.4 packaging-23.2 pandas-2.3.3 pillow-12.3.0 protobuf-4.25.9 py4j-0.10.9.7 pyarrow-15.0.2 pyparsing-3.3.3 pyspark-3.5.1 python-dateutil-2.9.0.post0 pytz-2024.2 pyyaml-6.0.3 querystring-parser-1.2.4 regex-2026.9.10 requests-2.34.2 safetensors-0.8.0 scikit-learn-1.7.2 scipy-1.15.3 six-1.17.0 smmap-5.0.3 sqlalchemy-2.0.54 sqlparse-0.6.0 sympy-1.14.0 threadpoolctl-3.7.0 tokenizers-0.15.2 tomli-2.4.1 torch-2.2.1 tqdm-4.70.1 transformers-4.38.2 typing-extensions-4.16.0 tzdata-2026.4 urllib3-2.8.0 werkzeug-3.1.8 zipp-4.1.0
+#7 104.0 ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+#7 104.0 wheel 0.48.0 requires packaging>=24.0, but you have packaging 23.2 which is incompatible.
+#7 104.0 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#7 105.0 Collecting openai-whisper==20231117
+#7 105.1   Downloading openai-whisper-20231117.tar.gz (798 kB)
+#7 105.1      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 798.6/798.6 kB 31.2 MB/s  0:00:00
+#7 105.2   Preparing metadata (pyproject.toml): started
+#7 105.3   Preparing metadata (pyproject.toml): finished with status 'done'
+#7 105.4 Collecting numba (from openai-whisper==20231117)
+#7 105.5   Downloading numba-0.67.0-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#7 105.5 Requirement already satisfied: numpy in ./usr/local/lib/python3.10/dist-packages (from openai-whisper==20231117) (1.26.4)
+#7 105.5 Requirement already satisfied: torch in ./usr/local/lib/python3.10/dist-packages (from openai-whisper==20231117) (2.2.1)
+#7 105.5 Requirement already satisfied: tqdm in ./usr/local/lib/python3.10/dist-packages (from openai-whisper==20231117) (4.70.1)
+#7 105.5 Collecting more-itertools (from openai-whisper==20231117)
+#7 105.5   Downloading more_itertools-11.1.0-py3-none-any.whl.metadata (41 kB)
+#7 105.6 Collecting tiktoken (from openai-whisper==20231117)
+#7 105.6   Downloading tiktoken-0.14.0-cp310-cp310-manylinux_2_28_aarch64.whl.metadata (6.7 kB)
+#7 105.6 Collecting llvmlite<0.50,>=0.49.0dev0 (from numba->openai-whisper==20231117)
+#7 105.6   Downloading llvmlite-0.49.0-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (5.0 kB)
+#7 105.6 Requirement already satisfied: regex in ./usr/local/lib/python3.10/dist-packages (from tiktoken->openai-whisper==20231117) (2026.9.10)
+#7 105.6 Requirement already satisfied: requests in ./usr/local/lib/python3.10/dist-packages (from tiktoken->openai-whisper==20231117) (2.34.2)
+#7 105.6 Requirement already satisfied: charset_normalizer<4,>=2 in ./usr/local/lib/python3.10/dist-packages (from requests->tiktoken->openai-whisper==20231117) (3.5.1)
+#7 105.6 Requirement already satisfied: idna<4,>=2.5 in ./usr/local/lib/python3.10/dist-packages (from requests->tiktoken->openai-whisper==20231117) (3.20)
+#7 105.6 Requirement already satisfied: urllib3<3,>=1.26 in ./usr/local/lib/python3.10/dist-packages (from requests->tiktoken->openai-whisper==20231117) (2.8.0)
+#7 105.6 Requirement already satisfied: certifi>=2023.5.7 in ./usr/local/lib/python3.10/dist-packages (from requests->tiktoken->openai-whisper==20231117) (2026.7.22)
+#7 105.6 Requirement already satisfied: filelock in ./usr/local/lib/python3.10/dist-packages (from torch->openai-whisper==20231117) (4.0.1)
+#7 105.6 Requirement already satisfied: typing-extensions>=4.8.0 in ./usr/local/lib/python3.10/dist-packages (from torch->openai-whisper==20231117) (4.16.0)
+#7 105.6 Requirement already satisfied: sympy in ./usr/local/lib/python3.10/dist-packages (from torch->openai-whisper==20231117) (1.14.0)
+#7 105.6 Requirement already satisfied: networkx in ./usr/local/lib/python3.10/dist-packages (from torch->openai-whisper==20231117) (3.4.2)
+#7 105.6 Requirement already satisfied: jinja2 in ./usr/local/lib/python3.10/dist-packages (from torch->openai-whisper==20231117) (3.1.6)
+#7 105.6 Requirement already satisfied: fsspec in ./usr/local/lib/python3.10/dist-packages (from torch->openai-whisper==20231117) (2026.9.0)
+#7 105.6 Requirement already satisfied: MarkupSafe>=2.0 in ./usr/local/lib/python3.10/dist-packages (from jinja2->torch->openai-whisper==20231117) (3.0.3)
+#7 105.6 Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./usr/local/lib/python3.10/dist-packages (from sympy->torch->openai-whisper==20231117) (1.3.0)
+#7 105.7 Downloading more_itertools-11.1.0-py3-none-any.whl (72 kB)
+#7 105.7 Downloading numba-0.67.0-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (3.5 MB)
+#7 105.9    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 22.6 MB/s  0:00:00
+#7 105.9 Downloading llvmlite-0.49.0-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (58.3 MB)
+#7 109.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.3/58.3 MB 19.7 MB/s  0:00:03
+#7 109.0 Downloading tiktoken-0.14.0-cp310-cp310-manylinux_2_28_aarch64.whl (1.2 MB)
+#7 109.1    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 24.5 MB/s  0:00:00
+#7 109.1 Building wheels for collected packages: openai-whisper
+#7 109.1   Building wheel for openai-whisper (pyproject.toml): started
+#7 109.3   Building wheel for openai-whisper (pyproject.toml): finished with status 'done'
+#7 109.3   Created wheel for openai-whisper: filename=openai_whisper-20231117-py3-none-any.whl size=801345 sha256=62c3d52214fd50a2b5b1877b8e935a6a33a71b7515e34d184ecd43200e56e229
+#7 109.3   Stored in directory: /tmp/pip-ephem-wheel-cache-u72b4l4v/wheels/d0/85/e1/9361b4cbea7dd4b7f6702fa4c3afc94877952eeb2b62f45f56
+#7 109.3 Successfully built openai-whisper
+#7 109.4 Installing collected packages: more-itertools, llvmlite, tiktoken, numba, openai-whisper
+#7 111.5 
+#7 111.5 Successfully installed llvmlite-0.49.0 more-itertools-11.1.0 numba-0.67.0 openai-whisper-20231117 tiktoken-0.14.0
+#7 111.5 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#7 DONE 112.1s
+
+#8 [final 3/4] RUN groupadd --gid 1000 vscode     && useradd --uid 1000 --gid 1000 -m vscode -s /bin/bash     && echo vscode ALL=(root) NOPASSWD:ALL > /etc/sudoers.d/vscode     && chmod 0440 /etc/sudoers.d/vscode
+#8 DONE 0.7s
+
+#9 [final 4/4] WORKDIR /workspace
+#9 DONE 0.0s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 53.2s done
+#10 exporting manifest sha256:e85ac5ee82f612f107ed1f4cfcd60f9c8a55e030cd16214d2ea8c2c96962f326 0.0s done
+#10 exporting config sha256:3a15f3a887a0183e9e45cb1e216294bb60efa301542b811b91825d6a72663403 done
+#10 exporting attestation manifest sha256:7259f117a64b8d21c285a87e0c22fb0fe71da4a9869d55e4bf076c8872bde439 done
+#10 exporting manifest list sha256:653016f8264dfa3f982412e897e4e1747e30e6ba78a902c5e310f2edc3890ddf done
+#10 naming to docker.io/library/mp2-gpu-test:latest 0.0s done
+#10 unpacking to docker.io/library/mp2-gpu-test:latest
+#10 unpacking to docker.io/library/mp2-gpu-test:latest 17.0s done
+#10 DONE 70.5s
