@@ -1,13 +1,20 @@
 <!--
 yaml_schema_version: "2.2"
-document_version: "1.0"
-document_last_updated_date: "2026-09-11"
+document_version: "1.1"
+document_last_updated_date: "2026-09-30"
 -->
+
+<br>
 
 <div align="center">
  <strong>🏫 Active Course Repositories:</strong> &nbsp;
- <a href="https://github.com/kddresearch/cis531-731-2026_fall">CIS 531/731</a> &nbsp;|&nbsp;
- <a href="https://github.com/kddresearch/cis536-736-2026_fall">CIS 536/736</a>
+ 🏗️ <a href="https://github.com/kddresearch/course-architecture-base">Architecture Base</a> &nbsp;|&nbsp;
+ 🤖 CIS 530/730 &nbsp;|&nbsp;
+ 📊 <a href="https://github.com/kddresearch/cis531-731-2026_fall">CIS 531/731</a> &nbsp;|&nbsp;
+ 📈 CIS 732 &nbsp;|&nbsp;
+ 🎨 <a href="https://github.com/kddresearch/cis536-736-2026_fall">CIS 536/736</a> &nbsp;|&nbsp;
+ 👁️ CIS 798 X &nbsp;|&nbsp;
+ 🧠 CIS 830
 </div>
 
 <div align="center">
