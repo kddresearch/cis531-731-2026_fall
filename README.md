@@ -1,7 +1,7 @@
 <!--
 yaml_schema_version: "2.2"
-document_version: "1.1"
-document_last_updated_date: "2026-09-30"
+document_version: "1.2"
+document_last_updated_date: "2026-10-02"
 -->
 
 <br>
@@ -40,10 +40,17 @@ Central repository for CIS 531/731 (Fall 2026) academic execution. This reposito
 
 | Directory / File | Description |
 | :--- | :--- |
-| `assignments/` | Machine Problems (MPs), homework specifications, and project rubrics. |
-| `lectures/` | Slide assets, lecture notes, and recording links. |
-| `docker/` | DevContainer specifications, environment variables, and compute fallback scripts. |
-| `src/` | Starter code, grading scripts, and baseline implementations. |
+| `.github/` | CI/CD workflows and sync configurations (e.g., `sync_architecture_template.yml`). |
+| `admin/` | Course policies and syllabus resources. |
+| `assignments/` | Problem sets (PSs), machine problems (MPs), project milestones, and labs. |
+| `exams_quizzes/` | Quizzes, exams, and other assessments  **that are *taken*, not submitted***. |
+| `lectures/` | Core lecture materials and related assets. |
+| `modules/` | Weekly/topic-based module directories (`module_00` to `module_13`). |
+| `phases/` | High-level course progression phase wrappers (`phase_01` to `phase_05`). |
+| `platforms/` | Platform-specific configurations and assets (Canvas, Gemini, Piazza). |
+| `reading_materials/` | Assigned papers, texts, and supplementary reading. |
+| `slides/` | Slide decks and archived presentations. |
+| `term_project/` | Rubrics, sprint specs, and `docker` compute configs for the term project. |
 | `README.md` | This file. |
 
 <hr>
