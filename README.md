@@ -80,7 +80,7 @@ All Teaching Assistants and GRAs operating in this repository fall under the KDD
 
 | Role | Name | GitHub Handle |
 | --- | --- | --- |
-| **Instructor** | William H. Hsu | [@banazir](https://www.google.com/search?q=https://github.com/banazir) |
+| **Instructor** | William H. Hsu | [@banazir](https://github.com/banazir) |
 | **Head TA** | [TBD] | [@GITHUB_HANDLE] |
 
 ## 📂 Repository Structure (Full Tree)
