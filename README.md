@@ -1,7 +1,7 @@
 <!--
 yaml_schema_version: "2.2"
-document_version: "1.2"
-document_last_updated_date: "2026-10-02"
+document_version: "1.3"
+document_last_updated_date: "2026-10-06"
 -->
 
 <br>
@@ -66,7 +66,6 @@ Central repository for CIS 531/731 (Fall 2026) academic execution. This reposito
 git clone [https://github.com/kddresearch/cis531-731-2026_fall.git](https://github.com/kddresearch/cis531-731-2026_fall.git)
 cd cis531-731-2026_fall
 # Open in VS Code to initialize the DevContainer
-
 ```
 
 ## 🦅 Lab Execution Protocols
@@ -74,14 +73,8 @@ cd cis531-731-2026_fall
 All Teaching Assistants and GRAs operating in this repository fall under the KDD Lab **Keep Flying Directive v2.1**.
 
 * **Observable State:** Progress is measured by commits, drafts, logs, and reproducible outputs—not intentions.
-
-
 * **The Triad:** When opening an issue or Pull Request, provide explicit goals, current blockers, and proposed next actions.
-
-
 * **Artifact-Gated Routing:** Do not request synchronous meetings for routine status updates. Push your grading state or syllabus updates to this repository first.
-
-
 
 ## 👥 Instructional Staff
 
@@ -89,3 +82,150 @@ All Teaching Assistants and GRAs operating in this repository fall under the KDD
 | --- | --- | --- |
 | **Instructor** | William H. Hsu | [@banazir](https://www.google.com/search?q=https://github.com/banazir) |
 | **Head TA** | [TBD] | [@GITHUB_HANDLE] |
+
+```
+
+## 📂 Repository Structure (Full Tree)
+
+<details>
+<summary><b>Click to expand: Course Repository Template Directory Tree</b></summary>
+
+```
+Folder PATH listing for volume Windows
+Volume serial number is 60E2-4FEF
+C:.
+|   README.md
+|   structure_dump.txt
+|   
++---admin
+|   |   .gitkeep
+|   |   
+|   +---policies
+|   |       .gitkeep
+|   |       generative_ai_kit.md
+|   |       
+|   \---syllabus
+|           .gitkeep
+|           05_term_project_taxonomy.md
+|           06_term_project_sourcing_guide.md
+|           
++---assignments
+|   |   project_sprints?Term_Project_Data_Sourcing_Guide.md
+|   |   
+|   +---homework
+|   |       lab01.ipynb
+|   |       lab02.ipynb
+|   |       lab03a.ipynb
+|   |       lab03b.ipynb
+|   |       lab04.ipynb
+|   |       lab5.ipynb
+|   |       
+|   +---machine_problems
+|   |       .gitkeep
+|   |       
+|   \---project_sprints
+|           .gitkeep
+|           
++---lectures
+|       lecture-11.md
+|       lecture-12.md
+|       lecture-13.md
+|       lecture-14.md
+|       lecture-15.md
+|       lecture-16.md
+|       lecture-17.md
+|       README.md
+|       
++---modules
+|   +---module_00
+|   |       .gitkeep
+|   |       
+|   +---module_01
+|   |       .gitkeep
+|   |       
+|   +---module_02
+|   |       .gitkeep
+|   |       
+|   +---module_03
+|   |       .gitkeep
+|   |       
+|   +---module_04
+|   |       .gitkeep
+|   |       README.md
+|   |       
+|   +---module_05
+|   |       .gitkeep
+|   |       README.md
+|   |       
+|   +---module_06
+|   |       .gitkeep
+|   |       README.md
+|   |       
+|   +---module_07
+|   |       .gitkeep
+|   |       
+|   +---module_08
+|   |       .gitkeep
+|   |       
+|   +---module_09
+|   |       .gitkeep
+|   |       
+|   +---module_10
+|   |       .gitkeep
+|   |       
+|   +---module_11
+|   |       .gitkeep
+|   |       
+|   +---module_12
+|   |       .gitkeep
+|   |       
+|   \---module_13
+|           .gitkeep
+|           
++---phases
+|   +---phase_01
+|   |       .gitkeep
+|   |       
+|   +---phase_02
+|   |       .gitkeep
+|   |       
+|   +---phase_03
+|   |       .gitkeep
+|   |       
+|   +---phase_04
+|   |       .gitkeep
+|   |       
+|   \---phase_05
+|           .gitkeep
+|           
++---platforms
+|   +---canvas
+|   |       .gitkeep
+|   |       
+|   +---gemini
+|   |       .gitkeep
+|   |       
+|   +---github
+|   |       github_intro.md
+|   |       
+|   +---moodle
+|   |       .gitkeep
+|   |       
+|   \---piazza
+|           .gitkeep
+|           
++---reading_materials
+|       .gitkeep
+|       
++---slides
+|   |   .gitkeep
+|   |   
+|   \---archive
+|           .gitkeep
+|           
+\---term_project
+    \---docker
+            Dockerfile
+
+```
+</details>
