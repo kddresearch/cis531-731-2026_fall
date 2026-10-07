@@ -83,8 +83,6 @@ All Teaching Assistants and GRAs operating in this repository fall under the KDD
 | **Instructor** | William H. Hsu | [@banazir](https://www.google.com/search?q=https://github.com/banazir) |
 | **Head TA** | [TBD] | [@GITHUB_HANDLE] |
 
-```
-
 ## 📂 Repository Structure (Full Tree)
 
 <details>
@@ -226,6 +224,5 @@ C:.
 \---term_project
     \---docker
             Dockerfile
-
 ```
 </details>
