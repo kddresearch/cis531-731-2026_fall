@@ -1,6 +1,6 @@
 <!--
 yaml_schema_version: "2.2"
-document_version: "1.3"
+document_version: "1.4"
 document_last_updated_date: "2026-10-06"
 -->
 
@@ -81,7 +81,7 @@ All Teaching Assistants and GRAs operating in this repository fall under the KDD
 | Role | Name | GitHub Handle |
 | --- | --- | --- |
 | **Instructor** | William H. Hsu | [@banazir](https://github.com/banazir) |
-| **Head TA** | [TBD] | [@GITHUB_HANDLE] |
+| **Teaching Asssistant** | Joshua Garcia | |
 
 ## 📂 Repository Structure (Full Tree)
 
