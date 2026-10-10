@@ -1,0 +1,5 @@
+PyTorch version: 2.2.1+cu121
+CUDA not available on this system.
+CPU-Only Fallback Active
+FAISS: using CPU index (faiss-cpu)
+Smoke test OK on cpu: result shape (1000, 1000)
