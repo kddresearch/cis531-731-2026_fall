@@ -1,7 +1,7 @@
 <!--
 yaml_schema_version: "2.2"
-document_version: "3.1"
-document_last_updated_date: "2026-10-29"
+document_version: "3.2"
+document_last_updated_date: "2026-10-31"
 -->
 
 <br>
@@ -120,6 +120,7 @@ C:.
 |   |   |   
 |   |   \---prompts
 |   |           claude_critical_review_coordinator.md
+|   |           perplexity_instructor_trope_ontology_sourcing.md
 |   |           perplexity_project_lifecycle_coordinator.md
 |   |           perplexity_systems_engineering_auditor.md
 |   |           
@@ -151,6 +152,7 @@ C:.
 |   |       ps4_proposal.md
 |   |       ps6_semantic_search_vdb_schema.md
 |   |       ps8_interim_report.md
+|   |       README.md
 |   |       
 |   +---machine_problems
 |   |       .gitkeep
@@ -183,6 +185,7 @@ C:.
 |       .gitkeep
 |       
 +---lectures
+|       index.html
 |       lectture-26.md
 |       lecture-11.md
 |       lecture-12.md
@@ -200,6 +203,7 @@ C:.
 |       lecture-24.md
 |       lecture-25.md
 |       lecture-26.md
+|       lecture-27.md
 |       lecture_10_slide_template.md
 |       lecture_template.md
 |       README.md
@@ -303,6 +307,7 @@ C:.
 |           
 +---reading_materials
 |       .gitkeep
+|       index.html
 |       readings_by_lecture.md
 |       README.md
 |       
@@ -314,13 +319,13 @@ C:.
 |           
 +---templates
 |   +---html_layouts
-|   |       Golden Template - Universal Assignment Index Page.html
-|   |       Golden Template - Universal Assignment Page.html
-|   |       Golden Template - Universal Lecture Page.html
-|   |       Golden Template - Universal Module Page.html
-|   |       Golden Template - Universal Phase Page.html
-|   |       Golden Template - Universal Term Project Proposal Page.html
-|   |       Golden-Template.html
+|   |       golden_template.html
+|   |       golden_template_universal_assignment_index_page.html
+|   |       golden_template_universal_assignment_page.html
+|   |       golden_template_universal_lecture_page.html
+|   |       golden_template_universal_module_page.html
+|   |       golden_template_universal_phase_page.html
+|   |       golden_template_universal_term_project_proposal_page.html
 |   |       README.md
 |   |       
 |   \---repo_structures
