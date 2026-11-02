@@ -1,8 +1,9 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.0"
+document_version: "1.1"
 document_last_updated_date: "2026-11-01"
+document_last_updated_time: "23:28:49 CST"
 document_monotonicity: "REQUIRED"
 routing_clearance: "PUBLIC - STUDENT FACING"
 canvas_target_slug: "/courses/201513/pages/syllabus"
@@ -41,13 +42,13 @@ canvas_target_slug: "/courses/201513/pages/syllabus"
 
 | Logistics Field | Details |
 | :--- | :--- |
-| **📍 Classroom Venue** | {{CLASSROOM_ROOM_E_G_1116_DUE}} Engineering Hall (DUE) & Global Campus (`ZA`) Asynchronous/Hybrid |
-| **⏰ Class Meeting Time** | MWF {{CLASS_TIME_E_G_0930_1020_OR_1030_1120}} (U.S. Central Time) |
-| **👨🏻‍🏫 Instructor** | **William H. Hsu, Ph.D.** ([`bhsu@ksu.edu`](mailto:bhsu@ksu.edu)) |
+| **📍 Classroom Venue** | 1116 Engineering Hall (DUE) & Global Campus (`ZA`) Asynchronous/Hybrid |
+| **⏰ Class Meeting Time** | 0930 MWF U.S. Central Time |
+| **👨🏻‍🏫 Instructor** | **William H. Hsu** ([`bhsu@ksu.edu`](mailto:bhsu@ksu.edu)) |
 | **🏢 Instructor Office** | 2178 Engineering Hall (DUE) |
 | **📞 Instructor Phone** | [+1 785 236 8247](tel:+17852368247) |
-| **🕒 Instructor Office Hours** | Hybrid (In-Person DUE 2178 + Microsoft Teams):<br>• **Mon / Wed:** {{MON_WED_OFFICE_HOURS}}<br>• **By Appointment:** [**Book via Calendly (`calendly.com/banazir`)**](https://calendly.com/banazir/) or [**Outlook Booking**](http://bit.ly/hsu-calendar-2026-fall) |
-| **🧑🏽‍💻 Graduate Teaching Assistant** | **Joshua Garcia** ([`{{GTA_EMAIL}}@ksu.edu`](mailto:{{GTA_EMAIL}}@ksu.edu))<br>• *GTA Office Hours:* {{GTA_HOURS_AND_ROOM}} |
+| **🕒 Instructor Office Hours** | hybrid (In-Person DUE 2178 + Microsoft Teams):<br>• **Mon-Fri:** after class (1330 U.S. Central) MF, before class (1130 U.S. Central)<br>• **By Appointment:** [**Book via Calendly (`calendly.com/banazir`)**](https://calendly.com/banazir/) or [**Outlook Booking**](http://bit.ly/hsu-calendar-2026-fall) |
+| **🧑🏽‍💻 Graduate Teaching Assistant** | **Joshua Garcia** ([`josh98@ksu.edu`](mailto:josh98@ksu.edu))<br>• *GTA Office Hours:* CS student lounge, 1400-1500 Mon/Tue |
 
 ---
 
