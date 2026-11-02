@@ -1,0 +1,95 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="#">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="#">PHASE I: INFRASTRUCTURE &amp; FOUNDATIONS</a> &raquo; <a style="text-decoration: none; color: #666;" href="#">M1. Environment &amp; Architecture Setup</a> &raquo; <span style="color: #4b2e83;">HW 1</span></div>
+        <div><a style="text-decoration: none; color: #d64309;" href="#">📝 All Assignments</a></div>
+    </div>
+    <div style="background-color: #e3f2fd; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #bbdefb #bbdefb #bbdefb #2196f3; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #0d47a1;"><strong>ℹ️ Semester Foundational Gate</strong></h4>
+        <p style="margin-bottom: 10px; font-size: 0.95em;">This assignment locks in your architectural commitments for the term project using the Multidimensional Matrix and verifies your baseline distributed computing setup. (Strict INV-14 environment pinning and hardware probes will follow in MP 2).</p>
+    </div>
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">Homework</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">HW 1: DevContainer Bring-Up &amp; Term Project Architecture</h1>
+        <p style="margin: 0; font-size: 18px;">PySpark 4 Verification &amp; Multidimensional Matrix Selection</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1; min-width: 150px;"><strong>📅 Assigned:</strong><br />Sat 29 Aug 2026</div>
+        <div style="flex: 1; min-width: 150px;"><strong>⏰ Due:</strong><br />Tue 08 Sep 2026, 11:59 PM CDT</div>
+        <div style="flex: 1; min-width: 150px;"><strong>💯 Points:</strong><br />30</div>
+        <div style="flex: 1; min-width: 150px;"><strong>📂 Submit:</strong><br />.ipynb or .zip archive (Canvas)</div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Required Readings (Module 0 &amp; 1 Gates)</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">Research Software &amp; Data Principles</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>Wilkinson et al.:</strong> The FAIR Guiding Principles for Scientific Data Management.</li>
+                    <li><strong>Irving et al.:</strong> Research Software Engineering with Python.</li>
+                </ul>
+                <a style="color: #d64309; text-decoration: none;" href="#" target="_blank" rel="noopener">📖 Access Resource &rarr;</a>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">Python &amp; Tooling Foundations</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>VanderPlas:</strong> Python Data Science Handbook.</li>
+                    <li><strong>Jupyter Documentation:</strong> Environment and Notebook management.</li>
+                </ul>
+                <a style="color: #d64309; text-decoration: none;" href="https://jupyter.org/documentation" target="_blank" rel="noopener">📘 Access Resource &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 1: Environment Verification</h3>
+        <p style="font-style: italic; color: #666;">(30 Points)</p>
+        <p>You must prove your local Docker DevContainer or Beocat cluster access is correctly configured to run PySpark 4.</p>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">Tasks:</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li>Initialize a <code>SparkSession</code> using PySpark 4. Define a simple <code>StructType</code> schema containing at least one String and one Integer.</li>
+                <li>Create a dummy DataFrame with 3 rows of data and execute a <code>.show()</code> action.</li>
+                <li>Capture a screenshot of your terminal/Jupyter notebook showing the successful <code>.show()</code> output alongside the Spark Web UI (port <code>4040</code>) running in your browser.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 2: Project Architecture &amp; Matrix Selection</h3>
+        <p style="font-style: italic; color: #666;">(70 Points)</p>
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 8px; border: 1px solid #2196f3;">
+            <p style="margin-top: 0;"><strong>Objective:</strong> Review the "Guide to Projects by Category, Topic, and Task" matrix provided in the course materials to formally establish your team and scope.</p>
+            <ol style="padding-left: 20px; color: #444;">
+                <li><strong>Team Roster &amp; Track:</strong> List your team members (1-3 students). Declare your immutable data track: <strong>Track 1 (ASR Live Stream)</strong> or <strong>Track 2 (VDB Text Corpora)</strong>.</li>
+                <li><strong>Category &amp; Task Allocation:</strong> Specify your Category (e.g., Category 2: Descriptive Analytics). For <em>each</em> team member, explicitly claim one Task column (Prediction, Classification, Summarization, Collection Analysis, Retrieval). <em>Note: No team member may own more than one task. If a task is shared, you must state who is building the baseline model vs. the alternative model.</em></li>
+                <li><strong>Problem Statement:</strong> Write a 3-4 sentence summary of what your pipeline will actually do, combining your Track, Category, and Task allocations.</li>
+            </ol>
+            <p style="margin-bottom: 0;"><strong>Deliverable:</strong> Combine your Part 1 screenshot and a Markdown (<code>.md</code>) or PDF document containing your Part 2 answers into a single <code>.zip</code> archive named <code>HW1_Firstname_Lastname.zip</code>.</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Scoring Rubric</h3>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0;">
+            <thead style="background-color: #f5f5f5;">
+                <tr>
+                    <th style="padding: 12px; text-align: left; width: 25%; border: 1px solid #dddddd;">Component</th>
+                    <th style="padding: 12px; text-align: left; width: 15%; border: 1px solid #dddddd;">Weight</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Environment Verification (Part 1)</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">30 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Screenshot clearly shows the <code>.show()</code> output for a custom schema DataFrame running alongside the active Spark Web UI on port 4040.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Architecture &amp; Matrix Selection (Part 2)</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">70 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Document includes a valid roster, immutable track selection, valid category mapping, distinct and compliant task allocations per member, and a coherent 3-4 sentence project problem statement.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="#"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #ffeeba;" title="View All Assignments" href="#"> <span style="font-size: 1.2em; margin-right: 8px;">📝</span> All HW </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Module" href="#"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Module </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Phase" href="#"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Phase </a></div>
+    </div>
+</div>
