@@ -1,0 +1,97 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="#">Phase 3: Scrub &amp; Embed</a> &raquo; <a style="text-decoration: none; color: #666;" href="#">Module 05: Scrub (Chunking, Embedding Generation, VDB Schema Design)</a> &raquo; <span style="color: #4b2e83;">PS 6</span></div>
+        <div><a style="text-decoration: none; color: #d64309;">📝 All Assignments</a></div>
+    </div>
+    <div style="background-color: #e3f2fd; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #bbdefb #bbdefb #bbdefb #2196f3; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #0d47a1;"><strong>ℹ️ CRITICAL SUBMISSION POLICY (Schema Authority)</strong></h4>
+        <p style="margin-bottom: 10px; font-size: 0.95em;">CIS 531 submissions using the standard project must adopt the instructor-provided ontology schema unmodified; CIS 731 submissions must derive their own.&nbsp; <strong>For an approved course project</strong>, a 531 submission containing a self-designed schema, or a 731 submission reusing the unmodified instructor schema, fails the register_schema contract check. <br /><br /><strong>GenAI Kit Requirement:</strong> You must include your GenAI.pdf log or explicitly state "No GenAI Used."</p>
+    </div>
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">THEORY &amp; SCHEMA</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">Semantic Search, Chunking, &amp; VDB Schema</h1>
+        <p style="margin: 0; font-size: 18px;">Chunking and index trade-off analysis, retrieval evaluation design, and a provenance-bearing vector-database schema.</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1; min-width: 150px;"><strong>📅 Assigned:</strong><br />Fri 16 Oct 2026</div>
+        <div style="flex: 1; min-width: 150px;"><strong>⏰ Due:</strong><br />Sun 25 Oct 2026</div>
+        <div style="flex: 1; min-width: 150px;"><strong>💯 Points:</strong><br />30.0 pts</div>
+        <div style="flex: 1; min-width: 150px;"><strong>📂 Submit:</strong><br />Online &rarr; File Uploads (.pdf, max 8 pages) &amp; Website URL (Git Repo URL containing <code>schema/</code> dir under tag <code>ps6-submission</code>)</div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Required Readings</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">Speech and Language Processing (3rd ed. draft)</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>Chapter 11:</strong> Retrieval, dense embeddings, retrieval-augmented generation, and ranked-retrieval evaluation.</li>
+                </ul>
+                <a class="inline_disabled" style="color: #d64309; text-decoration: none;" href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener">📖 Access Resource &rarr;</a>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">Sentence Transformers Documentation</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>Semantic Search:</strong> Symmetric vs. asymmetric search, bi-encoder retrieval with cross-encoder re-ranking, and approximate nearest-neighbor search.</li>
+                </ul>
+                <a class="inline_disabled" style="color: #d64309; text-decoration: none;" href="https://www.sbert.net/examples/sentence_transformer/applications/semantic-search/README.html" target="_blank" rel="noopener">📘 Access Resource &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 1: Chunking, Index, and Evaluation Analysis</h3>
+        <p style="font-style: italic; color: #666;">(15.0 Points)</p>
+        <p>Complete the chunking cost model (6.0 pts), index and similarity analysis (4.5 pts), and retrieval evaluation protocol (4.5 pts) as defined in the assignment spec.</p>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">Required Analyses</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li>Compare fixed-window, sentence-boundary, and structure-aware chunking.</li>
+                <li>Contrast IVF and HNSW on query complexity, build/memory cost, and recall degradation.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 2: Schema and Contracts</h3>
+        <p style="font-style: italic; color: #666;">(13.5 Points)</p>
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 8px; border: 1px solid #2196f3;">
+            <p style="margin-top: 0;"><strong>Objective:</strong> Define the provenance-bearing vector-record schema and write the admit_document and vdb_upsert contracts.</p>
+            <ol style="padding-left: 20px; color: #444;">
+                <li>Draft JSON Schema (Draft 2020-12) extending the MP 5 record.</li>
+                <li>Write deal contracts implementing EmbeddingCompleteness and NoOrphanEmbeddings.</li>
+                <li>CIS 531: Map fields to instructor ontology. CIS 731: Derive custom ontology and justify granularity.</li>
+            </ol>
+            <p style="margin-bottom: 0;"><strong>Deliverable:</strong> Include schema derivations and contract code in your final PDF and submit the schema/ directory via Git tag ps6-submission.</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Scoring Rubric</h3>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0;">
+            <thead style="background-color: #f5f5f5;">
+                <tr>
+                    <th style="padding: 12px; text-align: left; width: 25%; border: 1px solid #dddddd;">Component</th>
+                    <th style="padding: 12px; text-align: left; width: 15%; border: 1px solid #dddddd;">Weight</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Part 1: Analysis (Chunking, Index, Evaluation)</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">15.0 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Chunking cost model (6.0 pts), Index and similarity analysis (4.5 pts), Retrieval evaluation protocol (4.5 pts).</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Part 2: Schema &amp; Contracts</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">13.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Record schema and provenance (6.0 pts), Contracts and invariants (4.5 pts), Section-specific ontology deliverable (3.0 pts).</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>GenAI Verification</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">1.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Includes required GenAI log (GenAI.pdf) or explicitly states AI was not used.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #ffeeba;" title="View All Assignments"> <span style="font-size: 1.2em; margin-right: 8px;">📝</span> All HW </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Module" href="#"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Module </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Phase" href="#"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Phase </a></div>
+    </div>
+</div>
