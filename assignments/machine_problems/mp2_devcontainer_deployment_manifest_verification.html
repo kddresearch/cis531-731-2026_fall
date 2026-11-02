@@ -1,0 +1,121 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="#">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="#">PHASE I: INFRASTRUCTURE &amp; FOUNDATIONS</a> &raquo; <a style="text-decoration: none; color: #666;" href="#">M2. DevContainer &amp; Compute Setup</a> &raquo; <span style="color: #4b2e83;">MP 2</span></div>
+        <div><a style="text-decoration: none; color: #d64309;" href="#">📝 All Assignments</a></div>
+    </div>
+    <div style="background-color: #e3f2fd; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #bbdefb #bbdefb #bbdefb #2196f3; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #0d47a1;"><strong>ℹ️ Strict Version Compatibility</strong></h4>
+        <p style="margin-bottom: 10px; font-size: 0.95em;">Every DevContainer image and autograding environment must resolve exactly to the pinned versions and SHA-256 digests in the <code>course_runtime</code> manifest. Floating minor versions or "compatible" libraries will fail the autograding checks.</p>
+    </div>
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">Machine Problem</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">MP 2: DevContainer Deployment &amp; Manifest Verification</h1>
+        <p style="margin: 0; font-size: 18px;">Research Software Engineering, Docker, &amp; Compute Allocation</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1; min-width: 150px;"><strong>📅 Assigned:</strong><br />Fri 04 Sep 2026</div>
+        <div style="flex: 1; min-width: 150px; color: #d32f2f;"><strong>⏰ Due:</strong><br />Tue 22 Sep 2026, 11:59 PM</div>
+        <div style="flex: 1; min-width: 150px;"><strong>💯 Points:</strong><br />30</div>
+        <div style="flex: 1; min-width: 150px;"><strong>📂 Submit:</strong><br />GitHub PR &amp; Canvas link</div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Required Readings (Module 2 Gates)</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">Research Software Engineering</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>Core Text:</strong> Brett et al. &mdash; Foundational practices for reproducible research environments.</li>
+                    <li><strong>Syllabus Reference:</strong> Review the Strict Version Compatibility manifest in the syllabus.</li>
+                </ul>
+                <a style="color: #d64309; text-decoration: none;" href="#" target="_blank" rel="noopener">📖 Access Resource &rarr;</a>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">Docker Documentation</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>Get Started Guide:</strong> Core containerization concepts and DevContainer integration mechanics.</li>
+                </ul>
+                <a style="color: #d64309; text-decoration: none;" href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">📘 Access Resource &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 1: DevContainer Build &amp; Manifest Pinning</h3>
+        <p style="font-style: italic; color: #666;">(15 Points)</p>
+        <p>Initialize your local or remote workspace using the provided Docker DevContainer configuration. You must modify the base configuration to achieve absolute compliance with the strict version manifest provided in the starter repository.</p>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">Tasks:</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li>Deploy the provided DevContainer image. Edit the requirements to strictly pin PySpark 3.5.x, PyTorch 2.x, and the exact releases of Transformers, OpenAI Whisper, MLflow, and FAISS.</li>
+                <li>Execute the environment verification script (<code>verify_env.py</code>) provided below to generate and output your environment's SHA-256 digest. This digest must match the course standard exactly.</li>
+            </ul>
+        </div>
+        <div style="background-color: #f8f9fa; border-left: 4px solid #b7a57a; padding: 15px; margin-bottom: 20px;">
+            <h4 style="margin-top: 0; color: #4b2e83;">The Verification Script (<code>verify_env.py</code>)</h4>
+            <p style="font-size: 0.9em; color: #555;">Create a file named <code>verify_env.py</code> in your root directory, paste the following code, and execute it via your terminal (<code>python verify_env.py</code>) once your DevContainer is built.</p>
+            <pre style="background-color: #2d3b45; color: #e6e2ef; padding: 15px; border-radius: 4px; overflow-x: auto; font-size: 0.85em;"><code>import sys
+import hashlib
+
+def verify_environment():
+    try:
+        import torch
+        import transformers
+        import mlflow
+        import faiss
+        import whisper
+    except ImportError as e:
+        print(f"FAILED: Missing module - {e}")
+        return
+
+    # Extract versions
+    env_str = f"torch-{torch.__version__}_transformers-{transformers.__version__}_mlflow-{mlflow.__version__}_faiss-{faiss.__version__}"
+    
+    # Generate SHA-256 Digest
+    digest = hashlib.sha256(env_str.encode('utf-8')).hexdigest()
+    print(f"Environment String: {env_str}")
+    print(f"SHA-256 Digest: {digest}")
+
+if __name__ == "__main__":
+    verify_environment()</code></pre>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 2: Compute Allocation &amp; GPU Fallback</h3>
+        <p style="font-style: italic; color: #666;">(15 Points)</p>
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 8px; border: 1px solid #2196f3;">
+            <p style="margin-top: 0;"><strong>Objective:</strong> Verify access to Beocat/Bridges-2 GPU pools and establish the programmatic FAISS/CPU fallback pipeline for systems lacking CUDA availability.</p>
+            <ol style="padding-left: 20px; color: #444;">
+                <li>Write a short PyTorch Python script (<code>probe_compute.py</code>) to probe for CUDA device availability.</li>
+                <li>Implement a fallback routing block: if a GPU is available, print <code>GPU Pool Active - Batch Embedding/Whisper Ready</code>. If no GPU is available, print <code>CPU-Only Fallback Active</code>.</li>
+                <li><strong>CIS 731 (Graduate) Extension:</strong> Configure your <code>devcontainer.json</code> or <code>Dockerfile</code> to conditionally pull a distinct base image based on the hardware environment (GPU-enabled vs. CPU-only).</li>
+            </ol>
+            <p style="margin-bottom: 0;"><strong>Deliverable:</strong> Commit your modified <code>Dockerfile</code>/<code>devcontainer.json</code> and the output log of your verification script. Submit the link to your GitHub Pull Request on Canvas.</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Scoring Rubric</h3>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0;">
+            <thead style="background-color: #f5f5f5;">
+                <tr>
+                    <th style="padding: 12px; text-align: left; width: 25%; border: 1px solid #dddddd;">Component</th>
+                    <th style="padding: 12px; text-align: left; width: 15%; border: 1px solid #dddddd;">Weight</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Manifest Compliance</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">15 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">The environment perfectly matches pinned dependencies and produces the correct SHA-256 digest required by autograding.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Compute Probe &amp; Fallback Logic</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">15 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">The script correctly detects the hardware environment and routes to the appropriate GPU/CPU state string. (731 students graded on conditional container pull).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="#"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #ffeeba;" title="View All Assignments" href="#"> <span style="font-size: 1.2em; margin-right: 8px;">📝</span> All HW </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Module" href="#"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Module </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Phase" href="#"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Phase </a></div>
+    </div>
+</div>
