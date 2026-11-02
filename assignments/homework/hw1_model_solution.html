@@ -1,0 +1,343 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 960px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 25px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513">CIS 531 / 731 Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/phase-1" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-1" data-api-returntype="Page">Phase 1: Foundations &amp; Tooling</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/module-01" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-01" data-api-returntype="Page">Module 01</a> &raquo; <span style="color: #4b2e83;">HW 1 Model Solution &amp; Full-Dependency Runbook</span></div>
+        <div><a style="text-decoration: none; color: #d64309;" href="https://k-state.instructure.com/courses/201513/pages/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/assignments" data-api-returntype="Page">📝 All Assignments</a></div>
+    </div>
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 32px; border-radius: 8px; color: white; margin-bottom: 25px;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">REFERENCE SOLUTION &amp; CONTAINER RUNBOOK (30 / 30 PTS)</span>
+        <h1 style="margin: 12px 0 5px 0; font-size: 28px;">HW 1: DevContainer Bring-Up &amp; Term Project Architecture</h1>
+        <p style="margin: 0; font-size: 17px;">Self-Contained Setup Walkthrough, Full-Dependency Dockerfile, Port 4040 Spark UI Verification, &amp; Matrix Exemplars</p>
+    </div>
+    <div style="background-color: #e3f2fd; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #bbdefb #bbdefb #bbdefb #2196f3; padding: 18px 22px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; margin-bottom: 8px; color: #0d47a1;"><strong>⚡ Quick-Start Checklist &amp; Model Solution Artifacts (30.0 Points Normalized)</strong></h4>
+        <ol style="margin-top: 0; margin-bottom: 12px; padding-left: 20px; font-size: 0.95em; color: #2d3b45;">
+            <li><strong>Step 1 (Container Bring-Up):</strong> Save the <code>Dockerfile</code> and <code>.devcontainer/devcontainer.json</code> from <strong>Section 1</strong> below into your project folder and open the folder inside the VS Code DevContainer (with port <code>4040</code> forwarded to your host browser).</li>
+            <li><strong>Step 2 (Part 1 &mdash; PySpark &amp; Port 4040 Proof, 9.0 pts / 30%):</strong> Run the model Jupyter notebook (<a style="color: #0d47a1;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/assignments/homework/hw1_model_solution.ipynb" target="_blank" rel="noopener"><code>hw1_model_solution.ipynb</code></a>, based on <a style="color: #0d47a1;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/assignments/homework/lab01.ipynb" target="_blank" rel="noopener"><code>lab01.ipynb</code></a>) to initialize <code>SparkSession</code>, enforce a custom <code>StructType</code> schema (with at least one <code>StringType</code> and one <code>IntegerType</code> column), print 3 rows via <code>.show()</code>, and capture a side-by-side screenshot showing both the notebook output and the active Spark Web UI at <code>http://localhost:4040</code>.</li>
+            <li><strong>Step 3 (Part 2 &mdash; Project Architecture &amp; Matrix Selection, 18.0 pts / 60%):</strong> Complete your Team Roster (1&ndash;3 students), lock in your immutable data track (<strong>Track 1: ASR Live Stream</strong> or <strong>Track 2: VDB Text Corpora</strong>), select your analytical Category, assign exactly one unique Task per team member (specifying baseline vs. alternative model if sharing a task), and write a 3&ndash;4 sentence Problem Statement.</li>
+            <li><strong>Step 4 (Part 3 &mdash; Generative AI Audit Log, 3.0 pts / 10%):</strong> Include your <code>GenAI.pdf</code> log or an explicit written statement: <code>"No GenAI Used."</code> Package all deliverables into <code>HW1_Firstname_Lastname.zip</code> (or submit the executed <code>.ipynb</code> + screenshot).</li>
+        </ol>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;"><a style="display: inline-block; background-color: #4b2e83; color: white; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/assignments/homework/hw1_model_solution.ipynb" target="_blank" rel="noopener">📓 View Runnable Model Solution Notebook (hw1_model_solution.ipynb) &rarr;</a> <a style="display: inline-block; background-color: #ffffff; color: #4b2e83; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.9em; border: 1px solid #4b2e83;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/assignments/homework/lab01.ipynb" target="_blank" rel="noopener">🧪 View Starter Lab 1a Notebook (lab01.ipynb) &rarr;</a></div>
+    </div>
+    <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">1. Self-Contained DevContainer Bring-Up Runbook &amp; Full-Dependency Specification</h2>
+    <p>Every assignment and term-project milestone in CIS 531/731 is designed to run inside a reproducible <strong>CPU DevContainer</strong> so that results are identical across Windows 11 (WSL 2), macOS (Intel and Apple Silicon), Linux laptops, and campus HPC clusters. A dedicated GPU is optional and is never required to earn full credit.</p>
+    <h3 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">1.1 Host Machine Preparation (Windows 11 + WSL 2 + Docker Desktop)</h3>
+    <ol style="padding-left: 22px; color: #333;">
+        <li><strong>Verify WSL 2 on Windows 11 (or Terminal on macOS/Linux):</strong> Ensure hardware virtualization is enabled in BIOS/UEFI and that WSL 2 is active by running <code>wsl --status</code> in PowerShell (confirm Default Version is <code>2</code>).</li>
+        <li><strong>Configure Docker Desktop for WSL 2:</strong>
+            <ul>
+                <li>Open <strong>Docker Desktop &rarr; Settings (Gear Icon) &rarr; General</strong> and ensure <strong>Choose Virtual Machine Manager (VMM)</strong> is set to <code>WSL 2</code> and <strong>Use containerd for pulling and storing images</strong> is set to <code>On</code>.</li>
+                <li>Open <strong>Settings &rarr; Resources &rarr; WSL integration</strong>, toggle <strong>Enable integration with my default WSL distro</strong> to <code>On</code>, and click <strong>Apply &amp; Restart Engine</strong>.</li>
+            </ul>
+        </li>
+        <li><strong>Verify Daemon Connectivity:</strong> Open your WSL 2 terminal (or macOS/Linux shell) and run:
+            <pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.9em;"><code>docker --version
+docker run --rm hello-world</code></pre>
+            Confirm that the container prints <code>Hello from Docker!</code> without permission or socket errors.
+        </li>
+    </ol>
+    <h3 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">1.2 Why We Extend the Minimal <code>Dockerfile</code> (Course-Wide Dependency Additions)</h3>
+    <p>The minimal starter <code>Dockerfile</code> installs the six core verification packages (<code>pyspark==3.5.1</code>, <code>torch==2.2.1</code>, <code>transformers==4.38.2</code>, <code>openai-whisper==20231117</code>, <code>mlflow==2.11.1</code>, and <code>faiss-cpu==1.8.0</code>). To execute Jupyter notebooks interactively inside the container, forward the <strong>Spark Web UI on port <code>4040</code></strong> to your host browser, and support all downstream labs (Sentence Transformers, UMAP, HDBSCAN, Plotly, and Streamlit), we add the following explicit enhancements while keeping the four core SHA-256 verification packages locked to their exact versions:</p>
+    <ul style="padding-left: 22px; color: #333; font-size: 0.95em;">
+        <li><strong>Port Exposure (<code>EXPOSE 4040 8888 8501</code>):</strong> Exposes the Spark Web UI (<code>4040</code>), JupyterLab server (<code>8888</code>), and Streamlit dashboard port (<code>8501</code>) so <code>http://localhost:4040</code> opens directly in your host browser for the HW 1 screenshot.</li>
+        <li><strong>NumPy 1.x ABI Pin (<code>numpy==1.26.4</code>):</strong> Prevents binary ABI incompatibilities with compiled C++/Cython extensions in <code>faiss-cpu==1.8.0</code> and <code>torch==2.2.1</code>.</li>
+        <li><strong>Interactive Notebook &amp; Analytics Stack:</strong> Adds pinned versions of <code>jupyterlab==4.1.5</code>, <code>ipykernel==6.29.3</code>, <code>pandas==2.2.1</code>, <code>scipy==1.12.0</code>, <code>scikit-learn==1.4.1.post1</code>, <code>sentence-transformers==2.6.1</code>, <code>umap-learn==0.5.5</code>, <code>hdbscan==0.8.33</code>, <code>plotly==5.20.0</code>, <code>streamlit==1.32.2</code>, and <code>requests==2.31.0</code>.</li>
+        <li><strong>Note on PySpark Version Compatibility:</strong> The course container pins <code>pyspark==3.5.1</code> (the Long-Term Support line paired with <code>openjdk-11-jre-headless</code>) to guarantee deterministic compatibility across all labs. Both <code>pyspark 3.5.x</code> (container baseline) and <code>pyspark 4.x</code> use the identical <code>SparkSession</code> and <code>StructType</code> API required for HW 1 Part 1.</li>
+    </ul>
+    <h4 style="color: #4b2e83; margin-bottom: 8px;">Copy-Paste File 1: Full-Dependency <code>Dockerfile</code> (Save at Repository Root)</h4>
+    <pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 0.88em; line-height: 1.45;"><code># ==============================================================================
+# CIS 531/731 (Fall 2026): Full-Dependency CPU DevContainer Dockerfile
+# Preserves exact SHA-256 verification digest:
+#   6f0648c69f69b1faeb96cfecaa7e2a904ed9210c8c07e0b5dd13d2f9df25ff75
+# ==============================================================================
+FROM python:3.10-slim-bullseye
+
+# 1. Install System Dependencies (OpenJDK 11 for PySpark, FFmpeg for Whisper, procps for ps)
+RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends \
+    build-essential \
+    openjdk-11-jre-headless \
+    ffmpeg \
+    git \
+    curl \
+    procps \
+    sudo \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+# 2. Configure Java, PySpark, and Pip Environment Variables
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV PYSPARK_PYTHON=python3
+ENV PYSPARK_DRIVER_PYTHON=python3
+ENV PIP_NO_CACHE_DIR=1
+
+# 3. Install Core Pinned Manifest Packages (DO NOT ALTER VERSIONS)
+#    Required for deterministic SHA-256 digest in verify_env.py
+RUN pip install --upgrade pip==24.0 &amp;&amp; \
+    pip install \
+    pyspark==3.5.1 \
+    torch==2.2.1 \
+    transformers==4.38.2 \
+    openai-whisper==20231117 \
+    mlflow==2.11.1 \
+    faiss-cpu==1.8.0
+
+# 4. Install Complete Course Notebook, Embedding, UMAP &amp; Dashboard Dependencies
+RUN pip install \
+    numpy==1.26.4 \
+    pandas==2.2.1 \
+    scipy==1.12.0 \
+    scikit-learn==1.4.1.post1 \
+    sentence-transformers==2.6.1 \
+    umap-learn==0.5.5 \
+    hdbscan==0.8.33 \
+    plotly==5.20.0 \
+    streamlit==1.32.2 \
+    jupyterlab==4.1.5 \
+    ipykernel==6.29.3 \
+    requests==2.31.0 \
+    pytest==8.1.1
+
+# 5. Create Non-Root DevContainer User (vscode)
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+RUN groupadd --gid $USER_GID $USERNAME \
+    &amp;&amp; useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
+    &amp;&amp; echo $USERNAME ALL=\(root\) NOPASSWD:ALL &gt; /etc/sudoers.d/$USERNAME \
+    &amp;&amp; chmod 0440 /etc/sudoers.d/$USERNAME
+
+# 6. Expose Spark Web UI (4040), JupyterLab (8888), and Streamlit (8501)
+EXPOSE 4040 8888 8501
+
+USER $USERNAME
+WORKDIR /workspace</code></pre>
+    <h4 style="color: #4b2e83; margin-bottom: 8px;">Copy-Paste File 2: <code>.devcontainer/devcontainer.json</code> (With Port <code>4040</code> Forwarding)</h4>
+    <pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 0.88em; line-height: 1.45;"><code>{
+  "name": "CIS 531/731 Full Course Runtime (PySpark + VDB + ASR)",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "forwardPorts": [4040, 8888, 8501],
+  "portsAttributes": {
+    "4040": {
+      "label": "Spark Web UI (HW1 Verification)",
+      "onAutoForward": "notify"
+    },
+    "8888": {
+      "label": "JupyterLab Server",
+      "onAutoForward": "openBrowser"
+    },
+    "8501": {
+      "label": "Streamlit Dashboard",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "updateRemoteUserUID": true
+}</code></pre>
+    <h4 style="color: #4b2e83; margin-bottom: 8px;">Copy-Paste File 3: Terminal Bring-Up &amp; Digest Verification Commands</h4>
+    <p style="font-size: 0.95em;">To build the image, verify the SHA-256 package digest, and launch JupyterLab with port <code>4040</code> forwarded to your host browser so you can take the HW 1 Part 1 screenshot, run:</p>
+    <pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 16px; border-radius: 6px; overflow-x: auto; font-size: 0.88em; line-height: 1.45;"><code># 1. Build the course runtime image
+docker build -t cis531-runtime:hw1 .
+
+# 2. Verify the pinned SHA-256 environment digest
+docker run --rm cis531-runtime:hw1 python -c "import hashlib, torch, transformers, mlflow, faiss; s=f'torch-{torch.__version__}_transformers-{transformers.__version__}_mlflow-{mlflow.__version__}_faiss-{faiss.__version__}'; print('Environment String:', s); print('SHA-256 Digest:', hashlib.sha256(s.encode()).hexdigest())"
+# Expected Digest: 6f0648c69f69b1faeb96cfecaa7e2a904ed9210c8c07e0b5dd13d2f9df25ff75
+
+# 3. Launch JupyterLab with both port 8888 (Jupyter) and port 4040 (Spark Web UI) mapped to localhost
+docker run --rm -it -p 8888:8888 -p 4040:4040 -v "${PWD}:/workspace" cis531-runtime:hw1 \
+    jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root</code></pre>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">2. Model Solution &mdash; Part 1: Environment Verification (9.0 / 9.0 Points)</h2>
+    <p>To earn full credit (<strong>9.0 / 9.0 pts</strong> on the 30-point normalized scale), your Part 1 submission must initialize a local <code>SparkSession</code> bound to port <code>4040</code>, enforce an explicit <code>StructType</code> schema with at least one <code>StringType</code> and one <code>IntegerType</code> field, display a 3-row DataFrame using <code>.show()</code>, and capture a side-by-side screenshot showing the notebook output alongside the active <strong>Spark Web UI (<code>http://localhost:4040/jobs/</code>)</strong>.</p>
+    <pre style="background-color: #f8f9fa; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #d1d9e0 #d1d9e0 #d1d9e0 #4b2e83; padding: 16px; border-radius: 4px; overflow-x: auto; font-size: 0.88em;"><code>from pyspark.sql import SparkSession
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType
+
+# 1. Initialize SparkSession and explicitly bind the Spark Web UI to port 4040 across container interfaces
+spark = (
+    SparkSession.builder
+    .appName("CIS531_731_HW1_Env_Verification")
+    .master("local[*]")
+    .config("spark.ui.enabled", "true")
+    .config("spark.ui.port", "4040")
+    .config("spark.driver.bindAddress", "0.0.0.0")
+    .getOrCreate()
+)
+
+# 2. Define an explicit StructType schema (containing StringType, IntegerType, and DoubleType fields)
+hw1_schema = StructType([
+    StructField("chunk_id", StringType(), nullable=False),
+    StructField("track_domain", StringType(), nullable=False),
+    StructField("release_year", IntegerType(), nullable=False),
+    StructField("token_count", IntegerType(), nullable=False),
+    StructField("confidence_prior", DoubleType(), nullable=False),
+    StructField("text_excerpt", StringType(), nullable=False),
+])
+
+# 3. Populate 3 rows of domain-representative records and execute the .show() action
+hw1_rows = [
+    ("chk_001", "Track 1: ASR Caller Stream", 2026, 18, 0.94, "Caller from Manhattan requests an up-tempo indie anthem for a late-night drive."),
+    ("chk_002", "Track 2: VDB Lyric Corpus",  1917, 14, 0.98, "What passing-bells for these who die as cattle? Only the monstrous anger of the guns."),
+    ("chk_003", "Track 2: VDB Lyric Corpus",  2024, 16, 0.91, "Sometimes it feels like our entire generation is running out of time before summer ends."),
+]
+
+df_hw1 = spark.createDataFrame(hw1_rows, schema=hw1_schema)
+df_hw1.printSchema()
+df_hw1.show(truncate=False)</code></pre>
+    <h4 style="color: #2d3b45; margin-bottom: 6px;">Expected Notebook Output &amp; Side-by-Side Spark Web UI Proof:</h4>
+    <pre style="background-color: #1e1e1e; color: #a8ff60; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 0.84em;"><code>Spark Version : 3.5.1 (Pinned Course Container Baseline)
+Spark Web UI  : http://localhost:4040 (Active Application: CIS531_731_HW1_Env_Verification)
+
+root
+ |-- chunk_id: string (nullable = false)
+ |-- track_domain: string (nullable = false)
+ |-- release_year: integer (nullable = false)
+ |-- token_count: integer (nullable = false)
+ |-- confidence_prior: double (nullable = false)
+ |-- text_excerpt: string (nullable = false)
+
++--------+--------------------------+------------+-----------+----------------+----------------------------------------------------------------------------------------+
+|chunk_id|track_domain              |release_year|token_count|confidence_prior|text_excerpt                                                                            |
++--------+--------------------------+------------+-----------+----------------+----------------------------------------------------------------------------------------+
+|chk_001 |Track 1: ASR Caller Stream|2026        |18         |0.94            |Caller from Manhattan requests an up-tempo indie anthem for a late-night drive.         |
+|chk_002 |Track 2: VDB Lyric Corpus |1917        |14         |0.98            |What passing-bells for these who die as cattle? Only the monstrous anger of the guns.   |
+|chk_003 |Track 2: VDB Lyric Corpus |2024        |16         |0.91            |Sometimes it feels like our entire generation is running out of time before summer ends.|
++--------+--------------------------+------------+-----------+----------------+----------------------------------------------------------------------------------------+</code></pre>
+    <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 14px 18px; border-radius: 4px; font-size: 0.92em; color: #856404; margin-bottom: 30px;"><strong>📸 Screenshot Tip (Don't Lose Points!):</strong> Make sure you take your screenshot <em>before</em> calling <code>spark.stop()</code>. As soon as <code>spark.stop()</code> executes, the Spark driver shuts down port <code>4040</code>. In the runnable model notebook (<code>hw1_model_solution.ipynb</code>), Cell 4 queries <code>http://localhost:4040/api/v1/applications</code> directly in Python to log cryptographic proof that the Spark Web UI was live during execution, while holding the session open for your side-by-side browser screenshot.</div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">3. Model Solution &mdash; Part 2: Project Architecture &amp; Matrix Selection (18.0 / 18.0 Points)</h2>
+    <p>Below are two complete, full-credit (<strong>18.0 / 18.0 pts</strong>) architectural specifications demonstrating how a 3-student team satisfies every rubric constraint under either <strong>Track 2 (VDB Text Corpora &mdash; Primary Exemplar)</strong> or <strong>Track 1 (ASR Live Stream &mdash; Alternative Exemplar)</strong>.</p>
+    <div style="background-color: #f8f9fa; border-width: 4px 1px 1px; border-style: solid; border-color: #4b2e83 #d1d9e0 #d1d9e0; border-radius: 8px; padding: 24px; margin-bottom: 25px;">
+        <h3 style="margin-top: 0; color: #4b2e83;">Exemplar A (Primary): Track 2 &mdash; VDB Text Corpora &amp; Lyrical Trope Ontologies</h3>
+        <p style="margin-bottom: 6px;"><strong>1. Team Roster &amp; Section Enrollment (3 Members):</strong></p>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li><strong>Member 1:</strong> Alex Rivera (<code>arivera@ksu.edu</code> &mdash; CIS 731 Graduate Lead)</li>
+            <li><strong>Member 2:</strong> Jordan Patel (<code>jpatel@ksu.edu</code> &mdash; CIS 531 Undergraduate)</li>
+            <li><strong>Member 3:</strong> Taylor Nguyen (<code>tnguyen@ksu.edu</code> &mdash; CIS 531 Undergraduate)</li>
+        </ul>
+        <p style="margin-bottom: 6px;"><strong>2. Immutable Track Selection:</strong></p>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li><code>[ ]</code> Track 1: Automatic Speech Recognition (<code>ASR</code>) Live Broadcast Stream</li>
+            <li><code>[x]</code> <strong>Track 2: Vector Database (<code>VDB</code>) Text Corpora &amp; Trope Ontologies</strong> <em>(Public-domain poetry/literary archives &amp; instructor-provided song-lyric synopsis excerpts tagged by release decade <code>1960s</code>&ndash;<code>2020s</code>; zero Yelp or SEC-filing data)</em></li>
+        </ul>
+        <p style="margin-bottom: 6px;"><strong>3. Analytical Category &amp; 3&times;5&times;5 Data Cube Coordinate:</strong></p>
+        <ul style="margin-top: 0; padding-left: 20px;">
+            <li><code>[ ]</code> Category 1: Prescriptive Analytics (Recommendation, Information Retrieval, Automation)</li>
+            <li><code>[x]</code> <strong>Category 2: Descriptive Analytics (Longitudinal Cohort &amp; Cluster Exploration)</strong></li>
+            <li><code>[x]</code> <strong>Category 3: Predictive Analytics (Retrieval-Augmented Trope Classification &amp; Drift Forecasting)</strong></li>
+            <li><strong>Media / Topic Row:</strong> Row 3 &mdash; Unstructured Text &amp; Lyrical/Poetic Corpora</li>
+        </ul>
+        <p style="margin-bottom: 6px;"><strong>4. Distinct Task Matrix Allocation (Exactly 1 Task Column Owned per Member):</strong></p>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 8px; margin-bottom: 16px; font-size: 0.92em; background-color: #ffffff;">
+            <thead style="background-color: #4b2e83; color: white;">
+                <tr>
+                    <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Team Member</th>
+                    <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Claimed Task Column (Unique)</th>
+                    <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Primary OSEMN Stage(s)</th>
+                    <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Concrete Baseline vs. Alternative Model / Deliverable Ownership</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Alex Rivera</strong> (CIS 731)</td>
+                    <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Task Column: Classification (Alternative RAG + Learned Convolution Model)</strong></td>
+                    <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Model [M] &amp; Scrub [S] Schema</strong></td>
+                    <td style="padding: 10px; border: 1px solid #dddddd;">Derives custom 10-class Draft 2020-12 JSON Schema, implements top-<em>k</em> FAISS retrieval-augmented LLM classifier, and trains the CIS 731 causal 1-D PyTorch <code>Conv1d</code> cohort drift forecaster.</td>
+                </tr>
+                <tr style="background-color: #fafafa;">
+                    <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Jordan Patel</strong> (CIS 531)</td>
+                    <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Task Column: Retrieval &amp; Classification (Baseline Model)</strong></td>
+                    <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Obtain [O] &amp; Scrub [S] Indexing</strong></td>
+                    <td style="padding: 10px; border: 1px solid #dddddd;">Builds PySpark Bronze-to-Silver ingestion and hyphen-preserving normalization pipeline, encodes chunks with <code>all-MiniLM-L6-v2</code> into a FAISS <code>IndexFlatIP</code> store, and implements the baseline TF-IDF + Logistic Regression and kNN prototype classifiers.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Taylor Nguyen</strong> (CIS 531)</td>
+                    <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Task Column: Collection Analysis &amp; Summarization Dashboard</strong></td>
+                    <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Explore [E] &amp; iNterpret [N]</strong></td>
+                    <td style="padding: 10px; border: 1px solid #dddddd;">Executes global UMAP parameter sensitivity sweeps (<code>n_neighbors</code>, <code>min_dist</code>), computes fixed-kernel (<code>[0.25, 0.5, 0.25]</code>, <code>[-1, 1]</code>) generational drift with 95% bootstrap CIs, and deploys the interactive Streamlit dashboard with Benjamini&ndash;Hochberg FDR error analysis.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-bottom: 6px;"><strong>5. Problem Statement (4 Sentences Combining Track, Category, and Member Tasks):</strong></p>
+        <p style="background-color: #ffffff; border-left: 4px solid #b7a57a; padding: 12px 16px; margin-top: 0; margin-bottom: 0; font-style: italic; color: #2d3b45;">Our team will construct an end-to-end Vector Database (Track 2) analytics pipeline that ingests public-domain poetic archives and instructor-provided song-lyric thematic synopses across seven release decades (1960s&ndash;2020s) to quantify how cultural tropes such as &ldquo;doomed youth,&rdquo; &ldquo;summer romance,&rdquo; and &ldquo;generational angst&rdquo; evolve over time (Categories 2 &amp; 3). Jordan Patel will own the Obtain and Scrub stages alongside the baseline Retrieval and Classification models, normalizing raw text in PySpark and indexing 384-dimensional <code>all-MiniLM-L6-v2</code> chunk embeddings in FAISS to benchmark a cosine-prototype kNN classifier against a TF-IDF linear baseline. Alex Rivera will design our custom Draft 2020-12 ontology schema and implement the alternative Model stage, conditioning a few-shot LLM classifier on top-<em>k</em> FAISS-retrieved exemplars and training a causal 1-D convolutional neural network to forecast next-decade trope prevalence. Finally, Taylor Nguyen will lead the Explore and iNterpret stages by fitting global UMAP projections, applying fixed smoothing and first-difference convolutional kernels with 1,000-resample bootstrap confidence intervals, and deploying an interactive Streamlit dashboard audited under Benjamini&ndash;Hochberg false-discovery-rate control.</p>
+    </div>
+    <details style="background-color: #eef2f5; border-radius: 8px; padding: 16px 22px; margin-bottom: 30px; cursor: pointer; border: 1px solid #d1d9e0;">
+        <summary style="color: #4b2e83; font-size: 1.05em;">🎙️ Click to Expand Exemplar B (Alternative): Track 1 &mdash; ASR Broadcast Stream &amp; Phonetic/Caller Analytics</summary>
+        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #cbd5e1; cursor: default; font-size: 0.95em;">
+            <p><strong>1. Team Roster:</strong> Sam Carter (CIS 731), Morgan Lee (CIS 531), Casey Brooks (CIS 531).</p>
+            <p><strong>2. Immutable Track Selection:</strong> <code>[x] Track 1 (ASR Live Stream)</code> using bounded splits of Hugging Face <code>librispeech_asr</code> and instructor-whitelisted radio call-in audio fixtures transcribed locally via OpenAI Whisper (<code>base.en</code>).</p>
+            <p><strong>3. Category &amp; Task Allocation:</strong></p>
+            <ul>
+                <li><strong>Sam Carter (CIS 731 &mdash; Task: Classification [Alternative RAG + Learned Conv1d]):</strong> Implements streaming Whisper transcription with fallback routing, derives custom acoustic/caller-intent JSON Schema, and trains a 1-D convolutional drift model over ordered broadcast window indices.</li>
+                <li><strong>Morgan Lee (CIS 531 &mdash; Task: Classification [Baseline Model] &amp; Stream Ingestion):</strong> Builds the PySpark Structured Streaming ingestion pipeline with a 15-second event-time watermark and 10-second tumbling windows, and benchmarks a zero-shot NLI baseline classifier.</li>
+                <li><strong>Casey Brooks (CIS 531 &mdash; Task: Summarization &amp; Collection Analysis Dashboard):</strong> Computes NIST OpenASR Word Error Rate ($\text{WER} = (S+D+I)/N$) across speaker slices, visualizes window-to-window drift via UMAP and fixed convolutional kernels, and builds the Streamlit monitoring dashboard.</li>
+            </ul>
+            <p><strong>4. Problem Statement (3 Sentences):</strong> We will build a real-time Automatic Speech Recognition (Track 1) streaming analytics system that transcribes incoming radio caller audio segments and <code>librispeech_asr</code> benchmark streams using local OpenAI Whisper to perform descriptive cohort monitoring and predictive caller-vibe classification (Categories 2 &amp; 3). Morgan Lee will engineer the PySpark Structured Streaming pipeline with event-time watermarking and a baseline zero-shot classifier, while Sam Carter will implement retrieval-augmented classification over FAISS-indexed caller exemplars and a learned 1-D convolutional model across sequential broadcast windows. Casey Brooks will evaluate transcription fidelity using NIST Word Error Rate (WER) and deploy a real-time Streamlit dashboard displaying global UMAP clusters and bootstrap-bounded window drift.</p>
+        </div>
+    </details>
+    <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">4. Model Solution &mdash; Part 3: Generative AI Verification (3.0 / 3.0 Points)</h2>
+    <div style="background-color: #e8f5e9; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #c8e6c9 #c8e6c9 #c8e6c9 #2e7d32; padding: 18px 22px; border-radius: 4px; margin-bottom: 30px;">
+        <h4 style="margin-top: 0; color: #1b5e20;">🤖 Compliant GenAI Audit Statement (Include in Notebook &amp; PDF/ZIP Archive)</h4>
+        <p style="margin-bottom: 8px; font-size: 0.95em;">Every submission must include either (a) an exported <code>GenAI.pdf</code> log of prompts and responses used during setup/brainstorming, or (b) an explicit written attestation if no generative AI was used. Below is the model audit block included in <code>hw1_model_solution.ipynb</code>:</p>
+        <pre style="background-color: #ffffff; padding: 12px; border-radius: 4px; font-size: 0.88em; color: #1b5e20; margin-bottom: 0px; white-space: pre-wrap; border: 1px solid #a5d6a7;"><code>GenAI Verification Log (CIS 531/731 HW 1):
+- Tool / Model Used: Course Generative AI Kit (Claude 3.5 Sonnet / Gemini Pro)
+- Scope of Use: Used exclusively to verify Docker Desktop WSL 2 port-forwarding syntax (-p 4040:4040) and to check that our 3-member Task Matrix allocation contained zero overlapping task columns.
+- Human Verification Attestation: All PySpark StructType code, container builds, Spark Web UI port 4040 verifications, and problem statement sentences were executed and verified locally by the team inside the pinned CPU DevContainer. Full prompt transcript exported to GenAI.pdf.</code></pre>
+    </div>
+    <h3 style="color: #4b2e83;">📊 Graded Rubric Verification Matrix (30.0 / 30.0 Points)</h3>
+    <table style="width: 100%; border-collapse: collapse; font-family: 'Aptos', sans-serif; font-size: 14px; margin-bottom: 35px;">
+        <thead>
+            <tr style="background-color: #4b2e83; color: white;">
+                <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Evaluation Category</th>
+                <th style="padding: 10px; text-align: center; border: 1px solid #dddddd;">Max Pts</th>
+                <th style="padding: 10px; text-align: center; border: 1px solid #dddddd;">Model Score</th>
+                <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">How This Model Solution Satisfies 100% of the Criterion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Part 1: Environment Verification (PySpark &amp; Port 4040 UI)</strong></td>
+                <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">9.0</td>
+                <td style="padding: 10px; text-align: center; color: #1b5e20; border: 1px solid #dddddd;">9.0</td>
+                <td style="padding: 10px; border: 1px solid #dddddd;">Initializes <code>SparkSession</code> on port <code>4040</code>, defines an explicit <code>StructType</code> with <code>StringType</code> and <code>IntegerType</code> columns, outputs 3 rows via <code>.show(truncate=False)</code>, queries <code>http://localhost:4040/api/v1/applications</code> to confirm UI liveness, and pairs with the port <code>4040</code> screenshot.</td>
+            </tr>
+            <tr style="background-color: #f9f9f9;">
+                <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Part 2A: Roster, Track, Category &amp; Task Allocations</strong></td>
+                <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">11.0</td>
+                <td style="padding: 10px; text-align: center; color: #1b5e20; border: 1px solid #dddddd;">11.0</td>
+                <td style="padding: 10px; border: 1px solid #dddddd;">Lists 1&ndash;3 students with section numbers, locks in one immutable track (<code>ASR</code> or <code>VDB</code>), selects valid categories, and assigns each member a unique task column with explicit baseline vs. alternative model boundaries.</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Part 2B: Coherent Problem Statement (3&ndash;4 Sentences)</strong></td>
+                <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">7.0</td>
+                <td style="padding: 10px; text-align: center; color: #1b5e20; border: 1px solid #dddddd;">7.0</td>
+                <td style="padding: 10px; border: 1px solid #dddddd;">Synthesizes data source provenance, track, analytical category, and each member's concrete OSEMN/task handoff in a cohesive 4-sentence paragraph.</td>
+            </tr>
+            <tr style="background-color: #f9f9f9;">
+                <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Part 3: Generative AI Audit Log (<code>GenAI.pdf</code> / Attestation)</strong></td>
+                <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">3.0</td>
+                <td style="padding: 10px; text-align: center; color: #1b5e20; border: 1px solid #dddddd;">3.0</td>
+                <td style="padding: 10px; border: 1px solid #dddddd;">Includes the explicit GenAI usage disclosure and human verification attestation alongside <code>GenAI.pdf</code>.</td>
+            </tr>
+            <tr style="background-color: #4b2e83; color: white;">
+                <td style="padding: 10px; border: 1px solid #dddddd;">TOTAL SCORE</td>
+                <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">30.0</td>
+                <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">30.0 / 30.0</td>
+                <td style="padding: 10px; border: 1px solid #dddddd;">Complete Foundational Gate &mdash; Ready for MP 2 &amp; PS 4 Proposal</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 14px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 12px; font-size: 1.05em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513">🏠 Return to Course Home</a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 240px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1em; padding: 10px; border: 1px solid #ffeeba;" href="https://k-state.instructure.com/courses/201513/pages/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/assignments" data-api-returntype="Page">📝 All Assignments</a> <a style="flex: 1 1 0%; max-width: 240px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1em; padding: 10px; border: 1px solid #dddddd;" href="https://k-state.instructure.com/courses/201513/pages/module-01" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-01" data-api-returntype="Page">⬆️ Module 01</a> <a style="flex: 1 1 0%; max-width: 240px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1em; padding: 10px; border: 1px solid #dddddd;" href="https://k-state.instructure.com/courses/201513/pages/phase-1" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-1" data-api-returntype="Page">⏫ Phase 1</a></div>
+    </div>
+</div>
