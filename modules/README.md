@@ -1,8 +1,8 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.1"
-document_last_updated_date: "2026-10-22"
+document_version: "1.2"
+document_last_updated_date: "2026-11-03"
 document_monotonicity: "REQUIRED"
 routing_clearance: "PUBLIC - STUDENT FACING"
 ---
@@ -51,32 +51,32 @@ This directory acts as the master index for the weekly, topic-based execution of
 
 ## 🗂️ Modules Index by Phase
 
-### 🔵 PHASE I: FOUNDATIONS & TOOLING
+### 🔵 PHASE 1: FOUNDATIONS & TOOLING
 | Module | Date Range | Topic & Description | Lectures |
 | :--- | :--- | :--- | :--- |
 | [`module_00/`](module_00/) | Mon 24 Aug 2026 | **Welcome & Course Overview** | [00](../lectures/lecture-00.md) |
 | [`module_01/`](module_01/) | Wed 26 Aug - Wed 02 Sep 2026 | **PySpark Intro:** RDDs, DataFrames; Projects, Experiment Design | [01](../lectures/lecture-01.md) • [02](../lectures/lecture-02.md) • [03](../lectures/lecture-03.md) • [04](../lectures/lecture-04.md) |
 | [`module_02/`](module_02/) | Fri 04 Sep - Fri 11 Sep 2026 | **Tools:** Cloud & Hosted Services, DevContainers, AI/LLMs *(Note: Labor Day Break Mon 07 Sep)* | [05](../lectures/lecture-05.md) • [06](../lectures/lecture-06.md) • [07](../lectures/lecture-07.md) |
 
-### 🟢 PHASE II: OBTAIN & INGEST
+### 🟢 PHASE 2: OBTAIN & INGEST
 | Module | Date Range | Topic & Description | Lectures |
 | :--- | :--- | :--- | :--- |
 | [`module_03/`](module_03/) | Mon 14 Sep - Fri 18 Sep 2026 | **Obtain:** ASR Stream Capture / VDB Corpus Acquisition | [08](../lectures/lecture-08.md) • [09](../lectures/lecture-09.md) • [10](../lectures/lecture-10.md) |
 | [`module_04/`](module_04/) | Mon 21 Sep - Fri 25 Sep 2026 | **Data Analytics Pipelines:** Structured Streaming, ASR Ingest Architecture | [11](../lectures/lecture-11.md) • [12](../lectures/lecture-12.md) • [13](../lectures/lecture-13.md) |
 
-### 🟠 PHASE III: SCRUB & EMBED
+### 🟠 PHASE 3: SCRUB & EMBED
 | Module | Date Range | Topic & Description | Lectures |
 | :--- | :--- | :--- | :--- |
 | [`module_05/`](module_05/) | Mon 28 Sep - Fri 02 Oct 2026 | **Scrub:** Chunking, Embedding Generation, VDB Schema Design | [14](../lectures/lecture-14.md) • [15](../lectures/lecture-15.md) • [16](../lectures/lecture-16.md) |
 | [`module_06/`](module_06/) | Mon 05 Oct - Fri 16 Oct 2026 | **GenAI/LLMs:** Few-Shot Trope/Genre Classification *(Note: Wildcat Pause Day Fri 09 Oct)* | [17](../lectures/lecture-17.md) • [18](../lectures/lecture-18.md) • [19](../lectures/lecture-19.md) • [20](../lectures/lecture-20.md) • [21](../lectures/lecture-21.md) |
 
-### 🟣 PHASE IV: EXPLORE & MODEL
+### 🟣 PHASE 4: EXPLORE & MODEL
 | Module | Date Range | Topic & Description | Lectures |
 | :--- | :--- | :--- | :--- |
 | [`module_07/`](module_07/) | Mon 19 Oct - Fri 23 Oct 2026 | **Explore:** Embedding-Space Visualization, Generational Drift Dashboards | [22](../lectures/lecture-22.md) • [23](../lectures/lecture-23.md) • [24](../lectures/lecture-24.md) |
 | [`module_08/`](module_08/) | Mon 26 Oct - Fri 30 Oct 2026 | **Model:** Retrieval-Augmented Classification, Generational Convolution | [25](../lectures/lecture-25.md) • [26](../lectures/lecture-26.md) • [27](../lectures/lecture-27.md) |
 
-### 🟤 PHASE V: EVALUATE & DEPLOY
+### 🟤 PHASE 5: EVALUATE & DEPLOY
 | Module | Date Range | Topic & Description | Lectures |
 | :--- | :--- | :--- | :--- |
 | [`module_09/`](module_09/) | Mon 02 Nov - Fri 06 Nov 2026 | **Evaluate:** Gold-Standard Construction (student-built, INV-17), Retrieval/WER Metrics | [28](../lectures/lecture-28.md) • [29](../lectures/lecture-29.md) • [30](../lectures/lecture-30.md) |
