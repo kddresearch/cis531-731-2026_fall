@@ -1,0 +1,71 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;"><a style="text-decoration: none; color: #666;" href="../README.md">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="../phases/phase_01/">Phase 1: Foundations &amp; Tooling</a> &raquo; <a style="text-decoration: none; color: #666;" href="../modules/module_01/">Module 01: PySpark Intro &amp; Experiment Design</a> &raquo; <span style="color: #0056b3;">Lecture 03</span></div>
+    <div style="background: linear-gradient(135deg, #0056b3 0%, #3a2366 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px; border-bottom: 5px solid #b7a57a;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">WEEK 2 &bull; Mon 31 Aug 2026</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">Lecture 03: RDD Transformations &amp; Actions Lab</h1>
+        <p style="margin: 0; font-size: 18px; color: #e6e2ef;">Moving from Local Scripts to Distributed Architecture with PySpark 4</p>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #0056b3; padding-bottom: 10px; color: #0056b3;">Session Overview</h2>
+        <p>Welcome to Week 2. Today, we bridge the gap between writing Python scripts on your laptop and engineering data pipelines that run on clusters. We cover core data exploration concepts while executing them on the bleeding edge: PySpark 4.</p>
+        <p>By the end of this lecture, you will understand how Spark manages distributed memory via lazy evaluation and the Directed Acyclic Graph (DAG), and you will formally lock in your foundational architecture track for the term project.</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+        <div style="flex: 1; min-width: 300px; background-color: #e8f1fb; border: 1px solid #0056b3; border-radius: 8px; padding: 20px;">
+            <h3 style="margin-top: 0; color: #0056b3; border-bottom: 1px solid #bbdefb; padding-bottom: 10px; font-size: 18px;">⚙️ PySpark 4 Architecture &amp; Execution</h3>
+            <p style="font-size: 0.95em; color: #444;">Moving beyond single-node compute limits to horizontal cluster scaling.</p>
+            <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+                <li><strong>Driver &amp; Executors:</strong> Master/worker node command and execution division.</li>
+                <li><strong>Lazy Evaluation:</strong> Deferring compute pipelines until actions are invoked via DAGs.</li>
+                <li><strong>DataFrame API:</strong> Catalyst Optimizer-backed operations replacing legacy RDDs.</li>
+            </ul>
+        </div>
+        <div style="flex: 1; min-width: 300px; background-color: #e8f1fb; border: 1px solid #0056b3; border-radius: 8px; padding: 20px;">
+            <h3 style="margin-top: 0; color: #0056b3; border-bottom: 1px solid #bbdefb; padding-bottom: 10px; font-size: 18px;">🎯 Term Project Track Mandates</h3>
+            <p style="font-size: 0.95em; color: #444;">Committing to parallel operational pipelines for the semester.</p>
+            <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+                <li><strong>Track 1 (ASR):</strong> Live radio stream capture and real-time transcription.</li>
+                <li><strong>Track 2 (VDB):</strong> Literary corpus acquisition and semantic vector embeddings.</li>
+                <li><strong>Immutability:</strong> Locking pipeline scope to maintain DAG structural integrity.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; border-radius: 4px; margin-bottom: 40px;">
+        <h3 style="margin-top: 0; color: #856404; font-size: 18px;">⚠️ Architectural Warning: Track Selection Lock</h3>
+        <p style="margin-bottom: 0; color: #444;">Once selected in Module 01/03, your project track cannot be switched. Ensure your development environment is fully synchronized with Docker and Beocat access prior to pipeline execution.</p>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #0056b3; padding-bottom: 10px; color: #0056b3;">Lecture Materials</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; border: 1px solid #e0e0e0;">
+            <thead style="background-color: #0056b3; color: white;">
+                <tr>
+                    <th style="padding: 12px; text-align: left; width: 30%;">Resource</th>
+                    <th style="padding: 12px; text-align: left;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;"><a style="color: #0056b3; text-decoration: none;" href="../slides/lecture-03.pdf">📄 Lecture Slides 03</a></td>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;">PDF format. PySpark 4 Architecture, Lazy Evaluation, and Term Project Tracks.</td>
+                </tr>
+                <tr style="background-color: #fafafa;">
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;"><a style="color: #0056b3; text-decoration: none;" href="../lectures/lecture-03.html">🎥 Class Recording</a></td>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;">Video capture of the live lecture session (Posted within 24 hours).</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;"><a style="color: #0056b3; text-decoration: none;" href="https://wesmckinney.com/book/pandas-basics" target="_blank" rel="noopener">📖 Reading: Pandas &amp; Data Baselines</a></td>
+                    <td style="padding: 12px; border: 1px solid #e0e0e0;">Python for Data Analysis (McKinney) &amp; Python Data Science Handbook (VanderPlas). Read <strong>Chs. 1&ndash;3</strong> (Getting Started &amp; Basic Operations).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="background-color: #eef2f5; padding: 25px; border-radius: 8px; border: 1px solid #d1d9e0; margin-bottom: 40px;">
+        <h3 style="margin-top: 0; color: #2d3b45; font-size: 18px;">Next Steps</h3>
+        <p style="margin-bottom: 0; color: #666; font-size: 0.95em;">1. <strong>Finalize team membership and lock in your Term Project track (ASR or VDB)</strong> before Wednesday's session.<br />2. <strong>Verify your local Docker or Beocat cluster connectivity</strong> for lab execution.<br />3. Next Lecture: Lecture 04 (Module 1 Wrap-Up &amp; Project Structure).</p>
+    </div>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; border: 1px solid #ccc; color: #444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em;" href="../README.md"> 🏠 Return to Course Home </a>
+        <div style="display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap;"><a style="flex: 1; min-width: 140px; text-decoration: none; color: #0056b3; border: 2px solid #0056b3; border-radius: 40px 10px 10px 40px; padding: 10px 15px; text-align: center; font-size: 1.1em; display: flex; align-items: center; justify-content: center;" href="lecture-02.html"> ⬅️ Prev </a>
+            <div style="display: flex; gap: 10px; flex: 2; min-width: 250px; justify-content: center;"><a style="flex: 1; background-color: #e8f1fb; color: #0056b3; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; border: 1px solid #0056b3; padding: 10px;" title="Up to Module" href="../modules/module_01/"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Module </a> <a style="flex: 1; background-color: #f8f9fa; color: #444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; border: 1px solid #ddd; padding: 10px;" title="Up to Phase" href="../phases/phase_01/"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Phase </a></div>
+            <a style="flex: 1; min-width: 140px; text-decoration: none; color: white; background-color: #004080; border: 2px solid #0056b3; border-radius: 10px 40px 40px 10px; padding: 10px 15px; text-align: center; font-size: 1.1em; display: flex; align-items: center; justify-content: center;" href="lecture-04.html"> Next ➡️ </a>
+        </div>
+    </div>
+</div>
