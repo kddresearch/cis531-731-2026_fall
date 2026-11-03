@@ -1,7 +1,7 @@
 <!--
 yaml_schema_version: "2.2"
-document_version: "3.2"
-document_last_updated_date: "2026-10-31"
+document_version: "3.3"
+document_last_updated_date: "2026-11-03"
 -->
 
 <br>
@@ -126,6 +126,9 @@ C:.
 |   |           
 |   \---syllabus
 |           .gitkeep
+|           01_course_syllabus.md
+|           02_course_schedule.md
+|           03_environment_runbook.md
 |           04_term_project_guidelines.md
 |           05_term_project_taxonomy.md
 |           06_term_project_sourcing_guide.md
@@ -139,7 +142,11 @@ C:.
 |   |   
 |   +---homework
 |   |       hw12_final_deliverables.md
+|   |       hw1_devcontainer_bringup_architecture.html
 |   |       hw1_devcontainer_bringup_architecture.md
+|   |       hw1_grading_rubric.md
+|   |       hw1_model_solution.html
+|   |       hw1_model_solution.ipynb
 |   |       lab01.ipynb
 |   |       lab02.ipynb
 |   |       lab03a.ipynb
@@ -149,7 +156,11 @@ C:.
 |   |       lab6.ipynb
 |   |       lab7.ipynb
 |   |       ps11_ethics_storytelling_dashboards.md
+|   |       ps4_grading_rubric.md
+|   |       ps4_proposal.html
 |   |       ps4_proposal.md
+|   |       ps6_grading_rubric.md
+|   |       ps6_semantic_search_vdb_schema.html
 |   |       ps6_semantic_search_vdb_schema.md
 |   |       ps8_interim_report.md
 |   |       README.md
@@ -157,8 +168,14 @@ C:.
 |   +---machine_problems
 |   |       .gitkeep
 |   |       mp10_interpretability_metrics.md
+|   |       mp2_devcontainer_deployment_manifest_verification.html
 |   |       mp2_devcontainer_deployment_manifest_verification.md
+|   |       mp2_grading_rubric.md
+|   |       mp3_grading_rubric.md
+|   |       mp3_real_time_asr_vector_database_ingestion.html
 |   |       mp3_real_time_asr_vector_database_ingestion.md
+|   |       mp5_grading_rubric.md
+|   |       mp5_structured_streaming.html
 |   |       mp5_structured_streaming.md
 |   |       mp7_genre_classification.md
 |   |       mp9_rag_classification_gold_standard.md
@@ -204,6 +221,7 @@ C:.
 |       lecture-25.md
 |       lecture-26.md
 |       lecture-27.md
+|       lecture-28.md
 |       lecture_10_slide_template.md
 |       lecture_template.md
 |       README.md
@@ -214,7 +232,7 @@ C:.
 |   |   README.md
 |   |   
 |   +---module_00
-|   |       .gitkeep
+|   |       module_00.md
 |   |       README.md
 |   |       
 |   +---module_01
@@ -251,47 +269,53 @@ C:.
 |   |       README.md
 |   |       
 |   +---module_09
-|   |       .gitkeep
+|   |       module_09.md
 |   |       README.md
 |   |       
 |   +---module_10
 |   |       .gitkeep
+|   |       module_10.md
 |   |       
 |   +---module_11
 |   |       .gitkeep
+|   |       module_11.md
 |   |       
 |   +---module_12
 |   |       .gitkeep
+|   |       module_12.md
 |   |       
 |   \---module_13
 |           .gitkeep
+|           module_13.md
 |           
 +---phases
+|   |   index.html
 |   |   README.md
 |   |   
 |   +---phase_01
-|   |       .gitkeep
+|   |       index.html
 |   |       README.md
 |   |       
 |   +---phase_02
-|   |       .gitkeep
+|   |       index.html
 |   |       README.md
 |   |       
 |   +---phase_03
-|   |       .gitkeep
+|   |       index.html
 |   |       README.md
 |   |       
 |   +---phase_04
-|   |       .gitkeep
+|   |       index.html
 |   |       README.md
 |   |       
 |   \---phase_05
-|           .gitkeep
+|           index.html
 |           README.md
 |           
 +---platforms
 |   +---canvas
 |   |       .gitkeep
+|   |       hydration_specification.md
 |   |       
 |   +---gemini
 |   |       .gitkeep
@@ -322,9 +346,13 @@ C:.
 |   |       golden_template.html
 |   |       golden_template_universal_assignment_index_page.html
 |   |       golden_template_universal_assignment_page.html
+|   |       golden_template_universal_lecture_index_page.html
 |   |       golden_template_universal_lecture_page.html
+|   |       golden_template_universal_module_index_page.html
 |   |       golden_template_universal_module_page.html
+|   |       golden_template_universal_phase_index_page.html
 |   |       golden_template_universal_phase_page.html
+|   |       golden_template_universal_syllabus.html
 |   |       golden_template_universal_term_project_proposal_page.html
 |   |       README.md
 |   |       
