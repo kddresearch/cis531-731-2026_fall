@@ -1,0 +1,63 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1000px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="{{HOME_URL}}">{{COURSE_ID}} Home</a> &raquo; <span style="color: #4b2e83;">Phases Index</span></div>
+        <div style="display: flex; gap: 15px;"><a style="text-decoration: none; color: #4b2e83;" href="{{LECTURES_INDEX_URL}}">📚 View Master Lectures Schedule</a> <a style="text-decoration: none; color: #d64309;" href="{{CANVAS_MODULES_URL}}">📦 View Native Canvas Modules</a></div>
+    </div>
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 40px; border-radius: 8px; color: white; margin-bottom: 30px; text-align: center;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">{{SEMESTER}} &bull; COURSE PROGRESSION</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 32px; text-align: center;">Course Phases Index</h1>
+        <p style="margin: 10px 0 0 0; font-size: 18px;">{{COURSE_TITLE}}</p>
+        <p style="margin: 5px 0 0 0; font-size: 15px;">OSEMN-Aligned Progression (Phases 1&ndash;5)</p>
+    </div>
+    <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <h3 style="margin-top: 0; color: #4b2e83;">About Course Phases</h3>
+        <p style="margin-bottom: 0; font-size: 0.95em;">{{PHASE_OVERVIEW_DESCRIPTION}}</p>
+    </div>
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; margin-top: 10px; background-color: #ffffff; border: 1px solid #e0e0e0;">
+            <thead style="background-color: #f8f9fa; color: #4b2e83;">
+                <tr>
+                    <th style="padding: 12px; text-align: left; width: 25%;">Phase</th>
+                    <th style="padding: 12px; text-align: left; width: 60%;">Pedagogical Objective &amp; Scope</th>
+                    <th style="padding: 12px; text-align: center; width: 15%;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 2px solid #0056b3; background-color: rgba(0, 86, 179, 0.08);">
+                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #0056b3;"><strong style="color: #0056b3; font-size: 1.1em;">Phase 1: {{FIRST PHASE TITLE}}</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">{{PHASE_1_DATES}}</span>
+                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #0056b3; padding-top: 8px; color: #0056b3;"><strong>📦 Modules:</strong> {{PHASE_1_MODULES}}</div>
+                    </td>
+                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #0056b3;">{{FIRST PHASE TITLE}}</strong><br /><span style="color: #444; font-size: 0.95em;">{{PHASE_1_OBJECTIVE}}</span></td>
+                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #0056b3; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="{{FIRST_PHASE_PAGE_URL}}">Open &rarr;</a></td>
+                </tr>
+                <tr style="border-bottom: 2px solid #1b5e20; background-color: rgba(27, 94, 32, 0.08);">
+                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #1b5e20;"><strong style="color: #1b5e20; font-size: 1.1em;">Phase 2: {{SECOND PHASE TITLE}}</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">{{PHASE_2_DATES}}</span>
+                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #1b5e20; padding-top: 8px; color: #1b5e20;"><strong>📦 Modules:</strong> {{PHASE_2_MODULES}}</div>
+                    </td>
+                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #1b5e20;">{{SECOND PHASE TITLE}}</strong><br /><span style="color: #444; font-size: 0.95em;">{{PHASE_2_OBJECTIVE}}</span></td>
+                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #1b5e20; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="{{SECOND_PHASE_PAGE_URL}}">Open &rarr;</a></td>
+                </tr>
+                <tr style="border-bottom: 2px solid #d64309; background-color: rgba(214, 67, 9, 0.08);">
+                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #d64309;"><strong style="color: #d64309; font-size: 1.1em;">Phase 3: {{THIRD PHASE TITLE}}</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">{{PHASE_3_DATES}}</span>
+                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #d64309; padding-top: 8px; color: #d64309;"><strong>📦 Modules:</strong> {{PHASE_3_MODULES}}</div>
+                    </td>
+                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #d64309;">{{THIRD PHASE TITLE}}</strong><br /><span style="color: #444; font-size: 0.95em;">{{PHASE_3_OBJECTIVE}}</span></td>
+                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #d64309; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="{{THIRD_PHASE_PAGE_URL}}">Open &rarr;</a></td>
+                </tr>
+                <tr style="border-bottom: 2px solid #4b2e83; background-color: rgba(75, 46, 131, 0.08);">
+                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #4b2e83;"><strong style="color: #4b2e83; font-size: 1.1em;">Phase 4: {{FOURTH PHASE TITLE}}</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">{{PHASE_4_DATES}}</span>
+                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #4b2e83; padding-top: 8px; color: #4b2e83;"><strong>📦 Modules:</strong> {{PHASE_4_MODULES}}</div>
+                    </td>
+                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #4b2e83;">{{FOURTH PHASE TITLE}}</strong><br /><span style="color: #444; font-size: 0.95em;">{{PHASE_4_OBJECTIVE}}</span></td>
+                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #4b2e83; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="{{FOURTH_PHASE_PAGE_URL}}">Open &rarr;</a></td>
+                </tr>
+                <tr style="border-bottom: 2px solid #856404; background-color: rgba(133, 100, 4, 0.08);">
+                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #856404;"><strong style="color: #856404; font-size: 1.1em;">Phase 5: {{FIFTH PHASE TITLE}}</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">{{PHASE_5_DATES}}</span>
+                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #856404; padding-top: 8px; color: #856404;"><strong>📦 Modules:</strong> {{PHASE_5_MODULES}}</div>
+                    </td>
+                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #856404;">{{FIFTH PHASE TITLE}}</strong><br /><span style="color: #444; font-size: 0.95em;">{{PHASE_5_OBJECTIVE}}</span></td>
+                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #856404; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="{{FIFTH_PHASE_PAGE_URL}}">Open &rarr;</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
