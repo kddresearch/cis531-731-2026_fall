@@ -2,7 +2,7 @@
 
 | Phase | Module | Lecture | Date |
 | :--- | :--- | :--- | :--- |
-| **Phase 1:** Foundations & Tooling | **Module 02:** Cloud Tools, DevContainers & AI/LLM Tooling | **Lecture 05:** Data Scrubbing & Early Exploration | Friday, September 04, 2026 |
+**[Phase 1](../phases/phase_01/):** Foundations & Tooling | **[Module 02](../modules/module_02/):** Cloud Tools, DevContainers & AI/LLM Tooling | **Lecture 05:** Data Scrubbing & Early Exploration | Fri 04 Sep 2026 |
 
 ---
 
