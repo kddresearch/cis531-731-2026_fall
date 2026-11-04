@@ -95,7 +95,7 @@ This directory houses the official lecture schedule, slide decks, module breakdo
 | 13 | Wed 18 Nov 2026 | [35](lecture_35.md) | [Module 11](../modules/module_11/module_11.md) – Documentation & Notebook Presentation Standards | Jupyter Notebook Documentation; Wilkinson et al. (FAIR) |
 | 13 | Fri 20 Nov 2026 | [36](lecture_36.md) | [Module 11](../modules/module_11/module_11.md) – Dashboard Design Workshop; Wrap-Up (MP 10 due prior day) | Wilke; Last, *Technical Writing Essentials* |
 | 14 | Mon 23 Nov 2026 | — | **NO CLASS — Fall Break** | — |
-| 14 | Wed 25 Nov 2026 | — | **NO CLASS — Fall Break** *(MP 10 due; PS 11 released)* | — |
+| 14 | Wed 25 Nov 2026 | — | **NO CLASS — Fall Break** | — |
 | 14 | Fri 27 Nov 2026 | — | **NO CLASS — Fall Break** | — |
 | 15 | Mon 30 Nov 2026 | [37](lecture_37.md) | [Module 12](../modules/module_12/module_12.md) – PaaS/IaaS, MLOps/AIOps (HW 12 released) | ML-Ops.org MLOps Principles |
 | 15 | Wed 02 Dec 2026 | [38](lecture_38.md) | [Module 12](../modules/module_12/module_12.md) – MLflow Tracking & Deployment | MLflow Tracking Documentation |
