@@ -1,0 +1,109 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/lectures" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lectures" data-api-returntype="Page">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/phase-1" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-1" data-api-returntype="Page">Phase 1: Foundations &amp; Tooling</a> &raquo; <span style="color: #004a99;">Module 02</span></div>
+        <div><a style="text-decoration: none; color: #004a99;" href="https://k-state.instructure.com/courses/201513/pages/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/modules" data-api-returntype="Page">📦 All Modules</a></div>
+    </div>
+    <div style="background: linear-gradient(135deg, #004a99 0%, #003366 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px; border-bottom: 5px solid #b7a57a;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">WEEKS 2&ndash;3 &bull; Fri 04 Sep &ndash; Fri 11 Sep 2026</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">Module 02: Cloud Tools, DevContainers &amp; AI/LLM Tooling</h1>
+        <p style="margin: 0; font-size: 18px; color: #e6e2ef;">Data Scrubbing, Docker Environments, Inference Runtimes, and LLM Orchestration</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+        <div style="flex: 1; min-width: 300px; border-radius: 8px; padding: 20px; background-color: #f8f9fa; border-left: 4px solid #004a99;">
+            <h2 style="padding-bottom: 10px; margin-top: 0; color: #004a99;">Module Overview</h2>
+            <p style="color: #333;">Module 02 establishes the environment reproducibility, cloud tooling, and AI infrastructure required for advanced data science pipelines. Students transition from raw data ingestion to systematic data scrubbing (Miner &amp; Shook Ch. 5) and statistical profiling. We then eliminate the "it works on my machine" dilemma by implementing containerized development workspaces via Docker and VS Code DevContainers. Finally, we survey the modern AI/LLM tooling stack&mdash;evaluating proprietary APIs versus open-weight models (Llama 3), hardware VRAM quantization constraints, local inference engines (Ollama, vLLM), RAG orchestration (LangChain), and responsible epistemic verification under the "Upper Beam" engineering standard.</p>
+        </div>
+        <div style="flex: 1 1 0%; min-width: 300px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+            <h3 style="margin-top: 0; color: #004a99; font-size: 1.1em; border-bottom: 1px solid #ddd; padding-bottom: 8px;">🎯 Learning Objectives</h3>
+            <ul style="padding-left: 20px; margin-bottom: 0; color: #444; font-size: 0.95em;">
+                <li>Apply PySpark 4 transformations for data scrubbing, semantic text chunking, and EDA baseline profiling.</li>
+                <li>Configure reproducible development environments using Docker `Dockerfile` build scripts and VS Code DevContainers.</li>
+                <li>Navigate the AI tooling stack, balancing proprietary APIs against open-weight local execution, VRAM quantization, RAG pipelines, and code verification.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="padding-bottom: 10px; color: #004a99; border-bottom: 2px solid #004a99;">📅 Weekly Schedule &amp; Lectures</h2>
+        <div style="overflow-x: auto; border-radius: 8px; border: 1px solid #e0e0e0;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead style="background-color: #004a99; color: white;">
+                    <tr>
+                        <th style="padding: 12px; text-align: left; width: 22%;">Date / Lecture</th>
+                        <th style="padding: 12px; text-align: left; width: 43%;">Topic</th>
+                        <th style="padding: 12px; text-align: left; width: 23%;">Readings</th>
+                        <th style="padding: 12px; text-align: center; width: 12%;">Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee; background-color: #ffffff;">
+                        <td style="padding: 12px;"><strong>Lecture 05</strong><br /><span style="font-size: 0.9em; color: #666;">Fri 04 Sep 2026</span></td>
+                        <td style="padding: 12px;">Data Scrubbing &amp; Early Exploration</td>
+                        <td style="padding: 12px; font-size: 0.9em;"><em>Miner &amp; Shook Ch. 5</em></td>
+                        <td style="padding: 12px; text-align: center;"><a style="color: #004a99; text-decoration: none;" href="#lecture_05">Jump &darr;</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee; background-color: #fafafa;">
+                        <td style="padding: 12px;"><strong>Lecture 06</strong><br /><span style="font-size: 0.9em; color: #666;">Wed 09 Sep 2026</span></td>
+                        <td style="padding: 12px;">DevContainers &amp; Docker</td>
+                        <td style="padding: 12px; font-size: 0.9em;"><em>Docker Docs / PyTorch Hub</em></td>
+                        <td style="padding: 12px; text-align: center;"><a style="color: #004a99; text-decoration: none;" href="#lecture_06">Jump &darr;</a></td>
+                    </tr>
+                    <tr style="background-color: #ffffff;">
+                        <td style="padding: 12px;"><strong>Lecture 07</strong><br /><span style="font-size: 0.9em; color: #666;">Fri 11 Sep 2026</span></td>
+                        <td style="padding: 12px;">AI/LLM Tooling Overview</td>
+                        <td style="padding: 12px; font-size: 0.9em;"><em>LiteLLM / Milvus / Whisper</em></td>
+                        <td style="padding: 12px; text-align: center;"><a style="color: #004a99; text-decoration: none;" href="#lecture_07">Jump &darr;</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div id="lecture_05" style="margin-bottom: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #004a99; font-size: 1.25em;">Lecture 05: Data Scrubbing &amp; Early Exploration</h3>
+            <div style="display: flex; gap: 10px;"><a style="font-size: 0.9em; background-color: #f2f2f2; color: #333333; padding: 6px 12px; border-radius: 4px; text-decoration: none; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513/files?search=lecture-05.pdf" target="_blank" rel="noopener">📄 Slides</a> <a style="font-size: 0.9em; background-color: #004a99; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/lecture-05" target="_blank" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lecture-05" data-api-returntype="Page" rel="noopener">▶ Full Page</a></div>
+        </div>
+        <div style="background-color: #ffffff; border-radius: 8px; padding: 20px; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #004a99;">
+            <p style="margin-top: 0; font-size: 0.95em; color: #666;"><strong>Date:</strong> Friday, September 04, 2026</p>
+            <p>Transitioning from raw data ingestion to systematic data scrubbing, normalization, and exploratory statistical profiling.</p>
+            <ul style="margin-bottom: 0; padding-left: 20px;">
+                <li><strong>DataFrame Transformations &amp; Normalization:</strong> Leveraging immutability, `withColumn`, null handling (`drop`/`fill`), and regex string cleaning.</li>
+                <li><strong>Domain Chunking &amp; EDA Baselines:</strong> Executing semantic text chunking (VDB) and disfluency filtering (ASR), followed by on-cluster aggregation and baseline profiling.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="lecture_06" style="margin-bottom: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #004a99; font-size: 1.25em;">Lecture 06: DevContainers &amp; Docker</h3>
+            <div style="display: flex; gap: 10px;"><a style="font-size: 0.9em; background-color: #f2f2f2; color: #333333; padding: 6px 12px; border-radius: 4px; text-decoration: none; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513/files?search=lecture-06.pdf" target="_blank" rel="noopener">📄 Slides</a> <a style="font-size: 0.9em; background-color: #004a99; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/lecture-06" target="_blank" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lecture-06" data-api-returntype="Page" rel="noopener">▶ Full Page</a></div>
+        </div>
+        <div style="background-color: #ffffff; border-radius: 8px; padding: 20px; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #004a99;">
+            <p style="margin-top: 0; font-size: 0.95em; color: #666;"><strong>Date:</strong> Wednesday, September 09, 2026</p>
+            <p>Eliminating environment drift and dependency hell through containerized workflows using Docker and VS Code DevContainers.</p>
+            <ul style="margin-bottom: 0; padding-left: 20px;">
+                <li><strong>Virtual Machines vs. Containers:</strong> Comparing heavyweight hypervisors with OS-level virtualization sharing the host kernel via Docker.</li>
+                <li><strong>Infrastructure as Code &amp; Volumes:</strong> Structuring `Dockerfile` blueprints with layer caching, mounting local volumes, and configuring `devcontainer.json`.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="lecture_07" style="margin-bottom: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #004a99; font-size: 1.25em;">Lecture 07: AI/LLM Tooling Overview</h3>
+            <div style="display: flex; gap: 10px;"><a style="font-size: 0.9em; background-color: #f2f2f2; color: #333333; padding: 6px 12px; border-radius: 4px; text-decoration: none; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513/files?search=lecture-07.pdf" target="_blank" rel="noopener">📄 Slides</a> <a style="font-size: 0.9em; background-color: #004a99; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/lecture-07" target="_blank" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lecture-07" data-api-returntype="Page" rel="noopener">▶ Full Page</a></div>
+        </div>
+        <div style="background-color: #ffffff; border-radius: 8px; padding: 20px; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #004a99;">
+            <p style="margin-top: 0; font-size: 0.95em; color: #666;"><strong>Date:</strong> Friday, September 11, 2026</p>
+            <p>Comprehensive operational overview of the AI developer stack, inference runtimes, quantization constraints, and RAG architectures.</p>
+            <ul style="margin-bottom: 0; padding-left: 20px;">
+                <li><strong>Proprietary vs. Open-Weight Models:</strong> Weighing cloud APIs against local data sovereignty, VRAM quantization (GGUF), and inference engines (Ollama/vLLM).</li>
+                <li><strong>Orchestration &amp; Epistemic Verification:</strong> Connecting components via LangChain, implementing RAG to prevent hallucinations, and upholding the "Upper Beam" engineering standard.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; border-radius: 4px; margin-bottom: 40px;">
+        <h3 style="margin-top: 0; color: #856404; font-size: 1.1em;">📝 Assignments Due This Week</h3>
+        <p style="margin-bottom: 0; color: #444;"><strong>HW 2 (DevContainer &amp; LLM Toolchain Verification):</strong> Validate Docker workspace configuration, test local inference runtimes, and submit architectural experiment schemas. <a style="color: #856404; text-decoration: underline;" href="https://k-state.instructure.com/courses/201513/assignments/2597890" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments/2597890" data-api-returntype="Assignment">View Homework 2 Assignment &rarr;</a></p>
+    </div>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513/pages/lectures" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lectures" data-api-returntype="Page"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Previous Module" href="https://k-state.instructure.com/courses/201513/pages/module-01" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-01" data-api-returntype="Page"> ⬅️ Module 01 </a> <a style="flex: 1; max-width: 250px; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; background-color: #004a99; color: white;" title="Up to Phase" href="https://k-state.instructure.com/courses/201513/pages/phase-1" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-1" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Phase 1 </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Next Module" href="https://k-state.instructure.com/courses/201513/pages/module-03" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-03" data-api-returntype="Page"> Module 03 ➡️ </a></div>
+    </div>
+</div>
