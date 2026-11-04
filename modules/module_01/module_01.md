@@ -2,12 +2,11 @@
 
 | Phase | Module | Lecture(s) | Date(s) |
 | :--- | :--- | :--- | :--- |
-| **Phase 1:** Foundations & Tooling | **Module 01:** PySpark Intro: RDDs & DataFrames; Projects, Experiment Design | **Lectures 01-04** | Wed 26 Aug - Wed 02 Sep 2026 |
+| **[Phase 1](../../phases/phase_01/):** Foundations & Tooling | **Module 01:** PySpark Intro: RDDs & DataFrames; Projects, Experiment Design | **Lectures 01-04** | Wed 26 Aug - Wed 02 Sep 2026 |
 
 ---
 
-## Lecture 01: PySpark Basics & Resilient Distributed Datasets (RDDs) (Wed 26 Aug)
-
+## [Lecture 01: PySpark Basics & Resilient Distributed Datasets (RDDs)](../../lectures/lecture_01.md):  (Wed 26 Aug)
 1. **Distributed Computing Fundamentals:** Understanding cluster computing, driver nodes, and executor processes in Apache Spark.
 2. **Resilient Distributed Datasets (RDDs):** Core immutability, lineage graphs, lazy evaluation, and fault-tolerance guarantees.
 3. **Transformations vs. Actions:** Distinguishing narrow/wide transformations (`map`, `filter`, `flatMap` vs. `groupByKey`, `reduceByKey`) from terminal action operations (`collect`, `count`, `take`).
@@ -16,7 +15,7 @@
 
 ---
 
-## Lecture 02: PySpark DataFrames & Spark SQL (Fri 28 Aug)
+## [Lecture 02: PySpark DataFrames & Spark SQL](../../lectures/lecture_02.md) (Fri 28 Aug)
 
 1. **Spark DataFrames API:** Transitioning from unstructured RDDs to structured DataFrame abstractions with defined schemas.
 2. **Catalyst Optimizer:** Query optimization lifecycle covering logical planning, physical planning, and code generation.
@@ -26,7 +25,7 @@
 
 ---
 
-## Lecture 03: RDD Transformations & Actions Lab / PySpark 4 Architecture (Mon 31 Aug)
+## [Lecture 03: RDD Transformations & Actions Lab / PySpark 4 Architecture](../../lectures/lecture_02.md) (Mon 31 Aug)
 
 1. **PySpark 4 & Distributed Architecture:** Moving from single-node pandas bottlenecks to horizontal cluster scaling with driver/executor topology and Spark Connect.
 2. **Lazy Evaluation & DAGs:** Understanding transformations, actions, and Directed Acyclic Graph optimization before execution.
