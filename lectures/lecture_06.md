@@ -2,7 +2,7 @@
 
 | Phase | Module | Lecture | Date |
 | :--- | :--- | :--- | :--- |
-| **Phase 1:** Foundations & Tooling | **Module 02:** Cloud Tools, DevContainers & AI/LLM Tooling | **Lecture 06:** DevContainers & Docker | Wednesday, September 09, 2026 |
+**[Phase 1](../phases/phase_01/):** Foundations & Tooling | **[Module 02](../modules/module_02/):** Cloud Tools, DevContainers & AI/LLM Tooling  | **Lecture 06:** DevContainers & Docker | Wed 09 Sep 2026 |
 
 ---
 
