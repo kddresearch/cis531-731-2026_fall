@@ -2,7 +2,7 @@
 
 | Phase | Module | Lecture(s) | Date(s) |
 | :--- | :--- | :--- | :--- |
-| **[Phase 1](../phases/phase_01/):** Foundations & Tooling | **Module 02:** Cloud Tools, DevContainers & AI/LLM Tooling | **Lectures 05-07** | Fri 04 Sep - Fri 11 Sep 2026 |
+| **[Phase 1](../../phases/phase_01/):** Foundations & Tooling | **Module 02:** Cloud Tools, DevContainers & AI/LLM Tooling | **Lectures 05-07** | Fri 04 Sep - Fri 11 Sep 2026 |
 
 ---
 
