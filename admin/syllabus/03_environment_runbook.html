@@ -1,0 +1,88 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px;">
+        <h1 style="margin: 0; font-size: 28px;">CIS 531 / CIS 731 &mdash; Environment Runbook 1.0 &amp; Container Pinning Specification</h1>
+        <p style="margin: 10px 0 0 0; font-size: 18px;">Fall 2026 | Canvas Setup Walkthrough &amp; Docker Baseline</p>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">The "Ask" Box (Environment Verification Summary)</h2>
+        <p>Every homework (<code>HW</code>), machine problem (<code>MP</code>), and term-project milestone (<code>make verify</code> in <code>HW 12</code>) must build and run deterministically inside the course's pinned <strong>CPU DevContainer</strong> without requiring a GPU.</p>
+        <p><strong>Required Verification Artifacts (HW 1 &amp; MP 2):</strong></p>
+        <ol>
+            <li>Build the pinned <code>Dockerfile</code> (<code>docker build -t cis531-runtime:mp2 .</code>).</li>
+            <li>Run <code>verify_env.py</code> inside the container (<code>docker run --rm cis531-runtime:mp2 python verify_env.py</code>) and confirm the exact SHA-256 runtime digest: <br /><code>6f0648c69f69b1faeb96cfecaa7e2a904ed9210c8c07e0b5dd13d2f9df25ff75</code></li>
+            <li>Run <code>probe_compute.py</code> to log whether your environment is running on the <strong>CPU-Only Fallback Baseline</strong> or an optional <strong>GPU Acceleration Overlay</strong>.</li>
+        </ol>
+    </div>
+    <div style="background-color: #f8f9fa; border-left: 5px solid #4b2e83; padding: 20px; margin-bottom: 40px; border-radius: 4px;">
+        <h3 style="margin-top: 0; color: #4b2e83;">1. Two-Tier Container Architecture &amp; Digest Pinning Policy</h3>
+        <p>To guarantee 100% reproducibility across Windows 11 laptops, Apple Silicon Macs, Linux workstations, and campus/national HPC clusters, CIS 531/731 enforces a <strong>Two-Tier DevContainer Policy</strong>:</p>
+        <ul style="margin-bottom: 0; padding-left: 20px;">
+            <li><strong>Tier 1 (Canonical CPU DevContainer - Mandatory Baseline):</strong> Normative grading baseline. 100% of coursework is solvable on CPU using <code>faiss-cpu</code> and Whisper <code>base</code> / <code>base.en</code>. Built on <code>python:3.10-slim-bullseye</code>.</li>
+            <li><strong>Tier 2 (GPU Acceleration Profile - Optional Overlay):</strong> Optional performance acceleration on Beocat, PSC Bridges-2, or personal NVIDIA GPUs for batch Whisper (<code>small.en</code> / <code>turbo</code>) or large embeddings.</li>
+        </ul>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">2. Host Prerequisites &amp; Docker Desktop Setup (Windows 11 + WSL 2)</h2>
+        <ul style="padding-left: 20px;">
+            <li><strong>Operating System:</strong> Windows 11 (Build 26200+), macOS 13+, or Ubuntu 22.04+ Linux.</li>
+            <li><strong>WSL 2 Kernel:</strong> WSL 2 (6.18+) with hardware virtualization enabled (verify via PowerShell: <code>wsl --status</code>).</li>
+            <li><strong>IDE &amp; Extensions:</strong> Visual Studio Code with <strong>Dev Containers</strong>, <strong>Docker</strong>, and <strong>Remote - SSH</strong> extensions.</li>
+        </ul>
+        <h3 style="color: #4b2e83; margin-top: 20px;">Docker Desktop Quick Configuration</h3>
+        <ol>
+            <li><strong>General Settings:</strong> Set Virtual Machine Manager to <code>WSL 2</code> and enable <code>use containerd for pulling and storing images</code>.</li>
+            <li><strong>WSL Integration:</strong> Enable integration with your default WSL distro under <strong>Resources &rarr; WSL integration</strong> and apply changes.</li>
+            <li><strong>Daemon Smoke Test:</strong> Run <code>docker --version</code> and <code>docker run --rm hello-world</code> in your WSL 2 terminal.</li>
+        </ol>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">3. Pinned Runtime Specification</h2>
+        <p>All submissions must match pinned package versions in the course manifest; unpinned versions fail verification.</p>
+        <h3 style="color: #4b2e83;">Canonical Course <code>Dockerfile</code></h3>
+        <pre style="background: #f4f4f4; padding: 15px; border-radius: 4px; overflow-x: auto; font-size: 13px;"><code>FROM python:3.10-slim-bullseye
+
+RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends \
+    build-essential \
+    openjdk-11-jre-headless \
+    ffmpeg \
+    git \
+    sudo \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV PYSPARK_PYTHON=python3
+ENV PIP_NO_CACHE_DIR=1
+
+RUN pip install --upgrade pip &amp;&amp; \
+    pip install \
+    pyspark==3.5.1 \
+    torch==2.2.1 \
+    transformers==4.38.2 \
+    openai-whisper==20231117 \
+    mlflow==2.11.1 \
+    faiss-cpu==1.8.0
+
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+RUN groupadd --gid $USER_GID $USERNAME \
+    &amp;&amp; useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
+    &amp;&amp; echo $USERNAME ALL=\(root\) NOPASSWD:ALL &gt; /etc/sudoers.d/$USERNAME \
+    &amp;&amp; chmod 0440 /etc/sudoers.d/$USERNAME
+
+USER $USERNAME
+WORKDIR /workspace</code></pre>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">4. Verification &amp; Quota Fallback Protocols</h2>
+        <p><strong>SHA-256 Manifest Verification (<code>verify_env.py</code>):</strong> Ensures exact library version parity yielding the required SHA-256 digest string.</p>
+        <p><strong>Compute Probe (<code>probe_compute.py</code>):</strong> Checks whether CUDA is active or if the environment is running on the CPU-Only Fallback Baseline.</p>
+        <p><strong>API Quota Gateway &amp; CPU Fallback:</strong> External LLM/ASR services are accessed via team-scoped LiteLLM proxy virtual keys enforcing rate limits and budgets. If quotas are exhausted, pipelines must fall back to local CPU execution (<code>openai-whisper</code> and <code>SentenceTransformer</code>) inside the DevContainer.</p>
+    </div>
+    <div style="background-color: #eef2f5; padding: 25px; border-radius: 8px; text-align: center; border: 1px solid #d1d9e0;">
+        <h3 style="margin-top: 0; color: #2d3b45;">🔗 Canvas Setup Walkthrough</h3>
+        <p style="margin-bottom: 20px;">Access the complete Windows 11 + WSL 2 + Docker configuration guide on Canvas.</p>
+        <a style="display: inline-block; background-color: #4b2e83; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-size: 16px;" href="https://k-state.instructure.com/courses/201513/pages/hw-1-and-mp-2-setup-walkthrough-docker-desktop-windows-11-+-wsl-2" target="_blank" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/hw-1-and-mp-2-setup-walkthrough-docker-desktop-windows-11-+-wsl-2" data-api-returntype="Page" rel="noopener">Go to Canvas Setup Page</a>
+        <p style="margin-top: 15px; font-size: 14px; color: #666;"><strong>Document ID:</strong> <code>admin/syllabus/03_environment_runbook.md</code></p>
+    </div>
+</div>
