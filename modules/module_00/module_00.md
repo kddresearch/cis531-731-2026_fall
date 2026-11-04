@@ -6,7 +6,7 @@
 
 ---
 
-## Lecture 00: Welcome, Track Selection Briefing & Course Overview (Mon 24 Aug 2026)
+## [Lecture 00: Welcome, Track Selection Briefing & Course Overview](../../lectures/lecture_00.md): (Mon 24 Aug)
 
 1. **Course Orientation & Syllabus Walkthrough:** Comprehensive review of course logistics, Canvas LMS navigation, instructor office hours, and grading distribution across a 1000-point scale.
 2. **Track Selection & Responsive Analytics Mandate:** Detailed briefing on the Fall 2026 architectural mandate prohibiting legacy sentiment datasets (Yelp/SEC) and establishing the two immutable tracks: ASR Stream Ingestion (Track 1) and Vector Database & Trope Ontologies (Track 2).
