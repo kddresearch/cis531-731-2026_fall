@@ -1,0 +1,166 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1000px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 40px; border-radius: 8px; color: white; margin-bottom: 40px; text-align: center;">
+        <h1 style="margin: 0; font-size: 32px;">Programming Techniques for Data Science and Analytics</h1>
+        <h3 style="margin: 10px 0 0 0; font-size: 20px;">CIS 531 / CIS 731</h3>
+        <p style="margin-top: 15px; font-size: 16px;">Fall 2026 | Kansas State University</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;"><a style="text-decoration: none; background-color: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; color: #4b2e83; border: 1px solid #e0e0e0;" href="https://k-state.instructure.com/courses/201513/pages/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/modules" data-api-returntype="Page"> 📦 Modules &amp; Readings </a> <a style="text-decoration: none; background-color: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; color: #4b2e83; border: 1px solid #e0e0e0;" href="https://teams.microsoft.com/l/team/19%3AlzcSt1tN4vyJEgDRCku2ZzsVpL4NK7jd703mrb99i_s1%40thread.tacv2/conversations?groupId=bfc54c12-7e41-4f56-88bb-04ee9f99b1db&amp;tenantId=d9a2fa71-d67d-4cb6-b541-06ccaa8013fb" target="_blank" rel="noopener"> 📹 Microsoft Teams </a> <a style="text-decoration: none; background-color: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; color: #4b2e83; border: 1px solid #e0e0e0;" href="https://github.com/kddresearch/cis531-731-2026_fall"> 🐙 Course Repository </a> <a class="external" style="text-decoration: none; background-color: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; color: #4b2e83; border: 1px solid #e0e0e0;" href="http://www.cs.ksu.edu/~bhsu" target="_blank" rel="noopener"><span> 🌐 Instructor Site </span><span class="external_link_icon" style="display: inline-block; text-indent: initial;" role="presentation"> <span class="screenreader-only">Links to an external site.</span></span></a></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 40px; align-items: start;">
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83; margin-top: 0;">Course Logistics</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 12px;"><strong>📍 Venue:</strong> 1116 Engineering Hall (DUE) &amp; Global Campus (<code>ZA</code>) Hybrid</li>
+                <li style="margin-bottom: 12px;"><strong>⏰ Time:</strong> MWF 09:30 U.S. Central Time</li>
+                <li style="margin-bottom: 12px;"><strong>👨&zwj;🏫 Instructor:</strong> <a title="Instructor" href="https://k-state.instructure.com/courses/201513/pages/instructor" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/instructor" data-api-returntype="Page">William H. Hsu</a> (<a style="color: #d64309;" href="mailto:bhsu@ksu.edu">bhsu@ksu.edu</a>)</li>
+                <li style="margin-bottom: 12px;"><strong>🏢 Office:</strong> 2178 Engineering Hall (DUE)</li>
+                <li style="margin-bottom: 12px;"><strong>📞 Phone:</strong> +1 785 236 8247</li>
+            </ul>
+        </div>
+        <div style="flex: 1; min-width: 300px;">
+            <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83; margin-top: 0;">Office Hours</h2>
+            <p><em>All hours are Hybrid (In-Person DUE 2178 + Microsoft Teams).</em></p>
+            <ul style="padding-left: 20px;">
+                <li><strong>Mon-Fri:</strong> after class (1330 U.S. Central) MF, before class (1130 U.S. Central)</li>
+                <li><strong>By Appointment:</strong> <a class="external" style="color: #d64309;" href="https://calendly.com/banazir" target="_blank" rel="noopener"><span>Book via Calendly</span><span class="external_link_icon" style="display: inline-block; text-indent: initial;" role="presentation"> <span class="screenreader-only">Links to an external site.</span></span></a> or <a href="http://bit.ly/hsu-calendar-2026-fall" target="_blank" rel="noopener">Outlook Booking</a></li>
+            </ul>
+            <p style="font-size: 0.9em; background-color: #eef2f5; padding: 10px; border-radius: 4px;"><strong>GTA:</strong> Joshua Garcia (<a style="color: #2d3b45;" href="mailto:josh98@ksu.edu">josh98@ksu.edu</a>)<br /><em>GTA Hours:&nbsp; CS student lounge, 1400-1500 Mon/Tue</em></p>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Course Overview</h2>
+        <p>This course provides a rigorous, hands-on introduction to modern programming techniques and software architectures for scalable data science and responsive analytics. Structured around the five-stage <strong>OSEMN</strong> data-science lifecycle (Obtain &rarr; Scrub &rarr; Explore &rarr; Model &rarr; iNterpret), the curriculum progresses from distributed tabular and stream processing in <strong>PySpark 3.5 LTS</strong> and reproducible <strong>Docker DevContainers</strong> to dense vector indexing (FAISS / Milvus), local speech transcription (OpenAI Whisper), retrieval-augmented classification (RAG), generational drift convolutions, and MLflow deployment.</p>
+        <p><strong>Fall 2026 Responsive Analytics Mandate:</strong> Legacy sentiment-analysis grinds (Yelp review corpora and SEC filings) are strictly prohibited. Teams commit to one of two tracks: <strong>Track 1 (ASR Stream Ingestion)</strong> or <strong>Track 2 (Vector Database &amp; Trope Ontologies)</strong>.</p>
+        <p><strong>Prerequisites:</strong></p>
+        <ul style="font-size: 0.9em;">
+            <li><strong>Programming &amp; Data Structures:</strong> Proficiency in Python 3 and undergraduate data structures (CIS 300 / CIS 501 or equivalent).</li>
+            <li><strong>Mathematics &amp; Statistics:</strong> Introductory probability and statistics (STAT 510 / STAT 703 or equivalent) and linear algebra fundamentals.</li>
+            <li><strong>System Requirements:</strong> Ability to run the pinned CPU DevContainer (Docker Desktop + VS Code). 100% of coursework is solvable on CPU; a dedicated GPU is never required.</li>
+            <li><strong>Programming:</strong> Proficiency in Python 3 (functions, classes, basic numpy/pandas) is assumed.</li>
+        </ul>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Textbooks &amp; Resources</h2>
+        <div style="background-color: #f8f9fa; border-left: 5px solid #4b2e83; padding: 20px; border-radius: 4px;">
+            <p><strong>Primary Texts (Open Access):</strong></p>
+            <ul style="margin-top: 0;">
+                <li><strong>Book 1:</strong> Jurafsky, D., &amp; Martin, J. H. (Aug 19, 2026 Draft). <a class="external" style="color: #d64309;" href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener"><span>Speech and Language Processing (3rd ed. draft)</span><span class="external_link_icon" style="display: inline-block; text-indent: initial;" role="presentation"> <span class="screenreader-only">Links to an external site.</span></span></a>. Stanford University.</li>
+                <li><strong>Book 2:</strong> James, G., Witten, D., Hastie, T., Tibshirani, R., &amp; Taylor, J. (2023). <a class="external" style="color: #d64309;" href="https://www.statlearning.com/resources-python" target="_blank" rel="noopener"><span>An Introduction to Statistical Learning: with Applications in Python (ISLP)</span><span class="external_link_icon" style="display: inline-block; text-indent: initial;" role="presentation"> <span class="screenreader-only">Links to an external site.</span></span></a>. Springer.</li>
+            </ul>
+            <p><strong>Supplementary Texts &amp; References:</strong></p>
+            <ul style="margin-bottom: 0;">
+                <li>VanderPlas, J. <em>Python Data Science Handbook</em>; Irving, D., et al. (2021). <em>Research Software Engineering with Python</em>.</li>
+                <li>Wilke, C. O. <em>Fundamentals of Data Visualization</em>; Last, S. <em>Technical Writing Essentials</em>; Winters, T., et al. (2020). <em>Software Engineering at Google</em>.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Course Grading Breakdown</h2>
+        <p>All individual Homeworks (HW), Problem Sets (PS), and Machine Problems (MP) are normalized to 30.0 points each in the Canvas gradebook. Review the distribution and section-specific technical expectations for your enrollment:</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; margin-top: 20px;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #f8f9fa; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0;">
+                <div style="background-color: #4b2e83; color: white; padding: 15px 20px; text-align: center;">
+                    <h3 style="margin: 0; font-size: 22px;">CIS 531</h3>
+                    <span style="font-size: 0.9em;">Undergraduate Track</span>
+                </div>
+                <div style="padding: 20px;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.95em;">
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Regular Assignments</strong><br /><span style="font-size: 0.85em; color: #666;">Highest 7 of 9 @ 30 pts</span></td>
+                                <td style="padding: 10px 0; text-align: right;">210 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">21%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Project Milestones</strong><br /><span style="font-size: 0.85em; color: #666;">3 Mandatory Milestones</span></td>
+                                <td style="padding: 10px 0; text-align: right;">90 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">9%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Term Project Execution &amp; Final Report</strong></td>
+                                <td style="padding: 10px 0; text-align: right;">350 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">35%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Exams &amp; Quizzes</strong></td>
+                                <td style="padding: 10px 0; text-align: right;">300 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">30%</td>
+                            </tr>
+                            <tr style="border-bottom: 2px solid #ccc;">
+                                <td style="padding: 10px 0;"><strong>Class Participation &amp; Peer Review</strong></td>
+                                <td style="padding: 10px 0; text-align: right;">50 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">5%</td>
+                            </tr>
+                            <tr style="font-size: 1.05em; color: #4b2e83;">
+                                <td style="padding: 15px 0 5px 0;">TOTAL</td>
+                                <td style="padding: 15px 0 5px 0; text-align: right;">1000 pts</td>
+                                <td style="padding: 15px 0 5px 0; text-align: right;">100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #f8f9fa; border-radius: 8px; overflow: hidden; border: 1px solid #e0e0e0;">
+                <div style="background-color: #b7a57a; color: white; padding: 15px 20px; text-align: center;">
+                    <h3 style="margin: 0; font-size: 22px;">CIS 731</h3>
+                    <span style="font-size: 0.9em;">Graduate Track</span>
+                </div>
+                <div style="padding: 20px;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.95em;">
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Regular Assignments</strong><br /><span style="font-size: 0.85em; color: #666;">Highest 7 of 9 @ 30 pts</span></td>
+                                <td style="padding: 10px 0; text-align: right;">210 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">21%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Project Milestones</strong><br /><span style="font-size: 0.85em; color: #666;">3 Mandatory Milestones</span></td>
+                                <td style="padding: 10px 0; text-align: right;">90 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">9%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Term Project Execution &amp; Final Report</strong></td>
+                                <td style="padding: 10px 0; text-align: right;">350 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">35%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Advanced Track Components / Custom Schema</strong></td>
+                                <td style="padding: 10px 0; text-align: right;">Included</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">Rigs</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 10px 0;"><strong>Exams &amp; Quizzes</strong></td>
+                                <td style="padding: 10px 0; text-align: right;">300 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">30%</td>
+                            </tr>
+                            <tr style="border-bottom: 2px solid #ccc;">
+                                <td style="padding: 10px 0;"><strong>Participation</strong></td>
+                                <td style="padding: 10px 0; text-align: right;">50 pts</td>
+                                <td style="padding: 10px 0; text-align: right; color: #666;">5%</td>
+                            </tr>
+                            <tr style="font-size: 1.05em; color: #b7a57a;">
+                                <td style="padding: 15px 0 5px 0;">TOTAL</td>
+                                <td style="padding: 15px 0 5px 0; text-align: right;">1000 pts</td>
+                                <td style="padding: 15px 0 5px 0; text-align: right;">100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 4px; margin-bottom: 20px; border: 1px solid #ffeeba;"><strong>⚠️ Late Policy:</strong> Late submissions are not accepted (0 points) unless accompanied by a pre-approved OSSA emergency. Balanced by dropping your lowest 2 of 9 regular assignments automatically.</div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Academic Honesty &amp; Generative AI Policy</h2>
+        <p>Kansas State University has an Honor System based on personal integrity, which is presumed to be sufficient assurance that work is performed honestly.</p>
+        <div style="background-color: #e8f5e9; padding: 20px; border-radius: 8px; border: 1px solid #c8e6c9;">
+            <h4 style="margin-top: 0; color: #1b5e20;">🤖 Generative AI Kit Policy</h4>
+            <p>You are encouraged to use the course Generative AI Kit (and LLMs) as an epistemic co-pilot for architectural brainstorming and debugging, subject to strict rules:</p>
+            <ul style="margin-bottom: 0;">
+                <li>Mandatory <code>GenAI.pdf</code> Verification Log (5% of Every Assignment).</li>
+                <li>Prohibition on unverified boilerplate and fabricated citations.</li>
+                <li>Human gold-standard attestation for manual labeling components.</li>
+            </ul>
+        </div>
+        <p style="margin-top: 15px;"><a class="external" style="color: #d64309;" href="http://www.k-state.edu/honor" target="_blank" rel="noopener"><span>K-State Honor System Website</span><span class="external_link_icon" style="display: inline-block; text-indent: initial;" role="presentation"> <span class="screenreader-only">Links to an external site.</span></span></a></p>
+    </div>
+</div>
