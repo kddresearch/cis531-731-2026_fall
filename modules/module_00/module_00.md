@@ -2,7 +2,7 @@
 
 | Phase | Module | Lecture(s) | Date(s) |
 | :--- | :--- | :--- | :--- |
-| **Phase 1:** Foundations & Tooling | **Module 00:** Welcome & Course Overview | **Lecture 00** | Mon 24 Aug 2026 |
+| **[Phase 1](../phases/phase_01/):** Foundations & Tooling | **Module 00:** Welcome & Course Overview | **Lecture 00** | Mon 24 Aug 2026 |
 
 ---
 
