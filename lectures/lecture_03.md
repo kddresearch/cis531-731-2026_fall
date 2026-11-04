@@ -2,7 +2,7 @@
 
 | Phase | Module | Lecture | Date |
 | :--- | :--- | :--- | :--- |
-| **Phase 1:** Foundations & Tooling | **Module 01:** PySpark Intro: RDDs & DataFrames | **Lecture 03:** RDD Transformations & Actions Lab | Monday, August 31, 2026 |
+| **[Phase 1](../phases/phase_01/):** Foundations & Tooling | **[Module 01](../modules/module_01/):** PySpark Intro: RDDs & DataFrames | **Lecture 03:** RDD Transformations & Actions Lab | Mon 31 Aug 2026 |
 
 ---
 
