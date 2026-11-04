@@ -1,0 +1,116 @@
+<!--
+  Template: Universal Lecture Page (Golden Template - Canvas-Compatible)
+  Architecture: Parameterized per-phase color scheme and module tint/shade mapping
+  Color & Tint Mapping (Phase 1, Module 1):
+    - Primary Color (#0056b3): Headers, borders, active accents
+    - Tint Background (#e8f1fb): Module cards and container highlights
+    - Button Shade (#004080): Interactive elements and action buttons
+-->
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+
+  <div style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+    <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/lectures">Lecture Index</a> &raquo;
+    <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/phase-1">Phase 1: Foundations &amp; Tooling</a> &raquo;
+    <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/module-01">Module 01</a> &raquo;
+    <span style="color: #0056b3; font-weight: bold;">Lecture 04</span>
+  </div>
+
+  <div style="background: linear-gradient(135deg, #0056b3 0%, #3a2366 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px; border-bottom: 5px solid #b7a57a;">
+    <span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">WEEK 2 &bull; Wed 02 Sep 2026</span>
+    <h1 style="margin: 15px 0 5px 0; font-size: 28px;">Lecture 04: Lab 1 – PySpark 4 Bring-up &amp; The "Obtain" Stage</h1>
+    <p style="margin: 0; font-size: 18px; color: #e6e2ef;">Initializing SparkSessions, StructType Schemas, and Environment Bring-Up</p>
+  </div>
+
+  <div style="margin-bottom: 40px;">
+    <h2 style="border-bottom: 2px solid #0056b3; padding-bottom: 10px; color: #0056b3;">Session Overview</h2>
+    <p>Welcome to Lab 1. Today, we bridge theoretical distributed computing concepts into practical execution by bringing up our PySpark 4 environments and executing the initial <strong>Obtain</strong> stage of the OSEMN pipeline.</p>
+    <p>Students will verify their containerized toolchains using <code>verify_env.py</code>, enforce strict schemas via <code>StructType</code>, handle malformed records, and lock in their team project tracks and multidimensional matrix allocations. Refer to the <a style="color: #0056b3; text-decoration: none; font-weight: bold;" href="https://k-state.instructure.com/courses/201513/pages/environment-runbook">Environment Runbook</a> for full setup specifications.</p>
+  </div>
+
+  <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+
+    <div style="flex: 1 1 300px; min-width: 0; background-color: #e8f1fb; border: 1px solid #0056b3; border-radius: 8px; padding: 20px;">
+      <h3 style="margin-top: 0; color: #0056b3; border-bottom: 1px solid #bbdefb; padding-bottom: 10px; font-size: 18px;">🐳 Environment Verification &amp; Manifest</h3>
+      <p style="font-size: 0.95em; color: #444;">Ensuring strict version compatibility and determinism across host platforms.</p>
+      <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+        <li style="margin-bottom: 10px;"><strong>Pinned Runtime:</strong> Python 3.10 slim, PySpark 3.5.1, Torch 2.2.1, FAISS-CPU 1.8.0.</li>
+        <li style="margin-bottom: 10px;">
+          <strong>SHA-256 Verification:</strong>
+          <div style="display: block; margin-top: 6px; padding: 8px 10px; background-color: #f4f6f8; border: 1px solid #d1d9e0; border-radius: 4px; color: #2d3b45; font-family: monospace; font-size: 0.85em; line-height: 1.5;">6f0648c69f69b1faeb96cfecaa7e2a90<br>4ed9210c8c07e0b5dd13d2f9df25ff75</div>
+        </li>
+        <li><strong>Execution Script:</strong> Running <code>verify_env.py</code> inside the DevContainer. Consult the <a style="color: #0056b3; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/environment-runbook">Environment Runbook page</a> for step-by-step guidance.</li>
+      </ul>
+    </div>
+
+    <div style="flex: 1 1 300px; min-width: 0; background-color: #e8f1fb; border: 1px solid #0056b3; border-radius: 8px; padding: 20px;">
+      <h3 style="margin-top: 0; color: #0056b3; border-bottom: 1px solid #bbdefb; padding-bottom: 10px; font-size: 18px;">📊 Schema Enforcement &amp; Ingestion</h3>
+      <p style="font-size: 0.95em; color: #444;">Applying fail-fast mechanics during the OSEMN Obtain phase.</p>
+      <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+        <li><strong>StructType Schemas:</strong> Explicitly defining data types to prevent silent failures.</li>
+        <li><strong>Malformed Handling:</strong> Managing corrupt records via permissive vs. fail-fast modes.</li>
+        <li><strong>Track Workflows:</strong> Supporting both VDB batch text and ASR streaming ingestion.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; border-radius: 4px; margin-bottom: 40px;">
+    <h3 style="margin-top: 0; color: #856404; font-size: 18px;">⚠️ Cross-Platform Environment Notice</h3>
+    <p style="margin-bottom: 0; color: #444;">Windows 11 users must verify their WSL 2 integration and Docker Desktop settings. MacOS (Intel/Apple Silicon) and Linux users should follow the parallel container socket and volume mount configuration guides detailed in the <a style="color: #856404; text-decoration: none; font-weight: bold;" href="https://k-state.instructure.com/courses/201513/pages/environment-runbook">Environment Runbook</a> to ensure proper root permissions and architecture compatibility.</p>
+  </div>
+
+  <div style="margin-bottom: 40px;">
+    <h2 style="border-bottom: 2px solid #0056b3; padding-bottom: 10px; color: #0056b3;">Lecture Materials</h2>
+
+    <div style="max-width: 100%; overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; margin-top: 15px; border: 1px solid #e0e0e0;">
+        <thead style="background-color: #0056b3; color: white;">
+          <tr>
+            <th style="padding: 12px; text-align: left; width: 30%;">Resource</th>
+            <th style="padding: 12px; text-align: left;">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #e0e0e0;"><a style="color: #0056b3; text-decoration: none; font-weight: bold;" href="../slides/lecture-04.pdf">📄 Lecture Slides 04</a></td>
+            <td style="padding: 12px; border: 1px solid #e0e0e0;">PDF format. Lab 1 Briefing, Multidimensional Matrix Selection, and Spark Obtain Stage.</td>
+          </tr>
+          <tr style="background-color: #fafafa;">
+            <td style="padding: 12px; border: 1px solid #e0e0e0;"><a style="color: #0056b3; text-decoration: none; font-weight: bold;" href="../lectures/lecture-04.html">🎥 Class Recording</a></td>
+            <td style="padding: 12px; border: 1px solid #e0e0e0;">Video capture of the live lab bring-up session (Posted within 24 hours). Refer to the <a style="color: #0056b3; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/lectures">Lecture Index</a> for full archives.</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border: 1px solid #e0e0e0;"><a style="color: #0056b3; text-decoration: none; font-weight: bold;" href="https://third-bit.com/py-rse/" target="_blank" rel="noopener noreferrer">📖 Reading: Research Software Engineering</a></td>
+            <td style="padding: 12px; border: 1px solid #e0e0e0;">Irving et al., <em>Research Software Engineering with Python</em>. Read <strong>Chapters 1–2</strong> (<a style="color: #0056b3; text-decoration: none;" href="https://third-bit.com/py-rse/" target="_blank" rel="noopener noreferrer">Environments &amp; Reproducibility</a>). Additional texts are listed on the <a style="color: #0056b3; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/course-references">Course References</a> page.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="background-color: #eef2f5; padding: 25px; border-radius: 8px; border: 1px solid #d1d9e0; margin-bottom: 40px;">
+    <h3 style="margin-top: 0; color: #2d3b45; font-size: 18px;">Next Steps &amp; Associated Assignments</h3>
+    <ol style="margin: 0; padding-left: 24px; color: #666; font-size: 0.95em;">
+      <li style="margin-bottom: 8px;"><strong>Complete <a href="https://k-state.instructure.com/courses/201513/assignments/2597889" style="color: #0056b3; text-decoration: none; font-weight: bold;">HW 1: DevContainer Bring-up &amp; Matrix Selection</a>.</strong></li>
+      <li style="margin-bottom: 8px;"><strong>Prepare manifest verification for <a href="https://k-state.instructure.com/courses/201513/assignments/2600010" style="color: #0056b3; text-decoration: none; font-weight: bold;">MP 2: Manifest Verification</a></strong> using <code>lab01.ipynb</code> and <code>verify_env.py</code>.</li>
+      <li>Next Lecture: Lecture 05 (Module 2 – Tools: Cloud, HPC &amp; Hosted Services).</li>
+    </ol>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <a style="display: block; width: auto; background-color: #f8f9fa; border: 1px solid #ccc; color: #444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em;" href="https://k-state.instructure.com/courses/201513/pages/lectures">🏠 Return to Course Home</a>
+
+    <div style="display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
+      <a style="flex: 1 1 140px; min-width: 140px; text-decoration: none; color: #0056b3; border: 2px solid #0056b3; border-radius: 40px 10px 10px 40px; padding: 10px 15px; text-align: center; font-size: 1.1em; display: flex; align-items: center; justify-content: center; font-weight: bold;" href="lecture-03.html">⬅️ Prev</a>
+
+      <div style="display: flex; gap: 10px; flex: 2 1 250px; min-width: 250px; justify-content: center;">
+        <a style="flex: 1; min-width: 0; background-color: #e8f1fb; color: #0056b3; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; border: 1px solid #0056b3; padding: 10px; font-weight: bold;" title="Up to Module" href="https://k-state.instructure.com/courses/201513/pages/module-01"><span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Module</a>
+
+        <a style="flex: 1; min-width: 0; background-color: #f8f9fa; color: #444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; border: 1px solid #ddd; padding: 10px;" title="Up to Phase" href="https://k-state.instructure.com/courses/201513/pages/phase-1"><span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Phase</a>
+      </div>
+
+      <a style="flex: 1 1 140px; min-width: 140px; text-decoration: none; color: white; background-color: #004080; border: 2px solid #0056b3; border-radius: 10px 40px 40px 10px; padding: 10px 15px; text-align: center; font-size: 1.1em; display: flex; align-items: center; justify-content: center; font-weight: bold;" href="lecture-05.html">Next ➡️</a>
+    </div>
+  </div>
+
+</div>
