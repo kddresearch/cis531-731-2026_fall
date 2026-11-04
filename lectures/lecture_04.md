@@ -2,7 +2,7 @@
 
 | Phase | Module | Lecture | Date |
 | :--- | :--- | :--- | :--- |
-| **Phase 1:** Foundations & Tooling | **Module 01:** PySpark Intro & Experiment Design | **Lecture 04:** Lab 1 – PySpark 4 Bring-up & The "Obtain" Stage | Wednesday, September 02, 2026 |
+**[Phase 1](../phases/phase_01/):** Foundations & Tooling | **[Module 01](../modules/module_01/):** PySpark Intro: RDDs & DataFrames | **Lecture 04:** Lab 1 – PySpark 4 Bring-up & The "Obtain" Stage | Wed 02 Sep 2026 |
 
 ---
 
