@@ -2,11 +2,11 @@
 
 | Phase | Module | Lecture(s) | Date(s) |
 | :--- | :--- | :--- | :--- |
-| **[Phase 1](../phases/phase_01/):** Foundations & Tooling | **Module 02** Cloud Tools, DevContainers & AI/LLM Tooling | **Lectures 05-07** | Fri 04 Sep - Fri 11 Sep 2026 |
+| **[Phase 1](../phases/phase_01/):** Foundations & Tooling | **Module 02:** Cloud Tools, DevContainers & AI/LLM Tooling | **Lectures 05-07** | Fri 04 Sep - Fri 11 Sep 2026 |
 
 ---
 
-## Lecture 05: Data Scrubbing & Early Exploration (Fri 04 Sep 2026)
+## [Lecture 05: Data Scrubbing & Early Exploration](../lectures/lecture_05.md) (Fri 04 Sep 2026)
 
 1. **The Scrub Phase & Raw Data Realities:** Managing raw, hostile data containing nulls, malformed strings, and artifacts following Miner & Shook Chapter 5.
 2. **PySpark DataFrame Immutability & Transformations:** Applying transformational pipelines via `withColumn`, handling nulls (`drop`/`fill`), and string normalization (`lower`, `regexp_replace`).
@@ -16,7 +16,7 @@
 
 ---
 
-## Lecture 06: DevContainers & Docker (Wed 09 Sep 2026)
+## [Lecture 06: DevContainers & Docker](../lectures/lecture_06.md) (Wed 09 Sep 2026)
 
 1. **The "It Works On My Machine" Dilemma:** Overcoming dependency hell and system drift across localized development environments.
 2. **Virtual Machines vs. Containers:** Comparing heavyweight hypervisors (VMware/VirtualBox) with OS-level virtualization sharing the host kernel (Docker).
@@ -26,7 +26,7 @@
 
 ---
 
-## Lecture 07: AI/LLM Tooling Overview (Fri 11 Sep 2026)
+## [Lecture 07: AI/LLM Tooling Overview](../lectures/lecture_07.md) (Fri 11 Sep 2026)
 
 1. **Proprietary APIs vs. Open-Weight Models:** Weighing state-of-the-art closed models (OpenAI, Anthropic) against local data sovereignty with open-weight models (Llama 3).
 2. **Abstraction Layers of AI Tooling:** Navigating hardware layers (CUDA), inference engines, orchestration frameworks, and application UIs.
