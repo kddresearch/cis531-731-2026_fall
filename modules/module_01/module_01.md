@@ -25,7 +25,7 @@
 
 ---
 
-## [Lecture 03: RDD Transformations & Actions Lab / PySpark 4 Architecture](../../lectures/lecture_02.md) (Mon 31 Aug)
+## [Lecture 03: RDD Transformations & Actions Lab / PySpark 4 Architecture](../../lectures/lecture_03.md) (Mon 31 Aug)
 
 1. **PySpark 4 & Distributed Architecture:** Moving from single-node pandas bottlenecks to horizontal cluster scaling with driver/executor topology and Spark Connect.
 2. **Lazy Evaluation & DAGs:** Understanding transformations, actions, and Directed Acyclic Graph optimization before execution.
