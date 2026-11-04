@@ -1,0 +1,129 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/lectures" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lectures" data-api-returntype="Page">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/phase-1" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-1" data-api-returntype="Page">Phase 1: Foundations &amp; Tooling</a> &raquo; <span style="color: #0056b3;">Module 01</span></div>
+        <div><a style="text-decoration: none; color: #0056b3;" href="https://k-state.instructure.com/courses/201513/pages/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/modules" data-api-returntype="Page">📦 All Modules</a></div>
+    </div>
+    <div style="background: linear-gradient(135deg, #0056b3 0%, #003f7f 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px; border-bottom: 5px solid #b7a57a;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">WEEKS 1&ndash;2 &bull; Wed 26 Aug &ndash; Wed 02 Sep 2026</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">Module 01: PySpark Intro &amp; Experiment Design</h1>
+        <p style="margin: 0; font-size: 18px; color: #e6e2ef;">RDDs, DataFrames, PySpark 4 Architecture, and the OSEMN Pipeline Framework</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+        <div style="flex: 1; min-width: 300px; border-radius: 8px; padding: 20px; background-color: #f8f9fa; border-left: 4px solid #0056b3;">
+            <h2 style="padding-bottom: 10px; margin-top: 0; color: #0056b3;">Module Overview</h2>
+            <p style="color: #333;">Module 01 introduces foundational distributed computing concepts using PySpark 4. Students transition from local single-node pandas scripts to horizontal cluster computing using Driver and Executor topologies. You will learn the mechanics of lazy evaluation, Directed Acyclic Graphs (DAGs), DataFrame schema enforcement via <code>StructType</code>, and the 5-stage OSEMN pipeline framework (Obtain, Scrub, Explore, Model, Interpret). Additionally, students will formally lock in their Term Project tracks (ASR Live Stream vs. VDB Text Corpora) and complete their Multidimensional Matrix task allocations.</p>
+        </div>
+        <div style="flex: 1 1 0%; min-width: 300px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+            <h3 style="margin-top: 0; color: #0056b3; font-size: 1.1em; border-bottom: 1px solid #ddd; padding-bottom: 8px;">🎯 Learning Objectives</h3>
+            <ul style="padding-left: 20px; margin-bottom: 0; color: #444; font-size: 0.95em;">
+                <li>Master PySpark RDDs, DataFrames, Catalyst Query Optimization, and lazy evaluation via DAGs.</li>
+                <li>Enforce strict <code>StructType</code> schemas to establish fail-fast mechanics and handle corrupt records.</li>
+                <li>Formulate term project pipelines by selecting an immutable data track (ASR/VDB) and allocating matrix task ownership.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="padding-bottom: 10px; color: #0056b3; border-bottom: 2px solid #0056b3;">📅 Weekly Schedule &amp; Lectures</h2>
+        <div style="overflow-x: auto; border-radius: 8px; border: 1px solid #e0e0e0;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead style="background-color: #0056b3; color: white;">
+                    <tr>
+                        <th style="padding: 12px; text-align: left; width: 22%;">Date / Lecture</th>
+                        <th style="padding: 12px; text-align: left; width: 43%;">Topic</th>
+                        <th style="padding: 12px; text-align: left; width: 23%;">Readings</th>
+                        <th style="padding: 12px; text-align: center; width: 12%;">Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee; background-color: #ffffff;">
+                        <td style="padding: 12px;"><strong>Lecture 01</strong><br /><span style="font-size: 0.9em; color: #666;">Wed 26 Aug 2026</span></td>
+                        <td style="padding: 12px;">PySpark Basics &amp; Resilient Distributed Datasets (RDDs)</td>
+                        <td style="padding: 12px; font-size: 0.9em;"><em><a style="color: #0056b3; text-decoration: none;" href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank" rel="noopener">VanderPlas (PDSH)</a></em></td>
+                        <td style="padding: 12px; text-align: center;"><a style="color: #0056b3; text-decoration: none;" href="#lecture_01">Jump &darr;</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee; background-color: #fafafa;">
+                        <td style="padding: 12px;"><strong>Lecture 02</strong><br /><span style="font-size: 0.9em; color: #666;">Fri 28 Aug 2026</span></td>
+                        <td style="padding: 12px;">PySpark DataFrames, Catalyst Optimizer &amp; Experiment Design</td>
+                        <td style="padding: 12px; font-size: 0.9em;"><em><a style="color: #0056b3; text-decoration: none;" href="https://third-bit.com/py-rse/" target="_blank" rel="noopener">Irving et al. (Chs. 1&ndash;2)</a></em></td>
+                        <td style="padding: 12px; text-align: center;"><a style="color: #0056b3; text-decoration: none;" href="#lecture_02">Jump &darr;</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee; background-color: #ffffff;">
+                        <td style="padding: 12px;"><strong>Lecture 03</strong><br /><span style="font-size: 0.9em; color: #666;">Mon 31 Aug 2026</span></td>
+                        <td style="padding: 12px;">RDD Transformations &amp; Actions Lab / PySpark 4 &amp; OSEMN Pipeline</td>
+                        <td style="padding: 12px; font-size: 0.9em;"><em><a style="color: #0056b3; text-decoration: none;" href="https://wesmckinney.com/book/pandas-basics" target="_blank" rel="noopener">McKinney Ch. 5</a> / VanderPlas</em></td>
+                        <td style="padding: 12px; text-align: center;"><a style="color: #0056b3; text-decoration: none;" href="#lecture_03">Jump &darr;</a></td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 12px;"><strong>Lecture 04</strong><br /><span style="font-size: 0.9em; color: #666;">Wed 02 Sep 2026</span></td>
+                        <td style="padding: 12px;">Lab 1 &ndash; PySpark 4 Bring-up &amp; The "Obtain" Stage</td>
+                        <td style="padding: 12px; font-size: 0.9em;"><em><a style="color: #0056b3; text-decoration: none;" href="https://third-bit.com/py-rse/" target="_blank" rel="noopener">Irving et al. (RSE)</a></em></td>
+                        <td style="padding: 12px; text-align: center;"><a style="color: #0056b3; text-decoration: none;" href="#lecture_04">Jump &darr;</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div id="lecture_01" style="margin-bottom: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #0056b3; font-size: 1.25em;">Lecture 01: PySpark Basics &amp; RDDs</h3>
+            <div style="display: flex; gap: 10px;"><a style="font-size: 0.9em; background-color: #f2f2f2; color: #333333; padding: 6px 12px; border-radius: 4px; text-decoration: none; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513/files?search=lecture-01.pdf" target="_blank" rel="noopener">📄 Slides</a> <a style="font-size: 0.9em; background-color: #0056b3; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/lecture-01" target="_blank" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lecture-01" data-api-returntype="Page" rel="noopener">▶ Full Page</a></div>
+        </div>
+        <div style="background-color: #ffffff; border-radius: 8px; padding: 20px; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #0056b3;">
+            <p style="margin-top: 0; font-size: 0.95em; color: #666;"><strong>Date:</strong> Wednesday, August 26, 2026</p>
+            <p>Introduction to distributed computing fundamentals, cluster architecture (Driver vs. Executors), and core PySpark abstractions.</p>
+            <ul style="margin-bottom: 0; padding-left: 20px;">
+                <li><strong>Resilient Distributed Datasets:</strong> Immutability, lineage graphs, lazy evaluation, and fault-tolerance.</li>
+                <li><strong>Transformations vs. Actions:</strong> Narrow vs. wide transformations (`map`, `filter` vs. `reduceByKey`) and action invocation.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="lecture_02" style="margin-bottom: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #0056b3; font-size: 1.25em;">Lecture 02: DataFrames &amp; Experiment Design</h3>
+            <div style="display: flex; gap: 10px;"><a style="font-size: 0.9em; background-color: #f2f2f2; color: #333333; padding: 6px 12px; border-radius: 4px; text-decoration: none; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513/files?search=lecture-02.pdf" target="_blank" rel="noopener">📄 Slides</a> <a style="font-size: 0.9em; background-color: #0056b3; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/lecture-02" target="_blank" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lecture-02" data-api-returntype="Page" rel="noopener">▶ Full Page</a></div>
+        </div>
+        <div style="background-color: #ffffff; border-radius: 8px; padding: 20px; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #0056b3;">
+            <p style="margin-top: 0; font-size: 0.95em; color: #666;"><strong>Date:</strong> Friday, August 28, 2026</p>
+            <p>Transitioning from RDDs to high-level DataFrames, leveraging the Catalyst Optimizer, and setting up reproducible software experiments.</p>
+            <ul style="margin-bottom: 0; padding-left: 20px;">
+                <li><strong>Catalyst Optimizer &amp; Tungsten Engine:</strong> Logical planning, off-heap memory management, and code generation.</li>
+                <li><strong>Reproducibility Standards:</strong> Structuring research projects, environment control, and deterministic code repositories.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="lecture_03" style="margin-bottom: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #0056b3; font-size: 1.25em;">Lecture 03: PySpark 4 &amp; The OSEMN Pipeline</h3>
+            <div style="display: flex; gap: 10px;"><a style="font-size: 0.9em; background-color: #f2f2f2; color: #333333; padding: 6px 12px; border-radius: 4px; text-decoration: none; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513/files?search=lecture-03.pdf" target="_blank" rel="noopener">📄 Slides</a> <a style="font-size: 0.9em; background-color: #0056b3; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/lecture-03" target="_blank" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lecture-03" data-api-returntype="Page" rel="noopener">▶ Full Page</a></div>
+        </div>
+        <div style="background-color: #ffffff; border-radius: 8px; padding: 20px; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #0056b3;">
+            <p style="margin-top: 0; font-size: 0.95em; color: #666;"><strong>Date:</strong> Monday, August 31, 2026</p>
+            <p>Moving from local scripts to distributed architecture with PySpark 4, profiling data baselines, and introducing the 5-stage OSEMN pipeline.</p>
+            <ul style="margin-bottom: 0; padding-left: 20px;">
+                <li><strong>Decoupled Architecture &amp; DAGs:</strong> Utilizing Spark Connect and monitoring transformations via execution graphs.</li>
+                <li><strong>Term Project Track Selection:</strong> Mandatory commitment to Track 1 (ASR Streaming Ingest) or Track 2 (VDB Text Corpora).</li>
+            </ul>
+        </div>
+    </div>
+    <div id="lecture_04" style="margin-bottom: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h3 style="margin: 0; color: #0056b3; font-size: 1.25em;">Lecture 04: Lab 1 &ndash; PySpark 4 Bring-up &amp; Obtain Stage</h3>
+            <div style="display: flex; gap: 10px;"><a style="font-size: 0.9em; background-color: #f2f2f2; color: #333333; padding: 6px 12px; border-radius: 4px; text-decoration: none; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513/files?search=lecture-04.pdf" target="_blank" rel="noopener">📄 Slides</a> <a style="font-size: 0.9em; background-color: #0056b3; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/lecture-04" target="_blank" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lecture-04" data-api-returntype="Page" rel="noopener">▶ Full Page</a></div>
+        </div>
+        <div style="background-color: #ffffff; border-radius: 8px; padding: 20px; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #0056b3;">
+            <p style="margin-top: 0; font-size: 0.95em; color: #666;"><strong>Date:</strong> Wednesday, September 02, 2026</p>
+            <p>Hands-on lab bringing up PySpark 4 sessions, testing schema enforcement via <code>StructType</code>, and finalizing project matrix task allocations.</p>
+            <ul style="margin-bottom: 0; padding-left: 20px;">
+                <li><strong>Schema Enforcement &amp; Ingestion:</strong> Implementing fail-fast mechanics and managing malformed records via Dead Letter Queues.</li>
+                <li><strong>Environment &amp; Matrix Gates:</strong> Verifying DevContainer environments via <code>verify_env.py</code> and locking project matrix task ownership.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="background-color: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; border-radius: 4px; margin-bottom: 40px;">
+        <h3 style="margin-top: 0; color: #856404; font-size: 1.1em;">📝 Homework Assigned in This Module</h3>
+        <p style="margin-bottom: 0; color: #444;"><strong>HW 1 (DevContainer Bring-up &amp; Matrix Selection):</strong> Establish PySpark 4 environment, verify Spark Web UI on port 4040, and submit team roster with locked Track/Matrix task allocations. <a style="color: #856404; text-decoration: underline;" href="https://k-state.instructure.com/courses/201513/assignments/2597889" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments/2597889" data-api-returntype="Assignment">View Homework 1 Assignment &rarr;</a></p>
+    </div>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513/pages/lectures" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lectures" data-api-returntype="Page"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Previous Module" href="https://k-state.instructure.com/courses/201513/pages/module-00" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-00" data-api-returntype="Page"> ⬅️ Module 00 </a> <a style="flex: 1; max-width: 250px; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; background-color: #0056b3; color: white;" title="Up to Phase" href="https://k-state.instructure.com/courses/201513/pages/phase-1" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-1" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Phase 1 </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Next Module" href="https://k-state.instructure.com/courses/201513/pages/module-02" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-02" data-api-returntype="Page"> Module 02 ➡️ </a></div>
+    </div>
+</div>
