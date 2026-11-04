@@ -1,35 +1,35 @@
-# CIS 536/736: Computer Graphics and Animation
+# CIS 531/731: Programming Techniques for Data Science and Analytics
 
 | Phase | Module | Lecture(s) | Date(s) |
 | :--- | :--- | :--- | :--- |
-| **Phase 4:** Cloud Rendering & Visualization | **Module 09:** Cloud Render Farms — AWS Deadline Cloud | **Lectures 28-30** | Mon 02 Nov - Fri 06 Nov 2026 |
+| **[Phase 5](../../phases/phase_05/):** Evaluate & Deploy | **Module 09:** Evaluating Models: Inferential Statistics & ASR Evaluation | **Lectures 28-30** | Mon 02 Nov - Fri 06 Nov 2026 |
 
 ---
 
-## Lecture 28: Cloud Rendering Concepts: Distributed Rendering, Cost/Scale Tradeoffs (Mon 02 Nov)
+## [Lecture 28: Evaluating Models: Inferential Statistics & Bootstrap CIs](../../lectures/lecture_28.md) (Mon 02 Nov 2026)
 
-1. **Distributed Rendering Architectures:** Transitioning from monolithic local workstation rendering to distributed, elastic cloud environments (AWS Deadline Cloud).
-2. **Fleets and Queues:** Understanding the decoupling of job queues from compute fleets, and configuring worker node allocation strategies.
-3. **Cost/Scale Tradeoffs:** Evaluating how instance types (e.g., Spot vs. On-Demand), core counts, memory footprints, and frame sampling affect compute-hour billing.
-4. **Scene Complexity Reduction:** Identifying scene optimization strategies—such as Level of Detail (LOD) swaps and reduced sampling—to stay under strict credit allocations.
-5. **Open Job Description (OpenJD):** Deconstructing the YAML-based standard for defining compute environments, parameters, and render tasks across agnostic workers.
-
----
-
-## Lecture 29: AWS Deadline Cloud Walkthrough (Wed 04 Nov)
-
-1. **Environment & Identity Configuration:** Establishing IAM roles, permissions, and AWS Educate/Academy credentials for Deadline Cloud access.
-2. **Infrastructure Initialization (Instructor Demo):** Walking through the AWS Console to provision a functional queue and attach a cost-controlled fleet.
-3. **Job Bundle Architecture:** Authoring the `template.yaml` (step definitions) and `parameter_values.yaml` (variables) required for a complete OpenJD job bundle.
-4. **CLI Submission Workflows:** Using the AWS Deadline Cloud CLI (`deadline bundle submit`) to dispatch cross-pillar OpenUSD or Blender scenes to the farm.
-5. **Worker Telemetry and Logging:** Diagnosing render failures by inspecting AWS CloudWatch logs, container startup overhead, and task chunking latency.
+1. **Prediction vs. Inference:** Understanding the fundamental difference between building a model to maximize accuracy versus building a model to isolate and quantify causal relationships.
+2. **The Danger of Point Estimates:** Recognizing why reporting a single performance metric (e.g., Macro-F1 or WER) without a confidence interval masks underlying sampling variance and is mathematically invalid.
+3. **Resampling Methods & The Non-Parametric Bootstrap:** Estimating true parameter variability without collecting new data by simulating the population via sampling with replacement from the original dataset.
+4. **Constructing Bootstrap Confidence Intervals:** Utilizing the percentile method to extract 95% confidence bounds from sorted bootstrap estimates, providing a robust range of plausible true performance.
+5. **Bootstrap Limitations & Ground Truth Preparation:** Identifying when resampling fails (extreme sparsity, dependent data) and establishing the requirement for human-annotated ground truth for baseline evaluation.
 
 ---
 
-## Lecture 30: Lab 5b - Capped AWS Educate/Academy Credit Render Task (Fri 06 Nov)
+## [Lecture 29: ASR Evaluation Methodology & Gold-Standard Design](../../lectures/lecture_29.md) (Wed 04 Nov 2026)
 
-1. **Budget Estimation (Pre-Flight):** Calculating a strict mathematical compute-hour and USD cost estimate before deploying a workload to prevent quota exhaustion.
-2. **OpenUSD Cross-Pillar Audit:** Auditing local OpenUSD stages to ensure all texture and payload references use portable, relative paths before cloud upload.
-3. **Cost-Aware Job Execution:** Dispatching a constrained render job (e.g., 1080p, 128 SPP) that remains safely within the 80% threshold of the capped credit allocation.
-4. **Local vs. Cloud Render Parity:** Validating that the cloud-rendered output frames match expected local lighting and materials (MSE/PSNR checks).
-5. **Cost Discrepancy Analysis:** Executing a formal post-mortem to compare the estimated compute budget against the actual telemetry and overhead billed by AWS.
+1. **ASR Evaluation Foundations:** Understanding the mathematics of Automatic Speech Recognition assessment and the strict requirement for definitive, time-aligned reference transcripts.
+2. **The Word Error Rate (WER):** Calculating insertions, deletions, and substitutions to quantify the precise edit distance between hypothesis and reference transcripts.
+3. **NIST OpenASR Methodology:** Analyzing the National Institute of Standards and Technology (NIST) 2020 Challenge Evaluation Plan to deploy rigorous, standardized speech evaluation protocols.
+4. **Transcript Normalization:** Standardizing capitalization, punctuation, and disfluencies to prevent artificial inflation of error rates during hypothesis-reference string alignment.
+5. **Gold-Standard Design Principles:** Architecting unbiased, representative evaluation sets that capture true pipeline performance variation rather than overfitting to specific speakers or acoustic domains.
+
+---
+
+## [Lecture 30: Gold-Standard Construction Lab; Wrap-Up](../../lectures/lecture_30.md) (Fri 06 Nov 2026)
+
+1. **Human-Annotated Ground Truth (INV-17):** Enforcing the course mandate that all gold-standard evaluation labels must be generated by students rather than automated LLM approximations.
+2. **Annotation Capping & Budgeting:** Applying strict limits ($\le 50$ objects or 2 hours) to individual annotation workloads to prevent burnout while ensuring statistical validity for downstream term-project evaluations.
+3. **Precision-Recall Mechanics:** Utilizing `scikit-learn` methodologies to formally evaluate pipeline classification outputs against the newly constructed gold-standard baseline.
+4. **Deploying Inferential Baselines:** Applying bootstrapped confidence intervals and established statistical baselines to measure the true causal impact of implemented Open IE components.
+5. **Module 09 Wrap-Up:** Consolidating statistical inference, ASR evaluation, and gold-standard construction principles in preparation for final model deployment and PS 8 submission.
