@@ -2,7 +2,7 @@
 
 | Phase | Module | Lecture(s) | Date(s) |
 | :--- | :--- | :--- | :--- |
-| **Phase 1:** Foundations & Tooling | **Module 01:** PySpark Intro: RDDs, DataFrames; Projects, Experiment Design | **Lectures 01-04** | Wed 26 Aug - Wed 02 Sep 2026 |
+| **Phase 1:** Foundations & Tooling | **Module 01:** PySpark Intro: RDDs & DataFrames; Projects, Experiment Design | **Lectures 01-04** | Wed 26 Aug - Wed 02 Sep 2026 |
 
 ---
 
@@ -26,20 +26,20 @@
 
 ---
 
-## Lecture 03: Data Science Project Lifecycle & Experimentation (Mon 31 Aug)
+## Lecture 03: RDD Transformations & Actions Lab / PySpark 4 Architecture (Mon 31 Aug)
 
-1. **Data Science Lifecycles:** Mapping business objectives to iterative data acquisition, scrubbing, modeling, and deployment phases.
-2. **Experimental Design Principles:** Formulating testable hypotheses, defining baseline metrics, and establishing validation strategies.
-3. **Reproducibility & Environment Control:** Managing random seeds, dataset versioning, and environment dependencies across distributed runs.
-4. **Metric Selection:** Aligning evaluation metrics (RMSE, MAE, Precision, Recall, F1, ROC-AUC) with analytical goals.
-5. **A/B Testing & Controlled Evaluation:** Structuring split testing frameworks and statistical significance evaluation in analytical pipelines.
+1. **PySpark 4 & Distributed Architecture:** Moving from single-node pandas bottlenecks to horizontal cluster scaling with driver/executor topology and Spark Connect.
+2. **Lazy Evaluation & DAGs:** Understanding transformations, actions, and Directed Acyclic Graph optimization before execution.
+3. **Data Exploration & Profiling:** Initial data inspection, schema validation (`printSchema`), and statistical summarization (`describe`) following Miner & Shook Chapter 5.
+4. **The OSEMN Pipeline:** Establishing the 5-stage methodological framework (Obtain, Scrub, Explore, Model, Interpret) governing course projects.
+5. **Term Project Track Selection:** Committing immutably to parallel operational architectures: Track 1 (ASR Live Stream Ingest) vs. Track 2 (VDB Text Corpora).
 
 ---
 
-## Lecture 04: Advanced PySpark DataFrames & Project Scoping (Wed 02 Sep)
+## Lecture 04: Lab 1 – PySpark 4 Bring-up & The "Obtain" Stage (Wed 02 Sep)
 
-1. **User-Defined Functions (UDFs):** Implementing scalar and vector (Pandas UDFs via PyArrow) custom transformation functions.
-2. **Complex Data Types:** Handling nested structures, arrays (`explode`), and map columns in PySpark DataFrames.
-3. **Window Functions:** Computing rolling aggregations, lead/lag operations, and analytical rankings over partitioned windows.
-4. **Data Ingestion & Serialization:** Reading/writing optimized columnar formats (Parquet, ORC) and JSON/CSV streams.
-5. **Term Project Scoping & Problem Formulation:** Structuring project proposals, defining data intake requirements, and establishing milestone deliverables.
+1. **Environment Bring-Up & Verification:** Instantiating `SparkSession`, monitoring execution via the Spark Web UI (port 4040), and verifying environment manifests.
+2. **Multidimensional Matrix Scoping:** Mapping project data tracks across analytical categories (Recommendation/Retrieval, Descriptive, Predictive/Generative) and distinct team member task allocations.
+3. **Schema Enforcement & Fail-Fast Mechanics:** Using explicit PySpark `StructType` definitions to reject malformed records at the ingestion gate.
+4. **Malformed Record Handling:** Managing corrupt records across permissive, drop-malformed, and fail-fast modes, alongside Dead Letter Queue design.
+5. **Streaming vs. Batch Ingestion:** Setting up Structured Streaming (`readStream`) for ASR audio chunk buffers versus batch JSON reads for VDB corpora.
