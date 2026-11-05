@@ -22,7 +22,7 @@
 1. **The Vector Space Model:** Representing concepts as high-dimensional arrays, where semantic proximity is measured mathematically (e.g., Cosine Similarity, Dot Product).
 2. **Transformer-Based Embeddings:** Utilizing models like Sentence Transformers to generate dense vectors that capture sentence-level semantic meaning.
 3. **Vector Database (VDB) Fundamentals:** Understanding the distinction between traditional relational databases (SQL exact matching) and Vector Databases optimized for semantic similarity search.
-4. **VDB Schema Design:** Structuring the collection payload to store the original transcript chunk, timestamp, and speaker ID alongside the vector to ensure context is retained during retrieval.[span_13](start_span)[span_13](end_span)
+4. **VDB Schema Design:** Structuring the collection payload to store the original transcript chunk, timestamp, and speaker ID alongside the vector to ensure context is retained during retrieval.
 5. **Reading Callout:** Review the Sentence Transformers "Semantic Search" documentation to understand the programmatic implementation of bi-encoders.
 * **Assigned Reading:** [Sentence Transformers Documentation: *“Semantic Search”*](https://sbert.net/examples/sentence_transformer/applications/semantic-search/README.html)
 
@@ -35,4 +35,4 @@
 3. **Batch Vectorization:** Generating and processing embeddings for the chunked ASR dataset in memory.
 4. **Database Ingestion:** Defining the VDB schema and inserting the generated vectors along with their required metadata payloads.
 5. **HW4 Wrap-Up:** Final questions and debrief for HW4 (Data Analytics Pipelines), due the previous day, before transitioning to GenAI classification in Module 6.
-    * **Assigned Reading:** [Meta AI *FAISS* Index Factory Docs](https://github.com/facebookresearch/faiss); [Milvus *Quickstart* (CIS 731 Schema & Index Guide)](https://milvus.io/docs/quickstart.md)
+* **Assigned Reading:** [Meta AI *FAISS* Index Factory Docs](https://github.com/facebookresearch/faiss); [Milvus *Quickstart* (CIS 731 Schema & Index Guide)](https://milvus.io/docs/quickstart.md)
