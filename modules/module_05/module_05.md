@@ -1,13 +1,8 @@
-<!--
-  Template Note: This file serves as the canonical instantiation for module_05.md.
-  Module readings are partitioned from Phase 3 assigned readings across Lectures 14-16.
--->
-
 # CIS 531/731: Programming Techniques for Data Science and Analytics
 
 | Phase | Module | Lecture(s) | Date(s) | Assigned Reading(s) |
 | :--- | :--- | :--- | :--- | :--- |
-| **[Phase 3](../../phases/phase_03/):** Scrub & Embed | **Module 05:** Scrub: Chunking, Embedding Generation & VDB Schema Design | **Lectures 14-16** | Mon 28 Sep - Fri 02 Oct 2026 | [Jurafsky & Martin, *SLP3* Ch. 11](https://web.stanford.edu/~jurafsky/slp3/11.pdf); [Sentence Transformers](https://sbert.net/examples/sentence_transformer/applications/semantic-search/README.html); [FAISS / Milvus](https://github.com/facebookresearch/faiss) |
+| **[Phase 3](../../phases/phase_03/):** Scrub & Embed | **Module 05:** Scrub: Chunking, Embedding Generation & VDB Schema Design | **Lectures 14-16** | Mon 28 Sep - Fri 02 Oct 2026 | [Jurafsky & Martin, *SLP3* Ch. 11](https://web.stanford.edu/~jurafsky/slp3/11.pdf)[span_0](start_span)[span_0](end_span); [Sentence Transformers](https://sbert.net/examples/sentence_transformer/applications/semantic-search/README.html)[span_1](start_span)[span_1](end_span); [FAISS / Milvus](https://github.com/facebookresearch/faiss)[span_2](start_span)[span_2](end_span) |
 
 ---
 
@@ -18,7 +13,7 @@
 3. **The Boundary Problem:** Analyzing how fixed-size chunking can sever sentences or concepts, and mitigating context loss using recursive character chunking with stride (overlap).
 4. **Embedding Generation Introduction:** The mathematical intuition behind transforming chunked text into dense vector representations.
 5. **Reading Callout:** Review *Speech and Language Processing, Ch. 11* (Jurafsky & Martin) for foundational NLP processing concepts.
-* **Assigned Reading:** [Jurafsky & Martin, *Speech and Language Processing* (3rd ed. draft, Aug 19, 2026), Ch. 11: *“Information Retrieval and Retrieval-Augmented Generation”* (PDF)](https://web.stanford.edu/~jurafsky/slp3/11.pdf)[span_0](start_span)[span_0](end_span)
+* **Assigned Reading:** [Jurafsky & Martin, *Speech and Language Processing* (3rd ed. draft, Aug 19, 2026), Ch. 11: *“Information Retrieval and Retrieval-Augmented Generation”* (PDF)](https://web.stanford.edu/~jurafsky/slp3/11.pdf)[span_3](start_span)[span_3](end_span)
 
 ---
 
@@ -29,7 +24,7 @@
 3. **Vector Database (VDB) Fundamentals:** Understanding the distinction between traditional relational databases (SQL exact matching) and Vector Databases optimized for semantic similarity search.
 4. **VDB Schema Design:** Structuring the collection payload to store the original transcript chunk, timestamp, and speaker ID alongside the vector to ensure context is retained during retrieval.
 5. **Reading Callout:** Review the Sentence Transformers "Semantic Search" documentation to understand the programmatic implementation of bi-encoders.
-* **Assigned Reading:** [Sentence Transformers Documentation: *“Semantic Search”*](https://sbert.net/examples/sentence_transformer/applications/semantic-search/README.html)[span_1](start_span)[span_1](end_span)
+* **Assigned Reading:** [Sentence Transformers Documentation: *“Semantic Search”*](https://sbert.net/examples/sentence_transformer/applications/semantic-search/README.html)[span_4](start_span)[span_4](end_span)
 
 ---
 
@@ -40,4 +35,4 @@
 3. **Batch Vectorization:** Generating and processing embeddings for the chunked ASR dataset in memory.
 4. **Database Ingestion:** Defining the VDB schema and inserting the generated vectors along with their required metadata payloads.
 5. **HW4 Wrap-Up:** Final questions and debrief for HW4 (Data Analytics Pipelines), due the previous day, before transitioning to GenAI classification in Module 6.
-* **Assigned Reading:** [Meta AI *FAISS* Index Factory Docs](https://github.com/facebookresearch/faiss); [Milvus *Quickstart* (CIS 731 Schema & Index Guide)](https://milvus.io/docs/quickstart.md)[span_2](start_span)[span_2](end_span)
+* **Assigned Reading:** [Meta AI *FAISS* Index Factory Docs](https://github.com/facebookresearch/faiss)[span_5](start_span)[span_5](end_span); [Milvus *Quickstart* (CIS 731 Schema & Index Guide)](https://milvus.io/docs/quickstart.md)[span_6](start_span)[span_6](end_span)
