@@ -8,7 +8,7 @@
 
 ## [Lecture 14: Scrub — Chunking & Embedding Generation](../../lectures/lecture_14.md) (Mon 28 Sep 2026)
 
-1. **The "Scrub" Phase:** Transitioning from raw data ingestion to structured, machine-readable representations within the data science pipeline.[span_4](start_span)
+1. **The "Scrub" Phase:** Transitioning from raw data ingestion to structured, machine-readable representations within the data science pipeline.
 2. **Text Chunking:** Strategies for dividing long-form ASR (Automatic Speech Recognition) transcripts into semantically coherent segments suitable for downstream processing.
 3. **The Boundary Problem:** Analyzing how fixed-size chunking can sever sentences or concepts, and mitigating context loss using recursive character chunking with stride (overlap).
 4. **Embedding Generation Introduction:** The mathematical intuition behind transforming chunked text into dense vector representations.
@@ -35,4 +35,4 @@
 3. **Batch Vectorization:** Generating and processing embeddings for the chunked ASR dataset in memory.
 4. **Database Ingestion:** Defining the VDB schema and inserting the generated vectors along with their required metadata payloads.
 5. **HW4 Wrap-Up:** Final questions and debrief for HW4 (Data Analytics Pipelines), due the previous day, before transitioning to GenAI classification in Module 6.
-* **Assigned Reading:** [Meta AI *FAISS* Index Factory Docs](https://github.com/facebookresearch/faiss)[span_21](start_span)[span_21](end_span); [Milvus *Quickstart* (CIS 731 Schema & Index Guide)](https://milvus.io/docs/quickstart.md)
+    * **Assigned Reading:** [Meta AI *FAISS* Index Factory Docs](https://github.com/facebookresearch/faiss); [Milvus *Quickstart* (CIS 731 Schema & Index Guide)](https://milvus.io/docs/quickstart.md)
