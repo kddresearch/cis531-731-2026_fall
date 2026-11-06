@@ -2,7 +2,7 @@
 
 | Phase | Module | Lecture(s) | Date(s) | Assigned Reading(s) |
 | :--- | :--- | :--- | :--- | :--- |
-| **[Phase 3](../../phases/phase_03/):** Scrub & Embed | **Module 05:** Scrub: Chunking, Embedding Generation & VDB Schema Design | **Lectures 14-16** | Mon 28 Sep - Fri 02 Oct 2026 | [Jurafsky & Martin, *SLP3* Ch. 11](https://web.stanford.edu/~jurafsky/slp3/11.pdf)[span_1](start_span)[span_1](end_span); [Sentence Transformers](https://sbert.net/examples/sentence_transformer/applications/semantic-search/README.html)[span_2](start_span)[span_2](end_span); [FAISS / Milvus](https://github.com/facebookresearch/faiss)[span_3](start_span)[span_3](end_span) |
+| **[Phase 3](../../phases/phase_03/):** Scrub & Embed | **Module 05:** Scrub: Chunking, Embedding Generation & VDB Schema Design | **Lectures 14-16** | Mon 28 Sep - Fri 02 Oct 2026 | [Jurafsky & Martin, *SLP3* Ch. 11](https://web.stanford.edu/~jurafsky/slp3/11.pdf); [Sentence Transformers](https://sbert.net/examples/sentence_transformer/applications/semantic-search/README.html); [FAISS / Milvus](https://github.com/facebookresearch/faiss) |
 
 ---
 
