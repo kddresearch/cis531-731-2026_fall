@@ -56,9 +56,9 @@ This module spans 3 lectures (Lectures 05–07; Fri 04 Sep - Fri 11 Sep 2026) an
 
 ## 🗂️ Module Structure & Artifacts
 
-| Subdirectory / File | Topic / Description | Lectures | Date Range | Assigned Reading |
+| Subdirectory / File | Topic / Description | Lectures | Date Range | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
 | :--- | :--- | :--- | :--- | :--- |
-| `module_02.md` | **[Module 02 Canonical Specification](./module_02.md):** Cloud tools, DevContainers, Docker, and AI/LLM tooling baselines. | Lectures 05–07 | Fri 04 Sep - Fri 11 Sep 2026 | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
+| `module_02.md` | **[Module 02 Canonical Specification](./module_02.md):** Cloud tools, DevContainers, Docker, and AI/LLM tooling baselines. | Lectures 05–07 | Fri 04 Sep - Fri 11 Sep 2026 | _You can link to an anchor in module_02.md but don't link to the global list because it's just a big table_ |
 | `README.md` | This module overview and index. | — | — | — |
 
 ---
