@@ -1,8 +1,8 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.0"
-document_last_updated_date: "2026-10-26"
+document_version: "1.1"
+document_last_updated_date: "2026-11-05"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 ---
@@ -42,9 +42,9 @@ routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 
 ## 📖 Overview
 
-This directory defines **Phase 2** of the course progression. Phases act as high-level chronological and thematic wrappers that group multiple weekly modules together based on major pedagogical milestones (e.g., the OSEMN framework transitions). 
+This directory defines **Phase 2** of the course progression. For the complete canonical specification, detailed lecture objectives, and unified assigned readings partition, see [Phase 2 Specification (`phase_02.md`)](./phase_02.md).
 
-This phase specifically focuses on `ASR stream capture, VDB corpus acquisition, and Structured Streaming ingest architecture`.
+Phases act as high-level chronological and thematic wrappers that group multiple weekly modules together based on major pedagogical milestones (e.g., OSEMN framework transitions). This phase specifically focuses on ASR stream capture, VDB corpus acquisition, and Structured Streaming ingest architecture.
 
 > **⚠️ Phase Routing Notice**
 > This directory acts primarily as an organizational wrapper. Ensure that granular lecture assets, code snippets, and weekly materials are placed within their respective `module_XX/` subdirectories, rather than loosely at the root of the phase directory.
@@ -53,11 +53,10 @@ This phase specifically focuses on `ASR stream capture, VDB corpus acquisition, 
 
 ## 🗂️ Phase Structure (Included Modules)
 
-| Module Directory | Topic / Description |
-| :--- | :--- |
-| [`module_03/`](../../modules/module_03/) | **Obtain:** ASR stream capture, VDB corpus acquisition, and OpenAI Whisper local transcription architecture (Mon 14 Sep - Fri 18 Sep 2026; Lectures 8–10). |
-| [`module_04/`](../../modules/module_04/) | **Data Analytics Pipelines:** Structured Streaming, data lake models, and ASR ingest architecture (Mon 21 Sep - Fri 25 Sep 2026; Lectures 11–13). |
-| `README.md` | This phase overview and index. |
+| Module Directory | Topic / Description | Lectures | Date Range | Assigned Reading |
+| :--- | :--- | :--- | :--- | :--- |
+| [`module_03/`](../../modules/module_03/) | **[Module 03: Obtain: ASR Stream Capture & VDB Corpus Acquisition](../../modules/module_03/module_03.md):** ASR stream capture, VDB corpus acquisition, and OpenAI Whisper local transcription architecture. | Lectures 8–10 | Mon 14 Sep - Fri 18 Sep 2026 | Jurafsky & Martin, *SLP3* Ch. 16; OpenAI Whisper; FAISS & Whisper-Streaming |
+| [`module_04/`](../../modules/module_04/) | **[Module 04: Data Analytics Pipelines](../../modules/module_04/module_04.md):** Structured Streaming, data lake models, and ASR ingest architecture. | Lectures 11–13 | Mon 21 Sep - Fri 25 Sep 2026 | Akidau et al., *The Dataflow Model*; Apache Spark Structured Streaming Guide |
 
 <hr>
 
