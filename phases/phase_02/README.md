@@ -2,9 +2,15 @@
 ---
 yaml_schema_version: "2.2"
 document_version: "2.0"
-document_last_updated_date: "2026-11:05"
+document_last_updated_date: "2026-11-05"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
+phase_metadata:
+  phase_number: 2
+  phase_identifier: "obtain_and_ingest"
+  color_scheme: "Green"
+  hex_code: "#1b5e20"
+  badge_pill: "🟢"
 ---
 -->
 
@@ -17,7 +23,7 @@ routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 
 ---
 
-## 📂 Phase 2: Obtain & Ingest
+## 🟢 Phase 2: Obtain & Ingest
 
 **Status:** ACTIVE | **Maintainer:** Course Maintainers / KDD Lab
 
@@ -38,8 +44,8 @@ Phases act as high-level chronological and thematic wrappers that group multiple
 
 | Module Directory | Topic / Description | Lectures | Date Range | Assigned Reading |
 | :--- | :--- | :--- | :--- | :--- |
-| [`module_03/`](../../modules/module_03/) | **[Module 03: Obtain: ASR Stream Capture & VDB Corpus Acquisition](../../modules/module_03/module_03.md):** ASR stream capture, VDB corpus acquisition, and OpenAI Whisper local transcription architecture. | Lectures 8–10 | Mon 14 Sep - Fri 18 Sep 2026 | Jurafsky & Martin, *SLP3* Ch. 16; OpenAI Whisper; FAISS & Whisper-Streaming |
-| [`module_04/`](../../modules/module_04/) | **[Module 04: Data Analytics Pipelines](../../modules/module_04/module_04.md):** Structured Streaming, data lake models, and ASR ingest architecture. | Lectures 11–13 | Mon 21 Sep - Fri 25 Sep 2026 | Akidau et al., *The Dataflow Model*; Apache Spark Structured Streaming Guide |
+| [`module_03/`](../../modules/module_03/) | **[Module 03: Obtain: ASR Stream Capture & VDB Corpus Acquisition](../../modules/module_03/module_03.md):** ASR stream capture, VDB corpus acquisition, and OpenAI Whisper local transcription architecture. | Lectures 8–10 | Mon 14 Sep - Fri 18 Sep 2026[cite: 3] | Jurafsky & Martin, *SLP3* Ch. 16[cite: 3]; OpenAI Whisper[cite: 3]; FAISS & Whisper-Streaming[cite: 3] |
+| [`module_04/`](../../modules/module_04/) | **[Module 04: Data Analytics Pipelines](../../modules/module_04/module_04.md):** Structured Streaming, data lake models, and ASR ingest architecture. | Lectures 11–13 | Mon 21 Sep - Fri 25 Sep 2026[cite: 1] | Akidau et al., *The Dataflow Model*[cite: 1]; Apache Spark Structured Streaming Guide[cite: 1] |
 
 ---
 
