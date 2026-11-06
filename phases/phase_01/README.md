@@ -1,8 +1,8 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.0"
-document_last_updated_date: "2026-10-26"
+document_version: "1.1"
+document_last_updated_date: "2026-11:05"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 ---
@@ -44,7 +44,7 @@ routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 
 This directory defines **Phase 1** of the course progression. Phases act as high-level chronological and thematic wrappers that group multiple weekly modules together based on major pedagogical milestones (e.g., the OSEMN framework transitions). 
 
-This phase specifically focuses on `course orientation, PySpark fundamentals, and the cloud, DevContainer, and AI-tooling baseline`.
+This phase specifically focuses on `course orientation, PySpark fundamentals (RDDs & DataFrames), experiment design, containerization (Docker/DevContainers), and the AI/LLM tooling baseline`.
 
 > **⚠️ Phase Routing Notice**
 > This directory acts primarily as an organizational wrapper. Ensure that granular lecture assets, code snippets, and weekly materials are placed within their respective `module_XX/` subdirectories, rather than loosely at the root of the phase directory.
@@ -55,8 +55,8 @@ This phase specifically focuses on `course orientation, PySpark fundamentals, an
 
 | Module Directory | Topic / Description |
 | :--- | :--- |
-| [`module_00/`](../../modules/module_00/) | **Welcome & Course Overview:** Course orientation, FAIR guiding principles, and Jupyter notebook setup (Mon 24 Aug 2026; Lecture 0). |
-| [`module_01/`](../../modules/module_01/) | **PySpark Intro:** RDDs, DataFrames, transformations, actions, and project experiment design (Wed 26 Aug - Wed 02 Sep 2026; Lectures 1–4). |
+| [`module_00/`](../../modules/module_00/) | **Welcome & Course Overview:** Course orientation, FAIR guiding principles, reproducible workflows, and Jupyter notebook setup (Mon 24 Aug 2026; Lecture 0). |
+| [`module_01/`](../../modules/module_01/) | **PySpark Intro:** RDDs, DataFrames, transformations, actions, experiment design, and RSE practices (Wed 26 Aug - Wed 02 Sep 2026; Lectures 1–4). |
 | [`module_02/`](../../modules/module_02/) | **Tools:** Cloud & hosted services, DevContainers, Docker, and AI/LLM tooling baseline *(Note: Labor Day Break Mon 07 Sep)* (Fri 04 Sep - Fri 11 Sep 2026; Lectures 5–7). |
 | `README.md` | This phase overview and index. |
 
