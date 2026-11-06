@@ -1,10 +1,16 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.1"
-document_last_updated_date: "2026-10-26"
+document_version: "2.0"
+document_last_updated_date: "2026-11-05"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
+phase_metadata:
+  phase_number: 1
+  phase_identifier: "foundations_and_tooling"
+  color_scheme: "Blue"
+  hex_code: "#0056b3"
+  badge_pill: "🔵"
 ---
 -->
 
@@ -17,7 +23,7 @@ routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 
 ---
 
-## 📂 Phase 1: Foundations & Tooling
+## 🔵 Phase 1: Foundations & Tooling
 
 **Status:** ACTIVE | **Maintainer:** Course Maintainers / KDD Lab
 
