@@ -31,7 +31,7 @@ phase_metadata:
 
 ## 📖 Overview
 
-This directory defines **Phase 3** of the course progression. For the complete canonical specification, detailed lecture objectives, and the unified chronological reading schedule, see [Phase 3 Specification (`phase_03.md`)](./phase_03.md) and [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md).
+This directory defines **Phase 3** of the course progression. For the complete canonical specification, detailed lecture objectives, and the unified chronological reading schedule, see [Phase 3 Specification (`phase_03.md`)](./phase_03.md).
 
 Phases act as high-level chronological and thematic wrappers that group multiple weekly modules together based on major pedagogical milestones (e.g., OSEMN framework transitions). This phase specifically focuses on data scrubbing, chunking, dense vector embeddings, VDB schema design, and GenAI few-shot classification pipelines.
 
@@ -42,7 +42,7 @@ Phases act as high-level chronological and thematic wrappers that group multiple
 
 ## 🗂️ Phase Structure (Included Modules)
 
-| Module Directory | Topic / Description | Lectures | Date Range | Assigned Reading |
+| Module Directory | Topic / Description | Lectures | Date Range | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
 | :--- | :--- | :--- | :--- | :--- |
 | [`module_05/`](../../modules/module_05/) | **[Module 05: Scrub: Chunking, Embedding Generation & VDB Schema Design](../../modules/module_05/module_05.md):** Recursive character chunking, boundary problem mitigation, vector space models, Sentence Transformers, and FAISS/Milvus vector database schema design. | Lectures 14–16 | Mon 28 Sep - Fri 02 Oct 2026 | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
 | [`module_06/`](../../modules/module_06/) | **[Module 06: GenAI & LLMs: Candidates, Code, Classification](../../modules/module_06/module_06.md):** Neural language modeling, transformer architecture, prompt engineering, few-shot trope/genre classification, and Hugging Face pipeline integration *(Note: Wildcat Pause Day Fri 09 Oct)*. | Lectures 17–21 | Mon 05 Oct - Fri 16 Oct 2026 | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
