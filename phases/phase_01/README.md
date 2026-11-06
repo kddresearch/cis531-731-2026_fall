@@ -31,13 +31,11 @@ routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 
 <hr>
 
-<div align="center">
- <h2>📂 Phase 1: Foundations & Tooling</h2>
- <p>
- <strong>Status:</strong> ACTIVE | <strong>Maintainer:</strong> Course Maintainers / KDD Lab
- </p>
+<div style="background-color: #0056b3; padding: 25px; border-radius: 8px; color: white; margin-bottom: 25px; border-bottom: 5px solid #b7a57a; text-align: center;">
+ <span style="background-color: rgba(255,255,255,0.2); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.85em;">Mon 24 Aug - Fri 11 Sep 2026</span>
+ <h2 style="margin: 10px 0 5px 0; color: white; font-size: 24px;">📂 Phase 1: Foundations & Tooling</h2>
+ <p style="margin: 0; font-size: 15px; color: #e6e2ef;">Course Orientation, PySpark Fundamentals, Containerization & AI Tooling</p>
 </div>
-
 <hr>
 
 ## 📖 Overview
