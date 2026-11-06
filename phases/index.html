@@ -1,63 +1,78 @@
-<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1000px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
-        <div><a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513">CIS 531 / 731 Home</a> &raquo; <span style="color: #4b2e83;">Phases Index</span></div>
-        <div style="display: flex; gap: 15px;"><a style="text-decoration: none; color: #4b2e83;" href="https://k-state.instructure.com/courses/201513/pages/lectures" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/lectures" data-api-returntype="Page">📚 View Master Lectures Schedule</a> <a style="text-decoration: none; color: #d64309;" href="https://k-state.instructure.com/courses/201513/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/modules" data-api-returntype="[Module]">📦 View Native Canvas Modules</a></div>
+        <div><a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/phases" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phases" data-api-returntype="Page">Phases Index</a> &raquo; <span>Phase 1: Foundations &amp; Tooling</span></div>
+        <div><a style="text-decoration: none;" href="https://k-state.instructure.com/courses/201513/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/modules" data-api-returntype="[Module]">📦 All Modules</a></div>
     </div>
-    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 40px; border-radius: 8px; color: white; margin-bottom: 30px; text-align: center;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">FALL 2026 &bull; COURSE PROGRESSION</span>
-        <h1 style="margin: 15px 0 5px 0; font-size: 32px; text-align: center;">Course Phases Index</h1>
-        <p style="margin: 10px 0 0 0; font-size: 18px;">CIS 531/731 - Programming Techniques for Data Science and Analytics</p>
-        <p style="margin: 5px 0 0 0; font-size: 15px;">OSEMN-Aligned Progression (Phases 1&ndash;5)</p>
+    <div style="background-color: #0056b3; padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px; border-bottom: 5px solid #b7a57a;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">Mon 24 Aug - Fri 11 Sep 2026</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px; color: white;">Phase 1: Foundations &amp; Tooling</h1>
+        <p style="margin: 0; font-size: 18px; color: #e6e2ef;">Course Orientation, PySpark Fundamentals, Containerization &amp; AI Tooling Baselines</p>
     </div>
-    <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
-        <h3 style="margin-top: 0; color: #4b2e83;">About Course Phases</h3>
-        <p style="margin-bottom: 0; font-size: 0.95em;">The course progression is structured into five thematic, chronological phases covering <strong>Modules 00&ndash;13</strong> and <strong>43 lectures (Lecture 0&ndash;42)</strong> from Mon 24 Aug 2026 through Fri 11 Dec 2026. These wrappers group weekly modules around major methodological milestones. Class-free intervals include Labor Day (Mon 07 Sep), Wildcat Pause Day (Fri 09 Oct), and Fall Break (Mon 23 Nov &ndash; Fri 27 Nov).</p>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+        <div style="flex: 1 1 0%; min-width: 300px; border-radius: 8px; padding: 20px; background-color: #f8f9fa; border: 1px solid #e0e0e0;">
+            <h2 style="padding-bottom: 10px; margin-top: 0; color: #0056b3; border-bottom: 1px solid #ddd;">Phase Overview</h2>
+            <p style="color: #333;">Establishing rigorous foundations in reproducible data science, distributed computing via Apache Spark, software engineering hygiene, and containerized tooling environments under the OSEMN framework.</p>
+            <p style="color: #333;"><strong>Key Themes:</strong> FAIR Guiding Principles, RDDs &amp; DataFrames, Catalyst Optimizer, Docker &amp; DevContainers, AI/LLM Tooling Baselines.</p>
+            <p style="color: #333;"><strong>Assigned Readings:</strong> <a href="https://www.nature.com/articles/sdata201618">Wilkinson et al. (FAIR)</a>, <a href="https://valdanchev.github.io/reproducible-data-science-python/intro.html">Danchev (Reproducible DS)</a>, <a href="https://jakevdp.github.io/PythonDataScienceHandbook/">VanderPlas (Python DS)</a>, <a href="https://third-bit.com/py-rse/">Irving et al. (RSE Python)</a>, <a href="https://rse-book.github.io/">Brett et al. (RSE)</a>, <a href="https://docs.docker.com/get-started/">Docker Docs</a>, <a href="https://docs.litellm.ai/docs/proxy/virtual_keys">LiteLLM Proxy</a>, <a href="https://milvus.io/docs/quickstart.md">Milvus Quickstart</a></p>
+        </div>
+        <div style="flex: 1 1 0%; min-width: 300px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+            <h3 style="margin-top: 0; color: #0056b3; font-size: 1.1em; border-bottom: 1px solid #ddd; padding-bottom: 8px;">🎓 Phase Outcomes</h3>
+            <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">By the end of this phase, you will be able to:</p>
+            <ul style="padding-left: 20px; margin-bottom: 0; color: #444; font-size: 0.95em;">
+                <li>Initialize and manage distributed Spark sessions and execute RDD transformations and actions.</li>
+                <li>Enforce explicit DataFrame schemas and leverage the Catalyst optimizer for relational querying.</li>
+                <li>Design reproducible development environments using Docker containers and DevContainers.</li>
+                <li>Configure local AI/LLM tooling baselines, vector database connectors, and proxy gateways.</li>
+            </ul>
+        </div>
     </div>
-    <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; margin-top: 10px; background-color: #ffffff; border: 1px solid #e0e0e0;">
-            <thead style="background-color: #f8f9fa; color: #4b2e83;">
-                <tr>
-                    <th style="padding: 12px; text-align: left; width: 25%;">Phase</th>
-                    <th style="padding: 12px; text-align: left; width: 60%;">Pedagogical Objective &amp; Scope</th>
-                    <th style="padding: 12px; text-align: center; width: 15%;">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="border-bottom: 2px solid #0056b3; background-color: rgba(0, 86, 179, 0.08);">
-                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #0056b3;"><strong style="color: #0056b3; font-size: 1.1em;">Phase 1: Foundations &amp; Tooling</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">Mon 24 Aug &ndash; Fri 11 Sep 2026</span>
-                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #0056b3; padding-top: 8px; color: #0056b3;"><strong>📦 Modules:</strong> <a style="color: inherit; text-decoration: none;" href="../modules/module_00/">Module 00</a> &bull; <a style="color: inherit; text-decoration: none;" href="../modules/module_01/">Module 01</a> &bull; <a style="color: inherit; text-decoration: none;" href="../modules/module_02/">Module 02</a></div>
-                    </td>
-                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #0056b3;">Foundations &amp; Tooling</strong><br /><span style="color: #444; font-size: 0.95em;">Course orientation, PySpark fundamentals, and the cloud, DevContainer, and AI-tooling baseline. <em>(Includes Labor Day Mon 07 Sep)</em>.</span></td>
-                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #0056b3; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="https://k-state.instructure.com/courses/201513/pages/phase-1" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-1" data-api-returntype="Page">Open &rarr;</a></td>
-                </tr>
-                <tr style="border-bottom: 2px solid #1b5e20; background-color: rgba(27, 94, 32, 0.08);">
-                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #1b5e20;"><strong style="color: #1b5e20; font-size: 1.1em;">Phase 2: Obtain &amp; Ingest</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">Mon 14 Sep &ndash; Fri 25 Sep 2026</span>
-                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #1b5e20; padding-top: 8px; color: #1b5e20;"><strong>📦 Modules:</strong> <a style="color: inherit; text-decoration: none;" href="../modules/module_03/">Module 03</a> &bull; <a style="color: inherit; text-decoration: none;" href="../modules/module_04/">Module 04</a></div>
-                    </td>
-                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #1b5e20;">Obtain &amp; Ingest</strong><br /><span style="color: #444; font-size: 0.95em;">ASR stream capture, VDB corpus acquisition, and Structured Streaming ingest architecture with event-time windowing and watermarks.</span></td>
-                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #1b5e20; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="https://k-state.instructure.com/courses/201513/pages/phase-2" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-2" data-api-returntype="Page">Open &rarr;</a></td>
-                </tr>
-                <tr style="border-bottom: 2px solid #d64309; background-color: rgba(214, 67, 9, 0.08);">
-                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #d64309;"><strong style="color: #d64309; font-size: 1.1em;">Phase 3: Scrub &amp; Embed</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">Mon 28 Sep &ndash; Fri 16 Oct 2026</span>
-                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #d64309; padding-top: 8px; color: #d64309;"><strong>📦 Modules:</strong> <a style="color: inherit; text-decoration: none;" href="../modules/module_05/">Module 05</a> &bull; <a style="color: inherit; text-decoration: none;" href="../modules/module_06/">Module 06</a></div>
-                    </td>
-                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #d64309;">Scrub &amp; Embed</strong><br /><span style="color: #444; font-size: 0.95em;">Chunking cost models, embedding generation, VDB schema design, and few-shot trope/genre classification. <em>(Includes Wildcat Pause Day Fri 09 Oct)</em>.</span></td>
-                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #d64309; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="https://k-state.instructure.com/courses/201513/pages/phase-3" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-3" data-api-returntype="Page">Open &rarr;</a></td>
-                </tr>
-                <tr style="border-bottom: 2px solid #4b2e83; background-color: rgba(75, 46, 131, 0.08);">
-                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #4b2e83;"><strong style="color: #4b2e83; font-size: 1.1em;">Phase 4: Explore &amp; Model</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">Mon 19 Oct &ndash; Fri 30 Oct 2026</span>
-                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #4b2e83; padding-top: 8px; color: #4b2e83;"><strong>📦 Modules:</strong> <a style="color: inherit; text-decoration: none;" href="../modules/module_07/">Module 07</a> &bull; <a style="color: inherit; text-decoration: none;" href="../modules/module_08/">Module 08</a></div>
-                    </td>
-                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #4b2e83;">Explore &amp; Model</strong><br /><span style="color: #444; font-size: 0.95em;">Embedding-space visualization, generational drift dashboards, retrieval-augmented classification, and generational convolution.</span></td>
-                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #4b2e83; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="https://k-state.instructure.com/courses/201513/pages/phase-4" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-4" data-api-returntype="Page">Open &rarr;</a></td>
-                </tr>
-                <tr style="border-bottom: 2px solid #856404; background-color: rgba(133, 100, 4, 0.08);">
-                    <td style="padding: 15px; vertical-align: top; border-left: 5px solid #856404;"><strong style="color: #856404; font-size: 1.1em;">Phase 5: Evaluate &amp; Deploy</strong> <span style="font-size: 0.85em; color: #666; display: block; margin-top: 5px;">Mon 02 Nov &ndash; Fri 11 Dec 2026</span>
-                        <div style="margin-top: 12px; font-size: 0.9em; border-top: 1px dashed #856404; padding-top: 8px; color: #856404;"><strong>📦 Modules:</strong> <a style="color: inherit; text-decoration: none;" href="../modules/module_09/">Module 09</a> &bull; <a style="color: inherit; text-decoration: none;" href="../modules/module_10/">Module 10</a> &bull; <a style="color: inherit; text-decoration: none;" href="../modules/module_11/">Module 11</a> &bull; <a style="color: inherit; text-decoration: none;" href="../modules/module_12/">Module 12</a> &bull; <a style="color: inherit; text-decoration: none;" href="../modules/module_13/">Module 13</a></div>
-                    </td>
-                    <td style="padding: 15px; vertical-align: top;"><strong style="font-size: 1.1em; color: #856404;">Evaluate &amp; Deploy</strong><br /><span style="color: #444; font-size: 0.95em;">Gold-standard construction and metrics, model interpretation, data storytelling, MLOps wrap-up, and special topics. <em>(Includes Fall Break Mon 23 &ndash; Fri 27 Nov and Dead Week)</em>.</span></td>
-                    <td style="padding: 15px; text-align: center; vertical-align: middle;"><a style="background-color: #856404; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="https://k-state.instructure.com/courses/201513/pages/phase-5" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-5" data-api-returntype="Page">Open &rarr;</a></td>
-                </tr>
-            </tbody>
-        </table>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h2 style="padding-bottom: 10px;">📚 Modules in this Phase</h2>
+        <div style="overflow-x: auto; border-radius: 8px; border: 1px solid #e0e0e0;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead style="background-color: #f8f9fa;">
+                    <tr>
+                        <th style="padding: 12px; text-align: left; width: 20%;">Module</th>
+                        <th style="padding: 12px; text-align: left; width: 65%;">Topic &amp; Focus</th>
+                        <th style="padding: 12px; text-align: center; width: 15%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;"><strong>Module 00</strong><br /><span style="font-size: 0.9em; color: #666;">Mon 24 Aug 2026</span></td>
+                        <td style="padding: 12px;"><strong>Welcome &amp; Course Overview</strong><br /><span style="font-size: 0.9em; color: #555;">Course orientation, FAIR guiding principles, reproducible workflows, and Jupyter setup.</span></td>
+                        <td style="padding: 12px; text-align: center;"><a style="background-color: #0056b3; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="https://k-state.instructure.com/courses/201513/pages/module-00" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-00" data-api-returntype="Page">Open &rarr;</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;"><strong>Module 01</strong><br /><span style="font-size: 0.9em; color: #666;">Wed 26 Aug - Wed 02 Sep 2026</span></td>
+                        <td style="padding: 12px;"><strong>PySpark Intro: RDDs &amp; DataFrames</strong><br /><span style="font-size: 0.9em; color: #555;">Cluster architecture, RDD transformations/actions, DataFrames, Catalyst optimizer, and experiment design.</span></td>
+                        <td style="padding: 12px; text-align: center;"><a style="background-color: #0056b3; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="https://k-state.instructure.com/courses/201513/pages/module-01" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-01" data-api-returntype="Page">Open &rarr;</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px;"><strong>Module 02</strong><br /><span style="font-size: 0.9em; color: #666;">Fri 04 Sep - Fri 11 Sep 2026</span></td>
+                        <td style="padding: 12px;"><strong>Tools: Cloud, DevContainers &amp; AI</strong><br /><span style="font-size: 0.9em; color: #555;">Data scrubbing, Docker containers, DevContainers, and AI/LLM tooling (LiteLLM, Milvus, Whisper).</span></td>
+                        <td style="padding: 12px; text-align: center;"><a style="background-color: #0056b3; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.9em;" href="https://k-state.instructure.com/courses/201513/pages/module-02" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-02" data-api-returntype="Page">Open &rarr;</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="padding-bottom: 10px;">🚀 Major Deliverables</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 250px; background-color: #fff3cd; border-radius: 8px; padding: 15px; border: 1px solid #ffeeba;">
+                <h4 style="margin-top: 0; color: #856404; margin-bottom: 5px;">Homework 1 (HW 1)</h4>
+                <p style="font-size: 0.9em; color: #555; margin-bottom: 10px;">Initial Python/PySpark environment verification and baseline setup.</p>
+                <div style="font-size: 0.9em;">Due: Fri 11 Sep 2026</div>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 250px; background-color: #e3f2fd; border-radius: 8px; padding: 15px; border: 1px solid #bbdefb;">
+                <h4 style="margin-top: 0; color: #0d47a1; margin-bottom: 5px;">Machine Problem 2 (MP 2)</h4>
+                <p style="font-size: 0.9em; color: #555; margin-bottom: 10px;">Cloud/containerized environment bring-up and data ingestion pipeline stub.</p>
+                <div style="font-size: 0.9em;">Released: Fri 04 Sep 2026</div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #999999; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; cursor: not-allowed; border: 1px solid #dddddd;" title="First Phase (No Previous)" href="#"> ⛔ First Phase </a> <a style="flex: 1; max-width: 250px; background-color: #0056b3; color: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px;" title="Phases Index" href="https://k-state.instructure.com/courses/201513/pages/phases" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phases" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> All Phases </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Next Phase" href="https://k-state.instructure.com/courses/201513/pages/phase-2" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-2" data-api-returntype="Page"> Next Phase ➡️ </a></div>
     </div>
 </div>
