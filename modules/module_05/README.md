@@ -38,7 +38,7 @@ module_metadata:
 
 > [!WARNING]
 > **Phase 3 Color Palette: Orange Token (`#d64309`)**  
-> **Module Scope:** Data Scrubbing, Document Chunking, Embedding Generation, Semantic Search, and Vector Database Schema Design[cite: 14, 15].
+> **Module Scope:** Data Scrubbing, Document Chunking, Embedding Generation, Semantic Search, and Vector Database Schema Design.
 
 ---
 
@@ -46,10 +46,10 @@ module_metadata:
 
 This directory defines **Module 05**. For the complete canonical specification, detailed lecture objectives, and localized reading sections, see [Module 05 Specification (`module_05.md`)](./module_05.md#lecture-14-scrub--chunking--embedding-generation).
 
-This module spans 3 lectures (Lectures 14–16; Mon 28 Sep - Fri 02 Oct 2026)[cite: 14, 15] and establishes document chunking, dense vector embeddings, semantic search, and VDB indexing workflows.
+This module spans 3 lectures (Lectures 14–16; Mon 28 Sep - Fri 02 Oct 2026) and establishes document chunking, dense vector embeddings, semantic search, and VDB indexing workflows.
 
 > **⚠️ Module Routing Notice**  
-> Core lecture markdown files and major assignments live in the top-level `lectures/` and `assignments/` directories to maintain structural parity. Use this module directory exclusively for localized data snippets, lab code examples, module-specific images, or environment configs required for this week's content[cite: 15].
+> Core lecture markdown files and major assignments live in the top-level `lectures/` and `assignments/` directories to maintain structural parity. Use this module directory exclusively for localized data snippets, lab code examples, module-specific images, or environment configs required for this week's content.
 
 ---
 
@@ -57,20 +57,20 @@ This module spans 3 lectures (Lectures 14–16; Mon 28 Sep - Fri 02 Oct 2026)[ci
 
 | Subdirectory / File | Topic / Description | Lectures | Date Range | Assigned Reading |
 | :--- | :--- | :--- | :--- | :--- |
-| `module_05.md` | **[Module 05 Canonical Specification](./module_05.md#lecture-14-scrub--chunking--embedding-generation):** Text chunking, embedding generation, vector space models, and VDB schema design[cite: 14]. | Lectures 14–16[cite: 14, 15] | Mon 28 Sep - Fri 02 Oct 2026[cite: 14, 15] | [Module 05 Readings](./module_05.md#lecture-14-scrub--chunking--embedding-generation) |
-| `lab5.ipynb` | Lab 5: Chunking, embedding generation, and vector indexing lab notebook[cite: 15] | — | — | — |
-| `README.md` | This module overview and index[cite: 15]. | — | — | — |
+| `module_05.md` | **[Module 05 Canonical Specification](./module_05.md#lecture-14-scrub--chunking--embedding-generation):** Text chunking, embedding generation, vector space models, and VDB schema design. | Lectures 14–16 | Mon 28 Sep - Fri 02 Oct 2026 | [Module 05 Readings](./module_05.md#lecture-14-scrub--chunking--embedding-generation) |
+| `lab5.ipynb` | Lab 5: Chunking, embedding generation, and vector indexing lab notebook | — | — | — |
+| `README.md` | This module overview and index. | — | — | — |
 
 ---
 
 ## 🔗 Associated Course Materials
 
-* **Lectures:** [Lecture 14: Scrub — Chunking & Embedding Generation](../../lectures/lecture-14.md)[cite: 14, 15] | [Lecture 15: Semantic Search & VDB Schema Design](../../lectures/lecture-15.md)[cite: 14, 15] | [Lecture 16: Embedding Lab & VDB Indexing](../../lectures/lecture-16.md)[cite: 14, 15]
-* **Active Assignments:** [Lab 5 Notebook](../../assignments/homework/lab5.ipynb)[cite: 15] | [PS6 Semantic Search & VDB Schema](../../assignments/homework/ps6_semantic_search_vdb_schema.md) *(HW4 due prior day)*[cite: 15]
+* **Lectures:** [Lecture 14: Scrub — Chunking & Embedding Generation](../../lectures/lecture-14.md) | [Lecture 15: Semantic Search & VDB Schema Design](../../lectures/lecture-15.md) | [Lecture 16: Embedding Lab & VDB Indexing](../../lectures/lecture-16.md)
+* **Active Assignments:** [Lab 5 Notebook](../../assignments/homework/lab5.ipynb) | [PS6 Semantic Search & VDB Schema](../../assignments/homework/ps6_semantic_search_vdb_schema.md) *(HW4 due prior day)*
 * **Assigned Readings (Anchored in Module Spec):**
-  * [Lecture 14 Readings (Jurafsky & Martin, *SLP3* Ch. 11)](./module_05.md#lecture-14-scrub--chunking--embedding-generation)[cite: 14]
-  * [Lecture 15 Readings (Sentence Transformers Semantic Search)](./module_05.md#lecture-15-semantic-search--vdb-schema-design)[cite: 14]
-  * [Lecture 16 Readings (Meta AI FAISS & Milvus Quickstart)](./module_05.md#lecture-16-embedding-lab--vdb-indexing)[cite: 14]
+  * [Lecture 14 Readings (Jurafsky & Martin, *SLP3* Ch. 11)](./module_05.md#lecture-14-scrub--chunking--embedding-generation)
+  * [Lecture 15 Readings (Sentence Transformers Semantic Search)](./module_05.md#lecture-15-semantic-search--vdb-schema-design)
+  * [Lecture 16 Readings (Meta AI FAISS & Milvus Quickstart)](./module_05.md#lecture-16-embedding-lab--vdb-indexing)
 
 ---
 
@@ -84,4 +84,4 @@ All instructional staff interacting with this module directory must adhere to th
 
 ---
 
-*Maintained by the [Knowledge Discovery in Databases (KDD) Lab](https://github.com/kddresearch) at Kansas State University[cite: 15].*
+*Maintained by the [Knowledge Discovery in Databases (KDD) Lab](https://github.com/kddresearch) at Kansas State University.*
