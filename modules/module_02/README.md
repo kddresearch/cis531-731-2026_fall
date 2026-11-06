@@ -45,7 +45,7 @@ module_metadata:
 
 ## 📖 Overview
 
-This directory defines **Module 02**. For the complete canonical specification, detailed lecture objectives, and the unified chronological reading schedule, see [Module 02 Specification (`module_02.md`)](./module_02.md) and [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md).
+This directory defines **Module 02**. For the complete canonical specification, detailed lecture objectives, and localized reading sections, see [Module 02 Specification (`module_02.md`)](./module_02.md#lecture-05-data-scrubbing--early-exploration).
 
 This module spans 3 lectures (Lectures 05–07; Fri 04 Sep - Fri 11 Sep 2026) and establishes containerized reproducible environments and AI Gateway/Vector DB baselines.
 
@@ -56,9 +56,9 @@ This module spans 3 lectures (Lectures 05–07; Fri 04 Sep - Fri 11 Sep 2026) an
 
 ## 🗂️ Module Structure & Artifacts
 
-| Subdirectory / File | Topic / Description | Lectures | Date Range | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
+| Subdirectory / File | Topic / Description | Lectures | Date Range | Assigned Reading |
 | :--- | :--- | :--- | :--- | :--- |
-| `module_02.md` | **[Module 02 Canonical Specification](./module_02.md):** Cloud tools, DevContainers, Docker, and AI/LLM tooling baselines. | Lectures 05–07 | Fri 04 Sep - Fri 11 Sep 2026 | _You can link to an anchor in module_02.md but don't link to the global list because it's just a big table_ |
+| `module_02.md` | **[Module 02 Canonical Specification](./module_02.md#lecture-05-data-scrubbing--early-exploration):** Cloud tools, DevContainers, Docker, and AI/LLM tooling baselines. | Lectures 05–07 | Fri 04 Sep - Fri 11 Sep 2026 | [Module 02 Readings](./module_02.md#lecture-05-data-scrubbing--early-exploration) |
 | `README.md` | This module overview and index. | — | — | — |
 
 ---
@@ -67,13 +67,10 @@ This module spans 3 lectures (Lectures 05–07; Fri 04 Sep - Fri 11 Sep 2026) an
 
 * **Lectures:** [Lecture 05: Data Scrubbing & Early Exploration](../../lectures/lecture-05.md) | [Lecture 06: DevContainers & Docker](../../lectures/lecture-06.md) | [Lecture 07: AI/LLM Tooling Overview](../../lectures/lecture-07.md)
 * **Active Assignments:** HW 1 (Due Fri 11 Sep 2026) | MP 2 (Released Fri 04 Sep 2026)
-* **Assigned Readings (Inherited from Phase 1 & Detailed in Specification):**
-  * [Brett et al., *Research Software Engineering* (Chs. 1–2: Environments & Reproducibility)](https://rse-book.github.io/)
-  * [Docker Documentation: *Get Started*](https://docs.docker.com/get-started/)
-  * [Official `pytorch/pytorch` Docker Hub](https://hub.docker.com/r/pytorch/pytorch) & [NVIDIA Container Toolkit Install Guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-  * [LiteLLM Proxy: *Virtual Keys*](https://docs.litellm.ai/docs/proxy/virtual_keys) & [*Users/Teams Budgets*](https://docs.litellm.ai/docs/proxy/users)
-  * [Milvus *Quickstart*](https://milvus.io/docs/quickstart.md) & [OpenAI *Whisper* README](https://github.com/openai/whisper)
-  * *See full chronological schedule in [readings_by_lecture.md](../../reading_materials/readings_by_lecture.md).*
+* **Assigned Readings (Anchored in Module Spec):**
+  * [Lecture 05 Readings (Brett et al., *RSE*)](./module_02.md#lecture-05-data-scrubbing--early-exploration)
+  * [Lecture 06 Readings (Docker Docs & PyTorch Hub)](./module_02.md#lecture-06-devcontainers--docker)
+  * [Lecture 07 Readings (LiteLLM, Milvus & Whisper)](./module_02.md#lecture-07-ai-llm-tooling-overview)
 
 ---
 
