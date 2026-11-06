@@ -47,7 +47,7 @@ module_metadata:
 
 This directory defines **Module 02**. For the complete canonical specification, detailed lecture objectives, and the unified chronological reading schedule, see [Module 02 Specification (`module_02.md`)](./module_02.md) and [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md).
 
-This module spans 3 lectures (Lectures 05–07; Fri 04 Sep - Fri 11 Sep 2026)[cite: 6] and establishes containerized reproducible environments and AI Gateway/Vector DB baselines.
+This module spans 3 lectures (Lectures 05–07; Fri 04 Sep - Fri 11 Sep 2026) and establishes containerized reproducible environments and AI Gateway/Vector DB baselines.
 
 > **⚠️ Module Routing Notice**  
 > Core lecture markdown files and major assignments live in the top-level `lectures/` and `assignments/` directories to maintain structural parity. Use this module directory exclusively for localized data snippets, lab code examples, module-specific images, or environment configs required for this week's content.
@@ -58,21 +58,21 @@ This module spans 3 lectures (Lectures 05–07; Fri 04 Sep - Fri 11 Sep 2026)[ci
 
 | Subdirectory / File | Topic / Description | Lectures | Date Range | Assigned Reading |
 | :--- | :--- | :--- | :--- | :--- |
-| `module_02.md` | **[Module 02 Canonical Specification](./module_02.md):** Cloud tools, DevContainers, Docker, and AI/LLM tooling baselines. | Lectures 05–07 | Fri 04 Sep - Fri 11 Sep 2026[cite: 6] | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
+| `module_02.md` | **[Module 02 Canonical Specification](./module_02.md):** Cloud tools, DevContainers, Docker, and AI/LLM tooling baselines. | Lectures 05–07 | Fri 04 Sep - Fri 11 Sep 2026 | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
 | `README.md` | This module overview and index. | — | — | — |
 
 ---
 
 ## 🔗 Associated Course Materials
 
-* **Lectures:** [Lecture 05: Data Scrubbing & Early Exploration](../../lectures/lecture-05.md)[cite: 7] | [Lecture 06: DevContainers & Docker](../../lectures/lecture-06.md)[cite: 7] | [Lecture 07: AI/LLM Tooling Overview](../../lectures/lecture-07.md)[cite: 7]
-* **Active Assignments:** HW 1 (Due Fri 11 Sep 2026)[cite: 6] | MP 2 (Released Fri 04 Sep 2026)[cite: 6]
+* **Lectures:** [Lecture 05: Data Scrubbing & Early Exploration](../../lectures/lecture-05.md) | [Lecture 06: DevContainers & Docker](../../lectures/lecture-06.md) | [Lecture 07: AI/LLM Tooling Overview](../../lectures/lecture-07.md)
+* **Active Assignments:** HW 1 (Due Fri 11 Sep 2026) | MP 2 (Released Fri 04 Sep 2026)
 * **Assigned Readings (Inherited from Phase 1 & Detailed in Specification):**
-  * [Brett et al., *Research Software Engineering* (Chs. 1–2: Environments & Reproducibility)](https://rse-book.github.io/)[cite: 7]
-  * [Docker Documentation: *Get Started*](https://docs.docker.com/get-started/)[cite: 7]
-  * [Official `pytorch/pytorch` Docker Hub](https://hub.docker.com/r/pytorch/pytorch)[cite: 7] & [NVIDIA Container Toolkit Install Guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)[cite: 7]
-  * [LiteLLM Proxy: *Virtual Keys*](https://docs.litellm.ai/docs/proxy/virtual_keys) & [*Users/Teams Budgets*](https://docs.litellm.ai/docs/proxy/users)[cite: 4]
-  * [Milvus *Quickstart*](https://milvus.io/docs/quickstart.md)[cite: 4] & [OpenAI *Whisper* README](https://github.com/openai/whisper)[cite: 4]
+  * [Brett et al., *Research Software Engineering* (Chs. 1–2: Environments & Reproducibility)](https://rse-book.github.io/)
+  * [Docker Documentation: *Get Started*](https://docs.docker.com/get-started/)
+  * [Official `pytorch/pytorch` Docker Hub](https://hub.docker.com/r/pytorch/pytorch) & [NVIDIA Container Toolkit Install Guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+  * [LiteLLM Proxy: *Virtual Keys*](https://docs.litellm.ai/docs/proxy/virtual_keys) & [*Users/Teams Budgets*](https://docs.litellm.ai/docs/proxy/users)
+  * [Milvus *Quickstart*](https://milvus.io/docs/quickstart.md) & [OpenAI *Whisper* README](https://github.com/openai/whisper)
   * *See full chronological schedule in [readings_by_lecture.md](../../reading_materials/readings_by_lecture.md).*
 
 ---
