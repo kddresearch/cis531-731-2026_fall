@@ -2,69 +2,106 @@
 ---
 yaml_schema_version: "2.2"
 document_version: "2.0"
-document_last_updated_date: "2026-11-05"
+document_last_updated_date: "YYYY-MM-DD"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 template_metadata:
   template_id: "directory_README_academic_template"
+  description: "Genericized academic directory README template with cross-platform LMS skinning support"
   target_filename: "README.md"
-  description: "Generic clean GFM directory README template for phase, module, and structural hubs."
-hydration_instructions:
-  - step_1: "Replace {{COURSE_NUMBER}}, {{COURSE_TITLE}}, {{SEMESTER}}, {{INSTRUCTOR_NAME}}, and {{CANVAS_COURSE_ID}} with active course parameters."
-  - step_2: "Configure phase_metadata block (or omit if non-phase directory): set phase_number, phase_identifier, color_scheme, hex_code, and badge_pill."
-  - step_3: "Set directory_type to one of ['phase', 'module', 'root', 'support']."
-  - step_4: "Replace all {{SECTION_*}} and {{TABLE_*}} placeholders with specific directory context, cross-links, and module/lecture matrices."
-  - step_5: "Ensure relative links follow GitOps hierarchy rules (e.g., ../../modules/module_XX/)."
+  platform_compatibility:
+    - "github"
+    - "canvas"
+    - "moodle"
+    - "piazza"
+  hydration_instructions:
+    step_1: "Replace all template parameters marked with double curly braces {{ PARAMETER_NAME }} with target instance metadata."
+    step_2: "Configure phase_metadata block attributes (color_scheme, hex_code, badge_pill) to match designated phase design tokens."
+    step_3: "Update active course repository list to reflect current course cluster / department offerings."
+    step_4: "Ensure relative GFM navigation links map correctly to local subdirectories (e.g., modules/module_XX/)."
+  parameters:
+    - name: "COURSE_CODE"
+      description: "Primary course designation code (e.g., DEPT 101/501)"
+      required: true
+    - name: "COURSE_TITLE"
+      description: "Official title of the course offering"
+      required: true
+    - name: "COURSE_EMOJI"
+      description: "Generic emoji symbol representing the course focus"
+      default: "📚"
+    - name: "SEMESTER_TERM"
+      description: "Term and year of current active instance (e.g., Fall 2026)"
+      required: true
+    - name: "INSTRUCTOR_NAME"
+      description: "Primary instructor or course lead name"
+      required: true
+    - name: "LMS_NAME"
+      description: "Target Learning Management System platform name (e.g., Canvas, Moodle)"
+      default: "Course LMS Portal"
+    - name: "LMS_PORTAL_URL"
+      description: "Direct URL link to LMS course entry portal"
+      required: true
+    - name: "PHASE_NUMBER"
+      description: "Numerical index of current academic phase"
+      required: true
+    - name: "PHASE_TITLE"
+      description: "Descriptive title of phase milestone (e.g., Foundations & Setup)"
+      required: true
+    - name: "PHASE_SUMMARY"
+      description: "Concise summary of phase pedagogical focus"
+      required: true
 phase_metadata:
-  phase_number: "{{PHASE_NUMBER}}"
-  phase_identifier: "{{PHASE_IDENTIFIER}}"
-  color_scheme: "{{COLOR_SCHEME_NAME}}"           # e.g., Blue, Green, Orange, Purple, Brown
-  hex_code: "{{COLOR_HEX_CODE}}"                 # e.g., #0056b3, #1b5e20, #d64309, #4b2e83, #856404
-  badge_pill: "{{COLOR_BADGE_PILL}}"             # e.g., 🔵, 🟢, 🟠, 🟣, 🟤
+  phase_number: {{ PHASE_NUMBER }}
+  phase_identifier: "{{ PHASE_IDENTIFIER }}"
+  color_scheme: "{{ COLOR_SCHEME }}"
+  hex_code: "{{ HEX_CODE }}"
+  badge_pill: "{{ BADGE_PILL }}"
 ---
 -->
 
-**🏫 Active Course Repositories:** 🏗️ [Architecture Base](https://github.com/kddresearch/course-architecture-base) &nbsp;|&nbsp; 🤖 CIS 530/730 &nbsp;|&nbsp; 📊 [CIS 531/731](https://github.com/kddresearch/cis531-731-2026_fall) &nbsp;|&nbsp; 📈 CIS 732 &nbsp;|&nbsp; 🎨 [CIS 536/736](https://github.com/kddresearch/cis536-736-2026_fall) &nbsp;|&nbsp; 👁️ CIS 798 X &nbsp;|&nbsp; 🧠 CIS 830
+**🏫 Active Course Cluster / Department Repositories:** 🏗️ [Architecture Base]({{ ARCHITECTURE_BASE_URL }}) &nbsp;|&nbsp; {{ COURSE_EMOJI }} [{{ COURSE_CODE }}]({{ COURSE_REPO_URL }}) &nbsp;|&nbsp; 📖 [Course Sequence A]({{ COURSE_SEQ_A_URL }}) &nbsp;|&nbsp; 🔬 [Course Sequence B]({{ COURSE_SEQ_B_URL }}) &nbsp;|&nbsp; 🎓 [Course Sequence C]({{ COURSE_SEQ_C_URL }})
 
-# 📊 {{COURSE_NUMBER}} - {{COURSE_TITLE}}
+# {{ COURSE_EMOJI }} {{ COURSE_CODE }} - {{ COURSE_TITLE }}
 
-**Semester:** {{SEMESTER}} | **Instructor:** {{INSTRUCTOR_NAME}}  
-**Status:** ACTIVE | **Canvas LMS:** [Closed SSO Portal](https://k-state.instructure.com/courses/{{CANVAS_COURSE_ID}})
+**Semester:** {{ SEMESTER_TERM }} | **Instructor:** {{ INSTRUCTOR_NAME }}  
+**Status:** ACTIVE | **LMS Portal:** [{{ LMS_NAME }}]({{ LMS_PORTAL_URL }})
 
 ---
 
-## {{COLOR_BADGE_PILL}} {{DIRECTORY_TITLE}}
+## {{ BADGE_PILL }} Phase {{ PHASE_NUMBER }}: {{ PHASE_TITLE }}
 
-**Status:** ACTIVE | **Maintainer:** {{MAINTAINER_NAME}}
+**Status:** ACTIVE | **Maintainer:** {{ MAINTAINER_GROUP }}
 
 ---
 
 ## 📖 Overview
 
-{{DIRECTORY_OVERVIEW_PARAGRAPH}}
+This directory defines **Phase {{ PHASE_NUMBER }}** of the course progression. For the complete canonical specification, detailed lecture objectives, and unified chronological reading schedule, see [Phase {{ PHASE_NUMBER }} Specification (`phase_{{ PHASE_NUMBER_PADDED }}.md`)](./phase_{{ PHASE_NUMBER_PADDED }}.md) and [Assigned Reading(s)]({{ READINGS_SCHEDULE_PATH }}).
 
-> **⚠️ Phase Routing Notice**  
-> {{DIRECTORY_ROUTING_NOTICE}}
+Phases act as high-level chronological and thematic wrappers that group multiple weekly modules together based on major pedagogical milestones (e.g., taxonomy transition points). This phase specifically focuses on {{ PHASE_SUMMARY }}.
+
+> **⚠️ Phase Routing Notice**
+> This directory acts primarily as an organizational wrapper. Ensure that granular lecture assets, code snippets, and weekly materials are placed within their respective `module_XX/` subdirectories, rather than loosely at the root of the phase directory.
 
 ---
 
-## 🗂️ Directory Structure / Included Assets
+## 🗂️ Phase Structure (Included Modules)
 
-| Directory / File | Topic / Description | Lectures | Date Range | Assigned Reading |
+| Module Directory | Topic / Description | Lectures | Date Range | Assigned Reading |
 | :--- | :--- | :--- | :--- | :--- |
-| [`{{ITEM_01_PATH}}`]({{ITEM_01_LINK}}) | **[{{ITEM_01_TITLE}}]({{ITEM_01_SPEC_LINK}}):** {{ITEM_01_SUMMARY}} | {{ITEM_01_LECTURES}} | {{ITEM_01_DATES}} | [{{ITEM_01_READING_LABEL}}]({{ITEM_01_READING_LINK}}) |
-| [`{{ITEM_02_PATH}}`]({{ITEM_02_LINK}}) | **[{{ITEM_02_TITLE}}]({{ITEM_02_SPEC_LINK}}):** {{ITEM_02_SUMMARY}} | {{ITEM_02_LECTURES}} | {{ITEM_02_DATES}} | [{{ITEM_02_READING_LABEL}}]({{ITEM_02_READING_LINK}}) |
+| [`module_01/`](../../modules/module_01/) | **[Module 01: {{ MODULE_01_TITLE }}](../../modules/module_01/module_01.md):** {{ MODULE_01_DESCRIPTION }} | Lectures {{ MODULE_01_LECTURES }} | {{ MODULE_01_DATES }} | [Assigned Reading(s)]({{ READINGS_SCHEDULE_PATH }}) |
+| [`module_02/`](../../modules/module_02/) | **[Module 02: {{ MODULE_02_TITLE }}](../../modules/module_02/module_02.md):** {{ MODULE_02_DESCRIPTION }} | Lectures {{ MODULE_02_LECTURES }} | {{ MODULE_02_DATES }} | [Assigned Reading(s)]({{ READINGS_SCHEDULE_PATH }}) |
 
 ---
 
 ## 🦅 Standard Operating Procedures (SOPs)
 
-All instructional staff interacting with this directory must adhere to the following protocols:
+All instructional staff interacting with this phase directory must adhere to the following protocols:
 
-* **Protocol 1 (Scope & Cohesion):** {{PROTOCOL_1_TEXT}}
-* **Protocol 2 (GitOps Navigation):** {{PROTOCOL_2_TEXT}}
-* **Protocol 3 (Milestone Anchoring):** {{PROTOCOL_3_TEXT}}
+* **Protocol 1 (Phase Cohesion):** Ensure all modules contained within this phase cleanly map to the overarching phase objective defined in the syllabus taxonomy.
+* **Protocol 2 (Navigation):** Maintain cross-links in the module READMEs pointing back to this Phase root to preserve GitOps navigability across target platforms (GitHub, Canvas, Moodle, Piazza).
+* **Protocol 3 (Milestone Anchoring):** Ensure the terminal module of this phase explicitly prepares the student for the associated major assignment/milestone.
 
 ---
 
-*Maintained by the [Knowledge Discovery in Databases (KDD) Lab](https://github.com/kddresearch) at Kansas State University.*
+*Maintained by {{ MAINTAINER_ORGANIZATION }} at {{ INSTITUTION_NAME }}.*
