@@ -1,8 +1,8 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.1"
-document_last_updated_date: "2026-10-26"
+document_version: "2.0"
+document_last_updated_date: "2026-11:05"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 ---
