@@ -1,68 +1,80 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.1"
-document_last_updated_date: "2026-10-26"
+document_version: "2.0"
+document_last_updated_date: "2026-11-05"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
+module_metadata:
+  module_number: 6
+  module_identifier: "genai_llms_candidates_code_classification"
+  parent_phase:
+    phase_number: 3
+    phase_identifier: "scrub_and_embed"
+    color_scheme: "Orange"
+    hex_code: "#d64309"
+    badge_pill: "🟠"
+  module_color_tokens:
+    tint_class: "[!WARNING]"
+    shade_hex: "#b33507"
+    light_tint_hex: "#fff3cd"
 ---
 -->
 
-<br>
+**🏫 Active Course Repositories:** 🏗️ [Architecture Base](https://github.com/kddresearch/course-architecture-base) &nbsp;|&nbsp; 🤖 CIS 530/730 &nbsp;|&nbsp; 📊 [CIS 531/731](https://github.com/kddresearch/cis531-731-2026_fall) &nbsp;|&nbsp; 📈 CIS 732 &nbsp;|&nbsp; 🎨 [CIS 536/736](https://github.com/kddresearch/cis536-736-2026_fall) &nbsp;|&nbsp; 👁️ CIS 798 X &nbsp;|&nbsp; 🧠 CIS 830
 
-<div align="center">
- <strong>🏫 Active Course Repositories:</strong> &nbsp;
- 🏗️ <a href="https://github.com/kddresearch/course-architecture-base">Architecture Base</a> &nbsp;|&nbsp;
- 🤖 CIS 530/730 &nbsp;|&nbsp;
- 📊 <a href="https://github.com/kddresearch/cis531-731-2026_fall">CIS 531/731</a> &nbsp;|&nbsp;
- 📈 CIS 732 &nbsp;|&nbsp;
- 🎨 <a href="https://github.com/kddresearch/cis536-736-2026_fall">CIS 536/736</a> &nbsp;|&nbsp;
- 👁️ CIS 798 X &nbsp;|&nbsp;
- 🧠 CIS 830
-</div>
+# 📊 CIS 531/731 - Programming Techniques for Data Science and Analytics
 
-<div align="center">
- <h1>📊 CIS 531/731 - Programming Techniques for Data Science and Analytics</h1>
- <p>
- <strong>Semester:</strong> Fall 2026 | <strong>Instructor:</strong> William H. Hsu<br>
- <strong>Status:</strong> ACTIVE | <strong>Canvas LMS:</strong> <a href="https://k-state.instructure.com/courses/201513">Closed SSO Portal</a>
- </p>
-</div>
+**Semester:** Fall 2026 | **Instructor:** William H. Hsu  
+**Status:** ACTIVE | **Canvas LMS:** [Closed SSO Portal](https://k-state.instructure.com/courses/201513)
 
-<hr>
+---
 
-<div align="center">
- <h2>📦 Module 06: GenAI & LLMs: Candidates, Code, Classification</h2>
- <p>
- <strong>Phase:</strong> <a href="../../phases/phase_03">Phase 3: Scrub & Embed</a> | <strong>Maintainer:</strong> William H. Hsu
- </p>
-</div>
+## 📦 Module 06: GenAI & LLMs: Candidates, Code, Classification
 
-<hr>
+**Parent Phase:** 🟠 [Phase 3: Scrub & Embed](../../phases/phase_03/README.md) (`#d64309`) | **Maintainer:** Course Maintainers / KDD Lab
+
+---
+
+> [!WARNING]
+> **Phase 3 Color Palette: Orange Token (`#d64309`)**  
+> **Module Scope:** Generative AI & LLMs, Candidate Generation, Model Selection, Few-Shot Trope/Genre Classification, and Embedding-Backed Classification Labs *(Note: Wildcat Pause Day Fri 09 Oct)*.
+
+---
 
 ## 📖 Overview
 
-This directory contains the localized pedagogical artifacts, demonstration code, and operational files strictly related to **Module 06**. This module spans `5` lectures and focuses on Generative AI and LLMs, candidate generation, model selection, few-shot trope/genre classification, and embedding-backed classification labs *(Note: Wildcat Pause Day Fri 09 Oct)*.
+This directory defines **Module 06**. For the complete canonical specification, detailed lecture objectives, and localized reading sections, see [Module 06 Specification (`module_06.md`)](./module_06.md#lecture-17-genai--llms-candidates-code-classification-mon-05-oct).
 
-> **⚠️ Module Routing Notice**
+This module spans 5 lectures (Lectures 17–21; Mon 05 Oct - Fri 16 Oct 2026) and establishes neural language modeling, transformer architectures, few-shot trope/genre classification, and Hugging Face pipeline integration.
+
+> **⚠️ Module Routing Notice**  
 > Core lecture markdown files and major assignments live in the top-level `lectures/` and `assignments/` directories to maintain structural parity. Use this module directory exclusively for localized data snippets, lab code examples, module-specific images, or environment configs required for this week's content.
 
-<hr>
+---
 
-## 🗂️ Module Artifacts
+## 🗂️ Module Structure & Artifacts
 
-| Subdirectory / File | Description |
-| :--- | :--- |
-| `lab6.ipynb` | Lab 6: Model selection and embedding-backed classification lab notebook |
-| `README.md` | This module overview and index. |
+| Subdirectory / File | Topic / Description | Lectures | Date Range | Assigned Reading |
+| :--- | :--- | :--- | :--- | :--- |
+| `module_06.md` | **[Module 06 Canonical Specification](./module_06.md#lecture-17-genai--llms-candidates-code-classification-mon-05-oct):** GenAI, LLM candidate generation, few-shot classification, and model selection. | Lectures 17–21 | Mon 05 Oct - Fri 16 Oct 2026 | [Module 06 Readings](./module_06.md#lecture-17-genai--llms-candidates-code-classification-mon-05-oct) |
+| `lab6.ipynb` | Lab 6: Model selection and embedding-backed classification lab notebook | — | — | — |
+| `README.md` | This module overview and index. | — | — | — |
 
-<hr>
+---
 
 ## 🔗 Associated Course Materials
 
-* **Lectures:** [Lec 17](../../lectures/lecture-17.md) | [Lec 18](../../lectures/lecture-18.md) | [Lec 19](../../lectures/lecture-19.md) | [Lec 20](../../lectures/lecture-20.md) | [Lec 21](../../lectures/lecture-21.md)
+* **Lectures:** [Lecture 17: GenAI & LLMs: Candidates, Code, Classification](../../lectures/lecture-17.md) | [Lecture 18: Few-Shot Trope/Genre Classification](../../lectures/lecture-18.md) | [Lecture 19: Model Selection & Embedding-Backed Classification Lab](../../lectures/lecture-19.md) | [Lecture 20: Trope/Genre Classification Workshop](../../lectures/lecture-20.md) | [Lecture 21: Wrap-Up](../../lectures/lecture-21.md)
 * **Active Assignments:** [Lab 6 Notebook](../../assignments/homework/lab6.ipynb) | [MP7 Genre Classification Specification](../../assignments/machine_problems/mp7_genre_classification.md) *(MP5 released, MP6 released, MP5 due)*
-* **Required Reading:** Speech and Language Processing, Chs. 6–8 (Jurafsky & Martin); Hugging Face Transformers "Text Classification"
+* **Assigned Readings (Anchored in Module Spec):**
+  * [Lecture 17 Readings (Jurafsky & Martin, *SLP3* Chs. 6 & 8)](./module_06.md#lecture-17-genai--llms-candidates-code-classification-mon-05-oct)
+  * [Lecture 18 Readings (Hugging Face Transformers Task Guide)](./module_06.md#lecture-18-few-shot-tropegenre-classification-wed-07-oct)
+  * [Lecture 19 Readings (scikit-learn Tutorial & Sentence Transformers Semantic Search)](./module_06.md#lecture-19-model-selection--embedding-backed-classification-lab-mon-12-oct)
+  * [Lecture 20 Readings (Jurafsky & Martin, *SLP3* Ch. 10)](./module_06.md#lecture-20-tropegenre-classification-workshop-wed-14-oct)
+  * [Lecture 21 Readings (Hugging Face Sequence Classification & Evaluation)](./module_06.md#lecture-21-wrap-up-fri-16-oct)
+
+---
 
 ## 🦅 Standard Operating Procedures (SOPs)
 
@@ -72,66 +84,6 @@ All instructional staff interacting with this module directory must adhere to th
 * **Protocol 2 (Artifact Segregation):** Do not duplicate master assignment files or lecture notes here. Use the "Associated Course Materials" cross-links provided above.
 * **Protocol 3 (Deprecation):** Ensure any outdated code snippets in this module are formally tagged as `[ARCHIVED]` if updating for a new semester to prevent student confusion.
 
-<br>
-<hr>
-<p align="center">
- <i>Maintained by the <a href="https://github.com/kddresearch">Knowledge Discovery in Databases (KDD) Lab</a> at Kansas State University.</i>
-</p>
-
 ---
 
-| Phase | Module | Lecture(s) | Date(s) |
-| :--- | :--- | :--- | :--- |
-| <a href="../../phases/phase_03">**Phase 3: Scrub & Embed**</a> | **Module 6:** GenAI & LLMs: Candidates, Code, Classification | **Lectures 17-21** | Mon 05 Oct - Fri 16 Oct 2026 |
-
----
-
-## Lecture 17: GenAI & LLMs: Candidates, Code, Classification (Mon 05 Oct)
-
-1. **Language Modeling Fundamentals:** Introduction to $N$-gram models, perplexity, and the transition from count-based to dense neural representations (Jurafsky & Martin, Ch. 6).
-2. **Transformer Architecture Overview:** The attention mechanism, self-attention, and the foundational architecture underlying modern Large Language Models.
-3. **The Pretraining & Fine-Tuning Paradigm:** Understanding how foundational models acquire broad language representations and are subsequently tuned for specific downstream data science tasks.
-4. **LLMs as Classifiers:** Shifting from generative text completion to using LLM token probabilities and embeddings for strict classification mapping.
-5. **Prompting vs. Fine-Tuning Trade-offs:** Analyzing the computational cost, accuracy, and latency differences between zero/few-shot prompting and full model fine-tuning.
-
----
-
-## Lecture 18: Few-Shot Trope/Genre Classification (Wed 07 Oct)
-
-1. **The In-Context Learning (ICL) Paradigm:** Leveraging the LLM's pre-trained knowledge base to classify text (e.g., media tropes) without updating model weights.
-2. **Prompt Engineering for Classification:** Designing strict formatting constraints and system instructions to force the LLM to output clean, parsable classification labels.
-3. **The Few-Shot Exemplar Selection:** Determining how to select high-leverage $K$-shot examples that define the boundary conditions of complex genres or tropes.
-4. **Hugging Face `pipeline` API:** Utilizing the `transformers` library to initialize local, open-weight text classification models.
-5. **Handling Out-of-Distribution Data:** Strategies for managing LLM hallucinations or default behaviors when presented with novel genres or unseen media data.
-
-*(Note: Friday 09 Oct 2026 – NO CLASS / Wildcat Pause Day)*
-
----
-
-## Lecture 19: Model Selection & Embedding-Backed Classification Lab (Mon 12 Oct)
-
-1. **MP6 Release & Requirements:** Reviewing the expectations for the embedding-backed classification machine problem.
-2. **Embedding Models vs. Generative Models:** Understanding why a specialized embedding model (e.g., `sentence-transformers`) is often superior to a generative LLM for clustering and similarity-based classification.
-3. **Distance Metrics for Classification:** Utilizing Cosine Similarity and Euclidean distance in the embedding space to classify unknown texts against known trope/genre anchors.
-4. **Building the Reference Index:** Constructing the "gold standard" vector database of known tropes to serve as the classification lookup table.
-5. **Thresholding and Confidence:** Establishing mathematical thresholds for "Unknown" or "Mixed" classifications when distance metrics fall in the boundary zones.
-
----
-
-## Lecture 20: Trope/Genre Classification Workshop (Wed 14 Oct)
-
-1. **Execution Troubleshooting:** Live debugging of Hugging Face environment setups, CUDA/CPU execution issues, and memory management constraints.
-2. **Pipeline Integration:** Connecting the output of the semantic search (Module 5) directly into the classification prompt or embedding comparator.
-3. **Evaluating Classifier Performance:** Transitioning from subjective "looks good" evaluations to rigorous metrics (Precision, Recall, F1) for the trope classifications.
-4. **Handling Ambiguous Media:** Strategies for classifying multi-genre media or texts containing conflicting tropes using weighted probabilities.
-5. **Code Review & Refactoring:** Peer review of classification pipelines to ensure robust error handling and adherence to FAIR principles.
-
----
-
-## Lecture 21: Wrap-Up (Fri 16 Oct)
-
-1. **MP5 Submission Review:** Common pitfalls and architectural successes observed in the GenAI/LLM Candidates submission (due prior day).
-2. **Computational Cost Realities:** Analyzing the latency and hardware requirements of the deployed classification pipelines.
-3. **Limitations of Few-Shot Prompting:** When does the LLM fail to capture deep semantic tropes, and when is a dedicated trained classifier mathematically necessary?
-4. **Module 6 Synthesis:** Summarizing the integration of LLMs into the data science pipeline as robust, programmatic tools rather than conversational chatbots.
-5. **Preview of Module 7:** Transitioning from data extraction and classification to visualization (UMAP) and generational drift dashboarding.
+*Maintained by the [Knowledge Discovery in Databases (KDD) Lab](https://github.com/kddresearch) at Kansas State University.*
