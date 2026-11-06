@@ -1,74 +1,70 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.1"
-document_last_updated_date: "2026-10-19"
+document_version: "2.0"
+document_last_updated_date: "2026-11-05"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
+template_metadata:
+  template_id: "directory_README_academic_template"
+  target_filename: "README.md"
+  description: "Generic clean GFM directory README template for phase, module, and structural hubs."
+hydration_instructions:
+  - step_1: "Replace {{COURSE_NUMBER}}, {{COURSE_TITLE}}, {{SEMESTER}}, {{INSTRUCTOR_NAME}}, and {{CANVAS_COURSE_ID}} with active course parameters."
+  - step_2: "Configure phase_metadata block (or omit if non-phase directory): set phase_number, phase_identifier, color_scheme, hex_code, and badge_pill."
+  - step_3: "Set directory_type to one of ['phase', 'module', 'root', 'support']."
+  - step_4: "Replace all {{SECTION_*}} and {{TABLE_*}} placeholders with specific directory context, cross-links, and module/lecture matrices."
+  - step_5: "Ensure relative links follow GitOps hierarchy rules (e.g., ../../modules/module_XX/)."
+phase_metadata:
+  phase_number: "{{PHASE_NUMBER}}"
+  phase_identifier: "{{PHASE_IDENTIFIER}}"
+  color_scheme: "{{COLOR_SCHEME_NAME}}"           # e.g., Blue, Green, Orange, Purple, Brown
+  hex_code: "{{COLOR_HEX_CODE}}"                 # e.g., #0056b3, #1b5e20, #d64309, #4b2e83, #856404
+  badge_pill: "{{COLOR_BADGE_PILL}}"             # e.g., 🔵, 🟢, 🟠, 🟣, 🟤
 ---
 -->
 
-<br>
+**🏫 Active Course Repositories:** 🏗️ [Architecture Base](https://github.com/kddresearch/course-architecture-base) &nbsp;|&nbsp; 🤖 CIS 530/730 &nbsp;|&nbsp; 📊 [CIS 531/731](https://github.com/kddresearch/cis531-731-2026_fall) &nbsp;|&nbsp; 📈 CIS 732 &nbsp;|&nbsp; 🎨 [CIS 536/736](https://github.com/kddresearch/cis536-736-2026_fall) &nbsp;|&nbsp; 👁️ CIS 798 X &nbsp;|&nbsp; 🧠 CIS 830
 
-<div align="center">
- <strong>🏫 Active Course Repositories:</strong> &nbsp;
- 🏗️ <a href="https://github.com/kddresearch/course-architecture-base">Architecture Base</a> &nbsp;|&nbsp;
- 🤖 CIS 530/730 &nbsp;|&nbsp;
- 📊 <a href="https://github.com/kddresearch/cis531-731-2026_fall">CIS 531/731</a> &nbsp;|&nbsp;
- 📈 CIS 732 &nbsp;|&nbsp;
- 🎨 <a href="https://github.com/kddresearch/cis536-736-2026_fall">CIS 536/736</a> &nbsp;|&nbsp;
- 👁️ CIS 798 X &nbsp;|&nbsp;
- 🧠 CIS 830
-</div>
+# 📊 {{COURSE_NUMBER}} - {{COURSE_TITLE}}
 
-<div align="center">
- <h1>{{EMOJI}} {{COURSE_ID}} - {{COURSE_TITLE}}</h1>
- <p>
- <strong>Semester:</strong> {{SEMESTER}} | <strong>Instructor:</strong> William H. Hsu<br>
- <strong>Status:</strong> {{ACTIVE / ARCHIVED}} | <strong>Canvas LMS:</strong> <a href="{{CANVAS_URL}}">Closed SSO Portal</a>
- </p>
-</div>
+**Semester:** {{SEMESTER}} | **Instructor:** {{INSTRUCTOR_NAME}}  
+**Status:** ACTIVE | **Canvas LMS:** [Closed SSO Portal](https://k-state.instructure.com/courses/{{CANVAS_COURSE_ID}})
 
-<hr>
+---
 
-<div align="center">
- <h2>📂 Directory: {{DIRECTORY_NAME}}</h2>
- <p>
- <strong>Status:</strong> {{ACTIVE / ARCHIVED}} | <strong>Maintainer:</strong> {{MAINTAINER_NAME}}
- </p>
-</div>
+## {{COLOR_BADGE_PILL}} {{DIRECTORY_TITLE}}
 
-<hr>
+**Status:** ACTIVE | **Maintainer:** {{MAINTAINER_NAME}}
+
+---
 
 ## 📖 Overview
 
-{{Replace this paragraph with a concise description of the directory. Explain what specific pedagogical artifacts, codebases, or operational files are stored here, and how they relate to the broader execution of the course.}}
+{{DIRECTORY_OVERVIEW_PARAGRAPH}}
 
-> **⚠️ Sub-Directory Routing Notice**
-> This directory serves a specific pedagogical function. Ensure that artifacts committed here belong in this directory, rather than a different course module or upstream folder.
+> **⚠️ Phase Routing Notice**  
+> {{DIRECTORY_ROUTING_NOTICE}}
 
-<hr>
+---
 
-## 🗂️ Directory Structure
+## 🗂️ Directory Structure / Included Assets
 
-| Subdirectory / File | Description |
-| :--- | :--- |
-| `{{sub_dir_1}}/` | {{Description of contents}} |
-| `{{file_1.md}}` | {{Description of file}} |
-| `README.md` | This file. |
+| Directory / File | Topic / Description | Lectures | Date Range | Assigned Reading |
+| :--- | :--- | :--- | :--- | :--- |
+| [`{{ITEM_01_PATH}}`]({{ITEM_01_LINK}}) | **[{{ITEM_01_TITLE}}]({{ITEM_01_SPEC_LINK}}):** {{ITEM_01_SUMMARY}} | {{ITEM_01_LECTURES}} | {{ITEM_01_DATES}} | [{{ITEM_01_READING_LABEL}}]({{ITEM_01_READING_LINK}}) |
+| [`{{ITEM_02_PATH}}`]({{ITEM_02_LINK}}) | **[{{ITEM_02_TITLE}}]({{ITEM_02_SPEC_LINK}}):** {{ITEM_02_SUMMARY}} | {{ITEM_02_LECTURES}} | {{ITEM_02_DATES}} | [{{ITEM_02_READING_LABEL}}]({{ITEM_02_READING_LINK}}) |
 
-<hr>
+---
 
 ## 🦅 Standard Operating Procedures (SOPs)
 
 All instructional staff interacting with this directory must adhere to the following protocols:
 
-* **Protocol 1 (SSOT Paramountcy):** Do not update content directly in Canvas. Markdown files in this directory must be updated first, and the HTML mirrored from them to preserve the GitOps ledger.
-* **Protocol 2:** {{e.g., Required metadata headers for homework assignments}}
-* **Protocol 3:** {{e.g., Archival procedures for past semesters}}
+* **Protocol 1 (Scope & Cohesion):** {{PROTOCOL_1_TEXT}}
+* **Protocol 2 (GitOps Navigation):** {{PROTOCOL_2_TEXT}}
+* **Protocol 3 (Milestone Anchoring):** {{PROTOCOL_3_TEXT}}
 
-<br>
-<hr>
-<p align="center">
- <i>Maintained by the <a href="https://github.com/kddresearch">Knowledge Discovery in Databases (KDD) Lab</a> at Kansas State University.</i>
-</p>
+---
+
+*Maintained by the [Knowledge Discovery in Databases (KDD) Lab](https://github.com/kddresearch) at Kansas State University.*
