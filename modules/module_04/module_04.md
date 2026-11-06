@@ -1,8 +1,16 @@
+<!--
+  Template Note: This file serves as the canonical template for module pages.
+  When instantiated as `modules/module_YY/module_YY.md`, use relative paths 
+  (`../../phases/phase_0X/` and `../../lectures/lecture_j.md`) to maintain correct routing.
+  Note that the module name itself does not self-link, but lectures link directly to their markdown files.
+  Module readings may be contiguous or separate per lecture; the module readings for the modules within a parent phase form a partition of that phase’s readings.
+-->
+
 # CIS 531/731: Programming Techniques for Data Science and Analytics
 
-| Phase | Module | Lecture(s) | Date(s) |
-| :--- | :--- | :--- | :--- |
-| **[Phase 2](../../phases/phase_02/):** Obtain & Ingest | **Module 04:** Data Analytics Pipelines: Streaming & Data Lakes | **Lectures 11-13** | Mon 21 Sep - Fri 25 Sep 2026 |
+| Phase | Module | Lecture(s) | Date(s) | Assigned Reading(s) |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Phase 2](../../phases/phase_02/):** Obtain & Ingest | **Module 04:** Data Analytics Pipelines: Streaming & Data Lakes | **Lectures 11-13** | Mon 21 Sep - Fri 25 Sep 2026 | [Akidau et al., *The Dataflow Model*](https://www.vldb.org/pvldb/vol8/p1792-Akidau.pdf); [Apache Spark Structured Streaming Guide](https://spark.apache.org/docs/3.5.7/structured-streaming-programming-guide.html) |
 
 ---
 
@@ -13,6 +21,7 @@
 3. **Data Lakes Architecture:** Decoupling storage from compute to support scalable, heterogeneous data ingestion and schema-on-read paradigms.
 4. **Event Time vs. Processing Time:** Defining windowing functions, watermarks, and late data handling in continuous analytics.
 5. **HW4 Release:** Introduction to the data stream monitoring assignment constraints and pipeline deliverables.
+* **Assigned Reading:** [Akidau et al., *“The Dataflow Model: Balancing Correctness, Latency, and Cost”* (VLDB 2015 PDF)](https://www.vldb.org/pvldb/vol8/p1792-Akidau.pdf)
 
 ---
 
@@ -23,6 +32,7 @@
 3. **Fault Tolerance & Checkpointing:** Ensuring exactly-once fault-tolerance semantics using write-ahead logs and state stores.
 4. **Stateful Operations:** Managing arbitrary state across micro-batches for complex event processing and sessionization.
 5. **Source & Sink Integration:** Connecting Spark Structured Streaming to distributed message brokers (Kafka) and Data Lake sinks.
+* **Assigned Reading:** [Apache Spark 3.5.7 *Structured Streaming Programming Guide*](https://spark.apache.org/docs/3.5.7/structured-streaming-programming-guide.html)
 
 ---
 
@@ -33,3 +43,4 @@
 3. **Watermark Configuration:** Applying late-data thresholds to bound memory usage during stateful aggregations.
 4. **Storage Sink Routing:** Ensuring the processed micro-batches are correctly persisted to the designated Data Lake storage path.
 5. **MP 3 Debrief & Wrap-Up:** Reviewing the MP 3 (submitted prior day) solutions and verifying readiness for the Module 5 Scrub phase.
+* **Assigned Reading:** [Apache Spark *Structured Streaming Overview*](https://spark.apache.org/docs/latest/streaming/index.html); [Spark 3.5.7 *Watermarking & State Store Guide*](https://spark.apache.org/docs/3.5.7/structured-streaming-programming-guide.html)
