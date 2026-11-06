@@ -10,7 +10,7 @@
 
 # CIS 531/731: Programming Techniques for Data Science and Analytics
 
-| Phase | Description | Modules | Date Range | Assigned Reading(s) |
+| Phase | Description | Modules | Date Range | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Phase 2:** Obtain & Ingest | ASR stream capture, Whisper local transcription architecture, vector database corpus acquisition, data analytics pipelines, and Spark Structured Streaming. | [`Module 03`](../../modules/module_03/) - [`Module 04`](../../modules/module_04/) | Mon 14 Sep - Fri 25 Sep 2026 | [Jurafsky & Martin, *SLP3* Ch. 16](https://web.stanford.edu/~jurafsky/slp3/); [OpenAI Whisper](https://github.com/openai/whisper); [FAISS & Whisper-Streaming](https://github.com/facebookresearch/faiss); [Akidau et al., *The Dataflow Model*](https://www.vldb.org/pvldb/vol8/p1792-Akidau.pdf); [Apache Spark Structured Streaming Guide](https://spark.apache.org/docs/3.5.7/structured-streaming-programming-guide.html) |
 
