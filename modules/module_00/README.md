@@ -1,66 +1,74 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.2"
-document_last_updated_date: "2026-10-26"
+document_version: "2.0"
+document_last_updated_date: "2026-11-05"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
+module_metadata:
+  module_number: 0
+  module_identifier: "welcome_and_course_overview"
+  parent_phase:
+    phase_number: 1
+    phase_identifier: "foundations_and_tooling"
+    color_scheme: "Blue"
+    hex_code: "#0056b3"
+    badge_pill: "🔵"
+  module_color_tokens:
+    tint_class: "[!NOTE]"
+    shade_hex: "#004085"
+    light_tint_hex: "#e7f1ff"
 ---
 -->
 
-<br>
+**🏫 Active Course Repositories:** 🏗️ [Architecture Base](https://github.com/kddresearch/course-architecture-base) &nbsp;|&nbsp; 🤖 CIS 530/730 &nbsp;|&nbsp; 📊 [CIS 531/731](https://github.com/kddresearch/cis531-731-2026_fall) &nbsp;|&nbsp; 📈 CIS 732 &nbsp;|&nbsp; 🎨 [CIS 536/736](https://github.com/kddresearch/cis536-736-2026_fall) &nbsp;|&nbsp; 👁️ CIS 798 X &nbsp;|&nbsp; 🧠 CIS 830
 
-<div align="center">
- <strong>🏫 Active Course Repositories:</strong> &nbsp;
- 🏗️ <a href="https://github.com/kddresearch/course-architecture-base">Architecture Base</a> &nbsp;|&nbsp;
- 🤖 CIS 530/730 &nbsp;|&nbsp;
- 📊 <a href="https://github.com/kddresearch/cis531-731-2026_fall">CIS 531/731</a> &nbsp;|&nbsp;
- 📈 CIS 732 &nbsp;|&nbsp;
- 🎨 <a href="https://github.com/kddresearch/cis536-736-2026_fall">CIS 536/736</a> &nbsp;|&nbsp;
- 👁️ CIS 798 X &nbsp;|&nbsp;
- 🧠 CIS 830
-</div>
+# 📊 CIS 531/731 - Programming Techniques for Data Science and Analytics
 
-<div align="center">
- <h1>📊 CIS 531/731 - Programming Techniques for Data Science and Analytics</h1>
- <p>
- <strong>Semester:</strong> Fall 2026 | <strong>Instructor:</strong> William H. Hsu<br>
- <strong>Status:</strong> ACTIVE | <strong>Canvas LMS:</strong> <a href="https://k-state.instructure.com/courses/201513">Closed SSO Portal</a>
- </p>
-</div>
+**Semester:** Fall 2026 | **Instructor:** William H. Hsu  
+**Status:** ACTIVE | **Canvas LMS:** [Closed SSO Portal](https://k-state.instructure.com/courses/201513)
 
-<hr>
+---
 
-<div align="center">
- <h2>📦 Module 00: Welcome & Course Overview</h2>
- <p>
- <strong>Phase:</strong> <a href="../../phases/phase_01">Phase 1: Foundations & Tooling</a> | <strong>Maintainer:</strong> William H. Hsu
- </p>
-</div>
+## 📦 Module 00: Welcome & Course Overview
 
-<hr>
+**Parent Phase:** 🔵 [Phase 1: Foundations & Tooling](../../phases/phase_01/README.md) (`#0056b3`) | **Maintainer:** Course Maintainers / KDD Lab
+
+---
+
+> [!NOTE]
+> **Phase 1 Color Palette: Blue Token (`#0056b3`)**  
+> **Module Scope:** Course Orientation, Syllabus Walkthrough, FAIR Guiding Principles, and Jupyter Notebook Setup[cite: 10, 11].
+
+---
 
 ## 📖 Overview
 
-This directory contains the localized pedagogical artifacts, demonstration code, and operational files strictly related to **Module 00**. This module spans `1` lecture and focuses on course orientation, syllabus walkthrough, FAIR guiding principles, and Jupyter notebook documentation setup.
+This directory defines **Module 00**. For the complete canonical specification, detailed lecture objectives, and localized reading sections, see [Module 00 Specification (`module_00.md`)](./module_00.md#lecture-00-welcome-track-selection-briefing--course-overview)[cite: 10].
 
-> **⚠️ Module Routing Notice**
+This module spans 1 lecture (Lecture 00; Mon 24 Aug 2026)[cite: 10, 11] and establishes course logistics, track selection briefings, FAIR principles, and reproducible workflows[cite: 10].
+
+> **⚠️ Module Routing Notice**  
 > Core lecture markdown files and major assignments live in the top-level `lectures/` and `assignments/` directories to maintain structural parity. Use this module directory exclusively for localized data snippets, lab code examples, module-specific images, or environment configs required for this week's content.
 
-<hr>
+---
 
-## 🗂️ Module Artifacts
+## 🗂️ Module Structure & Artifacts
 
-| Subdirectory / File | Description |
-| :--- | :--- |
-| `README.md` | This module overview and index. |
+| Subdirectory / File | Topic / Description | Lectures | Date Range | Assigned Reading |
+| :--- | :--- | :--- | :--- | :--- |
+| `module_00.md` | **[Module 00 Canonical Specification](./module_00.md#lecture-00-welcome-track-selection-briefing--course-overview):** Course orientation, FAIR principles, and reproducible workflows[cite: 10]. | Lecture 00[cite: 10] | Mon 24 Aug 2026[cite: 10] | [Module 00 Readings](./module_00.md#lecture-00-welcome-track-selection-briefing--course-overview)[cite: 10] |
+| `README.md` | This module overview and index. | — | — | — |
 
-<hr>
+---
 
 ## 🔗 Associated Course Materials
 
-* **Lectures:** [Lec 00](../../lectures/lecture-00.md)
-* **Required Reading:** FAIR Guiding Principles (Wilkinson et al.); Jupyter Notebook Documentation
+* **Lectures:** [Lecture 00: Welcome, Track Selection Briefing & Course Overview](../../lectures/lecture-00.md)[cite: 11]
+* **Assigned Readings (Anchored in Module Spec):**
+  * [Lecture 00 Readings (FAIR Principles, Danchev & Jupyter Docs)](./module_00.md#lecture-00-welcome-track-selection-briefing--course-overview)[cite: 10]
+
+---
 
 ## 🦅 Standard Operating Procedures (SOPs)
 
@@ -70,8 +78,6 @@ All instructional staff interacting with this module directory must adhere to th
 * **Protocol 2 (Artifact Segregation):** Do not duplicate master assignment files or lecture notes here. Use the "Associated Course Materials" cross-links provided above.
 * **Protocol 3 (Deprecation):** Ensure any outdated code snippets in this module are formally tagged as `[ARCHIVED]` if updating for a new semester to prevent student confusion.
 
-<br>
-<hr>
-<p align="center">
- <i>Maintained by the <a href="https://github.com/kddresearch">Knowledge Discovery in Databases (KDD) Lab</a> at Kansas State University.</i>
-</p>
+---
+
+*Maintained by the [Knowledge Discovery in Databases (KDD) Lab](https://github.com/kddresearch) at Kansas State University.*
