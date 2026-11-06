@@ -55,9 +55,9 @@ This phase specifically focuses on `course orientation, PySpark fundamentals (RD
 
 | Module Directory | Topic / Description |
 | :--- | :--- |
-| [`Module 00/`](../../modules/module_00/) | **Welcome & Course Overview:** Course orientation, FAIR guiding principles, reproducible workflows, and Jupyter notebook setup (Mon 24 Aug 2026; Lecture 0). |
-| [`Module 01/`](../../modules/module_01/) | **PySpark Intro:** RDDs, DataFrames, transformations, actions, experiment design, and RSE practices (Wed 26 Aug - Wed 02 Sep 2026; Lectures 1–4). |
-| [`Module 02/`](../../modules/module_02/) | **Tools:** Cloud & hosted services, DevContainers, Docker, and AI/LLM tooling baseline *(Note: Labor Day Break Mon 07 Sep)* (Fri 04 Sep - Fri 11 Sep 2026; Lectures 5–7). |
+| [Module 00/](../../modules/module_00/) | **Welcome & Course Overview:** Course orientation, FAIR guiding principles, reproducible workflows, and Jupyter notebook setup (Mon 24 Aug 2026; Lecture 0). |
+| [Module 01/](../../modules/module_01/) | **PySpark Intro:** RDDs, DataFrames, transformations, actions, experiment design, and RSE practices (Wed 26 Aug - Wed 02 Sep 2026; Lectures 1–4). |
+| [Module 02/](../../modules/module_02/) | **Tools:** Cloud & hosted services, DevContainers, Docker, and AI/LLM tooling baseline *(Note: Labor Day Break Mon 07 Sep)* (Fri 04 Sep - Fri 11 Sep 2026; Lectures 5–7). |
 | `README.md` | This phase overview and index. |
 
 <hr>
