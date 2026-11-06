@@ -1,8 +1,8 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "2.0"
-document_last_updated_date: "2026-11:05"
+document_version: "1.1"
+document_last_updated_date: "2026-10-26"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 ---
@@ -17,7 +17,7 @@ routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 
 ---
 
-## 📂 Phase 2: Obtain & Ingest
+## 📂 Phase 1: Foundations & Tooling
 
 **Status:** ACTIVE | **Maintainer:** Course Maintainers / KDD Lab
 
@@ -25,9 +25,9 @@ routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 
 ## 📖 Overview
 
-This directory defines **Phase 2** of the course progression. For the complete canonical specification, detailed lecture objectives, and unified assigned readings partition, see [Phase 2 Specification (`phase_02.md`)](./phase_02.md).
+This directory defines **Phase 1** of the course progression. For the complete canonical specification, detailed lecture objectives, and unified assigned readings partition, see [Phase 1 Specification (`phase_01.md`)](./phase_01.md).
 
-Phases act as high-level chronological and thematic wrappers that group multiple weekly modules together based on major pedagogical milestones (e.g., OSEMN framework transitions). This phase specifically focuses on ASR stream capture, VDB corpus acquisition, and Structured Streaming ingest architecture.
+Phases act as high-level chronological and thematic wrappers that group multiple weekly modules together based on major pedagogical milestones (e.g., OSEMN framework transitions). This phase specifically focuses on course orientation, PySpark foundations (RDDs & DataFrames), experiment design, containerization (Docker/DevContainers), and the AI/LLM tooling baseline.
 
 > **⚠️ Phase Routing Notice**
 > This directory acts primarily as an organizational wrapper. Ensure that granular lecture assets, code snippets, and weekly materials are placed within their respective `module_XX/` subdirectories, rather than loosely at the root of the phase directory.
@@ -38,8 +38,9 @@ Phases act as high-level chronological and thematic wrappers that group multiple
 
 | Module Directory | Topic / Description | Lectures | Date Range | Assigned Reading |
 | :--- | :--- | :--- | :--- | :--- |
-| [`module_03/`](../../modules/module_03/) | **[Module 03: Obtain: ASR Stream Capture & VDB Corpus Acquisition](../../modules/module_03/module_03.md):** ASR stream capture, VDB corpus acquisition, and OpenAI Whisper local transcription architecture. | Lectures 8–10 | Mon 14 Sep - Fri 18 Sep 2026 | Jurafsky & Martin, *SLP3* Ch. 16; OpenAI Whisper; FAISS & Whisper-Streaming |
-| [`module_04/`](../../modules/module_04/) | **[Module 04: Data Analytics Pipelines](../../modules/module_04/module_04.md):** Structured Streaming, data lake models, and ASR ingest architecture. | Lectures 11–13 | Mon 21 Sep - Fri 25 Sep 2026 | Akidau et al., *The Dataflow Model*; Apache Spark Structured Streaming Guide |
+| [`module_00/`](../../modules/module_00/) | **[Module 00: Welcome & Course Overview](../../modules/module_00/module_00.md):** Course orientation, FAIR guiding principles, reproducible workflows, and Jupyter setup. | Lecture 00 | Mon 24 Aug 2026 | Wilkinson et al., *FAIR Principles*; Danchev, *Reproducible Data Science* |
+| [`module_01/`](../../modules/module_01/) | **[Module 01: PySpark Intro](../../modules/module_01/module_01.md):** RDDs, DataFrames, transformations, actions, experiment design, and RSE practices. | Lectures 01–04 | Wed 26 Aug - Wed 02 Sep 2026 | VanderPlas, *Python Data Science Handbook*; Irving et al., *RSE Python* |
+| [`module_02/`](../../modules/module_02/) | **[Module 02: Tools](../../modules/module_02/module_02.md):** Cloud & hosted services, DevContainers, Docker, and AI/LLM tooling baseline *(Note: Labor Day Break Mon 07 Sep)*. | Lectures 05–07 | Fri 04 Sep - Fri 11 Sep 2026 | Brett et al., *RSE Guide*; Docker Docs; LiteLLM & Milvus Docs |
 
 ---
 
