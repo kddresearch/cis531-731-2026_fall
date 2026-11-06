@@ -10,7 +10,7 @@
 
 # CIS 531/731: Programming Techniques for Data Science and Analytics
 
-| Phase | Description | Modules | Date Range | Assigned Reading(s) |
+| Phase | Description | Modules | Date Range | [Assigned Reading(s)](../../reading_materials/readings_by_lecture.md) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Phase 1:** Foundations & Tooling | Course orientation, FAIR principles, reproducible workflows, PySpark foundations (RDDs & DataFrames), experiment design, containerization (Docker/DevContainers), and AI/LLM tool architecture. | [`Module 00`](../../modules/module_00/) - [`Module 02`](../../modules/module_02/) | Mon 24 Aug - Fri 11 Sep 2026 | [Wilkinson et al., *FAIR Principles*](https://www.nature.com/articles/sdata201618); [Danchev, *Reproducible Data Science*](https://valdanchev.github.io/reproducible-data-science-python/intro.html); [VanderPlas, *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/); [Irving et al., *Research Software Engineering*](https://third-bit.com/py-rse/); [Brett et al., *RSE Guide*](https://rse-book.github.io/); [Docker Docs](https://docs.docker.com/get-started/) |
 
