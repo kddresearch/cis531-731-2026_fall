@@ -8,56 +8,40 @@ routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
 ---
 -->
 
-<br>
+**🏫 Active Course Repositories:** 🏗️ [Architecture Base](https://github.com/kddresearch/course-architecture-base) &nbsp;|&nbsp; 🤖 CIS 530/730 &nbsp;|&nbsp; 📊 [CIS 531/731](https://github.com/kddresearch/cis531-731-2026_fall) &nbsp;|&nbsp; 📈 CIS 732 &nbsp;|&nbsp; 🎨 [CIS 536/736](https://github.com/kddresearch/cis536-736-2026_fall) &nbsp;|&nbsp; 👁️ CIS 798 X &nbsp;|&nbsp; 🧠 CIS 830
 
-<div align="center">
- <strong>🏫 Active Course Repositories:</strong> &nbsp;
- 🏗️ <a href="https://github.com/kddresearch/course-architecture-base">Architecture Base</a> &nbsp;|&nbsp;
- 🤖 CIS 530/730 &nbsp;|&nbsp;
- 📊 <a href="https://github.com/kddresearch/cis531-731-2026_fall">CIS 531/731</a> &nbsp;|&nbsp;
- 📈 CIS 732 &nbsp;|&nbsp;
- 🎨 <a href="https://github.com/kddresearch/cis536-736-2026_fall">CIS 536/736</a> &nbsp;|&nbsp;
- 👁️ CIS 798 X &nbsp;|&nbsp;
- 🧠 CIS 830
-</div>
+# 📊 CIS 531/731 - Programming Techniques for Data Science and Analytics
 
-<div align="center">
- <h1>📊 CIS 531/731 - Programming Techniques for Data Science and Analytics</h1>
- <p>
- <strong>Semester:</strong> Fall 2026 | <strong>Instructor:</strong> William H. Hsu<br>
- <strong>Status:</strong> ACTIVE | <strong>Canvas LMS:</strong> <a href="https://k-state.instructure.com/courses/201513">Closed SSO Portal</a>
- </p>
-</div>
+**Semester:** Fall 2026 | **Instructor:** William H. Hsu  
+**Status:** ACTIVE | **Canvas LMS:** [Closed SSO Portal](https://k-state.instructure.com/courses/201513)
 
-<hr>
+---
 
-<div style="background-color: #0056b3; padding: 25px; border-radius: 8px; color: white; margin-bottom: 25px; border-bottom: 5px solid #b7a57a; text-align: center;">
- <span style="background-color: rgba(255,255,255,0.2); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.85em;">Mon 24 Aug - Fri 11 Sep 2026</span>
- <h2 style="margin: 10px 0 5px 0; color: white; font-size: 24px;">📂 Phase 1: Foundations & Tooling</h2>
- <p style="margin: 0; font-size: 15px; color: #e6e2ef;">Course Orientation, PySpark Fundamentals, Containerization & AI Tooling</p>
-</div>
-<hr>
+## 📂 Phase 2: Obtain & Ingest
+
+**Status:** ACTIVE | **Maintainer:** Course Maintainers / KDD Lab
+
+---
 
 ## 📖 Overview
 
-This directory defines **Phase 1** of the course progression. For the complete canonical specification, detailed lecture objectives, and unified assigned readings partition, see [Phase 1 Specification (`phase_01.md`)](./phase_01.md).
+This directory defines **Phase 2** of the course progression. For the complete canonical specification, detailed lecture objectives, and unified assigned readings partition, see [Phase 2 Specification (`phase_02.md`)](./phase_02.md).
 
-Phases act as high-level chronological and thematic wrappers that group multiple weekly modules together based on major pedagogical milestones (e.g., OSEMN framework transitions). This phase specifically focuses on course orientation, PySpark foundations (RDDs & DataFrames), experiment design, containerization (Docker/DevContainers), and the AI/LLM tooling baseline.
+Phases act as high-level chronological and thematic wrappers that group multiple weekly modules together based on major pedagogical milestones (e.g., OSEMN framework transitions). This phase specifically focuses on ASR stream capture, VDB corpus acquisition, and Structured Streaming ingest architecture.
 
 > **⚠️ Phase Routing Notice**
 > This directory acts primarily as an organizational wrapper. Ensure that granular lecture assets, code snippets, and weekly materials are placed within their respective `module_XX/` subdirectories, rather than loosely at the root of the phase directory.
 
-<hr>
+---
 
 ## 🗂️ Phase Structure (Included Modules)
 
 | Module Directory | Topic / Description | Lectures | Date Range | Assigned Reading |
 | :--- | :--- | :--- | :--- | :--- |
-| [`module_00/`](../../modules/module_00/) | **[Module 00: Welcome & Course Overview](../../modules/module_00/module_00.md):** Course orientation, FAIR guiding principles, reproducible workflows, and Jupyter setup. | Lecture 00 | Mon 24 Aug 2026 | Wilkinson et al., *FAIR Principles*; Danchev, *Reproducible Data Science* |
-| [`module_01/`](../../modules/module_01/) | **[Module 01: PySpark Intro](../../modules/module_01/module_01.md):** RDDs, DataFrames, transformations, actions, experiment design, and RSE practices. | Lectures 01–04 | Wed 26 Aug - Wed 02 Sep 2026 | VanderPlas, *Python Data Science Handbook*; Irving et al., *RSE Python* |
-| [`module_02/`](../../modules/module_02/) | **[Module 02: Tools](../../modules/module_02/module_02.md):** Cloud & hosted services, DevContainers, Docker, and AI/LLM tooling baseline *(Note: Labor Day Break Mon 07 Sep)*. | Lectures 05–07 | Fri 04 Sep - Fri 11 Sep 2026 | Brett et al., *RSE Guide*; Docker Docs; LiteLLM & Milvus Docs |
+| [`module_03/`](../../modules/module_03/) | **[Module 03: Obtain: ASR Stream Capture & VDB Corpus Acquisition](../../modules/module_03/module_03.md):** ASR stream capture, VDB corpus acquisition, and OpenAI Whisper local transcription architecture. | Lectures 8–10 | Mon 14 Sep - Fri 18 Sep 2026 | Jurafsky & Martin, *SLP3* Ch. 16; OpenAI Whisper; FAISS & Whisper-Streaming |
+| [`module_04/`](../../modules/module_04/) | **[Module 04: Data Analytics Pipelines](../../modules/module_04/module_04.md):** Structured Streaming, data lake models, and ASR ingest architecture. | Lectures 11–13 | Mon 21 Sep - Fri 25 Sep 2026 | Akidau et al., *The Dataflow Model*; Apache Spark Structured Streaming Guide |
 
-<hr>
+---
 
 ## 🦅 Standard Operating Procedures (SOPs)
 
@@ -67,8 +51,6 @@ All instructional staff interacting with this phase directory must adhere to the
 * **Protocol 2 (Navigation):** Maintain cross-links in the module READMEs pointing back to this Phase root to preserve GitOps navigability.
 * **Protocol 3 (Milestone Anchoring):** Ensure the terminal module of this phase explicitly prepares the student for the associated major assignment/milestone.
 
-<br>
-<hr>
-<p align="center">
- <i>Maintained by the <a href="https://github.com/kddresearch">Knowledge Discovery in Databases (KDD) Lab</a> at Kansas State University.</i>
-</p>
+---
+
+*Maintained by the [Knowledge Discovery in Databases (KDD) Lab](https://github.com/kddresearch) at Kansas State University.*
