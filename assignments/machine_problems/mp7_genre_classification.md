@@ -70,16 +70,16 @@ Your submission must be a **`report.md` (at most 3 pages) delivered with `protoc
 
 ---
 
-## 4. Scoring Rubric (100 Points Raw / 30 Points Normalized)
+## 4. Scoring Rubric (30 Points)
 
-| Component | Raw Weight | Norm (30) | Description |
-| :--- | :--- | :--- | :--- |
-| **Protocol and Label Space** | 15 pts | 4.5 pts | `protocol.md` is complete and committed before results generation. |
-| **Prompt Specification & Controls** | 15 pts | 4.5 pts | Template is precise; concrete controls implemented for majority-label bias, position bias (with permutation), and label leakage. |
-| **Classifier Implementation & Contracts** | 25 pts | 7.5 pts | Three classifiers behind one `Classifier` interface; `deal` contracts hold on all outputs. |
-| **Shot-Sweep Rigor & Source Separation** | 25 pts | 7.5 pts | Seeds, 95% bootstrap CIs, and `compute_graded_metric` sourcing (INV-12) correctly applied and reproducible from `predictions.jsonl`. |
-| **Reproducibility & Quota Log** | 15 pts | 4.5 pts | Pinned environment; runs on the CPU baseline; model hash and quota usage documented. |
-| **GenAI Verification** | 5 pts | 1.5 pts | Includes the required `GenAI.pdf` log or explicitly states AI was not used. |
+| Component | Points | Description |
+| :--- | :--- | :--- |
+| **Protocol and Label Space** | 4.5 pts | `protocol.md` is complete and committed before results generation. |
+| **Prompt Specification & Controls** | 4.5 pts | Template is precise; concrete controls implemented for majority-label bias, position bias (with permutation), and label leakage. |
+| **Classifier Implementation & Contracts** | 7.5 pts | Three classifiers behind one `Classifier` interface; `deal` contracts hold on all outputs. |
+| **Shot-Sweep Rigor & Source Separation** | 7.5 pts | Seeds, 95% bootstrap CIs, and `compute_graded_metric` sourcing (INV-12) correctly applied and reproducible from `predictions.jsonl`. |
+| **Reproducibility & Quota Log** | 4.5 pts | Pinned environment; runs on the CPU baseline; model hash and quota usage documented. |
+| **GenAI Verification** | 1.5 pts | Includes the required `GenAI.pdf` log or explicitly states AI was not used. |
 
 ---
 
@@ -87,9 +87,9 @@ Your submission must be a **`report.md` (at most 3 pages) delivered with `protoc
 
 * **PS 8: Interim Report (Mandatory Milestone)** — *Released:* Thu 29 Oct 2026 | *Due:* **Sat 07 Nov 2026** (30 pts, Team/Solo, tag `ps8-submission`).
 * **MP 9: Retrieval-Augmented Classification & Convolutions** — *Released:* Sat 07 Nov 2026 | *Due:* **Mon 16 Nov 2026** (100 pts / 30 norm, Individual with 20-object partner overlap, $\le 50$ gold objects or 2 hours CI gate, tag `mp9-submission`).
-* **MP 10: Data Science Interpretability & Metrics Scoring** — *Released:* Mon 16 Nov 2026 | *Due:* **Wed 25 Nov 2026** (100 pts / 30 norm, Individual, tag `mp10-submission`).
-* **PS 11: Ethics, Data Storytelling, & Dashboards** — *Released:* Wed 25 Nov 2026 | *Due:* **Fri 04 Dec 2026** (100 pts / 30 norm, Individual, tag `ps11-submission`).
-* **HW 12: Final Project Deliverables (Mandatory Milestone)** — *Released:* Sat 05 Dec 2026 | *Due:* **Mon 14 Dec 2026** (200 pts / 300 Substance + 30 Milestone, Team/Solo, 50–200 gold range gate, tag `hw12-final`).
+* **MP 10: Data Science Interpretability & Metrics Scoring** — *Released:* Sat 07 Nov 2026 | *Due:* **Wed 25 Nov 2026** (100 pts / 30 norm, Individual, tag `mp10-submission`).
+* **PS 11: Ethics, Data Storytelling, & Dashboards** — *Released:* Sat 07 Nov 2026 | *Due:* **Fri 04 Dec 2026** (100 pts / 30 norm, Individual, tag `ps11-submission`).
+* **HW 12: Final Project Deliverables (Mandatory Milestone)** — *Released:* Sat 07 Nov 2026 | *Due:* **Mon 14 Dec 2026** (200 pts / 300 Substance + 30 Milestone, Team/Solo, 50–200 gold range gate, tag `hw12-final`).
 
 ---
 
