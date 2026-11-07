@@ -2,7 +2,7 @@
 id: PS 11
 phase: Phase 5: Interpret, Present & Deploy
 module: Module 11: Presenting Results (Ethics, Data Storytelling, Dashboards)
-released: Wed 25 Nov 2026
+released: Sat 07 Nov 2026
 due: Fri 04 Dec 2026
 prev: assignments/machine_problems/mp10_interpretability_metrics.md
 next: assignments/homework/hw12_final_deliverables.md
@@ -10,15 +10,15 @@ next: assignments/homework/hw12_final_deliverables.md
 # PS 11: Ethics, Data Storytelling, & Dashboards
 **Provenance and representational-harm audit, plus an audience-specific dashboard specification with a working prototype**
 
-**🗓️ Released:** Wed 25 Nov 2026 | **📅 Due:** Fri 04 Dec 2026 | **💯 Points:** 100 | **👥 Team:** Individual
+**🗓️ Released:** Sat 07 Nov 2026 | **📅 Due:** Fri 04 Dec 2026 | **💯 Points:** 30 | **👥 Team:** Individual
 
 > **🚨 CRITICAL SUBMISSION POLICY**
-> **Dead Week Boundary and Lyric Reproduction:** Due before Dead Week (Mon 07 – Fri 11 Dec 2026); no new homework is assigned in Dead Week. Do not reproduce song lyrics or copyrighted text beyond instructor-provided excerpts in any dashboard or report (INV-9).
+> **Dead Week Boundary and Lyric Reproduction:** Due before Dead Week (Mon 07 – Fri 11 Dec 2026); no new homework is assigned in Dead Week. Do not reproduce song lyrics or copyrighted text beyond instructor-provided excerpts in any dashboard or report.
 
 ## 1. Overview
 Audit your own term project for provenance, privacy, representational harm, and LLM/pipeline risk, then specify an audience-specific dashboard and implement a working prototype that consumes your MP 10 outputs (metrics, CIs, calibration, cohort-stratified results). Generic statements about ‘bias’ or ‘privacy’ earn no credit.
 
-Any visualization library you add must be recorded in the lockfile and run in the pinned CPU image (INV-14). **Calendar:** released Wed 25 Nov 2026 during Fall Break (22–29 Nov).
+Any visualization library you add must be recorded in the lockfile and run in the pinned CPU image. **Calendar:** official posting in hydrated form Sat 07 Nov 2026.
 
 **Required Readings:**
 * [Technical Writing Essentials (Last)](https://pressbooks.bccampus.ca/technicalwriting/): audience analysis and document design; presenting data and visuals within an argument.
