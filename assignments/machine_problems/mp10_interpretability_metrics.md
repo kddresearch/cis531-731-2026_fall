@@ -49,7 +49,7 @@ Your submission must be a **`report.md` (`interpretability_report.md`, at most 4
 * **Power, Stability, and Cohort Stratification:** CI-width versus n on silver subsamples, metrics by cohort, and an explicit statement of what small n cannot support.
 * **GenAI Audit:** Did you use the Generative AI Kit to synthesize this artifact? You must include your `GenAI.pdf` log or explicitly state "No GenAI Used."
 
-## 4. Grading Rubric (100 Points Total)
+## 4. Grading Rubric (30 Points Total)
 
 This assignment is worth 30 points total.
 
