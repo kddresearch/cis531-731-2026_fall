@@ -12,7 +12,7 @@ REVIEW R-2: PS 4 release/due dates were not supplied; the gap between PS 4 and M
 # MP 5: Data Analytics Pipelines (Structured Streaming)
 **Event-time windowed analytics, checkpointed fault tolerance, and contract-validated ingest over replayed and live sources**
 
-**🗓️ Released:** Fri 09 Oct 2026 | **📅 Due:** Tue 20 Oct 2026 | **💯 Points:** 100 | **👥 Team:** Individual
+**🗓️ Released:** Fri 09 Oct 2026 | **📅 Due:** Tue 20 Oct 2026 | **💯 Points:** 30 | **👥 Team:** Individual
 
 > **🚨 CRITICAL SUBMISSION POLICY**
 > **Source Whitelist and Quota Killswitch:** Live ASR capture is restricted to the instructor whitelist and the instructor RTMP demo stream (INV-10); any other URL fails the ingest precondition. API usage is bounded by your team quota; exhaustion triggers an automatic fallback to the CPU baseline or free tier (INV-18) and carries no emergency bailout.
