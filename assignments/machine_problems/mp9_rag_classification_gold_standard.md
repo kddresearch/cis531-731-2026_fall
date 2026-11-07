@@ -12,7 +12,7 @@ REVIEW R-5: Annotation-partner assignment and `overlap_ids.txt` (20 shared objec
 # MP 9: Retrieval-Augmented Classification & Convolutions
 **Human-in-the-loop gold-standard construction, weak-supervision expansion, retrieval-augmented classification, and cohort convolution analysis**
 
-**🗓️ Released:** Sat 07 Nov 2026 | **📅 Due:** Mon 16 Nov 2026 | **💯 Points:** 100 | **👥 Team:** Individual (annotation overlap with an assigned partner)
+**🗓️ Released:** Sat 07 Nov 2026 | **📅 Due:** Mon 16 Nov 2026 | **💯 Points:** 30 | **👥 Team:** Individual (annotation overlap with an assigned partner)
 
 > **🚨 CRITICAL SUBMISSION POLICY**
 > **Annotation Ceiling and CI/CD Gate:** Annotate at most 50 data objects or 2 hours, whichever is lower. Your raw labeled file (`gold_raw.csv` or `gold_raw.jsonl`) is validated by a deterministic row-count check; more than 50 rows fails the pipeline and returns a zero for this assignment. The 2-hour limit is self-attested in `attestation.md` and bounded structurally by the row cap. A CI row-count zero is recorded separately from a quota-exhaustion zero.
