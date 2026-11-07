@@ -1,0 +1,48 @@
+<div style="font-family: Aptos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1000px; margin: 0px auto; line-height: 1.6; color: #2d3b45; border-radius: 8px; overflow: hidden; background-color: #ffffff; border: 1px solid #dddddd;">
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #3a2366 100%); padding: 40px 30px; color: white; border-bottom: 5px solid #b7a57a;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8em;">VERSION 1.0</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 32px;">Generative AI Project Kit (CIS 531/731)</h1>
+        <p style="margin: 0; font-size: 18px; color: #e6e2ef;">Approved Data Science Workflows &amp; Meta-Prompts for LLM Assistance</p>
+    </div>
+    <div style="background-color: #f8f9fa; padding: 12px 15px; text-align: center; font-size: 0.95em; border-bottom: 3px solid #b7a57a; margin-bottom: 35px; line-height: 1.8;"><span style="color: #666; margin-right: 10px;">📂 Term Project Hub:</span> <a style="color: #0d47a1; text-decoration: none;" href="#">Taxonomy &amp; Matrix</a> &nbsp;|&nbsp; <a style="color: #0d47a1; text-decoration: none;" href="#">Project Guidelines</a> &nbsp;|&nbsp; <a style="color: #0d47a1; text-decoration: none;" href="#">Proposal Instructions</a> &nbsp;|&nbsp; <span style="color: #4b2e83;">GenAI Kit (this page)</span></div>
+    <div style="padding: 0 30px 30px 30px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83; margin-top: 0;">Global Ethics &amp; The Two Tollbooths</h2>
+        <p>GenAI tools (ChatGPT, Gemini, Claude, Perplexity) may be used throughout your project, provided all interactions are audited. To foster research maturity and prevent "knowledge pi&ntilde;ata" exploitation, your use of AI is bound by two absolute structural constraints:</p>
+        <div style="background-color: #fcfcfa; border-left: 5px solid #d64309; padding: 20px; border-radius: 4px; margin-bottom: 40px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+            <h4 style="margin-top: 0; color: #d64309; font-size: 16px;"><strong>🛑 1. The Anti-Spooning Stick (No Free Summaries)</strong></h4>
+            <p style="font-size: 0.95em; color: #444; margin-bottom: 15px;">You are strictly forbidden from asking an AI to summarize a paper or extract claims UNLESS you provide your own baseline artifact first.</p>
+            <ul style="font-size: 0.95em; color: #444; margin-bottom: 0;">
+                <li style="margin-bottom: 5px;"><strong>DO NOT ASK:</strong> "Summarize this paper" or "Do a lit review on X."</li>
+                <li><strong>DO ASK:</strong> "Here is my 1-sentence hypothesis of this paper's core gap. Audit my claim against the text."</li>
+            </ul>
+            <h4 style="margin-top: 25px; color: #d64309; font-size: 16px;"><strong>🛑 2. The Systems Thinking Carrot (No Free Pipelines)</strong></h4>
+            <p style="font-size: 0.95em; color: #444; margin-bottom: 15px;">Do not chase incremental code fixes without defining the scientific impact. You must provide an impact justification before asking for architectural design.</p>
+            <ul style="font-size: 0.95em; color: #444; margin-bottom: 0;">
+                <li style="margin-bottom: 5px;"><strong>DO NOT ASK:</strong> "How do I build this pipeline?" or "Write the PySpark code for X."</li>
+                <li><strong>DO ASK:</strong> "The impact metric of my system is X, which matters because Y. Based on this, help me design the feature extraction architecture."</li>
+            </ul>
+        </div>
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Phase 1: Project Proposals &amp; Scoping</h2>
+        <p>GenAI may be used for <strong>editing, critique, and debugging</strong> only. You may not use it to generate your core intellectual ideas from scratch. Before asking an LLM for help evaluating your proposal, copy and paste this block to ground it in the CIS 531/731 taxonomy.</p>
+        <div style="background-color: #f8f9fa; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #dddddd #dddddd #dddddd #4b2e83; padding: 15px; font-family: Consolas, 'Courier New', monospace; font-size: 0.9em; color: #333333; white-space: pre-wrap; margin-bottom: 40px; border-radius: 4px;">[SYSTEM INSTRUCTION] You are the Research Design Coordinator for CIS 531/731 (Data Science). Provide CRITIQUES ONLY. Do NOT write the proposal, literature review, or pipeline code for me. [COURSE CONTEXT] Apply adversarial self-critique: identify what most efficiently refutes my claim, and what hidden assumptions carry it. Ensure every major assertion is traceable. Evaluate my proposal against these constraints: (1) Mathematical &amp; Technical Soundness, (2) Empirical Rigor (Metrics/Baselines), and (3) Reproducibility.</div>
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Phase 2: The "Grammarly on Steroids" Synthesis</h2>
+        <p>For your Interim Report, generative writing is allowed under the <strong>"Grammarly on Steroids" policy</strong>. The LLM must act strictly as a synthesizer of <em>your</em> original thoughts. You must provide the model with non-generative input (your raw bullet points, architecture choices, or raw DataFrame schemas). <strong>You must include your raw notes in this prompt to receive credit.</strong></p>
+        <div style="background-color: #fff8e1; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #ff9800; padding: 15px; font-family: Consolas, 'Courier New', monospace; font-size: 0.9em; color: #333333; white-space: pre-wrap; margin-bottom: 40px; border-radius: 4px;">[SYSTEM INSTRUCTION] You are an expert technical academic editor. I am providing my original bullet points, raw data schemas, and architectural choices below. Please synthesize this into a formal, concise academic response for my Interim Report. Do NOT add new claims, invent data, hallucinate citations, or alter my original intellectual intent. [MY ORIGINAL INPUT] Section: [e.g., Methodology / Baselines / Feature Extraction] My Raw Notes/Data: - [Insert your first raw thought/fact/schema here] - [Insert your second raw thought/fact/schema here]</div>
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Phase 2 &amp; 3: Execution Prompt Library</h2>
+        <p>Use these specific prompts to bulletproof your metrics and evaluate your system. <strong>Always start by attaching your accepted Project Proposal PDF to the chat context.</strong></p>
+        <div style="display: flex; flex-direction: column; gap: 25px; margin-bottom: 40px;">
+            <div style="background-color: #e8f5e9; padding: 20px; border-radius: 8px; border: 1px solid #c8e6c9;">
+                <h3 style="margin-top: 0; color: #1b5e20;">1. Systems Engineering Audit (Tool Selection)</h3>
+                <div style="background-color: #ffffff; padding: 15px; font-family: Consolas, 'Courier New', monospace; font-size: 0.9em; color: #333333; white-space: pre-wrap; border-radius: 4px; border: 1px solid #dddddd;">You are the Systems Engineering Auditor. Conduct an interoperability audit based on my attached proposal. Compare my proposed data pipeline tools against industry standards. Identify integration bottlenecks, API deprecations, or version mismatches that threaten my architecture. Provide your findings in a structured Markdown interoperability matrix.</div>
+            </div>
+            <div style="background-color: #e8f5e9; padding: 20px; border-radius: 8px; border: 1px solid #c8e6c9;">
+                <h3 style="margin-top: 0; color: #1b5e20;">2. Evaluating Metrics &amp; Baselines</h3>
+                <div style="background-color: #ffffff; padding: 15px; font-family: Consolas, 'Courier New', monospace; font-size: 0.9em; color: #333333; white-space: pre-wrap; border-radius: 4px; border: 1px solid #dddddd;">I am currently using [Insert Metric] to evaluate my model. Are there more robust secondary metrics that are industry-standard for this specific task? What are the most common failure modes, distribution shifts, or biases when evaluating models on this type of data? Help me design a specific baseline test to measure these vulnerabilities.</div>
+            </div>
+            <div style="background-color: #e8f5e9; padding: 20px; border-radius: 8px; border: 1px solid #c8e6c9;">
+                <h3 style="margin-top: 0; color: #1b5e20;">3. Action Branches (Breaking Ambiguity)</h3>
+                <p style="font-size: 0.9em; color: #555; margin-bottom: 10px;">If you are stuck and the AI gives you generic advice, force it to give you concrete options by pasting this at the end of your prompt:</p>
+                <div style="background-color: #ffffff; padding: 15px; font-family: Consolas, 'Courier New', monospace; font-size: 0.9em; color: #333333; white-space: pre-wrap; border-radius: 4px; border: 1px solid #dddddd;">Do not end with a generic question. Provide exactly three [ACTION BRANCHES] for me to choose from: [OPTION A - Broaden the literature], [OPTION B - Deepen the math/logic check on a specific assumption], or [OPTION C - Execute the pipeline code based on my specified impact metric].</div>
+            </div>
+        </div>
+    </div>
+</div>
