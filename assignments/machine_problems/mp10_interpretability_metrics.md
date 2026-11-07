@@ -2,7 +2,7 @@
 id: MP 10
 phase: Phase 5: Interpret, Present & Deploy
 module: Module 10: Interpret (Interpretability and Metrics Scoring)
-released: Mon 16 Nov 2026
+released: Sat 07 Nov 2026
 due: Wed 25 Nov 2026
 prev: assignments/machine_problems/mp9_rag_classification_gold_standard.md
 next: assignments/homework/ps11_ethics_storytelling_dashboards.md
@@ -11,7 +11,7 @@ REVIEW R-7: Due date Wed 25 Nov 2026 (and PS 11 release on the same day) falls i
 # MP 10: Data Science Interpretability & Metrics Scoring
 **Metric derivation, permutation importance, calibration, and statistically supported system comparison under small-n constraints**
 
-**🗓️ Released:** Mon 16 Nov 2026 | **📅 Due:** Wed 25 Nov 2026 | **💯 Points:** 100 | **👥 Team:** Individual
+**🗓️ Released:** Sat 07 Nov 2026 | **📅 Due:** Wed 25 Nov 2026 | **💯 Points:** 30 | **👥 Team:** Individual
 
 > **🚨 CRITICAL SUBMISSION POLICY**
 > **Quota Killswitch and Fall Break:** Resampling-heavy analyses must run within your quota or on the CPU baseline (INV-18); exhaustion triggers fallback, not an extension. The due date falls within Fall Break (22–29 Nov 2026); there are no class meetings that week.
