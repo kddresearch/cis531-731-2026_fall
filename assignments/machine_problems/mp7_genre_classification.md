@@ -3,7 +3,7 @@ id: MP 7
 phase: Phase 3: Scrub & Embed
 module: Module 06: GenAI & LLMs (Few-Shot Trope/Genre Classification)
 released: Wed 21 Oct 2026
-due: Tue 03 Nov 2026 (originally Fri 30 Oct 2026)
+due: Tue 10 Nov 2026 (originally Fri 30 Oct 2026)
 prev: assignments/homework/ps6_semantic_search_vdb_schema.md
 next: assignments/homework/ps8_interim_report.md
 REVIEW R-3: Evaluation-set provenance. INV-12 (instructor-provided held-out set) and INV-17 (GTAs do not pre-build gold sets) both apply before MP 9. Draft assumes `eval_mp7.jsonl` is instructor-built from public-domain or instructor-provided material.
@@ -12,7 +12,7 @@ REVIEW R-4: ASR-track label space (`asr_label_set.yaml`) is a drafted assumption
 # MP 7: Few-Shot Trope/Genre Classification (GenAI)
 **Prototype, kNN, and fixed-demonstration LLM classifiers compared under a controlled few-shot protocol**
 
-**🗓️ Released:** Wed 21 Oct 2026 | **📅 Due:** ~~Fri 30 Oct 2026~~ **Tue 03 Nov 2026, 11:59 PM CST** | **💯 Points:** 30 | **👥 Team:** Individual
+**🗓️ Released:** Wed 21 Oct 2026 | **📅 Due:** ~~Fri 30 Oct 2026~~ **Tue 10 Nov 2026, 11:59 PM CST** | **💯 Points:** 30 | **👥 Team:** Individual
 
 > **🚨 CRITICAL SUBMISSION POLICY**
 > * **Evaluation Source Separation (INV-12):** Graded metrics must be computed with `compute_graded_metric` against the instructor-provided evaluation set (`eval_mp7.jsonl`). Metrics on your own splits must use `compute_dev_metric` (`grading_eligible=False`) and are advisory only.
