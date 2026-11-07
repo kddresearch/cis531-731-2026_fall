@@ -52,21 +52,21 @@ Your submission must be a **`report.md` (at most 4 pages) delivered with `gold_r
 * **Cohort Convolution Analysis:** Cohort axis definition, kernels, drift estimates with CIs, and (CIS 731) learned-kernel forecast-error comparison.
 * **GenAI Audit:** Did you use the Generative AI Kit to synthesize this artifact? You must include your `GenAI.pdf` log or explicitly state "No GenAI Used."
 
-## 4. Grading Rubric (100 Points Total)
+## 4. Grading Rubric (30 Points Total)
 
-This assignment is worth 100 points total.
+This assignment is worth 30 points total.
 
-**Part 1: Gold-Standard Construction (40 pts)**
-* **Codebook and attestation (10 pts):** Unambiguous decision rules; exemplars drawn from labeled objects; attestation complete.
-* **IAA and adjudication (15 pts):** Correct κ with CI, confusion matrix, and documented adjudication.
-* **Weak-supervision agreement (15 pts):** Silver labeling is sound, marked `source=silver`, and its agreement with gold is analyzed.
+**Part 1: Gold-Standard Construction (12 pts)**
+* **Codebook and attestation (3 pts):** Unambiguous decision rules; exemplars drawn from labeled objects; attestation complete.
+* **IAA and adjudication (4.5 pts):** Correct κ with CI, confusion matrix, and documented adjudication.
+* **Weak-supervision agreement (4.5 pts):** Silver labeling is sound, marked `source=silver`, and its agreement with gold is analyzed.
 
-**Part 2: Models and Analysis (55 pts)**
-* **Retrieval-augmented classification (25 pts):** Correct retrieval metrics and a fair comparison against the MP 7 baseline.
-* **Cohort convolution (20 pts):** Kernels applied correctly along the cohort axis; drift estimates with uncertainty.
-* **Reproducibility and CI gate (10 pts):** Row-count gate passes; pinned environment; CPU-solvable. A gate failure is a zero for the assignment.
+**Part 2: Models and Analysis (16.5 pts)**
+* **Retrieval-augmented classification (7.5 pts):** Correct retrieval metrics and a fair comparison against the MP 7 baseline.
+* **Cohort convolution (6 pts):** Kernels applied correctly along the cohort axis; drift estimates with uncertainty.
+* **Reproducibility and CI gate (3 pts):** Row-count gate passes; pinned environment; CPU-solvable. A gate failure is a zero for the assignment.
 
-* **GenAI Verification (5 pts):** Includes the required GenAI log (`GenAI.pdf`) or explicitly states AI was not used.
+* **GenAI Verification (1.5 pts):** Includes the required GenAI log (`GenAI.pdf`) or explicitly states AI was not used.
 
 ---
 
