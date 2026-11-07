@@ -63,7 +63,6 @@ This assignment is worth 30 points total.
 * **Calibration (3 pts):** Reliability diagrams, bin sensitivity, and before/after comparison.
 * **Statistical comparison (3 pts):** Correct paired test, CI, and FDR control.
 * **Power, stability, and cohort stratification (3 pts):** Small-n limits quantified; cohort disparity tested and communicated.
-
 * **GenAI Verification (1.5 pts):** Includes the required GenAI log (`GenAI.pdf`) or explicitly states AI was not used.
 
 ---
