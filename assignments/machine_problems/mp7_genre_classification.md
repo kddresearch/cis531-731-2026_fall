@@ -12,7 +12,7 @@ REVIEW R-4: ASR-track label space (`asr_label_set.yaml`) is a drafted assumption
 # MP 7: Few-Shot Trope/Genre Classification (GenAI)
 **Prototype, kNN, and fixed-demonstration LLM classifiers compared under a controlled few-shot protocol**
 
-**🗓️ Released:** Wed 21 Oct 2026 | **📅 Due:** ~~Fri 30 Oct 2026~~ **Tue 03 Nov 2026, 11:59 PM CST** | **💯 Points:** 100 (Normalized to 30 in Gradebook) | **👥 Team:** Individual
+**🗓️ Released:** Wed 21 Oct 2026 | **📅 Due:** ~~Fri 30 Oct 2026~~ **Tue 03 Nov 2026, 11:59 PM CST** | **💯 Points:** 30 | **👥 Team:** Individual
 
 > **🚨 CRITICAL SUBMISSION POLICY**
 > * **Evaluation Source Separation (INV-12):** Graded metrics must be computed with `compute_graded_metric` against the instructor-provided evaluation set (`eval_mp7.jsonl`). Metrics on your own splits must use `compute_dev_metric` (`grading_eligible=False`) and are advisory only.
