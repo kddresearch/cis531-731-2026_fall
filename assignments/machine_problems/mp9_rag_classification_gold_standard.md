@@ -65,7 +65,6 @@ This assignment is worth 30 points total.
 * **Retrieval-augmented classification (7.5 pts):** Correct retrieval metrics and a fair comparison against the MP 7 baseline.
 * **Cohort convolution (6 pts):** Kernels applied correctly along the cohort axis; drift estimates with uncertainty.
 * **Reproducibility and CI gate (3 pts):** Row-count gate passes; pinned environment; CPU-solvable. A gate failure is a zero for the assignment.
-
 * **GenAI Verification (1.5 pts):** Includes the required GenAI log (`GenAI.pdf`) or explicitly states AI was not used.
 
 ---
