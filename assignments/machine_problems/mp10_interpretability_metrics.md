@@ -51,20 +51,20 @@ Your submission must be a **`report.md` (`interpretability_report.md`, at most 4
 
 ## 4. Grading Rubric (100 Points Total)
 
-This assignment is worth 100 points total.
+This assignment is worth 30 points total.
 
-**Part 1: Metrics and Inference Theory (30 pts)**
-* **Metric derivations (15 pts):** Correct derivations and a valid imbalance counterexample.
-* **Inference design and assumptions (15 pts):** Test choice justified; assumptions stated; BH family defined before analysis.
+**Part 1: Metrics and Inference Theory (9 pts)**
+* **Metric derivations (4.5 pts):** Correct derivations and a valid imbalance counterexample.
+* **Inference design and assumptions (4.5 pts):** Test choice justified; assumptions stated; BH family defined before analysis.
 
-**Part 2: Harness and Analyses (65 pts)**
-* **Harness correctness and contracts (20 pts):** Metrics correct; contracts and unit tests pass.
-* **Interpretability analyses (15 pts):** Global and local explanations are correct and interpreted.
-* **Calibration (10 pts):** Reliability diagrams, bin sensitivity, and before/after comparison.
-* **Statistical comparison (10 pts):** Correct paired test, CI, and FDR control.
-* **Power, stability, and cohort stratification (10 pts):** Small-n limits quantified; cohort disparity tested and communicated.
+**Part 2: Harness and Analyses (19.5 pts)**
+* **Harness correctness and contracts (6 pts):** Metrics correct; contracts and unit tests pass.
+* **Interpretability analyses (4.5 pts):** Global and local explanations are correct and interpreted.
+* **Calibration (3 pts):** Reliability diagrams, bin sensitivity, and before/after comparison.
+* **Statistical comparison (3 pts):** Correct paired test, CI, and FDR control.
+* **Power, stability, and cohort stratification (3 pts):** Small-n limits quantified; cohort disparity tested and communicated.
 
-* **GenAI Verification (5 pts):** Includes the required GenAI log (`GenAI.pdf`) or explicitly states AI was not used.
+* **GenAI Verification (1.5 pts):** Includes the required GenAI log (`GenAI.pdf`) or explicitly states AI was not used.
 
 ---
 
