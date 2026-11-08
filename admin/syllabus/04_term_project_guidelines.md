@@ -1,7 +1,8 @@
 ---
 yaml_schema_version: "2.1"
 document_version: "2.0"
-document_last_updated_date: "2026-10-29"
+document_version: "2.1"
+document_last_updated_date: "2026-11-07"
 document_monotonicity: "REQUIRED"
 ---
 
@@ -28,6 +29,13 @@ The Term Project is the capstone of **CIS 531 / 731**. It is evaluated via a dua
 ### 2. Individual vs. Team Milestones & Annotation Bounds (INV-17 / INV-21)
 * **Individual Homework Gates (`MP 5`, `PS 6`, `MP 7`, `MP 9`, `MP 10`, `PS 11`):** Submitted individually via Git tags (`mp5-submission`, `ps6-submission`, `mp7-submission`, `mp9-submission`, `mp10-submission`, `ps11-submission`). In **MP 9**, each student labels **at most 50 gold objects or 2 hours** (enforced by a deterministic CI row-count gate; $>50$ rows returns a 0) with a 20-object partner overlap (`overlap_ids.txt`) for Cohen's $\kappa$ IAA.
 * **Pooled Team Milestones (`PS 8` Interim Report & `HW 12` Final Deliverables):** Submitted by the registered term-project team (or solo). In **HW 12**, teammates pool their adjudicated gold files to satisfy the **50–200 labeled-example range gate (INV-21)** with 2-way/3-way IAA and adjudication rules (solo projects keep labeled validation data at $\le 1\%$ per INV-17).
+
+### 3. Corpus Scale Guideline & Ground-Truth Sourcing Policy (No Manual Hand-Gathering)
+* **Automated Ingestion & Normative Scale ($5 \times 10^3$ to $5 \times 10^6$ Records/Chunks):** Per [`06_term_project_sourcing_guide.md`](./06_term_project_sourcing_guide.md), the **Obtain** stage must be executed via a repeatable script, dataset loader, or API consumer—never by manually gathering, copy-pasting, or hand-editing CSVs. Consistent with the $\le 1\%$ validation-split cap on a 50–200 item gold set ($50 / 0.01 = 5{,}000$) and the $\ge 1{,}000$-chunk silver pool required in MP 9 and MP 10, project datasets should span **$10^4$ to $10^6$ rows or chunks, give or take half an order of magnitude ($5 \times 10^3$ to $5 \times 10^6$)** (with $\ge 1{,}000$ chunks as the absolute floor for bounded audio or specialized API corpora).
+* **Ground-Truth Label Sourcing (Manual Annotation Is Not Required by Default):** Students are **not** required to annotate data by hand. You should perform manual scratch annotation **only if explicitly authorized to do so in your project approval**. Instead, use one of the two default strategies below (and use the $\le 50$-object / $\le 2$-hour MP 9 gate to human-audit and verify your held-out evaluation slice):
+  1. **Third-Party-Annotated or Historical Data (Default Recommended):** Source datasets in the **Obtain** step that already carry third-party human annotations, benchmark labels, reference transcripts, or historical outcome variables.
+  2. **Deterministic Join / Rule-Based Alignment (Generally Acceptable):** Derive labels by deterministically joining alignable data sources, provided the alignment itself is verifiable (e.g., via an explicit join key, timestamp window, or deterministic string/regexp matching, for which generative programming is permitted).
+  3. **Authorized Manual Annotation (By Project Approval Only):** Hand-label a bounded sample ($\le 50$ objects / $\le 2$ hours per student in MP 9; 50–200 pooled in HW 12) only when explicitly approved by the instructor. In all cases, unverified LLM/ASR outputs may only serve as weak-supervision `source=silver` labels, never as `source=gold` evaluation truth.
 
 ---
 
