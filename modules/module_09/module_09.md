@@ -2,7 +2,7 @@
 
 | Phase | Module | Lecture(s) | Date(s) | Assigned Reading(s) |
 | :--- | :--- | :--- | :--- | :--- |
-| **[Phase 5](../../phases/phase_05/):** Evaluate & Deploy | **Module 09:** Evaluating Models: Inferential Statistics & ASR Evaluation | **Lectures 28-30** | Mon 02 Nov - Fri 06 Nov 2026 | [James et al., *ISLP* (2023)](https://www.statlearning.com/resources-python); [NIST *OpenASR 2020 Plan*](https://www.nist.gov/document/openasr20-challenge-evaluation-plan); [scikit-learn *Precision-Recall*](https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html)[cite: 8, 10] |
+| **[Phase 5](../../phases/phase_05/):** Evaluate & Deploy | **Module 09:** Evaluating Models: Inferential Statistics & ASR Evaluation | **Lectures 28-30** | Mon 02 Nov - Fri 06 Nov 2026 | [James et al., *ISLP* (2023)](https://www.statlearning.com/resources-python); [NIST *OpenASR 2020 Plan*](https://www.nist.gov/document/openasr20-challenge-evaluation-plan); [scikit-learn *Precision-Recall*](https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html) |
 
 ---
 
