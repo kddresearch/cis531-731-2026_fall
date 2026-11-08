@@ -1,8 +1,8 @@
 # CIS 531/731: Programming Techniques for Data Science and Analytics
 
-| Phase | Module | Lecture(s) | Date(s) |
-| :--- | :--- | :--- | :--- |
-| **[Phase 5](../../phases/phase_05/):** Evaluate & Deploy | **Module 09:** Evaluating Models: Inferential Statistics & ASR Evaluation | **Lectures 28-30** | Mon 02 Nov - Fri 06 Nov 2026 |
+| Phase | Module | Lecture(s) | Date(s) | Assigned Reading(s) |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Phase 5](../../phases/phase_05/):** Evaluate & Deploy | **Module 09:** Evaluating Models: Inferential Statistics & ASR Evaluation | **Lectures 28-30** | Mon 02 Nov - Fri 06 Nov 2026 | [James et al., *ISLP* (2023)](https://www.statlearning.com/resources-python); [NIST *OpenASR 2020 Plan*](https://www.nist.gov/document/openasr20-challenge-evaluation-plan); [scikit-learn *Precision-Recall*](https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html)[cite: 8, 10] |
 
 ---
 
@@ -13,6 +13,7 @@
 3. **Resampling Methods & The Non-Parametric Bootstrap:** Estimating true parameter variability without collecting new data by simulating the population via sampling with replacement from the original dataset.
 4. **Constructing Bootstrap Confidence Intervals:** Utilizing the percentile method to extract 95% confidence bounds from sorted bootstrap estimates, providing a robust range of plausible true performance.
 5. **Bootstrap Limitations & Ground Truth Preparation:** Identifying when resampling fails (extreme sparsity, dependent data) and establishing the requirement for human-annotated ground truth for baseline evaluation.
+* **Assigned Reading:** [James et al., *An Introduction to Statistical Learning with Applications in Python* (ISLP, 2023), Chs. 1, 5, & 12](https://www.statlearning.com/resources-python)
 
 ---
 
@@ -23,6 +24,7 @@
 3. **NIST OpenASR Methodology:** Analyzing the National Institute of Standards and Technology (NIST) 2020 Challenge Evaluation Plan to deploy rigorous, standardized speech evaluation protocols.
 4. **Transcript Normalization:** Standardizing capitalization, punctuation, and disfluencies to prevent artificial inflation of error rates during hypothesis-reference string alignment.
 5. **Gold-Standard Design Principles:** Architecting unbiased, representative evaluation sets that capture true pipeline performance variation rather than overfitting to specific speakers or acoustic domains.
+* **Assigned Reading:** [NIST *OpenASR 2020 Challenge Evaluation Plan (PDF)*](https://www.nist.gov/document/openasr20-challenge-evaluation-plan)
 
 ---
 
@@ -33,3 +35,4 @@
 3. **Precision-Recall Mechanics:** Utilizing `scikit-learn` methodologies to formally evaluate pipeline classification outputs against the newly constructed gold-standard baseline.
 4. **Deploying Inferential Baselines:** Applying bootstrapped confidence intervals and established statistical baselines to measure the true causal impact of implemented Open IE components.
 5. **Module 09 Wrap-Up:** Consolidating statistical inference, ASR evaluation, and gold-standard construction principles in preparation for final model deployment and PS 8 submission.
+* **Assigned Reading:** [scikit-learn Guide: *“Precision-Recall”*](https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html); [ISLP *Python-Edition Errata & Labs*](https://www.statlearning.com/errata-python-edition)
