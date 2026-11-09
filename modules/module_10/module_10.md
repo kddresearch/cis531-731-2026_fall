@@ -1,35 +1,38 @@
 # CIS 531/731: Programming Techniques for Data Science and Analytics
 
-| Phase | Module | Lecture(s) | Date(s) |
-| :--- | :--- | :--- | :--- |
-| **Phase 5:** Evaluate & Deploy | **Module 10 `[N]`:** Interpret — Applying Models, Calibration & Multiple Testing | **Lectures 31-33** | Mon 09 Nov - Fri 13 Nov 2026 |
+| Phase | Module | Lecture(s) | Date(s) | Assigned Reading(s) |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Phase 5](../../phases/phase_05/):** Evaluate & Deploy | **Module 10:** Interpret: Applying Models, Calibration & Multiple Testing | **Lectures 31-33** | Mon 09 Nov - Fri 13 Nov 2026 | [James et al., *ISLP* (2023)](https://www.statlearning.com/resources-python); [scikit-learn *Metrics and Scoring*](https://scikit-learn.org/stable/modules/model_evaluation.html); [Sentence Transformers *Semantic Search*](https://sbert.net/examples/sentence_transformer/applications/semantic-search/README.html)[span_1](start_span)[span_1](end_span) |
 
 ---
 
-## Lecture 31: Interpret: Applying Models, Calibration & Multiple Testing (Mon 09 Nov)
+## [Lecture 31: Interpret: Applying Models, Calibration & Multiple Testing](../../lectures/lecture_31.md) (Mon 09 Nov 2026)
 
-1. **Prediction vs. Statistical Inference in Live & Held-Out Pipelines:** Distinguishing predictive optimization from defensible inferential claims about cohort-to-cohort cultural drift and speaker or demographic disparities (*ISLP*, Chs. 1–2 & 5).
-2. **Evaluation Source Separation (Gold vs. Silver Pools):** Enforcing a strict boundary between graded evaluation metrics computed on the human-adjudicated gold standard (`gold_adjudicated.jsonl`) and advisory stability or power analyses run on the 1,000-chunk weak-supervision silver pool (`grading_eligible=False`).
-3. **Paired System Comparison (Paired Bootstrap & McNemar's Test):** Testing whether a retrieval-augmented or learned-convolution model significantly outperforms a fixed baseline using paired index resampling ($B \ge 10,000$) and exact binomial McNemar $2 \times 2$ contingency tables on discordant predictions.
-4. **Family-Wise Error Rate (FWER) vs. False Discovery Rate (FDR):** Understanding why testing multiple shot counts ($k \in \{0, 1, 3, 5, 8\}$), retrieval depths ($k \in \{3, 5, 10\}$), and cohort slices ($m \ge 6$ comparisons) inflates Type I false-positive errors when raw $p$-values are left unadjusted (*ISLP*, Ch. 13).
-5. **Benjamini–Hochberg Step-Up Control:** Pre-specifying a hypothesis family of at least $m \ge 6$ comparisons prior to inspection and applying the Benjamini–Hochberg FDR procedure at $\alpha = 0.05$ to bound false discoveries across ablation tables.
-
----
-
-## Lecture 32: Model Metrics, Calibration & Scoring (Wed 11 Nov)
-
-1. **Classification Averaging Strategies & Imbalance Counterexamples:** Deriving micro-F1, macro-F1, and weighted-F1 directly from confusion matrices (`scikit-learn` Metrics & Scoring) and constructing explicit class-imbalance counterexamples where raw accuracy and macro-F1 rank two classifiers in opposite orders.
-2. **Ranked Retrieval & ASR Transcription Scoring:** Formulating Precision@$k$, Recall@$k$, Mean Reciprocal Rank (MRR), nDCG@$k$, and NIST OpenASR Word Error Rate ($\text{WER} = (S + D + I) / N_{\text{ref}}$, including why high insertion counts $I$ allow $\text{WER}$ to exceed $100\%$).
-3. **Contract-Checked Scoring Harnesses:** Engineering a deterministic `evaluate(model, X, y)` package with programmatic pre- and post-condition contracts verifying that bounded metrics lie in $[0, 1]$ and confusion-matrix cells sum exactly to sample size $n$.
-4. **Probabilistic Calibration & Reliability Diagrams:** Diagnosing overconfident neural and LLM probability estimates using reliability diagrams and Expected Calibration Error (ECE) evaluated across both 10-bin and 15-bin partitions to measure bin-width sensitivity.
-5. **Post-Hoc Probability Calibration:** Fitting temperature scaling and isotonic regression on validation splits (`scikit-learn` calibration module) to align predicted confidence scores with empirical accuracy prior to downstream decision thresholding.
+1. **Model Interpretation Foundations:** Bridging predictive performance and explanatory validity in high-dimensional analytical pipelines.
+2. **Multiple Hypothesis Testing:** Understanding the statistical hazards of family-wise error rates when performing concurrent significance tests across model features.
+3. **The Benjamini–Hochberg Procedure:** Controlling the False Discovery Rate (FDR) in large-scale feature evaluation and retrieval ranking tasks.
+4. **Resampling and Validation Strategies:** Applying rigorous cross-validation and resampling techniques from ISLP chapters to ensure generalizability[span_2](start_span)[span_2](end_span).
+5. **Epistemic Humility in Modeling:** Recognizing the limits of automated inference when dealing with sparse or non-stationary data distributions.
+* **Assigned Reading:** [James et al., *An Introduction to Statistical Learning with Applications in Python* (ISLP, 2023), Chs. 1–2, 4, 5, & 13](https://www.statlearning.com/resources-python)[span_3](start_span)[span_3](end_span)
 
 ---
 
-## Lecture 33: Interpretation & Error Analysis Lab; Wrap-Up (Fri 13 Nov)
+## [Lecture 32: Model Metrics, Calibration & Scoring](../../lectures/lecture_32.md) (Wed 11 Nov 2026)
 
-1. **Global Permutation Feature Importance:** Quantifying model sensitivity across tabular, lexical, and embedding features by running at least 30 permutation repeats on held-out evaluation sets and reporting mean metric degradation with confidence intervals.
-2. **Local Retrieval-Based Explanations:** Conducting granular error analysis on at least 10 misclassified gold-standard examples by inspecting their top-$k$ nearest neighbors in the FAISS embedding space (`Sentence Transformers` semantic search) and diagnosing boundary failures.
-3. **Small-$n$ Power & Stability Curves on the Silver Pool:** Subsampling the 1,000-chunk weak-supervision silver pool across $n \in \{25, 50, 100, 250, 500, 1000\}$ to chart 95% confidence-interval width ($\propto 1/\sqrt{n}$) and quantify the minimum effect size $\delta$ that an evaluation set of $n \le 50$ can and cannot resolve.
-4. **Cohort-Stratified Error & Disparity Auditing:** Disaggregating precision, recall, calibration, and WER across release decades (VDB track) or broadcast event-time windows (ASR track) to surface slice-specific performance drops.
-5. **MP 9 Wrap-Up & MP 10 Launch:** Finalizing the `mp9-submission` gold/silver and convolution artifacts (due Mon 16 Nov) and initializing the `mp10-submission` interpretability and metrics harness (due Wed 25 Nov).
+1. **Quantifying Prediction Quality:** Moving beyond raw accuracy to examine precision, recall, F1-score, and ROC-AUC under class-imbalanced conditions.
+2. **Probability Calibration:** Ensuring that model-output confidence scores accurately reflect true empirical likelihoods.
+3. **Scoring Metrics in `scikit-learn`:** Leveraging built-in evaluation tools to quantify classification and regression performance rigorously[span_4](start_span)[span_4](end_span).
+4. **Cost-Sensitive Decision Thresholding:** Adjusting classification boundaries based on asymmetric business or research error costs.
+5. **Evaluating Retrieval Pipelines:** Assessing the alignment between semantic search outputs and gold-standard relevance judgments.
+* **Assigned Reading:** [scikit-learn Documentation: *“Metrics and Scoring: Quantifying the Quality of Predictions”*](https://scikit-learn.org/stable/modules/model_evaluation.html)[span_5](start_span)[span_5](end_span)
+
+---
+
+## [Lecture 33: Interpretation & Error Analysis Lab; Wrap-Up](../../lectures/lecture_33.md) (Fri 13 Nov 2026)
+
+1. **Systematic Error Dissection:** Inspecting false positives and false negatives to uncover systemic failure modes in feature extraction.
+2. **Probability Calibration Lab:** Implementing Platt scaling and isotonic regression in Python to calibrate pipeline confidence scores.
+3. **Embedding Space Diagnostics:** Using semantic search similarity distributions to audit retrieval drift[span_6](start_span)[span_6](end_span).
+4. **Module 10 Wrap-Up:** Consolidating model interpretation, calibration, and hypothesis testing principles ahead of Module 11.
+5. **Milestone Transition:** Reconciling evaluation findings for upcoming MP 9 submission and MP 10 release.
+* **Assigned Reading:** [scikit-learn *Metrics & Probability Calibration Guide*](https://scikit-learn.org/stable/modules/model_evaluation.html); [Sentence Transformers *“Semantic Search”*](https://sbert.net/examples/sentence_transformer/applications/semantic-search/README.html)[span_7](start_span)[span_7](end_span)
