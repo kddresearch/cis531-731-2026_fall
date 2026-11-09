@@ -1,0 +1,321 @@
+<div style="font-family: Aptos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0px auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eeeeee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666666;">
+        <div><a href="https://github.com/kddresearch/cis531-731-2026_fall">Home</a> &raquo; <a href="https://github.com/kddresearch/cis531-731-2026_fall/tree/main/admin/syllabus">Term Project</a> &raquo; <span>Taxonomy &amp; Proposal Guidelines</span></div>
+        <div><a href="https://github.com/kddresearch/cis531-731-2026_fall">📝 Course Repository</a></div>
+    </div>
+    <div style="background-color: #fff8e1; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #ff9800; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4><strong>🎯 Course Applicability</strong></h4>
+        <p>This document applies to: <strong>CIS 531/731</strong> (Term Project Taxonomy: 3x5x5 Data Cube). <br /><em>Note: The definition and cardinality (3x5x5) of each taxonomy dimension are fully customizable for each individual course architecture. Please verify specific due dates on your course Canvas calendar.</em></p>
+    </div>
+    <div style="background-color: #512888; padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px;"><span style="font-size: 0.85em; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 4px;">Capstones &amp; Project Framework</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 2.2em;">CIS 531/731: Term Project Taxonomy</h1>
+        <p style="margin: 0; font-size: 1.1em;">Design, Implementation, and Evaluation of a Data Science System (3x5x5 Data Cube)</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>🏆 Total Value:</strong> <br />390 Points</div>
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>👥 Team Size:</strong> <br />1&ndash;3 Students</div>
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>📅 Proposal Due:</strong> <br />Week 7 (Canvas)</div>
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>🏁 Final Artifacts:</strong> <br />Week 15 (Canvas)</div>
+    </div>
+    <div style="background-color: #e3f2fd; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #bbdefb #bbdefb #bbdefb #2196f3; padding: 20px; margin-bottom: 40px; border-radius: 4px;">
+        <h4><strong>⚠️ Protocol: Individual Proposals, Team Projects</strong></h4>
+        <p>To ensure every student has a rigorous grasp of the project scope, we follow a strict submission protocol:</p>
+        <ul style="margin-bottom: 0; padding-left: 20px;">
+            <li><strong>Proposals are INDIVIDUAL:</strong> Even if you have formed a team (max 3), <strong>EACH</strong> member must submit their own PDF proposal.</li>
+            <li><strong>What You Can Share:</strong> Team members may copy/paste the same <strong>Problem Statement</strong> and <strong>Background/Related Work</strong> sections.</li>
+            <li><strong>What Must Be Unique:</strong> Your <strong>Methodology</strong> and <strong>Milestones</strong> must reflect <em>your</em> specific role and technical contributions to the effort.</li>
+            <li><strong>Co-Authoring:</strong> You may submit shared Interim Reports, Presentations, and Final Codebases/Reports <strong>ONLY AFTER</strong> your proposal has been approved and your team has been officially registered.</li>
+        </ul>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2>Dimension 1: The 3 Analytical Categories (The Goal)</h2>
+        <p>This dimension defines the core analytical objective and decision framework of the data science system.</p>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+            <div style="flex: 1 1 0%; min-width: 250px; background-color: #e8f5e9; padding: 15px; border-radius: 6px; border: 1px solid #c8e6c9;"><strong>Category/Methodology [A]: Prescriptive Analytics (RecSys/IR)</strong>
+                <p style="font-size: 0.95em; margin-bottom: 0;">Systems that recommend actions, retrieve specific knowledge (RAG), or automate decision-making based on constraints.</p>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 250px; background-color: #ffebee; padding: 15px; border-radius: 6px; border: 1px solid #ffcdd2;"><strong>Category/Methodology [B]: Descriptive Analytics (InfoVis/Storytelling)</strong>
+                <p style="font-size: 0.95em; margin-bottom: 0;">Systems that expose hidden patterns, generate dashboards, map generational drift, or summarize vast corpora.</p>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 250px; background-color: #e3f2fd; padding: 15px; border-radius: 6px; border: 1px solid #bbdefb;"><strong>Category/Methodology [C]: Predictive Analytics (Classification/Forecasting)</strong>
+                <p style="font-size: 0.95em; margin-bottom: 0;">Systems that classify entities (KYC/AML), predict future states (time series), or identify anomalies.</p>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2>Dimension 2: The 5 Topics / Media Types (The Input)</h2>
+        <p>This dimension specifies the raw modality and structured domain ingested by the data pipeline.</p>
+        <div style="background-color: #fcfcfc; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #512888; border-radius: 6px; padding: 20px; margin-bottom: 15px;">
+            <h3 style="margin-top: 0; color: #512888;">Track/Topic 1: Time-Series / Sequential Data</h3>
+            <p style="margin-bottom: 0;">Financial logs, weather/climate sensors, IoT telemetry, server/traffic logs, defining the technical scope, temporal range, and sequential streaming examples.</p>
+        </div>
+        <div style="background-color: #fcfcfc; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #512888; border-radius: 6px; padding: 20px; margin-bottom: 15px;">
+            <h3 style="margin-top: 0; color: #512888;">Track/Topic 2: Spatial / Georeferenced Data</h3>
+            <p style="margin-bottom: 0;">Epidemiological maps, check-in data, logistics routing, satellite/remote sensing features, defining the spatial coordinates, boundary datasets, and georeferenced examples.</p>
+        </div>
+        <div style="background-color: #fcfcfc; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #512888; border-radius: 6px; padding: 20px; margin-bottom: 15px;">
+            <h3 style="margin-top: 0; color: #512888;">Track/Topic 3: Text Corpora</h3>
+            <p style="margin-bottom: 0;">E-books, conversational transcripts, LLM prompt/response logs, product reviews, historical archives, defining the textual scope, token size, and corpus examples.</p>
+        </div>
+        <div style="background-color: #fcfcfc; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #512888; border-radius: 6px; padding: 20px; margin-bottom: 15px;">
+            <h3 style="margin-top: 0; color: #512888;">Track/Topic 4: Multimedia (Audio/Visual)</h3>
+            <p style="margin-bottom: 0;">ASR streams, caller speech, video captions, music information retrieval (MIR), defining the acoustic/visual scope, sample rates, and streaming examples.</p>
+        </div>
+        <div style="background-color: #fcfcfc; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #512888; border-radius: 6px; padding: 20px; margin-bottom: 0px;">
+            <h3 style="margin-top: 0; color: #512888;">Track/Topic 5: Structured/Relational Data</h3>
+            <p style="margin-bottom: 0;">Complex database queries, web service/API streams, graph network architectures, defining the schema constraints, relational depth, and graph connectivity examples.</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2>Dimension 3: The 5 OSEMN Tasks / Stages (The Execution)</h2>
+        <p><em>Teams execute a subset of these stages natively and automate the rest.</em></p>
+        <div style="background-color: #ffffff; border-radius: 6px; padding: 25px; margin-bottom: 30px; border: 1px solid #e0e0e0;">
+            <h4 style="color: #512888; margin-top: 0;">Task 1: Obtain (Data Ingestion &amp; Extraction)</h4>
+            <p><strong>Prototype:</strong> Building a PySpark streaming consumer that attaches to a live Kafka/AWS Kinesis feed of structured API data, or a web scraper that generates a 10GB raw text corpus.<br /><strong>Goal:</strong> Reliable, fault-tolerant acquisition of the raw media type.</p>
+            <h4 style="color: #512888;">Task 2: Scrub (Cleaning &amp; Chunking)</h4>
+            <p><strong>Prototype:</strong> Implementing recursive character chunking with stride on ASR transcripts, or normalizing/imputing missing values in a massive spatial dataset.<br /><strong>Goal:</strong> Transforming raw, noisy inputs into uniform, machine-readable structures ready for embedding or EDA.</p>
+            <h4 style="color: #512888;">Task 3: Explore (EDA &amp; Feature Engineering)</h4>
+            <p><strong>Prototype:</strong> Generating UMAP/t-SNE visualizations of semantic embeddings, or building a dashboard that maps the distribution of classes in a time-series log.<br /><strong>Goal:</strong> Identifying target variables, understanding latent space clustering, and defining the bounds of the dataset.</p>
+            <h4 style="color: #512888;">Task 4: Model (Machine Learning &amp; Pipelines)</h4>
+            <p><strong>Prototype:</strong> Training an XGBoost classifier for transaction fraud, fine-tuning a HuggingFace Transformer for sentiment, or deploying a FAISS/Qdrant Vector Database for semantic search.<br /><strong>Goal:</strong> The mathematical core; applying statistical or neural algorithms to execute the Category goal (Predict, Describe, Prescribe).</p>
+            <h4 style="color: #512888; margin-bottom: 5px;">Task 5: iNterpret (Evaluation &amp; Data Storytelling)</h4>
+            <p style="margin-bottom: 0;"><strong>Prototype:</strong> Calculating and graphing ROC-AUC, BLEU scores, or semantic coherence metrics, and synthesizing the outputs into an interactive Streamlit or PowerBI dashboard.<br /><strong>Goal:</strong> Proving the model's efficacy against baselines and translating statistical outputs into actionable human insights.</p>
+        </div>
+        <h3>The 3x5x5 Selection Matrix</h3>
+        <p><em>Teams map their project by selecting one row/cell from the appropriate table below.</em></p>
+        <h4 style="color: #512888; margin-top: 20px;">Table A: Prescriptive (RecSys / IR / Automation)</h4>
+        <div style="overflow-x: auto; margin-bottom: 25px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1; border-bottom: 2px solid #ddd;">
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Topic (Media)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Obtain (T1)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Scrub (T2)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Explore (T3)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Model (T4)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">iNterpret (T5)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>1. Time-Series</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Log Ingestion</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Anomaly Scrub</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Trend EDA</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Predictive Maintenance</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Alert Dashboard</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>2. Spatial</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">GPS Stream</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Boundary Norm.</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Heatmaps</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Logistics Routing</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Route Vis.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>3. Text</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">API Scraping</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Text Chunking</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Topic Modeling</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">RAG Q&amp;A System</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Source Auditing</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>4. Multimedia</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">ASR Capture</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Audio Denoise</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Feature Extract</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Content RecSys</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Engagement Vis.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>5. Structured</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">DB Polling</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Schema Align</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Graph EDA</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Knowledge Graph</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Node/Edge Vis.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4 style="color: #512888; margin-top: 20px;">Table B: Descriptive (InfoVis / Storytelling)</h4>
+        <div style="overflow-x: auto; margin-bottom: 25px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1; border-bottom: 2px solid #ddd;">
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Topic (Media)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Obtain (T1)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Scrub (T2)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Explore (T3)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Model (T4)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">iNterpret (T5)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>1. Time-Series</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Sensor Polling</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Gap Imputation</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Seasonality</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Clustering</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Drift Dashboard</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>2. Spatial</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">GeoJSON Pull</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Coord. Clean</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Density Maps</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Spatial Regress.</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Interactive Map</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>3. Text</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Archive Sync</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Stopword/Regex</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Word Embeds</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Sentiment/Trope</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Narrative Vis.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>4. Multimedia</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Video Scrape</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Frame Extract</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Color/Audio</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Feature Cluster</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Media Timeline</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>5. Structured</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">API Webhooks</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Deduplication</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Pivot Tables</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Assoc. Rules</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Summary Dash</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4 style="color: #512888; margin-top: 20px;">Table C: Predictive (Classification / Forecasting)</h4>
+        <div style="overflow-x: auto; margin-bottom: 20px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1; border-bottom: 2px solid #ddd;">
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Topic (Media)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Obtain (T1)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Scrub (T2)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Explore (T3)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Model (T4)</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">iNterpret (T5)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>1. Time-Series</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Fin/Market API</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Outlier Filter</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Volatility Vis.</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">ARIMA/LSTM</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Forecast Curves</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>2. Spatial</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Remote Sense</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Image Norm.</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Pixel Hist.</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">CNN Classifier</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Accuracy Maps</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>3. Text</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Social Stream</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Tokenization</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Term Freq.</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Few-Shot LLM</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">ROC/AUC Curves</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>4. Multimedia</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Audio Stream</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">MFCC Extract</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Spectrograms</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Acoustic Model</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">WER Metrics</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>5. Structured</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Transact Logs</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Feature Scale</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">PCA/Correl.</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">XGBoost/KYC</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Precision/Recall</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2>Proposal Document Format</h2>
+        <p>Your proposal must be a concise <strong>1&ndash;1.5 page PDF</strong> structured into the following five required sections:</p>
+        <div style="background-color: #ffffff; padding: 25px; border-radius: 8px; border: 1px solid #dddddd;">
+            <h4 style="color: #512888; margin-top: 0;">1. Introduction</h4>
+            <ul style="margin-bottom: 20px;">
+                <li><strong>Problem Statement:</strong> Clearly describe the problem you intend to solve within your chosen 3x5x5 coordinate space.</li>
+                <li><strong>Goal:</strong> What specific capability or analytical outcome will your system accomplish?</li>
+                <li><strong>Context &amp; Dataset:</strong> Define your data source or domain. Clarify whether this is an investigation of novelty (Research) or utility (Application).</li>
+            </ul>
+            <h4 style="color: #512888;">2. Background &amp; Related Work</h4>
+            <ul style="margin-bottom: 20px;">
+                <li>Summarize relevant prior work and foundational literature.</li>
+                <li><strong>Requirement:</strong> At least 3 citations/references.</li>
+                <li><strong>Requirement:</strong> At least one archival/peer-reviewed source (ACM, IEEE, NeurIPS, ICML, CVPR, etc.).</li>
+            </ul>
+            <h4 style="color: #512888;">3. Methodology</h4>
+            <ul style="margin-bottom: 20px;">
+                <li><strong>Baselines:</strong> What existing method or model architecture will serve as your comparative baseline?</li>
+                <li><strong>Proposed Approach:</strong> What novel algorithm, architecture, or OSEMN pipeline integration will you implement?</li>
+                <li><strong>Technical Specifics:</strong> Detail your modeling framework, training objective, algorithms, and software libraries. Avoid vague assertions.</li>
+            </ul>
+            <h4 style="color: #512888;">4. Evaluation Plan</h4>
+            <ul style="margin-bottom: 20px;">
+                <li><strong>Quantitative Metrics:</strong> Accuracy, F1-score, BLEU, ROC-AUC, reward convergence, or latency benchmarks.</li>
+                <li><strong>Qualitative Assessment:</strong> Error analysis, sample generation audits, or interpretive case studies.</li>
+                <li><strong>Validation Rigor:</strong> Train/test splits, cross-validation protocols, and statistical hypothesis testing.</li>
+            </ul>
+            <h4 style="color: #512888;">5. Milestones &amp; Timeline</h4>
+            <ul style="margin-bottom: 0;">
+                <li>List 3&ndash;6 dated objectives corresponding to your claimed OSEMN pipeline stages.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2>Logistics &amp; Grading</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+            <thead>
+                <tr style="background-color: #f1f1f1; border-bottom: 2px solid #ddd;">
+                    <th style="padding: 12px; text-align: left; width: 25%;">Component</th>
+                    <th style="padding: 12px; text-align: left;">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 12px;"><strong>Teamwork</strong></td>
+                    <td style="padding: 12px;">1&ndash;3 Students per team. Individual proposal PDF submissions required for verification.</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 12px;"><strong>Key Milestones</strong></td>
+                    <td style="padding: 12px;">Proposal (Week 4), Interim Updates, Final Presentation (Week 15), Final Report &amp; Repository.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px;"><strong>Ethics &amp; GenAI Protocol</strong></td>
+                    <td style="padding: 12px;">Generative AI tools (ChatGPT, Gemini, Claude) may be used strictly for <em>coding assistance, syntax debugging, and editorial review</em>. <strong>Prohibited:</strong> Generating core literature reviews, architectural designs, or written narratives from scratch.<br /><br /><strong>👉 Resources:</strong> For approved prompt templates, context packets (MD/PDF), and setup instructions, consult the Generative AI Project Kit.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-top: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 20px;">
+        <p><a style="color: #512888; text-decoration: none;" href="https://github.com/kddresearch/cis531-731-2026_fall">🏠 Return to Course Home</a></p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 10px;"><a style="color: #333; text-decoration: none; font-size: 0.9em;" title="View All Assignments" href="https://github.com/kddresearch/cis531-731-2026_fall">📝 All Assignments</a> &bull; <a style="color: #333; text-decoration: none; font-size: 0.9em;" title="Up to Module" href="https://github.com/kddresearch/cis531-731-2026_fall/tree/main/admin/syllabus">⬆️ Course Module</a> &bull; <a style="color: #333; text-decoration: none; font-size: 0.9em;" title="Up to Phase" href="https://github.com/kddresearch/cis531-731-2026_fall">⏫ Project Phase</a></div>
+    </div>
+</div>
