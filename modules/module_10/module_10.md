@@ -11,7 +11,7 @@
 1. **Model Interpretation Foundations:** Bridging predictive performance and explanatory validity in high-dimensional analytical pipelines.
 2. **Multiple Hypothesis Testing:** Understanding the statistical hazards of family-wise error rates when performing concurrent significance tests across model features.
 3. **The Benjamini–Hochberg Procedure:** Controlling the False Discovery Rate (FDR) in large-scale feature evaluation and retrieval ranking tasks.
-4. **Resampling and Validation Strategies:** Applying rigorous cross-validation and resampling techniques from ISLP chapters to ensure generalizability
+4. **Resampling and Validation Strategies:** Applying rigorous cross-validation and resampling techniques from ISLP chapters to ensure generalizability.
 5. **Epistemic Humility in Modeling:** Recognizing the limits of automated inference when dealing with sparse or non-stationary data distributions.
 * **Assigned Reading:** [James et al., *An Introduction to Statistical Learning with Applications in Python* (ISLP, 2023), Chs. 1–2, 4, 5, & 13](https://www.statlearning.com/resources-python)
 ---
