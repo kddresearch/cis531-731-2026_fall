@@ -1,68 +1,78 @@
 <!--
 ---
 yaml_schema_version: "2.2"
-document_version: "1.1"
-document_last_updated_date: "2026-10-26"
+document_version: "2.0"
+document_last_updated_date: "2026-11-08"
 document_monotonicity: "REQUIRED"
 routing_clearance: "INTERNAL - RESTRICTED TO COURSE MAINTAINERS"
+module_metadata:
+  module_number: 7
+  module_identifier: "explore_data_visualization_dashboards"
+  parent_phase:
+    phase_number: 4
+    phase_identifier: "explore_and_model"
+    color_scheme: "Purple"
+    hex_code: "#800080"
+    badge_pill: "🟣"
+  module_color_tokens:
+    tint_class: "[!WARNING]"
+    shade_hex: "#660066"
+    light_tint_hex: "#f3e6f3"
 ---
 -->
 
-<br>
+**🏫 Active Course Repositories:** 🏗️ [Architecture Base](https://github.com/kddresearch/course-architecture-base) &nbsp;|&nbsp; 🤖 CIS 530/730 &nbsp;|&nbsp; 📊 [CIS 531/731](https://github.com/kddresearch/cis531-731-2026_fall) &nbsp;|&nbsp; 📈 CIS 732 &nbsp;|&nbsp; 🎨 [CIS 536/736](https://github.com/kddresearch/cis536-736-2026_fall) &nbsp;|&nbsp; 👁️ CIS 798 X &nbsp;|&nbsp; 🧠 CIS 830
 
-<div align="center">
- <strong>🏫 Active Course Repositories:</strong> &nbsp;
- 🏗️ <a href="https://github.com/kddresearch/course-architecture-base">Architecture Base</a> &nbsp;|&nbsp;
- 🤖 CIS 530/730 &nbsp;|&nbsp;
- 📊 <a href="https://github.com/kddresearch/cis531-731-2026_fall">CIS 531/731</a> &nbsp;|&nbsp;
- 📈 CIS 732 &nbsp;|&nbsp;
- 🎨 <a href="https://github.com/kddresearch/cis536-736-2026_fall">CIS 536/736</a> &nbsp;|&nbsp;
- 👁️ CIS 798 X &nbsp;|&nbsp;
- 🧠 CIS 830
-</div>
+# 📊 CIS 531/731 - Programming Techniques for Data Science and Analytics
 
-<div align="center">
- <h1>📊 CIS 531/731 - Programming Techniques for Data Science and Analytics</h1>
- <p>
- <strong>Semester:</strong> Fall 2026 | <strong>Instructor:</strong> William H. Hsu<br>
- <strong>Status:</strong> ACTIVE | <strong>Canvas LMS:</strong> <a href="https://k-state.instructure.com/courses/201513">Closed SSO Portal</a>
- </p>
-</div>
+**Semester:** Fall 2026 | **Instructor:** William H. Hsu  
+**Status:** ACTIVE | **Canvas LMS:** [Closed SSO Portal](https://k-state.instructure.com/courses/201513)
 
-<hr>
+---
 
-<div align="center">
- <h2>📦 Module 07: Explore: Data Visualization & Dashboards</h2>
- <p>
- <strong>Phase:</strong> <a href="../../phases/phase_04">Phase 4: Explore & Model</a> | <strong>Maintainer:</strong> William H. Hsu
- </p>
-</div>
+## 📦 Module 07: Explore: Data Visualization & Dashboards
 
-<hr>
+**Parent Phase:** 🟣 [Phase 4: Explore & Model](../../phases/phase_04/README.md) (`#800080`) | **Maintainer:** Course Maintainers / KDD Lab
+
+---
+
+> [!WARNING]
+> **Phase 4 Color Palette: Purple Token (`#800080`)**  
+> **Module Scope:** Exploratory Data Analysis (EDA) principles, visual encoding constraints, dashboard architecture (Dash/Streamlit), UMAP dimensionality reduction, hyperparameter tuning (`n_neighbors` & `min_dist`), and time-series embedding drift analysis.
+
+---
 
 ## 📖 Overview
 
-This directory contains the localized pedagogical artifacts, demonstration code, and operational files strictly related to **Module 07**. This module spans `3` lectures and focuses on data visualization, dashboards, embedding-space visualization using UMAP, and generational drift dashboards.
+This directory defines **Module 07**. For the complete canonical specification, detailed lecture objectives, and localized reading sections, see [Module 07 Specification (`module_07.md`)](./module_07.md#lecture-22-explore-data-visualization--dashboards-mon-19-oct).
 
-> **⚠️ Module Routing Notice**
+This module spans 3 lectures (Lectures 22–24; Mon 19 Oct - Fri 23 Oct 2026) and establishes interactive dashboard design, topological dimensionality reduction via UMAP, and generational drift visualization for embeddings.
+
+> **⚠️ Module Routing Notice**  
 > Core lecture markdown files and major assignments live in the top-level `lectures/` and `assignments/` directories to maintain structural parity. Use this module directory exclusively for localized data snippets, lab code examples, module-specific images, or environment configs required for this week's content.
 
-<hr>
+---
 
-## 🗂️ Module Artifacts
+## 🗂️ Module Structure & Artifacts
 
-| Subdirectory / File | Description |
-| :--- | :--- |
-| `lab7.ipynb` | Lab 7: Generational drift dashboards and UMAP embedding-space visualization notebook |
-| `README.md` | This module overview and index. |
+| Subdirectory / File | Topic / Description | Lectures | Date Range | Assigned Reading |
+| :--- | :--- | :--- | :--- | :--- |
+| `module_07.md` | **[Module 07 Canonical Specification](./module_07.md#lecture-22-explore-data-visualization--dashboards-mon-19-oct):** EDA principles, UMAP projection mechanics, and exploratory dashboard construction. | Lectures 22–24 | Mon 19 Oct - Fri 23 Oct 2026 | [Module 07 Readings](./module_07.md#lecture-22-explore-data-visualization--dashboards-mon-19-oct) |
+| `lab7.ipynb` | Lab 7: Generational drift dashboards and UMAP visualization lab notebook | — | — | — |
+| `README.md` | This module overview and index. | — | — | — |
 
-<hr>
+---
 
 ## 🔗 Associated Course Materials
 
-* **Lectures:** [Lec 22](../../lectures/lecture-22.md) | [Lec 23](../../lectures/lecture-23.md) | [Lec 24](../../lectures/lecture-24.md)
-* **Active Assignments:** [Lab 7 Notebook](../../assignments/homework/lab7.ipynb) | MP7 Released *(MP6 due prior day)*
-* **Required Reading:** Fundamentals of Data Visualization (Wilke); UMAP-learn "Basic UMAP Parameters"
+* **Lectures:** [Lecture 22: Explore: Data Visualization & Dashboards](../../lectures/lecture_22.md) | [Lecture 23: Embedding-Space Visualization (UMAP)](../../lectures/lecture_23.md) | [Lecture 24: Generational Drift Dashboards Lab; Wrap-Up](../../lectures/lecture_24.md)
+* **Active Assignments:** [Lab 7 Notebook](../../assignments/homework/lab7.ipynb) | [MP7 Exploratory Dashboards Specification](../../assignments/machine_problems/mp7_exploratory_dashboards.md) *(PS6 due)*
+* **Assigned Readings (Anchored in Module Spec):**
+  * [Lecture 22 Readings (Wilke, *Fundamentals of Data Visualization* Chs. 19–20 & Parts I–II)](./module_07.md#lecture-22-explore-data-visualization--dashboards-mon-19-oct)
+  * [Lecture 23 Readings (UMAP-learn Documentation)](./module_07.md#lecture-23-embedding-space-visualization-umap-wed-21-oct)
+  * [Lecture 24 Readings (scikit-learn User Guide & Wilke)](./module_07.md#lecture-24-generational-drift-dashboards-lab-wrap-up-fri-23-oct)
+
+---
 
 ## 🦅 Standard Operating Procedures (SOPs)
 
@@ -72,46 +82,6 @@ All instructional staff interacting with this module directory must adhere to th
 * **Protocol 2 (Artifact Segregation):** Do not duplicate master assignment files or lecture notes here. Use the "Associated Course Materials" cross-links provided above.
 * **Protocol 3 (Deprecation):** Ensure any outdated code snippets in this module are formally tagged as `[ARCHIVED]` if updating for a new semester to prevent student confusion.
 
-<br>
-<hr>
-<p align="center">
- <i>Maintained by the <a href="https://github.com/kddresearch">Knowledge Discovery in Databases (KDD) Lab</a> at Kansas State University.</i>
-</p>
-
 ---
 
-# CIS 531/731: Programming Techniques for Data Science and Analytics
-
-| Phase | Module | Lecture(s) | Date(s) |
-| :--- | :--- | :--- | :--- |
-| **Phase 4:** Explore & Modell | **Module 7:** Explore: Data Visualization & Dashboards | **Lectures 22-24** | Mon 19 Oct - Fri 23 Oct 2026 |
-
----
-
-## Lecture 22: Explore: Data Visualization & Dashboards (Mon 19 Oct)
-
-1. **Exploratory Data Analysis (EDA) Principles:** Defining the role of visualization in uncovering structural anomalies, latent patterns, and data quality issues prior to formal modeling.
-2. **Visual Encoding Constraints:** Mapping continuous, discrete, and categorical variables to spatial positioning, color gradients, and geometric marks while avoiding perceptual distortion.
-3. **High-Dimensional Data Challenges:** Identifying the limitations of standard bivariate scatter plots and pair plots when analyzing dense embeddings or multi-feature datasets.
-4. **Dashboard Architecture (Dash/Streamlit):** Structuring interactive, web-based analytics dashboards linking UI components (sliders, dropdowns) directly to underlying Python backend callbacks.
-5. **Interactive Filtering:** Implementing cross-filtering mechanics allowing users to dynamically slice datasets and immediately observe changes across multiple synchronized visualizations.
-
----
-
-## Lecture 23: Embedding-Space Visualization (UMAP) (Wed 21 Oct)
-
-1. **Dimensionality Reduction Fundamentals:** Comparing the objectives of Principal Component Analysis (PCA), t-SNE, and Uniform Manifold Approximation and Projection (UMAP).
-2. **The UMAP Algorithm:** Understanding the topological mechanics of UMAP—specifically how it constructs local fuzzy simplicial sets and optimizes the low-dimensional cross-entropy.
-3. **Hyperparameter Tuning (`n_neighbors` & `min_dist`):** Controlling the balance between preserving local neighborhood clusters versus revealing global macroscopic structures in embedding space.
-4. **Vector Database Projection:** Extracting high-dimensional text or image embeddings from a VDB and projecting them into 2D or 3D space for visual cluster analysis.
-5. **Semantic Clustering & Annotation:** Applying clustering algorithms (e.g., HDBSCAN) on UMAP projections to automatically label dense semantic regions and identify out-of-distribution artifacts.
-
----
-
-## Lecture 24: Generational Drift Dashboards Lab; Wrap-Up (Fri 23 Oct)
-
-1. **Time-Series Embedding Analysis:** Tracking the centroid shifts of specific semantic clusters (e.g., tropes or genres) across chronologically ordered datasets.
-2. **Dashboard Integration (UMAP + Callbacks):** Embedding dynamic UMAP projections into a Streamlit or Dash application, allowing the user to scrub through time and observe cluster migration.
-3. **Quantifying Generational Drift:** Utilizing cosine distance or structural similarity metrics to quantify how the semantic representation of a concept diverges across different eras or media generations.
-4. **Data Storytelling Construction:** Translating the mathematical observations of embedding drift into a coherent analytical narrative demonstrating cultural or linguistic evolution.
-5. **MP6 Checkpoint & MP7 Release:** Verifying completion of Machine Problem 6 (Model Selection) and outlining the deliverables for Machine Problem 7 (Exploratory Dashboards).
+*Maintained by the [Knowledge Discovery in Databases (KDD) Lab](https://github.com/kddresearch) at Kansas State University.*
