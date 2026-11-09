@@ -36,7 +36,7 @@ module_metadata:
 
 ---
 
-> [!WARNING]
+> [!IMPORTANT]
 > **Phase 4 Color Palette: Purple Token (`#800080`)**  
 > **Module Scope:** Exploratory Data Analysis (EDA) principles, visual encoding constraints, dashboard architecture (Dash/Streamlit), UMAP dimensionality reduction, hyperparameter tuning (`n_neighbors` & `min_dist`), and time-series embedding drift analysis.
 
