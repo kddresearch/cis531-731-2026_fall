@@ -1,0 +1,648 @@
+<div style="font-family: Aptos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0px auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eeeeee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666666;">
+        <div><a style="text-decoration: none; color: #666666;" href="https://k-state.instructure.com/courses/201513">Home</a> &raquo; <a style="text-decoration: none; color: #666666;" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page">Term Project</a> &raquo; <span style="color: #512888;">Data Sourcing &amp; OSEMN Execution Guide</span></div>
+        <div><a style="text-decoration: none; color: #d64309;" href="https://github.com/kddresearch/cis531-731-2026_fall" target="_blank" rel="noopener">📝 Course Repository</a></div>
+    </div>
+    <div style="background-color: #fff8e1; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #ff9800; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #e65100;"><strong>🎯 Course Applicability</strong></h4>
+        <p style="margin-bottom: 0; font-size: 0.95em;"><strong>Course:</strong> CIS 531/731 &mdash; Introduction to Programming Techniques for Data Science and Analytics<br /><strong>Audience:</strong> CIS 531 upper-division undergraduate students and CIS 731 graduate students<br /><strong>Applies to:</strong> <a style="color: #512888;" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]">PS 4 project proposals</a> and all subsequent OSEMN term-project work (PS 6, MP 7, PS 8, MP 9, MP 10, PS 11, HW 12).</p>
+    </div>
+    <div style="background: linear-gradient(135deg, #512888 0%, #3a2366 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px; border-bottom: 5px solid #b7a57a;"><span style="font-size: 0.85em; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 4px;">Capstones &amp; Project Framework &middot; Sourcing Specification</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 2.2em;">CIS 531/731 Term Project: Data Sourcing &amp; OSEMN Execution Guide</h1>
+        <p style="margin: 0; font-size: 1.1em; color: #e6e2ef;">Source-to-Bronze Ingestion, Tiered Data Selection, and Reproducible OSEMN Stage Handoffs</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>🥇 Priority Rule:</strong> <br />Choose Data First</div>
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>🟢 Default Path:</strong> <br />Tier 1 (Golden Path)</div>
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>🧱 First Milestone:</strong> <br />Source-to-Bronze Path</div>
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>🔄 Stage Contract:</strong> <br />Versioned Delta / Parquet</div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">1. Choose Data First</h2>
+        <div style="background-color: #e3f2fd; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #bbdefb #bbdefb #bbdefb #2196f3; padding: 18px 20px; margin-bottom: 20px; border-radius: 4px;">
+            <p style="margin: 0; font-size: 1.05em; color: #0d47a1;"><strong>⚠️ Core Principle: Teams must secure and validate their data source before committing to a specific model, framework, or architecture.</strong></p>
+        </div>
+        <p>A sophisticated recommender system, RAG pipeline, XGBoost model, streaming application, or deep-learning workflow is not a viable project if the team cannot reliably obtain and clean the required data.</p>
+        <p><strong>Obtain</strong> and <strong>Scrub</strong> failures are the leading cause of term-project collapse. Common failures include:</p>
+        <ul style="padding-left: 20px; margin-bottom: 20px;">
+            <li>Choosing a source that requires unavailable credentials, paid access, or institutional approval.</li>
+            <li>Depending on a brittle web scraper rather than a documented dataset or API.</li>
+            <li>Underestimating malformed JSON, missing fields, duplicate records, rate limits, pagination, or schema drift.</li>
+            <li>Selecting raw satellite imagery or raw audio while lacking a tractable preprocessing environment.</li>
+            <li>Discovering too late that the dataset does not contain a target variable, timestamp, label, geographic coordinate, text field, or relationship needed for the intended analysis.</li>
+            <li>Designing a model first and only later attempting to locate data that fits it.</li>
+        </ul>
+        <p>Your first project milestone is not model selection. It is a <strong>reproducible, inspectable, and accessible source-to-Bronze ingestion path</strong>.</p>
+        <p>The <a style="color: #512888;" href="https://k-state.instructure.com/courses/201513/pages/term-project-taxonomy" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-taxonomy" data-api-returntype="Page">course taxonomy</a> defines projects across three analytical categories&mdash;Prescriptive, Descriptive, and Predictive&mdash;five media types, and five OSEMN stages: Obtain, Scrub, Explore, Model, and iNterpret. Teams may claim a subset of stages, but they must have a credible automation plan for the remaining stages.</p>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">2. Tier List for Data Sources</h2>
+        <p>Use the following hierarchy when selecting a source. <strong>Tier 1 is strongly preferred for most teams.</strong></p>
+        <div style="overflow-x: auto; margin-bottom: 30px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1; border-bottom: 2px solid #dddddd;">
+                        <th style="padding: 10px; text-align: left; width: 14%; border: 1px solid #dddddd;">Tier</th>
+                        <th style="padding: 10px; text-align: left; width: 18%; border: 1px solid #dddddd;">Source Class</th>
+                        <th style="padding: 10px; text-align: left; width: 26%; border: 1px solid #dddddd;">Recommended Use</th>
+                        <th style="padding: 10px; text-align: left; width: 21%; border: 1px solid #dddddd;">Main Benefit</th>
+                        <th style="padding: 10px; text-align: left; width: 21%; border: 1px solid #dddddd;">Main Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #e8f5e9;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>🟢 Tier 1</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Golden Path</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Default choice for most projects</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Stable access, known schemas, low setup burden</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Less novelty in acquisition</td>
+                    </tr>
+                    <tr style="background-color: #fff8e1;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>🟡 Tier 2</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Real-world API or benchmark</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Teams deliberately studying API ingestion, JSON normalization, streaming, or practical source variability</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Realistic source engineering experience</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Rate limits, pagination, authentication, schema variation</td>
+                    </tr>
+                    <tr style="background-color: #ffebee;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>🔴 Tier 3</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Tarpit</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Only with a clear technical justification and an instructor-approved feasibility plan</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Specialized domain experience</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">High probability that Scrub consumes the project</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #fcfcfc; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #c8e6c9 #c8e6c9 #c8e6c9 #2e7d32; border-radius: 6px; padding: 20px; margin-bottom: 25px;">
+            <h3 style="margin-top: 0; color: #2e7d32;">🟢 Tier 1: Golden Path</h3>
+            <p>Tier 1 sources are natively available, well-documented, or highly accessible. They allow teams to focus on Spark SQL, Delta Lake, distributed feature engineering, embeddings, retrieval, machine learning, evaluation, and communication rather than spending most of the term repairing data acquisition.</p>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.9em; background-color: #ffffff;">
+                    <thead>
+                        <tr style="background-color: #e8f5e9; border-bottom: 2px solid #c8e6c9;">
+                            <th style="padding: 10px; text-align: left; width: 22%; border: 1px solid #dddddd;">Source</th>
+                            <th style="padding: 10px; text-align: left; width: 22%; border: 1px solid #dddddd;">Best Taxonomy Rows</th>
+                            <th style="padding: 10px; text-align: left; width: 28%; border: 1px solid #dddddd;">Typical Projects</th>
+                            <th style="padding: 10px; text-align: left; width: 28%; border: 1px solid #dddddd;">Obtain Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Databricks native <code>samples.wanderbricks</code></td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Prescriptive or Descriptive Structured/Relational</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Recommenders, customer segmentation, booking analytics, next-best action, support analytics</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Query tables through Unity Catalog and persist a reproducible project snapshot</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Databricks native <code>samples.tpcds_sf1</code></td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Descriptive or Predictive Structured/Relational</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Association rules, retail analytics, SQL pipelines, dashboarding, customer and sales analysis</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Query sample fact/dimension tables through Unity Catalog</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Hugging Face <code>wikimedia/wikipedia</code></td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Prescriptive or Descriptive Text Corpora</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">RAG, semantic search, document clustering, topic modeling, text classification</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Load through <code>datasets</code>, then write raw and normalized outputs to Parquet or Delta</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Hugging Face <code>librispeech_asr</code></td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Predictive or Descriptive Multimedia</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Whisper/ASR evaluation, transcript analysis, speech workflow experiments</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Load a bounded split and use the course-supported ASR workflow</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Public Open-Meteo or NOAA endpoints</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Time-Series / Sequential</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Forecasting, seasonality analysis, anomaly detection, weather-driven decision support</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Script parameterized requests, archive raw JSON, ingest with Auto Loader or batch reads</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">USGS Earthquake GeoJSON feeds</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Spatial / Georeferenced</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Spatial density mapping, event visualizations, time&ndash;space clustering</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Persist GeoJSON payloads to Bronze storage and flatten into typed tables</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="background-color: #fcfcfc; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #f57c00; border-radius: 6px; padding: 20px; margin-bottom: 25px;">
+            <h3 style="margin-top: 0; color: #e65100;">🟡 Tier 2: Real-World APIs and Benchmarks</h3>
+            <p>Tier 2 is appropriate when real-world ingestion is part of the learning objective. These sources require intentional planning for request limits, pagination, API errors, changing schemas, and raw-payload retention.</p>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.9em; background-color: #ffffff;">
+                    <thead>
+                        <tr style="background-color: #fff8e1; border-bottom: 2px solid #ffe0b2;">
+                            <th style="padding: 10px; text-align: left; width: 22%; border: 1px solid #dddddd;">Source</th>
+                            <th style="padding: 10px; text-align: left; width: 22%; border: 1px solid #dddddd;">Best Taxonomy Rows</th>
+                            <th style="padding: 10px; text-align: left; width: 28%; border: 1px solid #dddddd;">Obtain Requirements</th>
+                            <th style="padding: 10px; text-align: left; width: 28%; border: 1px solid #dddddd;">Main Feasibility Concern</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">NOAA Climate Data API</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Time-Series / Sequential</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Token-aware or documented request workflow, pagination, raw JSON storage</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Rate limits, historical coverage variation, missing observations</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Open-Meteo API</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Time-Series / Sequential</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Parameterized location/date requests and JSON archival</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Nested arrays, unit consistency, missing intervals</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">USGS Earthquake Feed</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Spatial / Georeferenced</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">GeoJSON fetch, timestamp parsing, coordinate validation</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Event revisions, duplicate event IDs, spatial aggregation</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Kaggle IEEE-CIS Fraud Detection</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Predictive Structured/Relational</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Kaggle API credentials, secure <code>kaggle.json</code> handling, reproducible download script</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Account/token management, table joining, target leakage</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Other documented public REST APIs</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Any appropriate row</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">API terms review, fallback plan, Bronze archive, error handling</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Unstable availability, undocumented response changes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="background-color: #fcfcfc; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffcdd2 #ffcdd2 #ffcdd2 #c62828; border-radius: 6px; padding: 20px;">
+            <h3 style="margin-top: 0; color: #c62828;">🔴 Tier 3: Tarpits</h3>
+            <p>Tier 3 sources are not prohibited. However, they are <strong>not recommended</strong> unless the difficult sourcing or preprocessing work is explicitly part of the project&rsquo;s educational objective and the team has a detailed feasibility plan.</p>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.9em; background-color: #ffffff;">
+                    <thead>
+                        <tr style="background-color: #ffebee; border-bottom: 2px solid #ffcdd2;">
+                            <th style="padding: 10px; text-align: left; width: 25%; border: 1px solid #dddddd;">Source Type</th>
+                            <th style="padding: 10px; text-align: left; width: 40%; border: 1px solid #dddddd;">Why It Is High Risk</th>
+                            <th style="padding: 10px; text-align: left; width: 35%; border: 1px solid #dddddd;">Preferred Alternative</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Raw STAC / Sentinel-2 / multispectral imagery</strong></td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Requires cloud masking, coordinate reference system management, raster tiling, large-object storage, spatially valid train/test splits, and specialized distributed image tooling</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Use pre-extracted tabular remote-sensing features, a small curated benchmark, or choose a non-raster spatial source</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Raw audio processing and MFCC extraction from scratch</strong></td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Audio decoding, resampling, feature extraction, worker memory pressure, dependency incompatibility, and distributed-library failures can consume the project</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Use <code>librispeech_asr</code>, transcript-first analysis, precomputed embeddings, or the supported Whisper workflow</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Web-scraping-dependent datasets</strong></td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">HTML changes, bot protections, robots/terms restrictions, rate limits, missing provenance, and fragile parsers make Obtain unreliable</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Use a public API, government bulk-data release, Hugging Face dataset, Kaggle dataset, or Databricks sample</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Unbounded social-media collection</strong></td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">API changes, access restrictions, deleted records, incomplete metadata, and scale uncertainty</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Use a static public corpus or a bounded, documented archive</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Proprietary or enterprise-gated sources</strong></td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Team members may lose access, legal/contract terms may block redistribution, and reviewers cannot reproduce results</td>
+                            <td style="padding: 10px; border: 1px solid #dddddd;">Use an openly accessible benchmark or native Databricks sample</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">3. Required Proposal Evidence</h2>
+        <p>Your PS 4 proposal must demonstrate that the <strong>Obtain</strong> and <strong>Scrub</strong> stages are feasible. Naming a source is not sufficient. A proposal should enable another student or instructor to understand how raw data becomes a usable Spark table without relying on manual browser downloads, personal files, or undocumented notebook state.</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 25px;">
+            <div style="flex: 1 1 0%; min-width: 320px; background-color: #ffffff; border-width: 4px 1px 1px; border-style: solid; border-color: #512888 #e0e0e0 #e0e0e0; border-radius: 6px; padding: 20px;">
+                <h3 style="margin-top: 0; color: #512888;">Obtain Evidence Checklist</h3>
+                <p style="font-size: 0.92em; color: #555;">Include all of the following in your proposal:</p>
+                <ul style="list-style-type: none; padding-left: 0; font-size: 0.93em;">
+                    <li style="margin-bottom: 8px;">☐ <strong>Exact data source identifier:</strong> State the Unity Catalog table, Hugging Face dataset slug, Kaggle competition slug, public endpoint, repository, or documented bulk-data source.</li>
+                    <li style="margin-bottom: 8px;">☐ <strong>Access method:</strong> State whether access is anonymous, workspace-native, API-token-based, account-based, or requires a Kaggle credential.</li>
+                    <li style="margin-bottom: 8px;">☐ <strong>Authentication plan:</strong> If using credentials, explain where secrets are stored and confirm that tokens, API keys, and <code>kaggle.json</code> are excluded from Git.</li>
+                    <li style="margin-bottom: 8px;">☐ <strong>Minimal acquisition test:</strong> Demonstrate or describe a successful test that retrieves a bounded sample of the real source data.</li>
+                    <li style="margin-bottom: 8px;">☐ <strong>Raw landing format:</strong> Identify the raw output format: JSON, GeoJSON, CSV, Parquet, audio manifest, Delta snapshot, or another durable format.</li>
+                    <li style="margin-bottom: 8px;">☐ <strong>Bronze destination:</strong> Identify where immutable raw inputs will be retained, such as a Unity Catalog Volume, cloud object-storage location, or Bronze Delta table.</li>
+                    <li style="margin-bottom: 8px;">☐ <strong>Repeatable command or notebook:</strong> Provide a command, script, or notebook cell that another team member can execute without manual download steps.</li>
+                    <li style="margin-bottom: 8px;">☐ <strong>Source versioning:</strong> Record the dataset split, source revision, extraction date, API parameters, and any relevant date range.</li>
+                    <li style="margin-bottom: 8px;">☐ <strong>Expected scale:</strong> Estimate row count, file count, storage volume, or time interval so that the team does not accidentally ingest an unmanageable corpus.</li>
+                    <li style="margin-bottom: 0;">☐ <strong>Known source risks:</strong> State the expected risks: pagination, rate limits, missingness, schema drift, access expiration, or terms restrictions.</li>
+                </ul>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 320px; background-color: #ffffff; border-width: 4px 1px 1px; border-style: solid; border-color: #b7a57a #e0e0e0 #e0e0e0; border-radius: 6px; padding: 20px;">
+                <h3 style="margin-top: 0; color: #512888;">Scrub Evidence Checklist</h3>
+                <p style="font-size: 0.92em; color: #555;">Include all of the following in your proposal:</p>
+                <ul style="list-style-type: none; padding-left: 0; font-size: 0.93em;">
+                    <li style="margin-bottom: 10px;">☐ <strong>Target schema:</strong> Identify the intended Silver-table columns, data types, unique keys, labels or targets, and timestamp/geographic fields where applicable.</li>
+                    <li style="margin-bottom: 10px;">☐ <strong>Cleaning operations:</strong> Name at least three concrete cleaning transformations.</li>
+                    <li style="margin-bottom: 10px;">☐ <strong>Null/missingness policy:</strong> Explain how null values, sentinel values, empty text, missing coordinates, or unknown categories will be handled.</li>
+                    <li style="margin-bottom: 10px;">☐ <strong>Duplicate policy:</strong> Specify the natural key or duplicate-detection rule.</li>
+                    <li style="margin-bottom: 10px;">☐ <strong>Type normalization:</strong> Identify date, timestamp, numeric, categorical, text, coordinate, or unit transformations.</li>
+                    <li style="margin-bottom: 10px;">☐ <strong>Data-quality tests:</strong> Define at least two assertions, such as non-null IDs, valid coordinate ranges, unique event keys, bounded values, or no future-data leakage.</li>
+                    <li style="margin-bottom: 0;">☐ <strong>Output handoff:</strong> Specify the versioned Delta or Parquet table that becomes the input to Explore, Model, or iNterpret.</li>
+                </ul>
+            </div>
+        </div>
+        <h3 style="color: #512888;">Minimum Scrub Plans by Source Type</h3>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1; border-bottom: 2px solid #dddddd;">
+                        <th style="padding: 10px; text-align: left; width: 32%; border: 1px solid #dddddd;">Source Type</th>
+                        <th style="padding: 10px; text-align: left; border: 1px solid #dddddd;">Minimum Viable Scrub Work</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Databricks native relational samples</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Validate primary keys, cast timestamps and numerics, resolve nulls, de-duplicate, and join fact/dimension tables</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Hugging Face text dataset</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Normalize Unicode, remove markup/noise, deduplicate, retain source identifiers, chunk documents, and preserve chunk-to-document lineage</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Hugging Face ASR dataset</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Validate audio/transcript metadata, normalize transcript text, filter unusable records, preserve speaker/language/split fields</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>REST JSON or GeoJSON API</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Preserve raw payloads, flatten nested objects, parse timestamps, cast numeric fields, standardize units, and de-duplicate events</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Kaggle tabular dataset</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Join source files, parse types, impute or flag missingness, encode categorical values, and prevent target leakage</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Spatial point data</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Validate longitude/latitude ranges, normalize coordinate reference system assumptions, remove invalid geometries, and check spatial duplicates</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Time-series observations</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Parse times in one timezone, regularize intervals where needed, handle missing intervals, and ensure no future data enters training features</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">4. Golden Path Architectures</h2>
+        <p>The following architectures are recommended because they clearly separate raw acquisition, cleaning, analytics, modeling, and interpretation. Each stage should persist a reproducible artifact rather than passing data through untracked notebook variables.</p>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 22px; margin-bottom: 25px;">
+            <h3 style="margin-top: 0; color: #512888;">A. Databricks-Native Structured Project</h3>
+            <p><strong>Best for:</strong> Recommenders, customer segmentation, association rules, retail analytics, SQL-heavy descriptive analytics, next-best action prototypes, and relational ML.</p>
+            <pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 6px; font-family: Consolas, 'Courier New', monospace; font-size: 0.85em; overflow-x: auto; line-height: 1.4;">Databricks Unity Catalog sample source
+samples.wanderbricks or samples.tpcds_sf1
+ |
+ v
+Spark SQL read / bounded project snapshot
+ |
+ v
+Bronze Delta table
+Raw, versioned source snapshot
+ |
+ v
+Silver Delta table
+Typed, deduplicated, normalized, joined records
+ |
+ v
+Gold Delta table
+Features, aggregates, customer/item entities, metrics
+ |
+ +-------------------------+
+ |                         |
+ v                         v
+Spark ML / MLflow model   SQL dashboard / visualization
+ |                         |
+ +------------+------------+
+              |
+              v
+   iNterpretation artifact
+   Metrics, segments, rules, recommendations, narrative</pre>
+            <h4 style="color: #512888; margin-bottom: 8px;">Example: Customer Segmentation</h4>
+            <ul style="padding-left: 20px; margin-bottom: 15px; font-size: 0.95em;">
+                <li><strong>Obtain:</strong> Read customer, booking, property, payment, review, or interaction tables from <code>samples.wanderbricks</code>; write a project-specific Bronze snapshot.</li>
+                <li><strong>Scrub:</strong> Standardize currencies and timestamps; remove duplicate transactions; reconcile user IDs; establish the valid analysis period.</li>
+                <li><strong>Explore:</strong> Calculate recency, frequency, monetary value, booking duration, cancellation behavior, property preferences, and review distributions.</li>
+                <li><strong>Model:</strong> Cluster standardized customer behavior features with a reproducible pipeline.</li>
+                <li><strong>iNterpret:</strong> Describe each segment using representative metrics, segment size, revenue contribution, uncertainty, and possible operational actions.</li>
+            </ul>
+            <p style="margin-bottom: 8px;"><strong>Recommended project contract:</strong> Each stage writes a named Delta table. For example:</p>
+            <pre style="background-color: #f8f9fa; color: #2d3b45; padding: 12px; border-radius: 4px; font-family: Consolas, monospace; font-size: 0.85em; margin-bottom: 0px; border: 1px solid #e0e0e0;">team_project.bronze_wanderbricks_snapshot
+team_project.silver_customer_activity
+team_project.gold_customer_features
+team_project.gold_customer_segments
+team_project.gold_segment_interpretation</pre>
+        </div>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 22px; margin-bottom: 25px;">
+            <h3 style="margin-top: 0; color: #512888;">B. Hugging Face Text / RAG Project</h3>
+            <p><strong>Best for:</strong> Retrieval-augmented generation, semantic search, source-grounded question answering, text clustering, classification, topic analysis, and document analytics.</p>
+            <pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 6px; font-family: Consolas, 'Courier New', monospace; font-size: 0.85em; overflow-x: auto; line-height: 1.4;">Hugging Face dataset
+wikimedia/wikipedia or approved text corpus
+ |
+ v
+Dataset loader or bounded file export
+ |
+ v
+Bronze Parquet or Delta table
+Raw documents, source IDs, titles, metadata
+ |
+ v
+Silver Delta table
+Normalized text, deduplicated records, chunked passages
+ |
+ v
+Gold retrieval / feature table
+Chunk embeddings, document metadata, vector IDs, labels
+ |
+ +-------------------------+
+ |                         |
+ v                         v
+Retriever / RAG pipeline  Spark ML text classifier or clustering
+ |                         |
+ +------------+------------+
+              |
+              v
+   iNterpretation artifact
+   Retrieval quality, source audit, errors, metrics, examples</pre>
+            <h4 style="color: #512888; margin-bottom: 8px;">Example: Wikipedia RAG</h4>
+            <ul style="padding-left: 20px; margin-bottom: 15px; font-size: 0.95em;">
+                <li><strong>Obtain:</strong> Load a bounded Wikipedia language/configuration/split using a Hugging Face dataset loader or exported files.</li>
+                <li><strong>Scrub:</strong> Preserve page ID, title, source URL or dataset provenance, and original text; normalize Unicode; remove non-content markup; split each document into overlapping chunks.</li>
+                <li><strong>Explore:</strong> Measure document length, chunk length, duplicate frequency, topic distribution, language artifacts, and embedding-neighbor density.</li>
+                <li><strong>Model:</strong> Embed chunks; retrieve top-<em>k</em> passages for questions; optionally connect retrieval to a generation model.</li>
+                <li><strong>iNterpret:</strong> Report retrieval recall, answer support rate, citation coverage, unsupported-answer rate, and examples of successful and failed retrieval.</li>
+            </ul>
+            <div style="background-color: #fff8e1; border-left: 4px solid #ff9800; padding: 12px 15px; border-radius: 4px;">
+                <p style="margin: 0; font-size: 0.93em;"><strong>📌 Required RAG Rule:</strong> Every chunk must retain a stable link to its original document identifier. If the team cannot trace an answer to a retrieved source chunk, it cannot adequately audit the system&rsquo;s output.</p>
+            </div>
+        </div>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 22px;">
+            <h3 style="margin-top: 0; color: #512888;">C. REST API Time-Series / Spatial Project</h3>
+            <p><strong>Best for:</strong> Forecasting, anomaly detection, weather analytics, environmental monitoring, event-density mapping, geospatial storytelling, and public-data ingestion.</p>
+            <pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 6px; font-family: Consolas, 'Courier New', monospace; font-size: 0.85em; overflow-x: auto; line-height: 1.4;">Public REST / GeoJSON API
+NOAA, Open-Meteo, or USGS
+ |
+ v
+Python acquisition script
+Pagination, backoff, retries, parameter logging
+ |
+ v
+Bronze object storage or Bronze Delta table
+Immutable raw JSON / GeoJSON payload archive
+ |
+ v
+Auto Loader or Spark batch JSON ingestion
+ |
+ v
+Silver Delta table
+Flattened, typed, deduplicated observations
+ |
+ v
+Gold feature table
+Time windows, lags, spatial aggregates, labels, metrics
+ |
+ +-------------------------+
+ |                         |
+ v                         v
+Forecasting / anomaly     Spatial density or map visualization
+model                      |
+ |                         |
+ +------------+------------+
+              |
+              v
+   iNterpretation artifact
+   Forecast errors, anomaly explanations, maps, data-quality report</pre>
+            <h4 style="color: #512888; margin-bottom: 8px;">Example: Weather Forecasting with Open-Meteo</h4>
+            <ul style="padding-left: 20px; margin-bottom: 15px; font-size: 0.95em;">
+                <li><strong>Obtain:</strong> Use a parameterized Python script to request weather observations for documented coordinates, variables, date ranges, and time intervals.</li>
+                <li><strong>Scrub:</strong> Retain each original JSON response; explode nested time/value arrays into timestamped rows; normalize units; identify and represent missing observations.</li>
+                <li><strong>Explore:</strong> Calculate rolling averages, lag relationships, seasonality, autocorrelation, coverage by station or location, and outlier distributions.</li>
+                <li><strong>Model:</strong> Compare a na&iuml;ve baseline with a time-respecting regression, classification, or forecasting model.</li>
+                <li><strong>iNterpret:</strong> Plot observed and predicted values; report MAE, RMSE, MAPE where appropriate, residual patterns, and errors by season or weather regime.</li>
+            </ul>
+            <div style="background-color: #fff8e1; border-left: 4px solid #ff9800; padding: 12px 15px; border-radius: 4px;">
+                <p style="margin: 0; font-size: 0.93em;"><strong>📌 REST API Rule:</strong> Always archive the original payloads. Do not rely on a live API as the only copy of your data. A Bronze archive allows your team to revise Scrub logic without re-downloading historical data or exhausting rate limits.</p>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">5. Tarpit Controls (Tier 3 Guardrails)</h2>
+        <p>Tier 3 work is permitted only when the team can show that the difficult source-processing work is intentional, bounded, and central to the learning objective.</p>
+        <div style="background-color: #fff5f5; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffcdd2 #ffcdd2 #ffcdd2 #c62828; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+            <h3 style="margin-top: 0; color: #c62828;">1. Raw STAC and Sentinel-2 Imagery</h3>
+            <p>Do <strong>not</strong> select raw satellite imagery as a default spatial-data source. Raw imagery projects commonly require all of the following:</p>
+            <ul style="padding-left: 20px; font-size: 0.94em;">
+                <li>Cloud and shadow masking.</li>
+                <li>Coordinate reference system handling.</li>
+                <li>Band selection and radiometric normalization.</li>
+                <li>Large raster storage and distributed file access.</li>
+                <li>Spatial tiling and edge handling.</li>
+                <li>Label acquisition or land-cover ground truth.</li>
+                <li>Spatially valid train/test splitting to avoid geographic leakage.</li>
+                <li>Specialized geospatial/raster libraries beyond ordinary Spark SQL workflows.</li>
+            </ul>
+            <p style="font-size: 0.94em;">A project cannot claim feasibility merely because a STAC endpoint returns metadata. The team must demonstrate that it can download, tile, clean, feature-engineer, store, and validate the imagery at a tractable scale.</p>
+            <p style="margin-bottom: 0; font-size: 0.94em;"><strong>Preferred alternative:</strong> Use pre-extracted tabular remote-sensing features, a small curated benchmark, a point-based geospatial dataset, or the USGS earthquake feed.</p>
+        </div>
+        <div style="background-color: #fff5f5; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffcdd2 #ffcdd2 #ffcdd2 #c62828; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+            <h3 style="margin-top: 0; color: #c62828;">2. Raw Audio and MFCC Extraction from Scratch</h3>
+            <p>Do <strong>not</strong> use generic Spark workers for raw audio feature extraction unless the class provides the precise workflow or the team has demonstrated the full runtime environment. Common problems include:</p>
+            <ul style="padding-left: 20px; font-size: 0.94em;">
+                <li>Audio-codec and native-library incompatibility.</li>
+                <li>Sample-rate and channel inconsistency.</li>
+                <li>Worker-memory exhaustion.</li>
+                <li>Slow Python user-defined functions.</li>
+                <li>Uneven partition sizes caused by variable-duration clips.</li>
+                <li>Failure to reproduce environment-dependent feature extraction.</li>
+                <li>Excessive time spent debugging audio dependencies rather than analyzing data.</li>
+            </ul>
+            <p style="margin-bottom: 5px; font-size: 0.94em;"><strong>Preferred alternatives:</strong></p>
+            <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.94em;">
+                <li>Use <code>librispeech_asr</code> and the supported Whisper/ASR workflow.</li>
+                <li>Use transcript-first NLP analysis if the project question is about language rather than acoustics.</li>
+                <li>Use precomputed embeddings or pre-extracted features.</li>
+                <li>Work from a small, bounded, instructor-approved audio subset if extraction itself is the intended learning objective.</li>
+            </ul>
+        </div>
+        <div style="background-color: #fff5f5; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffcdd2 #ffcdd2 #ffcdd2 #c62828; border-radius: 6px; padding: 20px;">
+            <h3 style="margin-top: 0; color: #c62828;">3. Scraping-Dependent Datasets</h3>
+            <p>Do <strong>not</strong> make a fragile scraper your primary data source. Scraping may be considered only if the proposal includes:</p>
+            <ul style="padding-left: 20px; font-size: 0.94em;">
+                <li>A documented reason that no public API, dataset release, or bulk export can meet the need.</li>
+                <li>Evidence that access complies with site terms and applicable restrictions.</li>
+                <li>Rate limiting, retry, timeout, and backoff behavior.</li>
+                <li>A durable raw-data archive.</li>
+                <li>Schema-validation tests.</li>
+                <li>A fallback dataset or documented failover source.</li>
+                <li>A bounded collection plan with estimated scale.</li>
+                <li>A plan for handling changed HTML structure, missing pages, blocked requests, and duplicate content.</li>
+            </ul>
+            <p style="margin-bottom: 0; font-size: 0.94em;"><strong>Preferred alternative:</strong> Use a public REST API, government bulk release, Hugging Face dataset, Kaggle dataset, Databricks sample, or a static archive with stable metadata.</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">6. Team Execution and OSEMN Delegation</h2>
+        <p>Teams are not required to manually implement every stage from scratch. Each member should claim <strong>one or two OSEMN stages</strong> that align with their learning goals, then automate or use well-tested components for the remaining stages.</p>
+        <p>The goal is not to maximize handwritten code. The goal is to deliver a reproducible end-to-end data-science system with clear ownership, verifiable handoffs, and defensible results.</p>
+        <div style="overflow-x: auto; margin-bottom: 30px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1; border-bottom: 2px solid #dddddd;">
+                        <th style="padding: 10px; text-align: left; width: 25%; border: 1px solid #dddddd;">Claimed Learning Goal</th>
+                        <th style="padding: 10px; text-align: left; width: 42%; border: 1px solid #dddddd;">Team-Owned Work</th>
+                        <th style="padding: 10px; text-align: left; width: 33%; border: 1px solid #dddddd;">Appropriate Automation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Spark ingestion or streaming</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">API acquisition script, Structured Streaming, Auto Loader, checkpointing, Bronze design, source-retry logic</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Baseline cleaning pipeline, reference model, visualization templates</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Data engineering and quality</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Silver schema, validation tests, deduplication logic, missing-data policy, Delta design, lineage documentation</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Source downloader, baseline EDA notebook, baseline ML implementation</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>NLP or RAG</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Text normalization, chunking policy, embeddings, retrieval, provenance mapping, source-audit metrics</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Hugging Face loader, standard Parquet/Delta write, baseline dashboard</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Machine learning</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Feature pipeline, train/test design, baseline comparison, hyperparameter evaluation, model tracking</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Native sample acquisition, standardized cleaning scripts, prebuilt visualization framework</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Analytics and storytelling</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Metric definitions, dashboard, visual narrative, stakeholder-oriented interpretation</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Baseline ETL, standard model training, reusable chart helpers</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Responsible AI and evaluation</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Error analysis, calibration, slice metrics, leakage review, provenance audit, limitations statement</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Source ingestion, baseline feature engineering, standard modeling tools</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #ffffff; border-radius: 6px; padding: 20px; border: 1px solid #e0e0e0;">
+                <h3 style="margin-top: 0; color: #512888;">Required Stage Handoff</h3>
+                <p style="font-size: 0.93em;">Every OSEMN stage must hand off a versioned, persistent artifact to the next stage:</p>
+                <pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 12px; border-radius: 6px; font-family: Consolas, monospace; font-size: 0.82em; overflow-x: auto; line-height: 1.35;">Obtain
+ |
+ v
+Bronze Delta / Parquet
+Raw immutable source snapshot
+ |
+ v
+Scrub
+ |
+ v
+Silver Delta / Parquet
+Cleaned, typed, validated dataset
+ |
+ v
+Explore
+ |
+ v
+Gold feature / summary table
+ |
+ v
+Model
+ |
+ v
+Predictions, clusters, retrieval outputs, or recommendations
+ |
+ v
+iNterpret
+ |
+ v
+Metrics, visuals, source audit, narrative, and project report</pre>
+                <p style="font-size: 0.93em; margin-bottom: 6px;"><strong>🚫 Do NOT use the following as your only handoff mechanism:</strong></p>
+                <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.9em;">
+                    <li>Manually edited CSV files.</li>
+                    <li>Local laptop-only files.</li>
+                    <li>Notebook variables that disappear when a cluster restarts.</li>
+                    <li>Screenshots of outputs.</li>
+                    <li>Downloaded files not represented in the repository or storage plan.</li>
+                    <li>Undocumented manual browser exports.</li>
+                    <li>A model artifact with no corresponding source-data version.</li>
+                </ul>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #ffffff; border-radius: 6px; padding: 20px; border: 1px solid #e0e0e0;">
+                <h3 style="margin-top: 0; color: #512888;">Suggested Artifact Naming</h3>
+                <p style="font-size: 0.93em;">Use explicit, stage-oriented catalog/schema table names:</p>
+                <pre style="background-color: #f8f9fa; color: #2d3b45; padding: 12px; border-radius: 4px; font-family: Consolas, monospace; font-size: 0.83em; overflow-x: auto; border: 1px solid #e0e0e0;">&lt;catalog&gt;.&lt;schema&gt;.bronze_&lt;source&gt;_raw
+&lt;catalog&gt;.&lt;schema&gt;.silver_&lt;entity&gt;_clean
+&lt;catalog&gt;.&lt;schema&gt;.gold_&lt;feature_or_metric&gt;
+&lt;catalog&gt;.&lt;schema&gt;.model_&lt;experiment_or_version&gt;
+&lt;catalog&gt;.&lt;schema&gt;.interpret_&lt;evaluation_or_dashboard&gt;</pre>
+                <p style="font-size: 0.93em; margin-top: 15px;">For file-based workflows, use explicit partitioned directory paths:</p>
+                <pre style="background-color: #f8f9fa; color: #2d3b45; padding: 12px; border-radius: 4px; font-family: Consolas, monospace; font-size: 0.83em; overflow-x: auto; margin-bottom: 0px; border: 1px solid #e0e0e0;">/project-data/
+  bronze/
+    source_name/
+      extraction_date=YYYY-MM-DD/
+  silver/
+    dataset_name/
+      version=v1/
+  gold/
+    feature_set_name/
+      version=v1/</pre>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">7. PS 4 Proposal Acceptance Checklist</h2>
+        <div style="background-color: #f8f9fa; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #d1d9e0 #d1d9e0 #d1d9e0 #512888; border-radius: 6px; padding: 20px;">
+            <p style="margin-top: 0;">Your project proposal is operationally credible when every item below is true:</p>
+            <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0; font-size: 0.94em;">
+                <li style="margin-bottom: 8px;">☐ The team selected exactly one category: <strong>Prescriptive</strong>, <strong>Descriptive</strong>, or <strong>Predictive</strong>.</li>
+                <li style="margin-bottom: 8px;">☐ The team selected exactly one media/topic row: <strong>Time-Series</strong>, <strong>Spatial</strong>, <strong>Text</strong>, <strong>Multimedia</strong>, or <strong>Structured/Relational</strong>.</li>
+                <li style="margin-bottom: 8px;">☐ The team selected a <strong>Tier 1</strong> or <strong>Tier 2</strong> source, or justified a <strong>Tier 3</strong> exception.</li>
+                <li style="margin-bottom: 8px;">☐ The proposal names the exact table, dataset slug, endpoint, competition, or bulk-data release.</li>
+                <li style="margin-bottom: 8px;">☐ The team has performed a minimal <strong>Obtain</strong> test using the actual selected source.</li>
+                <li style="margin-bottom: 8px;">☐ The raw data can be persisted in a Bronze Delta table, Parquet dataset, or immutable raw-data directory.</li>
+                <li style="margin-bottom: 8px;">☐ The proposal identifies the expected source schema and the intended Silver schema.</li>
+                <li style="margin-bottom: 8px;">☐ The <strong>Scrub</strong> plan names specific transformations, not generic statements such as &ldquo;clean the data.&rdquo;</li>
+                <li style="margin-bottom: 8px;">☐ The team defines a null-handling, de-duplication, and type-normalization policy.</li>
+                <li style="margin-bottom: 8px;">☐ The proposal identifies likely access and feasibility risks: credentials, rate limits, pagination, schema drift, storage volume, terms, or missing labels.</li>
+                <li style="margin-bottom: 8px;">☐ The team can run a baseline analysis or model if the advanced model fails.</li>
+                <li style="margin-bottom: 8px;">☐ The team assigns ownership for one or two OSEMN stages per member.</li>
+                <li style="margin-bottom: 8px;">☐ The team uses versioned Delta or Parquet artifacts for all inter-stage handoffs.</li>
+                <li style="margin-bottom: 0;">☐ The team can reproduce the pipeline from raw source data through a final evaluation or interpretation artifact.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">8. Final Decision Rule</h2>
+        <p>Choose the simplest source that allows your team to demonstrate meaningful work in the OSEMN stages you intend to claim. For most teams, the preferred order is:</p>
+        <ol style="padding-left: 22px; margin-bottom: 20px;">
+            <li style="margin-bottom: 6px;"><strong>Databricks native samples</strong> for Structured/Relational projects.</li>
+            <li style="margin-bottom: 6px;"><strong>Hugging Face datasets</strong> for Text and supported Audio projects.</li>
+            <li style="margin-bottom: 6px;"><strong>Documented public APIs</strong> for Time-Series and point-based Spatial projects.</li>
+            <li style="margin-bottom: 6px;"><strong>Kaggle benchmarks</strong> for structured predictive projects when secure token management is feasible.</li>
+            <li style="margin-bottom: 0;"><strong>Tier 3 sources only when preprocessing complexity is itself the project objective.</strong></li>
+        </ol>
+        <div style="background-color: #eef2f5; border-left: 5px solid #512888; padding: 15px 20px; border-radius: 4px;">
+            <p style="margin: 0; font-size: 0.96em;">A successful CIS 531/731 project is not the project with the most exotic model or the most difficult source. It is the project that reliably obtains data, documents cleaning decisions, executes a reproducible Spark workflow, evaluates results against a baseline, and communicates limitations honestly.</p>
+        </div>
+    </div>
+    <div style="background-color: #eef2f5; padding: 20px 30px; border-top: 2px solid #b7a57a; text-align: center; font-size: 14px; line-height: 1.8; border-radius: 6px; margin-bottom: 25px;"><strong style="color: #512888; display: block; margin-bottom: 5px;">CIS 531 / 731 Term Project Ecosystem</strong> <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page">Guidelines</a> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-taxonomy" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-taxonomy" data-api-returntype="Page">3x5x5 Taxonomy</a> &nbsp;|&nbsp; <span style="color: #777777;"><strong>Data Sourcing Guide (this page)</strong></span> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-evaluation" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-evaluation" data-api-returntype="Page">Statistical Evaluation Guide</a> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-grading-rubric" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-grading-rubric" data-api-returntype="Page">Grading Rubrics</a> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">GenAI Kit v3.3</a> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]">Assignments Portal</a></div>
+    <div style="margin-top: 20px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.05em; padding: 10px; border: 1px solid #ffeeba;" title="View All Assignments" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]"> <span style="font-size: 1.2em; margin-right: 8px;">📝</span> All Assignments </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.05em; padding: 10px; border: 1px solid #dddddd;" title="Up to Module" href="https://k-state.instructure.com/courses/201513/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/modules" data-api-returntype="[Module]"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Course Modules </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.05em; padding: 10px; border: 1px solid #dddddd;" title="Term Project Guidelines" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Project Hub </a></div>
+    </div>
+</div>
