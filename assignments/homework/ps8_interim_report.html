@@ -1,97 +1,438 @@
-<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
-    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 20px;">
-        <h1 style="margin: 0; font-size: 28px;">PS 8: Interim Report Survey</h1>
-        <p style="margin: 10px 0 0 0; font-size: 18px;">Data Provenance, Architecture, Exploratory Embedding Analysis, Preliminary Baselines, and Risk/Annotation Plan</p>
+<div style="font-family: Aptos, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0px auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eeeeee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666666;">
+        <div><a style="text-decoration: none; color: #666666;" href="https://k-state.instructure.com/courses/201513">Home</a> &raquo; <a style="text-decoration: none; color: #666666;" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page">Term Project</a> &raquo; <a style="text-decoration: none; color: #666666;" href="https://k-state.instructure.com/courses/201513/pages/term-project-interim-update" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-interim-update" data-api-returntype="Page">PS 8: Interim Report</a> &raquo; <span style="color: #512888;">PS 8 Grading Rubric</span></div>
+        <div><a style="text-decoration: none; color: #d64309;" href="https://github.com/kddresearch/cis531-731-2026_fall" target="_blank" rel="noopener">📝 Course Repository</a></div>
     </div>
-    <div style="background-color: #f8f9fa; padding: 12px 15px; border-radius: 6px; text-align: center; font-size: 0.9em; border-bottom: 3px solid #b7a57a; margin-bottom: 30px; line-height: 1.8;"><span style="color: #666; margin-right: 10px;">📂 Term Project Hub:</span> <a style="color: #0d47a1; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page">Project Guidelines</a> &nbsp;|&nbsp; <a style="color: #0d47a1; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">GenAI Kit (v3.0)</a> &nbsp;|&nbsp; <span style="color: #4b2e83;">PS 8: Interim Report (this page)</span></div>
-    <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 30px; border: 1px solid #e0e0e0;">
-        <div><strong>📅 Due:</strong> <span style="text-decoration: line-through;">Sat 07 Nov 2026</span> <span style="color: #e62429;">Fri 13 Nov 2026</span></div>
-        <div><strong>💯 Points:</strong> 30 (Undroppable)</div>
-        <div><strong>📝 Format:</strong> Canvas Survey (8 Questions)</div>
-        <div><strong>👥 Team:</strong> Term-Project Team (Solo Permitted)</div>
+    <div style="background-color: #fff8e1; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #ff9800; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #e65100;"><strong>🎯 Milestone Applicability &amp; Portal Links</strong></h4>
+        <p style="margin-bottom: 0; font-size: 0.95em;"><strong>Assignment:</strong> <a style="color: #512888;" href="https://k-state.instructure.com/courses/201513/pages/term-project-interim-update" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-interim-update" data-api-returntype="Page">PS 8: Term Project Interim Report</a> &mdash; <a style="color: #d64309;" href="https://k-state.instructure.com/courses/201513/quizzes/623057" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/quizzes/623057" data-api-returntype="Quiz">Canvas Survey Portal (Quiz #623057)</a><br /><strong>Course &amp; Audience:</strong> CIS 531 (Undergraduate) and CIS 731 (Graduate) &mdash; Mandatory, Undroppable Process Milestone (30 Points within the 390-Point Capstone Framework).<br /><strong>Upstream / Downstream Lineage:</strong> Audits progress since <strong>PS 4</strong> (Proposal) and locks the data provenance, UMAP embedding analysis, baseline contracts, and 50&ndash;200 annotation &amp; IAA plan feeding <strong>MP 9</strong>, <strong>MP 10</strong>, <strong>PS 11</strong>, and <strong>HW 12</strong>.</p>
     </div>
-    <div style="margin-bottom: 30px;">
-        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 5px; color: #4b2e83;">1. How to Complete This Milestone</h2>
-        <p>Unlike PS 4, you will not upload a single written PDF for your Interim Report. Instead, you will answer a detailed 8-question Canvas Survey. This format allows us to evaluate your <em>process</em>, <em>methodology</em>, and exploratory embedding analysis alongside your coding progress.</p>
-        <ol style="padding-left: 20px; margin-bottom: 0;">
-            <li style="margin-bottom: 10px;"><strong>Draft Locally:</strong> Read the 8 questions below and draft your answers locally, incorporating your data provenance table, exploratory figures, and architecture details.</li>
-            <li style="margin-bottom: 10px;"><strong>Refine with AI:</strong> Use the <a style="color: #0d47a1;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">GenAI Kit v3.0</a> to synthesize and edit your drafted answers. Save your prompt audit log as <code>GenAI.pdf</code>.</li>
-            <li style="margin-bottom: 10px;"><strong>Take the Survey:</strong> Click the "Take the Survey" button on Canvas to submit your final answers, audit log, and GitHub tag reference.</li>
-        </ol>
+    <div style="background: linear-gradient(135deg, #512888 0%, #3a2366 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px; border-bottom: 5px solid #b7a57a;"><span style="font-size: 0.85em; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 4px;">Mandatory Capstone Milestone &middot; Evaluation Rubric</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 2.2em;">PS 8: Interim Report Grading Rubric</h1>
+        <p style="margin: 0; font-size: 1.1em; color: #e6e2ef;">Point Distributions, Anchor Tiers, CIS 531/731 Track Rules, and Invariant Verification Gates</p>
     </div>
-    <div style="background-color: #fff8e1; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #ff9800; padding: 20px; margin-bottom: 40px; border-radius: 4px;">
-        <h3 style="margin-top: 0; color: #e65100;">🤖 Phase 4 Generative AI Policy &amp; Track Immutability</h3>
-        <p style="margin-bottom: 10px;"><strong>Track Immutability (INV-3):</strong> Your track (ASR or VDB) was fixed at PS 4 and may not change. All dev-split metrics reported in this milestone are strictly advisory.</p>
-        <p style="margin-bottom: 0;"><strong>Synthesizing Allowed:</strong> Generative writing <strong>IS explicitly authorized</strong> for this Interim Report using the GenAI Kit (v3.0) templates. You must provide your own foundational cognitive effort (raw bullet points, specifications, and code outputs) and document all prompts in your submitted audit log.</p>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>📅 Due Date:</strong> <br /><span style="text-decoration: line-through; color: #777;">Sat 07 Nov</span> <strong style="color: #e62429;">Fri 13 Nov 2026</strong></div>
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>💯 Total Value:</strong> <br />30 Points (Undroppable)</div>
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>📝 Submission:</strong> <br />8-Q Survey + <code>ps8-submission</code> Tag</div>
+        <div style="flex: 1 1 0%; min-width: 150px;"><strong>👥 Team Size:</strong> <br />Registered Team (1&ndash;3 / Solo)</div>
     </div>
     <div style="margin-bottom: 40px;">
-        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 5px; color: #4b2e83;">2. Survey Questionnaire Breakdown (30 Points)</h2>
-        <p>Prepare your answers to these exact prompts before starting the Canvas Survey.</p>
-        <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #dddddd;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
-                <h3 style="margin: 0; color: #2d3b45; font-size: 1.1em;">Question 1: Team &amp; Track Metadata <span style="color: #666; font-size: 0.9em;">(Fill in the Blank / Short Answer)</span></h3>
-                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 12px; font-size: 0.85em;">2 pts</span>
-            </div>
-            <p style="margin-bottom: 0; color: #333;"><strong>Prompt:</strong> List the names of all team members. State your project's Analytical Category (Prescriptive, Descriptive, Predictive), Media Type, claimed OSEMN stages, and your fixed Track (ASR or VDB). CIS 731 teams must state their ontology schema version; CIS 531 teams confirm use of the unmodified instructor schema.</p>
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">1. Survey-to-Report Schema Reconciliation (30 Points)</h2>
+        <p>PS 8 is submitted via the <a style="color: #512888;" href="https://k-state.instructure.com/courses/201513/quizzes/623057" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/quizzes/623057" data-api-returntype="Quiz">8-Question Canvas Survey</a> backed by your team&rsquo;s GitHub repository tagged <code>ps8-submission</code> (with figure source scripts and outputs in <code>interim/</code>). The table below reconciles the 8 Canvas Survey questions with the 7 canonical report sections so that every point is transparently accounted for:</p>
+        <div style="overflow-x: auto; margin-bottom: 20px;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                <thead>
+                    <tr style="background-color: #512888; color: white;">
+                        <th style="padding: 10px; text-align: left; width: 28%; border: 1px solid #dddddd;">Canvas Survey Question (<code>quizzes/623057</code>)</th>
+                        <th style="padding: 10px; text-align: center; width: 10%; border: 1px solid #dddddd;">Survey Pts</th>
+                        <th style="padding: 10px; text-align: left; width: 25%; border: 1px solid #dddddd;">Report Section (<code>ps8_interim_report.md</code>)</th>
+                        <th style="padding: 10px; text-align: center; width: 10%; border: 1px solid #dddddd;">PDF Pts</th>
+                        <th style="padding: 10px; text-align: left; width: 27%; border: 1px solid #dddddd;">Core Artifacts &amp; Invariants Audited</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Q1: Team &amp; Track Metadata</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;"><strong>2 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Section 1: Team &amp; Taxonomy Metadata <em>(Part A)</em></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">2 pts <em>(w/ Q6)</em></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Roster, 3x5x5 Coordinate, OSEMN stages, Fixed Track, Schema Authority</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Q2: Scope Delta &amp; Proposal Responses</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;"><strong>4 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Section 2: Scope Delta &amp; Proposal Responses</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">4 pts</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Updated problem statement, justified scope diff vs. PS 4, responses to PS 4 feedback</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Q3: Data Provenance &amp; Exploratory Baselines</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;"><strong>8 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Section 3: Data Provenance &amp; Exploratory Baselines</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">10 pts <em>(8+2)</em></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Provenance table, &ge;3 Wilke figures (UMAP sweep + drift/CIs), advisory baseline</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Q4: Architecture, Invariants &amp; Pillar Alignment</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;"><strong>5 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Section 4: Architecture, Invariants &amp; Pillar Alignment</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">5 pts</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">End-to-end OSEMN pipeline, pinned manifest table, enforceable data and execution contracts (e.g., partitioning, data cleaning, streaming, data lake, VDB, generative embedding, gold standard isolation, unlabeled data)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Q5: Risk Register &amp; Revised Plan</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;"><strong>5 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Section 5: Risk Register &amp; Revised Plan</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">5 pts</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">&ge;5 quantified risks + CPU fallback, 50&ndash;200 gold/silver IAA plan, &le;1% val cap</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Q6: Honor Code Attestation (True/False)</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;"><strong>2 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Section 1: Integrity Attestation <em>(Part B)</em></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;"><em>(In Sec 1/3)</em></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Attestation of foundational human effort &amp; GenAI Kit (v1&ndash;3.3) editor-only compliance</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Q7: GenAI Audit Log (<code>GenAI.pdf</code> Upload)</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;"><strong>2 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Section 7: GenAI Audit Log &amp; Certificate</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">2 pts</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Complete <code>GenAI.pdf</code> with exact prompts, pre-AI human bullet points ("Toll"), and raw AI output</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Q8: GitHub Repository Link &amp; Tag</strong></td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;"><strong>2 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Section 6: GitHub Repository Link</td>
+                        <td style="padding: 10px; text-align: center; border: 1px solid #dddddd;">2 pts</td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Active repo URL, commit history, working baseline skeleton, tag <code>ps8-submission</code>, <code>interim/</code> sources</td>
+                    </tr>
+                    <tr style="background-color: #eef2f5; border-top: 2px solid #512888;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Total Milestone Score</strong></td>
+                        <td style="padding: 10px; text-align: center; color: #d64309; border: 1px solid #dddddd;"><strong>30 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Total Milestone Score</strong></td>
+                        <td style="padding: 10px; text-align: center; color: #d64309; border: 1px solid #dddddd;"><strong>30 pts</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Mandatory Milestone (Cannot Be Dropped)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #dddddd;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
-                <h3 style="margin: 0; color: #2d3b45; font-size: 1.1em;">Question 2: Scope Delta and Proposal Responses <span style="color: #666; font-size: 0.9em;">(Short Answer)</span></h3>
-                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 12px; font-size: 0.85em;">4 pts</span>
-            </div>
-            <p style="margin-bottom: 0; color: #333;"><strong>Prompt:</strong> Provide your updated problem statement. Have your objectives changed or narrowed since your PS 4 Proposal? List every change with justification, and provide a direct response to every instructor proposal comment.</p>
+        <div style="background-color: #e3f2fd; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #bbdefb #bbdefb #bbdefb #2196f3; padding: 18px 20px; border-radius: 4px;">
+            <h4 style="margin-top: 0; color: #0d47a1;"><strong>🛡️ Proactive Resolution Rule for Pending PS 4 Feedback or Skipped Upstream MPs (GenAI Kit v3.3)</strong></h4>
+            <ul style="margin-bottom: 0; padding-left: 20px; font-size: 0.94em;">
+                <li style="margin-bottom: 6px;"><strong>If PS 4 Instructor Feedback Is Still Pending:</strong> Do not wait to submit PS 8. Treat your submitted PS 4 proposal as your working baseline, audit it yourself against the <a style="color: #0d47a1;" href="https://k-state.instructure.com/courses/201513/pages/term-project-data-sourcing-guide" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-data-sourcing-guide" data-api-returntype="Page">Data Sourcing &amp; OSEMN Execution Guide</a> acceptance checklist, and document your self-audit in Question 2 for full credit.</li>
+                <li><strong>If an Upstream Non-Milestone Assignment (MP 3, MP 5, PS 6, or MP 7) Was Skipped:</strong> You are never stalled on PS 8. Bridge any missing intermediate component using the course-default schema/baseline (<em>"Satellite radio caller analytics using local Whisper ASR transcription and FAISS VDB ingestion"</em>) while keeping your report anchored to your registered term-project dataset and 3x5x5 coordinates.</li>
+            </ul>
         </div>
-        <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #dddddd;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
-                <h3 style="margin: 0; color: #2d3b45; font-size: 1.1em;">Question 3: Data Provenance &amp; Exploratory Baselines <span style="color: #666; font-size: 0.9em;">(Short Answers: Table, Figures, Results)</span></h3>
-                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 12px; font-size: 0.85em;">8 pts</span>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">2. Track Differentiation: CIS 531 vs. CIS 731 Requirements</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 320px; background-color: #ffffff; border-width: 4px 1px 1px; border-style: solid; border-color: #512888 #d1d9e0 #d1d9e0; border-radius: 6px; padding: 20px;">
+                <h3 style="margin-top: 0; color: #512888;">CIS 531 (Undergraduate Track)</h3>
+                <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.93em;">
+                    <li style="margin-bottom: 8px;"><strong>Data Source Tier (Q3):</strong> Must use a verified <strong>🟢 Tier 1 (Golden Path)</strong> source (Databricks <code>samples.wanderbricks</code> / <code>samples.tpcds_sf1</code>, HF <code>wikimedia/wikipedia</code> / <code>librispeech_asr</code>, Open-Meteo/NOAA, USGS GeoJSON, or whitelisted ASR stream).</li>
+                    <li style="margin-bottom: 8px;"><strong>Schema Authority (Q1 &amp; Q4):</strong> Adopt the <strong>instructor-provided ontology and chunk schema unmodified, propose a suitable validated third-party schema (subject to instructor approval), or infer a schema that the instructor approves</strong>.</li>
+                    <li><strong>Container &amp; Kernel Baseline (Q4 &amp; Q5):</strong> Standard CPU DevContainer, in-memory FAISS <code>IndexFlatL2</code> / <code>IndexFlatIP</code>, and fixed cohort kernels in MP 9.</li>
+                </ul>
             </div>
-            <p style="margin-bottom: 0; color: #333;"><strong>Prompt:</strong> Provide your data provenance table (corpus/stream source, whitelist ID, size, ingest method; confirming compliance with restricted topics and terms of use license). Include descriptions and findings for at least three exploratory figures, including a UMAP sensitivity sweep over <code>n_neighbors</code> and <code>min_dist</code> (with fixed <code>random_state</code> following Wilke Parts I&ndash;II) and a cohort/drift plot with uncertainty. Report your initial advisory performance metric on your naive baseline.</p>
-        </div>
-        <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #dddddd;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
-                <h3 style="margin: 0; color: #2d3b45; font-size: 1.1em;">Question 4: Architecture, Invariants &amp; Pillar Alignment <span style="color: #666; font-size: 0.9em;">(Short Answer)</span></h3>
-                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 12px; font-size: 0.85em;">5 pts</span>
-            </div>
-            <p style="margin-bottom: 0; color: #333;"><strong>Prompt:</strong> Detail your pipeline architecture (ingest, embed/transcribe, index, retrieve/analyze, evaluate) and explain why you chose this approach in alignment with your OSEMN stages. Provide your component-version table that you will include in your final project deliverable as a fixed project manifest and cite your data source and overall objective to allow enforced requirements to be checked.</p>
-        </div>
-        <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #dddddd;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
-                <h3 style="margin: 0; color: #2d3b45; font-size: 1.1em;">Question 5: Risk Register and Revised Plan <span style="color: #666; font-size: 0.9em;">(Short Answer)</span></h3>
-                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 12px; font-size: 0.85em;">5 pts</span>
-            </div>
-            <p style="margin-bottom: 10px; color: #333;"><strong>Prompt:</strong> Provide at least 5 quantified risks (likelihood, impact, trigger, and mitigation)&mdash;for example, running out of API credits or exceeding your local compute limits, with a CPU-baseline fallback plan ready. Outline your work breakdown and your specific data annotation plan. This must include your 50&ndash;200 labeled example target, how you are sourcing pre-annotated data or using automated analytical preprocessing to scale and pre-label unlabeled data into a silver standard, and your Inter-Annotator Agreement (IAA) protocol (such as multi-rater consistency metrics).</p>
-            <p style="margin-bottom: 10px; color: #333;">Finally, explain your validation strategy, including why keeping a strict fractional cap on your validation set (such as capping validation splits under 1% when working with large scaled datasets) acts as a vital safety criterion to prevent data leakage, overfitting, and evaluation noise.</p>
-            <div style="font-size: 0.9em; color: #666; background-color: #f8f9fa; padding: 10px; border-radius: 4px; border-left: 3px solid #b7a57a;"><strong>Authoritative References &amp; Tutorials:</strong>
-                <ul style="margin: 5px 0 0 20px; padding: 0;">
-                    <li><a style="color: #d64309;" href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener">Jurafsky &amp; Martin, <em>Speech and Language Processing (3rd ed. draft)</em> &mdash; Text Classification, Silver Standards, and Inter-Annotator Agreement</a></li>
-                    <li><a style="color: #d64309;" href="https://www.statlearning.com/" target="_blank" rel="noopener">James, Witten, Hastie, Tibshirani, &amp; Taylor (2023), <em>An Introduction to Statistical Learning (ISLP)</em> &mdash; Chapter 5 (Validation Strategy, Data Splits, and Resampling Methods)</a></li>
+            <div style="flex: 1 1 0%; min-width: 320px; background-color: #fffdf5; border-width: 4px 1px 1px; border-style: solid; border-color: #b7a57a #e0d4c3 #e0d4c3; border-radius: 6px; padding: 20px;">
+                <h3 style="margin-top: 0; color: #512888;">CIS 731 (Graduate &amp; Mixed 531/731 Track)</h3>
+                <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.93em;">
+                    <li style="margin-bottom: 8px;"><strong>Data Source Tier (Q3):</strong> Expected to use a <strong>🟡 Tier 2 (Real-World API / Benchmark)</strong> source with raw Bronze payload retention and documented licensing.</li>
+                    <li style="margin-bottom: 8px;"><strong>Schema Authority (Q1 &amp; Q4):</strong> Must report a <strong>custom ontology and JSON Schema (Draft 2020-12)</strong> (class hierarchy, relations, cardinalities, version change log since PS 6, and competency questions). Reusing the unmodified instructor schema forfeits schema credit.</li>
+                    <li><strong>Container &amp; Kernel Extensions (Q4 &amp; Q5):</strong> Conditional GPU/CPU pull, <code>faiss.write_index</code> / <code>read_index</code> disk persistence, and <strong>learned 1-D PyTorch conv kernel</strong> plan for MP 9. (In Mixed teams, CIS 731 members must claim these tasks).</li>
                 </ul>
             </div>
         </div>
-        <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #dddddd;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
-                <h3 style="margin: 0; color: #2d3b45; font-size: 1.1em;">Question 6: Honor Code Attestation <span style="color: #666; font-size: 0.9em;">(True/False)</span></h3>
-                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 12px; font-size: 0.85em;">2 pts</span>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">3. Detailed Question-by-Question Grading Rubric (30 Points)</h2>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 20px; margin-bottom: 25px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #dddddd; padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #512888;">Question 1 (Section 1A): Team, 3x5x5 Taxonomy &amp; Track Metadata</h3>
+                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 4px 12px; border-radius: 12px; font-size: 0.9em;">2.0 Points</span>
             </div>
-            <p style="margin-bottom: 0; color: #333;"><strong>Prompt:</strong> I attest that the written responses provided in this survey originate from my own thoughts, code, and bullet points. Where Generative AI was used, it was restricted to the role of an editor/synthesizer in accordance with the course GenAI Kit (v1-3). I did not use prompts that delegated the entire cognitive load to an AI system.</p>
+            <p style="font-size: 0.94em; margin-top: 0;"><strong> Criteria Audited:</strong> (1) Full team roster &amp; section composition (0.5 pts); (2) Complete 3x5x5 coordinate (Analytical Category, Media/Topic Row, and 1&ndash;2 claimed OSEMN stages per member + automation plan for unclaimed stages) (0.5 pts); (3) Confirmation of fixed <code>ASR</code> or <code>VDB</code> track from PS 4 (0.5 pts); (4) Schema authority confirmation (CIS 731 custom ontology version &amp; change log; CIS 531 unmodified instructor schema or instructor-approved schema for greenlit proposed project) (0.5 pts).</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1;">
+                        <th style="padding: 8px; width: 18%; text-align: left; border: 1px solid #dddddd;">Tier</th>
+                        <th style="padding: 8px; width: 12%; text-align: center; border: 1px solid #dddddd;">Points</th>
+                        <th style="padding: 8px; text-align: left; border: 1px solid #dddddd;">Grading Anchor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px; background-color: #e8f5e9; border: 1px solid #dddddd;"><strong>Exemplary</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>2.0</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">All 4 elements are explicitly stated; per-member OSEMN stage ownership and CIS 731 custom schema version/change log (or CIS 531 unmodified/greenlit confirmation) are unambiguous.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Proficient</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>1.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Roster, fixed track, and 3x5x5 coordinates are present, but OSEMN delegation across teammates or the schema version/sourcing note is slightly incomplete.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Developing</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>1.0</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Omits one 3x5x5 dimension, fails to assign individual OSEMN stages, or CIS 731 team omits custom ontology version/change log.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; background-color: #ffebee; border: 1px solid #dddddd;"><strong>Unacceptable</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>0.0&ndash;0.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Missing metadata, unauthorized track switch from PS 4 (fixed primary category / topic violation), or CIS 731 team uses the unmodified instructor schema or raw third-party schema without customization.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #dddddd;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
-                <h3 style="margin: 0; color: #2d3b45; font-size: 1.1em;">Question 7: GenAI Audit Log &amp; Certificate <span style="color: #666; font-size: 0.9em;">(File Upload)</span></h3>
-                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 12px; font-size: 0.85em;">2 pts</span>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 20px; margin-bottom: 25px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #dddddd; padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #512888;">Question 2 (Section 2): Scope Delta &amp; Proposal Responses</h3>
+                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 4px 12px; border-radius: 12px; font-size: 0.9em;">4.0 Points</span>
             </div>
-            <p style="margin-bottom: 0; color: #333;"><strong>Prompt:</strong> Upload your <code>GenAI.pdf</code> audit log here. This document must contain your exact prompts used during this interim phase, your original draft text/bullet points that you fed into the AI, and the AI's raw output. <br /><br /><span style="font-size: 0.9em; color: #666;"><em>(If you did not use GenAI for any part of PS 8, upload a PDF explicitly stating "No Generative AI was used for PS 8").</em></span></p>
+            <p style="font-size: 0.94em; margin-top: 0;"><strong>Criteria Audited:</strong> (1) Updated, technically precise problem statement &amp; analytical goal (1.5 pts); (2) Itemized Scope Delta table/list diffing PS 4 vs. PS 8 with technical/feasibility justification for every change or narrowing (1.5 pts); (3) Direct point-by-point responses to instructor PS 4 comments, or proactive self-audit against the Data Sourcing Guide checklist if PS 4 feedback was pending (1.0 pt).</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1;">
+                        <th style="padding: 8px; width: 18%; text-align: left; border: 1px solid #dddddd;">Tier</th>
+                        <th style="padding: 8px; width: 12%; text-align: center; border: 1px solid #dddddd;">Points</th>
+                        <th style="padding: 8px; text-align: left; border: 1px solid #dddddd;">Grading Anchor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px; background-color: #e8f5e9; border: 1px solid #dddddd;"><strong>Exemplary</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>4.0</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Crisp, falsifiable problem statement; itemized before/after Scope Delta with concrete engineering justifications; complete point-by-point resolution of all PS 4 feedback (or thorough self-audit).</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Proficient</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>3.0&ndash;3.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Problem statement and scope changes are clear, but justifications are mostly narrative rather than tied to concrete data/schema metrics, or one minor feedback item is only partially addressed.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Developing</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>2.0&ndash;2.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Generic assertion that "nothing changed" despite visible shifts in data/methods, or superficial responses to proposal feedback without concrete pipeline adjustments.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; background-color: #ffebee; border: 1px solid #dddddd;"><strong>Unacceptable</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>0.0&ndash;1.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Missing problem statement, unacknowledged abandonment of PS 4 scope, or zero engagement with PS 4 feedback / sourcing checklist.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #dddddd;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
-                <h3 style="margin: 0; color: #2d3b45; font-size: 1.1em;">Question 8: GitHub Repository Link &amp; Tag <span style="color: #666; font-size: 0.9em;">(Fill in the Blank)</span></h3>
-                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 12px; font-size: 0.85em;">2 pts</span>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 20px; margin-bottom: 25px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #dddddd; padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #512888;">Question 3 (Section 3): Data Provenance, Exploratory Figures &amp; Preliminary Baselines</h3>
+                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 4px 12px; border-radius: 12px; font-size: 0.9em;">8.0 Points (Survey) / 10.0 Points (PDF w/ Q6)</span>
             </div>
-            <p style="margin-bottom: 0; color: #333;"><strong>Prompt:</strong> Provide the URL to your team's active GitHub repository. The repository must show a commit history demonstrating your working code skeleton and baseline implementation under the <code>ps8-submission</code> tag (with figure sources in <code>interim/</code>).</p>
+            <p style="font-size: 0.94em; margin-top: 0;"><strong>Criteria Audited:</strong><br />&bull; <strong>3A. Data Provenance &amp; Licensing Table (2.5 pts):</strong> Exact source ID, <code>whitelist_id</code> / <code>license_class</code> (<code>public_domain</code> or <code>instructor_provided</code>; zero Yelp/SEC data), dataset size, Source Tier (Tier 1/2/3), and repeatable <code>Obtain &rarr; Bronze &rarr; Silver</code> ingest method.<br />&bull; <strong>3B. Exploratory Figures (&ge;3 Wilke-Compliant Figures) (3.5 pts):</strong> (i) <strong>UMAP sensitivity sweep</strong> over <code>n_neighbors</code> and <code>min_dist</code> with fixed <code>random_state</code> and topological interpretation (1.5 pts); (ii) <strong>Cohort/drift plot with explicit uncertainty bands</strong> (1.0 pt); (iii) <strong>Third domain/track diagnostic plot</strong> (0.5 pts); (iv) Compliance with <strong>Wilke Parts I&ndash;II</strong> (colorblind-safe palettes, redundant coding, legible labels) (0.5 pts).<br />&bull; <strong>3C. Preliminary/Naive Baseline &amp; Advisory Metric (2.0 pts):</strong> Executed naive/heuristic or MP 7 CPU fixed-demo baseline reporting the track-appropriate metric (Macro-F1, P@<em>k</em>/Recall@<em>k</em>/MRR/nDCG@<em>k</em>, or NIST WER) explicitly marked <strong>advisory (<code>grading_eligible=False</code>)</strong>.</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1;">
+                        <th style="padding: 8px; width: 18%; text-align: left; border: 1px solid #dddddd;">Tier</th>
+                        <th style="padding: 8px; width: 12%; text-align: center; border: 1px solid #dddddd;">Points</th>
+                        <th style="padding: 8px; text-align: left; border: 1px solid #dddddd;">Grading Anchor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px; background-color: #e8f5e9; border: 1px solid #dddddd;"><strong>Exemplary</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>7.5&ndash;8.0</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Complete provenance table with verified <code>license_class</code>/whitelist IDs and Bronze-to-Silver handoffs; &ge;3 Wilke-compliant figures including a multi-parameter UMAP sweep (<code>n_neighbors</code> &times; <code>min_dist</code>, fixed seed) and a cohort drift plot with uncertainty bands; working baseline metric reported and marked advisory).</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Proficient</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>6.0&ndash;7.0</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Provenance table and baseline metric are solid; includes 3 figures, but UMAP sweep varies only one parameter, uncertainty intervals on the drift plot are missing, or minor Wilke design issues occur.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Developing</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>4.0&ndash;5.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Provenance table lacks exact identifiers/scale or Bronze storage paths; fewer than 3 figures or single default UMAP plot without parameter sweep; baseline is described verbally without an executed metric.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; background-color: #ffebee; border: 1px solid #dddddd;"><strong>Unacceptable</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>0.0&ndash;3.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Uses prohibited Yelp/SEC data or unarchived live scraping; no UMAP or exploratory figures generated; no working baseline code or metric.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 20px; margin-bottom: 25px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #dddddd; padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #512888;">Question 4 (Section 4): Architecture, Invariants &amp; Pillar Alignment</h3>
+                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 4px 12px; border-radius: 12px; font-size: 0.9em;">5.0 Points</span>
+            </div>
+            <p style="font-size: 0.94em; margin-top: 0;"><strong>Criteria Audited:</strong> (1) End-to-end pipeline architecture (<code>Ingest &rarr; Clean/Chunk &rarr; Embed/Transcribe &amp; Index &rarr; Retrieve/Analyze &rarr; Evaluate</code>) justified against claimed OSEMN stages with versioned <code>Bronze &rarr; Silver &rarr; Gold</code> Delta/Parquet/FAISS handoffs (2.0 pts); (2) Fixed component-version manifest table keyed to the course DevContainer or a pinned Devcontainer (1.5 pts); (3) Concrete contract requirements / invariant properties enforcing schema, duration, license, probability, and split bounds (1.5 pts).</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1;">
+                        <th style="padding: 8px; width: 18%; text-align: left; border: 1px solid #dddddd;">Tier</th>
+                        <th style="padding: 8px; width: 12%; text-align: center; border: 1px solid #dddddd;">Points</th>
+                        <th style="padding: 8px; text-align: left; border: 1px solid #dddddd;">Grading Anchor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px; background-color: #e8f5e9; border: 1px solid #dddddd;"><strong>Exemplary</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>5.0</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Clear end-to-end architecture diagram/spec with explicit Bronze/Silver/Gold artifact names; complete component-version table pinned to the course manifest or the one committed by the team; concrete <code>deal</code> contract excerpts tied to track invariants.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Proficient</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>3.75&ndash;4.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Architecture and version table are complete, but inter-stage table names are generic or <code>deal</code> invariants are stated only informally without concrete pre/post-condition rules.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Developing</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>2.5&ndash;3.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Omits component-version manifest table, pipeline diagram skips critical stages, or invariants are unaddressed.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; background-color: #ffebee; border: 1px solid #dddddd;"><strong>Unacceptable</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>0.0&ndash;2.0</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Relies on unversioned local CSVs/manual browser downloads with no coherent pipeline architecture or manifest.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 20px; margin-bottom: 25px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #dddddd; padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #512888;">Question 5 (Section 5): Risk Register, Annotation Plan &amp; Validation Strategy</h3>
+                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 4px 12px; border-radius: 12px; font-size: 0.9em;">5.0 Points</span>
+            </div>
+            <p style="font-size: 0.94em; margin-top: 0;"><strong>Criteria Audited:</strong><br />&bull; <strong>5A. Quantified Risk Register (&ge;5 Risks + CPU Fallback) (2.0 pts):</strong> At least 5 track-specific risks with Likelihood, Impact, Trigger, and Mitigation, explicitly including API/GPU quota exhaustion with automatic fallback to the <strong>pinned CPU DevContainer baseline</strong>.<br />&bull; <strong>5B. Work Breakdown &amp; MP 9 / HW 12 Gold/Silver Annotation Plan (2.0 pts):</strong> Schedule aligned to MP 9, MP 10, PS 11, and HW 12; specifies the <strong>50&ndash;200 labeled gold-example target</strong> (respecting MP 9's &le;50-row / &le;2-hour per-student cap), weak-supervision silver scaling (<code>source=silver</code>, &ge;1,000 chunks), and <strong>IAA protocol</strong> (20-object overlap, 2-way/3-way Cohen's &kappa; with 95% CIs, adjudication rules; <em>Jurafsky &amp; Martin SLP3</em>).<br />&bull; <strong>5C. Validation Fractional Cap (&le;1%) &amp; Leakage Prevention (1.0 pt):</strong> Explains why capping validation splits (e.g., &le;1% on scaled/solo datasets) and isolating human gold data prevents data leakage, overfitting, and evaluation noise (<em>ISLP Ch. 5</em>).</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1;">
+                        <th style="padding: 8px; width: 18%; text-align: left; border: 1px solid #dddddd;">Tier</th>
+                        <th style="padding: 8px; width: 12%; text-align: center; border: 1px solid #dddddd;">Points</th>
+                        <th style="padding: 8px; text-align: left; border: 1px solid #dddddd;">Grading Anchor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px; background-color: #e8f5e9; border: 1px solid #dddddd;"><strong>Exemplary</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>5.0</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">&ge;5 quantified risks (Likelihood, Impact, Trigger, Mitigation) including mandatory CPU-baseline fallback; complete 50&ndash;200 gold + &ge;1,000 silver plan with Cohen's &kappa; IAA and adjudication rules; rigorous statistical justification of the &le;1% validation cap.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Proficient</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>3.75&ndash;4.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Includes 5 risks, CPU fallback, and 50&ndash;200 target, but risk triggers are slightly generic or the &le;1% validation cap / silver-vs.-gold separation explanation is brief.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><strong>Developing</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>2.5&ndash;3.5</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Fewer than 5 risks, omits CPU-baseline fallback, omits IAA overlap/adjudication protocol, or fails to address the validation fractional cap.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; background-color: #ffebee; border: 1px solid #dddddd;"><strong>Unacceptable</strong></td>
+                        <td style="padding: 8px; text-align: center; border: 1px solid #dddddd;"><strong>0.0&ndash;2.0</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Unquantified stub risk list; no viable plan for gold annotation, IAA, or validation split leakage control.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 20px; margin-bottom: 25px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #dddddd; padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #512888;">Question 6 (Section 1B): Honor Code &amp; GenAI Role Attestation</h3>
+                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 4px 12px; border-radius: 12px; font-size: 0.9em;">2.0 Points</span>
+            </div>
+            <p style="font-size: 0.94em; margin-top: 0;"><strong>Criteria Audited:</strong> Affirms (<code>True</code> in Survey Q6 and verbatim statement in report) that all responses originate from the team's own thoughts, code, and bullet points, and that any Generative AI use was restricted to an editor/synthesizer role in compliance with the GenAI Kit (v1&ndash;3.3).</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88em;">
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px; background-color: #e8f5e9; width: 18%; border: 1px solid #dddddd;"><strong>Pass (2.0 pts)</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Attestation is affirmed (<code>True</code>) and consistent with the uploaded <code>GenAI.pdf</code> audit log.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; background-color: #ffebee; border: 1px solid #dddddd;"><strong>Fail (0.0 pts)</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Left blank, answered <code>False</code>, or contradicted by unacknowledged zero-shot AI fabrication of core metrics/artifacts.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 20px; margin-bottom: 25px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #dddddd; padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #512888;">Question 7 (Section 7): GenAI Audit Log &amp; Certificate (<code>GenAI.pdf</code>)</h3>
+                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 4px 12px; border-radius: 12px; font-size: 0.9em;">2.0 Points</span>
+            </div>
+            <p style="font-size: 0.94em; margin-top: 0;"><strong>Criteria Audited:</strong> Uploads <code>GenAI.pdf</code> in Survey Q7 (and commits to repo) containing: (1) exact prompts used, (2) original pre-AI human draft text/bullet points/schemas ("The Toll"), and (3) raw AI output demonstrating compliance with the <em>Anti-Spooning Stick</em> and <em>Systems Thinking Carrot</em>. <em>(If no AI was used, uploads a PDF explicitly stating "No Generative AI was used for PS 8").</em></p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88em;">
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px; background-color: #e8f5e9; width: 18%; border: 1px solid #dddddd;"><strong>Exemplary (2.0 pts)</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Complete <code>GenAI.pdf</code> containing exact prompts, pre-AI human bullet points/inputs ("Toll"), and raw AI outputs (or signed zero-AI statement).</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; width: 18%; border: 1px solid #dddddd;"><strong>Developing (1.0 pt)</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;"><code>GenAI.pdf</code> uploaded but omits the student's pre-AI raw bullet points/inputs or truncates prompts.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; background-color: #ffebee; border: 1px solid #dddddd;"><strong>Missing (0.0 pts)</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">No <code>GenAI.pdf</code> uploaded, or log shows AI hallucinating fake baseline metrics without human data inputs.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #ffffff; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #dddddd #dddddd #dddddd #512888; border-radius: 6px; padding: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #dddddd; padding-bottom: 10px; margin-bottom: 15px;">
+                <h3 style="margin: 0; color: #512888;">Question 8 (Section 6): GitHub Repository Link &amp; <code>ps8-submission</code> Tag</h3>
+                <span style="background-color: #e3f2fd; color: #0d47a1; padding: 4px 12px; border-radius: 12px; font-size: 0.9em;">2.0 Points</span>
+            </div>
+            <p style="font-size: 0.94em; margin-top: 0;"><strong>Criteria Audited:</strong> Valid, accessible GitHub repository URL showing: (1) multi-commit history of working code skeleton and baseline implementation, (2) Git tag <code>ps8-submission</code>, and (3) figure generation scripts/sources in <code>interim/</code>.</p>
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.88em;">
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px; background-color: #e8f5e9; width: 18%; border: 1px solid #dddddd;"><strong>Exemplary (2.0 pts)</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Accessible repo URL, active commit history, verified <code>ps8-submission</code> tag, and reproducible figure sources in <code>interim/</code>.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; width: 18%; border: 1px solid #dddddd;"><strong>Developing (1.0 pt)</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Repo URL is accessible with code/figures, but <code>ps8-submission</code> tag is missing or figure sources are outside <code>interim/</code>.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; background-color: #ffebee; border: 1px solid #dddddd;"><strong>Missing (0.0 pts)</strong></td>
+                        <td style="padding: 8px; border: 1px solid #dddddd;">Broken/inaccessible URL, empty repository, or zero baseline code/figure commits.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div style="background-color: #eef2f5; padding: 20px; border-radius: 4px; text-align: center; border-top: 3px solid #4b2e83;">
-        <p style="margin: 0; color: #4b2e83;">Proceed to the Canvas Survey to submit your responses.</p>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #512888;">4. Hard Invariant Gates &amp; Deduction Checklist</h2>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                <thead>
+                    <tr style="background-color: #f1f1f1; border-bottom: 2px solid #dddddd;">
+                        <th style="padding: 10px; text-align: left; width: 14%; border: 1px solid #dddddd;">Gate ID</th>
+                        <th style="padding: 10px; text-align: left; width: 26%; border: 1px solid #dddddd;">Invariant / Policy Rule</th>
+                        <th style="padding: 10px; text-align: left; width: 60%; border: 1px solid #dddddd;">Scoring Consequence if Violated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #fff5f5;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>GATE-1</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Prohibited Datasets</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Using prohibited <strong>Yelp review</strong> or <strong>SEC-filing</strong> datasets zeroes out Question 3 provenance credit (<strong>&minus;2.5 pts</strong>) and requires immediate source replacement prior to MP 9.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>GATE-2</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Track Immutability</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Unapproved switching between <code>ASR</code> and <code>VDB</code> tracks from PS 4 deducts <strong>&minus;1.0 pt</strong> in Q1 and blocks grading until reconciled.</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>GATE-3</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>CIS 731 Custom Schema</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">CIS 731 teams reusing the unmodified CIS 531 instructor schema without a custom <code>Draft 2020-12</code> JSON Schema and change log lose schema credit in Q1 (<strong>&minus;0.5 pts</strong>) and Q4 (<strong>&minus;1.5 pts</strong>).</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>GATE-4</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>Advisory Metric Separation</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Presenting dev-split or silver-pool numbers as final gold-standard metrics without marking them advisory deducts <strong>&minus;1.0 pt</strong> in Q3.</td>
+                    </tr>
+                    <tr style="background-color: #fafafa;">
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>GATE-5</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>UMAP Parameter Sweep &amp; Seed</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Submitting a single default UMAP scatter plot without sweeping <code>n_neighbors</code> and <code>min_dist</code> at a fixed <code>random_state</code> caps Q3 figure credit at <strong>2.0 / 3.5 pts</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>GATE-6</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;"><strong>CPU Quota Fallback</strong></td>
+                        <td style="padding: 10px; border: 1px solid #dddddd;">Omitting the mandatory API/compute quota-exhaustion risk and pinned CPU DevContainer fallback deducts <strong>&minus;1.0 pt</strong> in Q5.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="background-color: #eef2f5; padding: 20px 30px; border-top: 2px solid #b7a57a; text-align: center; font-size: 14px; line-height: 1.8; border-radius: 6px; margin-bottom: 25px;"><strong style="color: #512888; display: block; margin-bottom: 5px;">CIS 531 / 731 Term Project Ecosystem</strong> <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page">Guidelines</a> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-taxonomy" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-taxonomy" data-api-returntype="Page">3x5x5 Taxonomy</a> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-data-sourcing-guide" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-data-sourcing-guide" data-api-returntype="Page">Data Sourcing Guide</a> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-interim-update" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-interim-update" data-api-returntype="Page">PS 8 Interim Report</a> &nbsp;|&nbsp; <span style="color: #777777;"><strong>PS 8 Rubric (this page)</strong></span> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-evaluation" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-evaluation" data-api-returntype="Page">Statistical Evaluation Guide</a> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-grading-rubric" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-grading-rubric" data-api-returntype="Page">Capstone Rubrics</a> &nbsp;|&nbsp; <a style="color: #512888; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">GenAI Kit v3.3</a></div>
+    <div style="margin-top: 20px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.05em; padding: 10px; border: 1px solid #ffeeba;" title="Take PS 8 Survey" href="https://k-state.instructure.com/courses/201513/quizzes/623057" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/quizzes/623057" data-api-returntype="Quiz"> <span style="font-size: 1.2em; margin-right: 8px;">📝</span> PS 8 Survey Portal </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.05em; padding: 10px; border: 1px solid #dddddd;" title="Up to Module" href="https://k-state.instructure.com/courses/201513/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/modules" data-api-returntype="[Module]"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Course Modules </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.05em; padding: 10px; border: 1px solid #dddddd;" title="Term Project Guidelines" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Project Hub </a></div>
     </div>
 </div>
