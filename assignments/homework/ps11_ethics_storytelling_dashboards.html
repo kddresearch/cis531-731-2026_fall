@@ -1,0 +1,177 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/phase-5-interpret-present-and-deploy" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-5-interpret-present-and-deploy" data-api-returntype="Page">Phase 5: Interpret, Present &amp; Deploy</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/module-11-presenting-results" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-11-presenting-results" data-api-returntype="Page">Module 11: Presenting Results</a> &raquo; <span style="color: #4b2e83;">PS 11</span></div>
+        <div><a style="text-decoration: none; color: #d64309;" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]">📝 All Assignments</a></div>
+    </div>
+    <div style="background-color: #fff8e1; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #ff9800; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #e65100;"><strong>🚨 CRITICAL SUBMISSION POLICY: Dead Week Boundary, Copyrighted Lyrics &amp; Zero-Fluff Audit</strong></h4>
+        <p style="margin-bottom: 8px; font-size: 0.95em;"><strong>Dead Week Boundary:</strong> PS 11 is due <strong>Fri 04 Dec 2026</strong>, immediately before Dead Week (Mon 07 &ndash; Fri 11 Dec 2026); no new homework is assigned during Dead Week. Do <strong>not</strong> reproduce copyrighted song lyrics or proprietary text beyond instructor-provided excerpts in any dashboard view, notebook cell, or report.</p>
+        <p style="margin-bottom: 0; font-size: 0.95em;"><strong>Concrete Project Audit Required:</strong> Generic statements about "bias" or "privacy" earn <strong>zero credit</strong>. Every risk, provenance record, and mitigation must reference your own term project's datasets, schemas, and MP 10 outputs, and any visualization library you add must be recorded in your lockfile and pass <strong>Kernel &rarr; Restart &amp; Run All</strong> in the pinned CPU DevContainer.</p>
+    </div>
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">PROBLEM SET 11 &bull; INDIVIDUAL &bull; PHASE 5: PRESENTING RESULTS</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">PS 11: Ethics, Data Storytelling, &amp; Dashboards</h1>
+        <p style="margin: 0; font-size: 18px;">Provenance and Representational-Harm Audit, Plus an Audience-Specific 5-View Dashboard Specification and Working Prototype</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1; min-width: 150px;"><strong>📅 Assigned:</strong><br />Sat 07 Nov 2026</div>
+        <div style="flex: 1; min-width: 150px;"><strong>⏰ Due:</strong><br />Fri 04 Dec 2026, 11:59 PM CST</div>
+        <div style="flex: 1; min-width: 150px;"><strong>💯 Points:</strong><br />30 Points (Normalized)</div>
+        <div style="flex: 1; min-width: 150px;"><strong>📂 Submit:</strong><br />Canvas (<code>ethics_memo.pdf</code>, <code>dashboard_export.*</code>, <code>GenAI.pdf</code>) &amp; Git Tag <code>ps11-submission</code></div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Required Readings &amp; Grounding Resources</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">1. Data Storytelling, Audience Design &amp; Visualization</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>Technical Writing Essentials (Last):</strong> Audience analysis, stakeholder decision framing, and presenting data visuals within an argument.</li>
+                    <li><strong>Wilke, <em>Fundamentals of Data Visualization</em>, Part II:</strong> Accessible colorblind-safe palettes (Okabe&ndash;Ito / Viridis), direct labeling, and explicit uncertainty display.</li>
+                </ul>
+                <a style="color: #d64309; text-decoration: none;" href="https://pressbooks.bccampus.ca/technicalwriting/" target="_blank" rel="noopener">📖 Access Technical Writing Essentials &rarr;</a>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">2. Reproducible Notebooks, Provenance &amp; GenAI Kit v3.3</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>Jupyter Notebook Documentation:</strong> Structuring narrative and code cells, deterministic execution, and static HTML/PDF export.</li>
+                    <li><strong>Data Sourcing Guide &amp; GenAI Kit (v3.3):</strong> Provenance rules (no Yelp/SEC data), PII redaction, and ABox storyboard auditing.</li>
+                </ul>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;"><a style="color: #d64309; text-decoration: none;" href="https://jupyter-notebook.readthedocs.io/en/stable/" target="_blank" rel="noopener">📘 Jupyter Docs &rarr;</a> <a style="color: #d64309; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">🤖 GenAI Kit v3.3 &rarr;</a></div>
+            </div>
+        </div>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Harmonizing Your Term Project to PS 11 via GenAI Kit v3.3</h2>
+        <p>PS 11 prepares Section 4 (<em>Ethics, Limitations, and Reflection</em>) and the stakeholder visualization layer of your <strong>HW 12</strong> final deliverables. Use <strong>GenAI Kit v3.3</strong> to translate your <a style="color: #0d47a1;" href="https://k-state.instructure.com/courses/201513/pages/term-project-taxonomy" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-taxonomy" data-api-returntype="Page">3x5x5 Data Cube</a> project into the PS 11 audit and dashboard specifications:</p>
+        <div style="background-color: #f8f9fa; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #d1d9e0 #d1d9e0 #d1d9e0 #4b2e83; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+            <h4 style="margin-top: 0; color: #4b2e83;">Mapping Generic Homework Requirements to Your Project Domain</h4>
+            <ul style="padding-left: 20px; margin-bottom: 0; color: #333; font-size: 0.95em;">
+                <li style="margin-bottom: 8px;"><strong>Provenance &amp; PII Redaction Across All Media Types:</strong> If your project uses the <strong>ASR / Multimedia Track</strong>, audit broadcast terms of use, caller speech PII classes (names, phone numbers, locations), regex/NER redaction rules, and audio retention/deletion windows. If your project uses <strong>Structured, Spatial, Time-Series, or Text (VDB) Tracks</strong> (e.g., <code>samples.wanderbricks</code>, <code>wikimedia/wikipedia</code>, Open-Meteo/NOAA, USGS, IEEE-CIS Fraud), audit your exact <code>license_class</code> / whitelist IDs, quasi-identifier re-identification or location-privacy risks, and Bronze/Silver retention policies.</li>
+                <li style="margin-bottom: 8px;"><strong>Ecological Fallacy &amp; Cohort/Slice Disparity:</strong> Just as song release decade does not equal listener demographics in the course-default domain, your audit must analyze the exact <strong>ecological fallacy</strong> in your domain (e.g., regional grid/sensor aggregates vs. household behavior, article era vs. reader cohort, or merchant category vs. individual cardholder risk), alongside survivorship/selection bias and slice error disparity from MP 10.</li>
+                <li style="margin-bottom: 0;"><strong>Proactive Resolution (Pending Feedback or Skipped MP 10):</strong> If MP 10 or PS 8 feedback is pending, attach your submitted <code>PS 8</code> provenance table and your available MP 7/MP 9/MP 10 metrics to GenAI Kit v3.3 to ground your 5-view storyboard and prototype immediately.</li>
+            </ul>
+        </div>
+        <details style="background-color: #272822; color: #f8f8f2; border-radius: 6px; padding: 15px 20px; margin-bottom: 20px; cursor: pointer; border: 1px solid #444444;">
+            <summary style="color: #a6e22e; font-family: Consolas, monospace; font-size: 0.95em;"><strong>🤖 Click to Expand: GenAI Kit v3.3 ABox System Prompt for PS 11 (Copy &amp; Paste into Your AI Workspace)</strong></summary>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #444; font-family: Consolas, monospace; font-size: 0.85em; line-height: 1.5; cursor: default;">[SYSTEM PROMPT &mdash; PS 11: ETHICS, STORYTELLING &amp; DASHBOARDS]<br />Attach `ps11_ethics_storytelling_dashboards.md` and your submitted `PS 8` interim report. (If PS 8/MP 10 feedback is pending or an intermediate MP was skipped, proactively ask for my submitted PS 8 provenance table and available metrics to ground the audit and prototype). Prototype must pass restart-and-run-all in the pinned CPU DevContainer.<br />*Toll:* [Paste PS 8 provenance table, PII redaction/retention policy, target audience + decision + 1-sentence 'so what', and 5-view storyboard].<br />Audit for concrete analysis (zero generic 'bias/privacy' fluff): verify `license_class`/whitelist compliance, confirm zero song lyrics or copyrighted text are reproduced beyond instructor excerpts (for the grader to check by hand or automatically), and check ecological fallacy, selection bias, ASR WER disparity, and prompt-injection/hallucination mitigations. Critique the 5 views and limitations panel against Wilke Part II.</div>
+        </details>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 1: Concrete Provenance, Representational-Harm &amp; Pipeline Risk Audit</h3>
+        <p style="font-style: italic; color: #666;">(15.0 Points Total)</p>
+        <p>Conduct a rigorous, data-grounded ethics and systems-risk audit of your term project in <code>ethics_memo.md</code> (rendered to <code>ethics_memo.pdf</code>, &le; 4 pages).</p>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">1A. Provenance, Rights &amp; Privacy Audit (6.0 pts)</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 8px;"><strong>Source Rights &amp; Whitelist Verification:</strong> Document the exact <code>license_class</code> (<code>public_domain</code>, <code>instructor_provided</code>, or documented Tier 1/Tier 2 API terms) or whitelist ID for every table/stream in your pipeline (confirming zero Yelp or SEC-filing data, INV-1, and zero reproduction of copyrighted lyrics beyond instructor excerpts).</li>
+                <li style="margin-bottom: 0;"><strong>PII Inventory, Redaction &amp; Retention Policy:</strong> Enumerate concrete PII or sensitive entity classes present in your raw Bronze payloads (e.g., caller names/locations/phone numbers in call-in speech, user IDs, or precise coordinates), specify your programmatic redaction/hashing method in Scrub, and state your retention/deletion schedule.</li>
+            </ul>
+        </div>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">1B. Representational Harm, Ecological Fallacy &amp; Cohort Disparity (4.5 pts)</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 8px;"><strong>Ecological Fallacy &amp; Selection Bias:</strong> Analyze the specific ecological-fallacy risk in your project (e.g., why release decade or temporal cohort is not equivalent to audience demographics) alongside survivorship and sampling selection bias in your Bronze/Gold sets.</li>
+                <li style="margin-bottom: 0;"><strong>Slice &amp; Modality Error Disparity:</strong> Quantify error disparities across cohorts, dialects, or data slices using your MP 10 stratified results (including WER disparity across speaker/acoustic groups for ASR track projects, or Macro-F1/calibration disparity across cohorts for VDB/structured projects).</li>
+            </ul>
+        </div>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">1C. LLM &amp; Pipeline Security Risks (4.5 pts)</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 8px;"><strong>Hallucinated Attribution &amp; Uncalibrated Confidence:</strong> Analyze how hallucinated trope/label attribution or miscalibrated probabilities could mislead downstream decisions, and specify your concrete mitigation (e.g., constrained verbalizers, source-chunk ID citation checks, temperature scaling, abstention thresholds).</li>
+                <li style="margin-bottom: 0;"><strong>Indirect Prompt Injection &amp; Poisoned Inputs:</strong> Demonstrate how untrusted transcript segments or retrieved corpus chunks could trigger prompt injection or schema corruption, and specify your implemented sanitization/delimiter defense.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 2: Audience-Specific 5-View Storyboard &amp; Reproducible Dashboard Prototype</h3>
+        <p style="font-style: italic; color: #666;">(15.0 Points Total: 13.5 pts Technical + 1.5 pts GenAI Verification)</p>
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 8px; border: 1px solid #2196f3;">
+            <p style="margin-top: 0;"><strong>Objective:</strong> Design a 5-view Wilke-compliant storyboard tailored to a specific decision-maker and build a self-contained Jupyter dashboard prototype consuming your MP 10 outputs.</p>
+            <ol style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 10px;"><strong>Audience, Decision &amp; 5-View Storyboard (4.5 pts):</strong> Name the concrete target audience and the operational decision they must make, write a one-sentence <em>"So What"</em> takeaway, and specify a storyboard of <strong>at most 5 views</strong> (for each view: analytical question, visual encoding, exact source columns from <code>results.json</code> / Gold tables, and refresh cadence).</li>
+                <li style="margin-bottom: 10px;"><strong>Visual Design &amp; Uncertainty Display (4.5 pts):</strong> Implement the views adhering to Wilke Part II: colorblind-safe palettes, direct data labeling, informative titles/units, and explicit <strong>95% confidence intervals</strong>, calibration reliability curves, and cohort-stratified uncertainty bars from MP 10.</li>
+                <li style="margin-bottom: 10px;"><strong>Dashboard Prototype &amp; Limitations Panel (4.5 pts):</strong> Deliver your prototype as a Jupyter-driven notebook (<code>notebooks/ps11_dashboard.ipynb</code>, plus static HTML/PDF export <code>dashboard_export.html</code> / <code>dashboard_export.pdf</code>) that passes <strong>Kernel &rarr; Restart &amp; Run All</strong> in the pinned CPU DevContainer. Include a dedicated <strong>Limitations &amp; Provenance Panel</strong> displaying data sources, <code>license_class</code>, small-<em>n</em> uncertainty bounds, known biases, and the last-refresh timestamp.</li>
+                <li style="margin-bottom: 0;"><strong>GenAI Verification (1.5 pts):</strong> Include your complete <code>GenAI.pdf</code> audit log per GenAI Kit v3.3 (or a 1-page PDF stating <em>"No GenAI Used"</em>).</li>
+            </ol>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Simple Submission Checklist (What Goes Where)</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #dddddd;">
+                <h4 style="margin-top: 0; color: #4b2e83;">📤 1. Upload Directly to Canvas (3 Files)</h4>
+                <p style="font-size: 0.9em; color: #666; margin-top: 0;">Upload at the Canvas PS 11 Assignment portal before <strong>Fri 04 Dec 2026, 11:59 PM CST</strong>:</p>
+                <ol style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+                    <li style="margin-bottom: 8px;"><strong><code>ethics_memo.pdf</code> (&le; 4 pages):</strong> PDF rendering of your <code>ethics_memo.md</code> with your clickable GitHub repo URL and <code>ps11-submission</code> tag link on Page 1, containing all 6 required sections: (1) <em>Provenance, Rights, and Privacy Audit</em>, (2) <em>Representational Harm and Generational Claims</em>, (3) <em>LLM and Pipeline Risks</em>, (4) <em>Audience, Decision, and Storyboard</em>, (5) <em>Dashboard Prototype and Limitations Panel</em>, and (6) <em>GenAI Audit</em>.</li>
+                    <li style="margin-bottom: 8px;"><strong><code>dashboard_export.pdf</code> (or <code>dashboard_export.html</code>):</strong> Static export of your executed 5-view dashboard prototype and Limitations Panel.</li>
+                    <li style="margin-bottom: 0;"><strong><code>GenAI.pdf</code>:</strong> Complete prompt/response audit log per <a style="color: #0d47a1;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">GenAI Kit v3.3</a>, or a 1-page PDF stating <em>"No GenAI Used."</em></li>
+                </ol>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #dddddd;">
+                <h4 style="margin-top: 0; color: #4b2e83;">🏷️ 2. Commit to GitHub Under Tag <code>ps11-submission</code></h4>
+                <p style="font-size: 0.9em; color: #666; margin-top: 0;">Push and tag in your repository (shared with <code>@banazir</code>) before the deadline:</p>
+                <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+                    <li><code>ethics_memo.md</code> (source Markdown for your &le; 4-page ethics &amp; storyboard memo)</li>
+                    <li><code>storyboard.md</code> (if maintained as a standalone file in addition to Section 4 of <code>ethics_memo.md</code>)</li>
+                    <li><code>notebooks/ps11_dashboard.ipynb</code> (executed notebook passing <em>Restart &amp; Run All</em> on CPU)</li>
+                    <li><code>dashboard_export.html</code> / <code>dashboard_export.pdf</code> (rendered dashboard prototype)</li>
+                    <li><code>.devcontainer/devcontainer.json</code> and updated lockfile / <code>requirements.txt</code> pinning any added visualization packages</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Scoring Rubric (30 Points Total &mdash; Normalized from 100-Point Scale)</h3>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0;">
+            <thead style="background-color: #f5f5f5;">
+                <tr>
+                    <th style="padding: 12px; text-align: left; width: 28%; border: 1px solid #dddddd;">Component</th>
+                    <th style="padding: 12px; text-align: left; width: 14%; border: 1px solid #dddddd;">Weight</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Provenance, Rights &amp; Privacy</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">6.0 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Specific analysis tied to your project's <code>license_class</code> / whitelist IDs and terms of use; concrete PII redaction method and retention/deletion policy; zero copyrighted lyrics reproduced.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Representational Harm &amp; Disparity</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Ecological fallacy (e.g., release decade/cohort $\ne$ demographics), survivorship/selection bias, and slice/ASR error disparity analyzed concretely using MP 10 outputs.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>LLM &amp; Pipeline Risks</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Hallucinated trope/label attribution and indirect prompt-injection risks through transcript/corpus text analyzed with concrete, verifiable mitigations.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Storytelling &amp; Audience Fit</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Clear target audience, operational decision, and 1-sentence <em>"So What"</em>; &le; 5-view storyboard specifies question, encoding, source columns, and refresh cadence.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Visual Design &amp; Uncertainty Display</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Wilke-compliant accessible palettes, direct labeling, and explicit 95% CIs, calibration curves, and cohort uncertainty displayed across views.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Prototype Reproducibility &amp; Limitations Panel</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><code>ps11_dashboard.ipynb</code> passes <em>Restart &amp; Run All</em> in the pinned CPU DevContainer; Limitations Panel displays provenance, licenses, uncertainty, known biases, and last-refresh date.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>GenAI Verification</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">1.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Includes the required <code>GenAI.pdf</code> audit log per GenAI Kit v3.3 or explicitly states in <code>GenAI.pdf</code> that Generative AI was not used.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="background-color: #eef2f5; padding: 20px 30px; border-top: 2px solid #b7a57a; text-align: center; font-size: 14px; line-height: 1.8; border-radius: 6px; margin-bottom: 25px;"><strong style="color: #4b2e83; display: block; margin-bottom: 5px;">CIS 531 / 731 Term Project Ecosystem</strong> <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page">Guidelines</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-taxonomy" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-taxonomy" data-api-returntype="Page">3x5x5 Taxonomy</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-sourcing-guide" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-sourcing-guide" data-api-returntype="Page">Data Sourcing Guide</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-evaluation" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-evaluation" data-api-returntype="Page">Statistical Evaluation Guide</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-grading-rubric" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-grading-rubric" data-api-returntype="Page">Grading Rubrics</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">GenAI Kit v3.3</a> &nbsp;|&nbsp; <a style="color: #d64309; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]">Assignments Portal</a></div>
+    <div style="margin-top: 20px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #ffeeba;" title="View All Assignments" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]"> <span style="font-size: 1.2em; margin-right: 8px;">📝</span> All HW </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Module" href="https://k-state.instructure.com/courses/201513/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/modules" data-api-returntype="[Module]"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Module </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Term Project Hub" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Project Hub </a></div>
+    </div>
+</div>
