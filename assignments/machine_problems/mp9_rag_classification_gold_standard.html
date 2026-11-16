@@ -1,0 +1,197 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/phase-4" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-4" data-api-returntype="Page">Phase 4: Explore &amp; Model</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/modules/module_08/module_08.md" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-08" data-api-returntype="Page">Modules 08&ndash;09: Model &amp; Evaluate</a> &raquo; <span style="color: #4b2e83;">MP 9</span></div>
+        <div><a style="text-decoration: none; color: #d64309;" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]">📝 All Assignments</a></div>
+    </div>
+    <div style="background-color: #fff8e1; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #ff9800; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #e65100;"><strong>🚨 CRITICAL SUBMISSION POLICY: Annotation Ceiling (&le; 50 Objects / &le; 2 Hours) &amp; Verification Gate</strong></h4>
+        <p style="margin-bottom: 8px; font-size: 0.95em;"><strong>Strict Workload Cap:</strong> Curate, verify, or annotate <strong>at most 50 data objects or 2.0 hours of human effort</strong>, whichever is lower. Your raw gold file (<code>gold_raw.jsonl</code> or <code>gold_raw.csv</code>) is checked by hand or automatically for a deterministic row-count ceiling of <strong>&le; 50 rows</strong>. Submitting more than 50 rows fails the verification gate and returns a zero for this assignment. Your 2-hour human time cap is recorded in <code>attestation.md</code>.</p>
+        <p style="margin-bottom: 0; font-size: 0.95em;"><strong>Manual Scratch Annotation Is Not Required by Default:</strong> You are <em>not</em> required to hand-label raw data from scratch unless explicitly authorized in your project approval. Most projects should use <strong>Pathway A</strong> (auditing third-party/historical labels sourced in Obtain) or <strong>Pathway B</strong> (auditing labels derived via deterministic joins or verifiable string/regexp matching). Unverified AI-generated outputs are never permitted in <code>source="gold"</code> and must carry <code>source="silver"</code>.</p>
+    </div>
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">MACHINE PROBLEM 9 &bull; INDIVIDUAL (WITH 20-OBJECT PARTNER OVERLAP)</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">MP 9: Retrieval-Augmented Classification &amp; Convolutions</h1>
+        <p style="margin: 0; font-size: 18px;">Human-Verified Gold-Standard Construction, Weak-Supervision Expansion, Top-k RAG Classification, and Cohort Convolution Analysis</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1; min-width: 150px;"><strong>📅 Assigned:</strong><br />Sat 07 Nov 2026</div>
+        <div style="flex: 1; min-width: 150px;"><strong>⏰ Due:</strong><br />Mon 16 Nov 2026, 11:59 PM CST</div>
+        <div style="flex: 1; min-width: 150px;"><strong>💯 Points:</strong><br />30 Points (Normalized)</div>
+        <div style="flex: 1; min-width: 150px;"><strong>📂 Submit:</strong><br />Canvas (<code>report.pdf</code> + <code>GenAI.pdf</code>) &amp; Git Tag <code>mp9-submission</code></div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Required Readings &amp; Starter Resources</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">1. RAG &amp; Resampling Foundations</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>Lewis et al. (2020), Sections 2&ndash;3:</strong> Retriever&ndash;generator composition, top-k exemplar conditioning, and joint evaluation (<a style="color: #0d47a1;" href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener">arXiv:2005.11401</a>).</li>
+                    <li><strong>James et al. (ISLP, 2023), Ch. 5:</strong> Cross-validation and the non-parametric bootstrap for 95% confidence intervals (<a style="color: #0d47a1;" href="https://www.statlearning.com/" target="_blank" rel="noopener">statlearning.com</a>).</li>
+                    <li><strong>scikit-learn Pipelines:</strong> <a style="color: #0d47a1;" href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_grid_search_text_feature_extraction.html" target="_blank" rel="noopener">Sample pipeline for text feature extraction and evaluation</a>.</li>
+                </ul>
+                <a style="color: #d64309; text-decoration: none;" href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener">📖 Access RAG Paper &rarr;</a>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">2. NIST OpenASR Protocol, Lab 8 Starter &amp; GenAI Kit</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>NIST OpenASR 2020 Challenge Evaluation Plan:</strong> Reference transcript construction, text normalization, Levenshtein alignment, and WER scoring.</li>
+                    <li><strong>Lab 8 Starter Notebook (<code>lab08.ipynb</code>):</strong> Reference implementation for gold-set validation (&le; 50 rows / &le; 2h), NIST normalization, WER/EER, and 1,000-resample bootstrap CIs + 1-D cohort convolutions.</li>
+                    <li><strong>Generative AI Kit (v3.0):</strong> Authorized workflow for codebook wording and audit logging.</li>
+                </ul>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;"><a style="color: #d64309; text-decoration: none;" href="https://www.nist.gov/publications/openasr20-open-challenge-automatic-speech-recognition-ofconversational-telephone-speech" target="_blank" rel="noopener">📘 NIST OpenASR Plan &rarr;</a> <a style="color: #d64309; text-decoration: none;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/assignments/homework/lab08.ipynb" target="_blank" rel="noopener">💻 Lab 8 Starter Notebook &rarr;</a> <a style="color: #d64309; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">🤖 GenAI Kit v3.0 &rarr;</a></div>
+            </div>
+        </div>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">If You Are Using the Standard Project Pipeline (How to Deploy <code>lab08.ipynb</code> &amp; Your DevContainer)</h2>
+        <p>MP 9 directly connects your upstream <strong>MP 7</strong> classifier and FAISS index to your downstream <strong>MP 10</strong> interpretability harness and <strong>HW 12</strong> final term-project evaluation. All work must be solvable on the course <strong>CPU baseline</strong>; GPU access is optional and never required.</p>
+        <div style="background-color: #f8f9fa; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #d1d9e0 #d1d9e0 #d1d9e0 #4b2e83; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+            <h4 style="margin-top: 0; color: #4b2e83;">Step-by-Step Deployment of the <code>lab08.ipynb</code> Starter Notebook</h4>
+            <ol style="padding-left: 20px; margin-bottom: 0; color: #333;">
+                <li style="margin-bottom: 8px;"><strong>Copy the Starter Notebook into Your Repo:</strong> Download or pull <a style="color: #0d47a1;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/assignments/homework/lab08.ipynb" target="_blank" rel="noopener"><code>lab08.ipynb</code></a> into your project repository as <code>notebooks/mp9_pipeline.ipynb</code>.</li>
+                <li style="margin-bottom: 8px;"><strong>Replace the Demo Data with Your Term Project Dataset:</strong> You are <strong>not</strong> required to use the default ASR audio/text examples. Replace the 16-row synthetic <code>gold_records</code> list in Part 1 of <code>lab08.ipynb</code> with a loader that reads your own Term Project dataset (your <code>gold_raw.jsonl</code> / <code>gold_adjudicated.jsonl</code> file, &le; 50 rows, <code>source="gold"</code>), keeping the assertion checks...</li>
+                <li style="margin-bottom: 8px;"><strong>Connect Your MP 7 FAISS Index &amp; Weak-Supervision Pool:</strong> Load your unlabeled pool of <strong>at least 1,000 chunks</strong> (consistent with the course scale guideline of 5&times;10<sup>3</sup> to 5&times;10<sup>6</sup> records/chunks and a &ge; 1,000-chunk floor) to generate weak-supervision <code>source="silver"</code> labels and retrieve top-k exemplars (k &isin; {3, 5, 10}) from your MP 7 FAISS <code>IndexFlatIP</code> index.</li>
+                <li style="margin-bottom: 0;"><strong>Execute &amp; Save Outputs:</strong> Run <strong>Kernel &rarr; Restart &amp; Run All</strong> inside your DevContainer so that all tables, 95% bootstrap confidence intervals, cohort convolution trajectories, and the SHA-256 provenance digest are visibly saved in the committed <code>.ipynb</code> file and exported to <code>results.json</code>.</li>
+            </ol>
+        </div>
+        <div style="background-color: #eef2f5; padding: 20px; border-radius: 6px; border: 1px solid #d1d9e0;">
+            <h4 style="margin-top: 0; color: #2d3b45;">🐳 DevContainer Specification Requirement for MP 9 (Submit Specs Only &mdash; Not the Container Image)</h4>
+            <p style="margin-bottom: 10px; font-size: 0.95em;">To support the full <a style="color: #0d47a1;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/admin/syllabus/05_term_project_taxonomy.md" target="_blank" rel="noopener">3x5x5 Term Project Taxonomy</a> while keeping submissions lightweight, <strong>do NOT upload a built Docker image or container tarball</strong>. Instead, commit your container specification files in your repository:</p>
+            <ul style="padding-left: 20px; margin-bottom: 12px; font-size: 0.95em;">
+                <li><strong>Required:</strong> <code>.devcontainer/devcontainer.json</code> specifying your base image, VS Code extensions, and post-create setup command.</li>
+                <li><strong>Optional (if customizing system packages):</strong> <code>.devcontainer/Dockerfile</code> and/or <code>requirements.txt</code>.</li>
+            </ul>
+            <p style="margin-bottom: 6px; font-size: 0.9em;"><strong>Minimum CPU DevContainer Dependencies (Sufficient for <code>lab08.ipynb</code> &amp; MP 9):</strong></p>
+            <pre style="background-color: #2d3b45; color: #f8f9fa; padding: 12px; border-radius: 4px; overflow-x: auto; font-size: 0.85em; margin-bottom: 0;"># Base Image in .devcontainer/devcontainer.json:
+# "image": "mcr.microsoft.com/devcontainers/python:1-3.10-bullseye"
+
+# Required Python Packages (requirements.txt):
+numpy&gt;=1.24.0
+pandas&gt;=2.0.0
+scipy&gt;=1.10.0
+scikit-learn&gt;=1.3.0
+statsmodels&gt;=0.14.0
+faiss-cpu&gt;=1.7.4
+sentence-transformers&gt;=2.2.2
+torch&gt;=2.0.0
+jiwer&gt;=3.0.0
+jupyter&gt;=1.0.0
+ipykernel&gt;=6.25.0
+nbformat&gt;=5.10.0</pre>
+        </div>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 1: Gold-Standard Construction, IAA &amp; Weak-Supervision Expansion</h3>
+        <p style="font-style: italic; color: #666;">(12.0 Points Total)</p>
+        <p>Construct and verify a held-out gold-standard evaluation set (<code>source="gold"</code>, <strong>at most 50 objects or 2.0 hours</strong>), compute Inter-Annotator Agreement (IAA) on a 20-object partner overlap (<code>overlap_ids.txt</code>), and expand an unlabeled pool of <strong>at least 1,000 chunks</strong> using weak supervision (<code>source="silver"</code>). Refer to the <a style="color: #0d47a1;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/admin/syllabus/04_term_project_guidelines.md" target="_blank" rel="noopener">Term Project Guidelines</a> and <a style="color: #0d47a1;" href="https://github.com/kddresearch/cis531-731-2026_fall/blob/main/admin/syllabus/06_term_project_sourcing_guide.md" target="_blank" rel="noopener">Data Sourcing Guide</a>.</p>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">1A. Three Valid Pathways for Your &le; 50-Object Gold Set (<code>source="gold"</code>)</h4>
+            <p style="font-size: 0.95em; color: #444;">Select the pathway that matches your approved project (declare your chosen pathway in <code>attestation.md</code>):</p>
+            <ul style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 8px;"><strong>Pathway A &mdash; Third-Party or Historical Ground-Truth Audit (Default Recommended):</strong> Source pre-annotated benchmark labels, historical outcome variables, or reference transcripts in your scripted <strong>Obtain</strong> stage. Sample &le; 50 objects (including the 20 shared objects in <code>overlap_ids.txt</code>) and spend your &le; 2.0-hour human budget <strong>auditing and verifying</strong> each third-party label/transcript against your codebook rules.</li>
+                <li style="margin-bottom: 8px;"><strong>Pathway B &mdash; Deterministic Join / Rule-Based Alignment Audit (Generally Acceptable):</strong> Derive labels by deterministically joining alignable sources via an explicit join key, timestamp window, or verifiable string/regexp matching (generative programming is permitted to write the deterministic join/regexp code). Spend your &le; 50-object / &le; 2.0-hour human budget <strong>auditing and verifying</strong> the alignment on those &le; 50 objects and adjudicating boundary cases across the 20-object overlap.</li>
+                <li style="margin-bottom: 0;"><strong>Pathway C &mdash; Authorized Manual Annotation (By Project Approval Only):</strong> If explicitly authorized in your project approval to label unannotated raw data (e.g., transcribing &le; 15-second ASR audio segments or labeling raw text chunks), manually annotate &le; 50 objects (&le; 2.0 hours) with a 20-object partner overlap.</li>
+            </ul>
+        </div>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">1B. Codebook, Partner Overlap IAA &amp; Weak-Supervision Pool (&ge; 1,000 Chunks)</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 8px;"><strong>Codebook &amp; Attestation (3.0 pts):</strong> Document label definitions, decision rules, boundary cases, and exemplars in <code>codebook.md</code>; log start/stop timestamps, pathway choice, and total human effort (&le; 2.0 hours) in <code>attestation.md</code>.</li>
+                <li style="margin-bottom: 8px;"><strong>Inter-Annotator Agreement &amp; Adjudication (4.5 pts):</strong> Compute Cohen's &kappa; with a 95% bootstrap confidence interval, percent agreement, and the confusion matrix on the 20-object partner overlap (<code>overlap_ids.txt</code>), and document your adjudication rules producing <code>gold_adjudicated.jsonl</code>.</li>
+                <li style="margin-bottom: 0;"><strong>Weak-Supervision Expansion (4.5 pts):</strong> Apply your MP 7 classifier and at least two simple labeling functions to produce weak-supervision labels (<code>source="silver"</code>) on an unlabeled pool of <strong>at least 1,000 chunks</strong>, aggregate by weighted vote, and evaluate silver-vs-gold agreement and failure modes on your gold objects.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 2: Retrieval-Augmented Classification &amp; Cohort Convolution Analysis</h3>
+        <p style="font-style: italic; color: #666;">(18.0 Points Total: 16.5 pts Technical + 1.5 pts GenAI Verification)</p>
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 8px; margin-bottom: 25px; border: 1px solid #2196f3;">
+            <p style="margin-top: 0;"><strong>Objective:</strong> Evaluate top-k exemplar-conditioned RAG classification against your MP 7 fixed-demonstration baseline and quantify temporal/cohort drift with 95% bootstrap confidence intervals.</p>
+            <ol style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 8px;"><strong>Top-k Retrieval-Augmented Classification (7.5 pts):</strong> Retrieve top-k exemplars (k &isin; {3, 5, 10}) from your MP 7 FAISS index to condition classification. Report retrieval Precision@k and Recall@k alongside classification Macro-F1 (each with 95% bootstrap CIs on <code>gold_adjudicated.jsonl</code>) and compare against your MP 7 fixed-demonstration baseline. (ASR track additionally reports NIST-normalized WER and Entity Error Rate as implemented in <code>lab08.ipynb</code>.)</li>
+                <li style="margin-bottom: 8px;"><strong>Cohort Convolution Analysis (6.0 pts):</strong> Bin chunks along your ordered cohort axis (VDB track: release decade / era; ASR track: event-time window index), form per-cohort trope/class frequency vectors, and convolve with a smoothing kernel <code>[0.25, 0.5, 0.25]</code> and a first-difference kernel <code>[-1, 1]</code> to estimate cohort-to-cohort drift with 95% stratified bootstrap CIs. <strong>CIS 731 graduate students</strong> must additionally fit a learned 1-D convolutional kernel (PyTorch 2.x on CPU) and compare held-out forecast error against the fixed kernels.</li>
+                <li style="margin-bottom: 0;"><strong>Reproducibility, Verification Gate &amp; GenAI Audit (4.5 pts: 3.0 pts Gate + 1.5 pts GenAI):</strong> Ensure <code>gold_raw.*</code> has &le; 50 rows, include <code>.devcontainer/devcontainer.json</code>, verify CPU execution, and include <code>GenAI.pdf</code>.</li>
+            </ol>
+            <p style="margin-bottom: 0;"><strong>Graded Metric Separation:</strong> Headline evaluation metrics must be computed strictly on your adjudicated gold set (<code>gold_adjudicated.jsonl</code>); metrics on the 1,000-chunk silver pool are advisory only.</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Simple Submission Checklist (What Goes Where)</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #dddddd;">
+                <h4 style="margin-top: 0; color: #4b2e83;">📤 1. Upload Directly to Canvas (2 PDFs Only)</h4>
+                <p style="font-size: 0.9em; color: #666; margin-top: 0;">Submit at <a style="color: #0d47a1;" href="https://k-state.instructure.com/courses/201513/assignments/2622326" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments/2622326" data-api-returntype="Assignment">Canvas Assignment MP 9</a>:</p>
+                <ol style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+                    <li style="margin-bottom: 8px;"><strong><code>report.pdf</code> (&le; 4 pages):</strong> PDF rendering of your <code>report.md</code> containing all 6 required sections (<em>Codebook and Attestation</em>, <em>Inter-Annotator Agreement and Adjudication</em>, <em>Weak-Supervision Agreement Analysis</em>, <em>Retrieval-Augmented Classification Results</em>, <em>Cohort Convolution Analysis</em>, and <em>GenAI Audit</em>) plus your clickable GitHub repo URL and <code>mp9-submission</code> tag link at the top of Page 1.</li>
+                    <li style="margin-bottom: 0;"><strong><code>GenAI.pdf</code>:</strong> Your complete prompt/response audit log per the <a style="color: #0d47a1;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">GenAI Kit v3.0</a>, or a 1-page PDF stating <em>"No GenAI Used."</em></li>
+                </ol>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #dddddd;">
+                <h4 style="margin-top: 0; color: #4b2e83;">🏷️ 2. Commit to GitHub Under Tag <code>mp9-submission</code></h4>
+                <p style="font-size: 0.9em; color: #666; margin-top: 0;">Push and tag in your repository before the deadline:</p>
+                <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+                    <li><code>report.md</code> (source Markdown for your &le; 4-page report)</li>
+                    <li><code>codebook.md</code> &amp; <code>attestation.md</code> (&le; 2.0 hours attested)</li>
+                    <li><code>gold_raw.jsonl</code> or <code>gold_raw.csv</code> (<strong>strictly &le; 50 rows</strong>)</li>
+                    <li><code>gold_adjudicated.jsonl</code> &amp; <code>overlap_ids.txt</code> (20 shared IDs)</li>
+                    <li><code>results.json</code> (structured metrics &amp; 95% bootstrap CIs)</li>
+                    <li><code>notebooks/mp9_pipeline.ipynb</code> (executed <code>.ipynb</code> with saved outputs)</li>
+                    <li><code>.devcontainer/devcontainer.json</code> (<strong>required</strong>) and <code>.devcontainer/Dockerfile</code> / <code>requirements.txt</code> (<strong>optional</strong>)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Scoring Rubric (30 Points Total)</h3>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0;">
+            <thead style="background-color: #f5f5f5;">
+                <tr>
+                    <th style="padding: 12px; text-align: left; width: 28%; border: 1px solid #dddddd;">Component</th>
+                    <th style="padding: 12px; text-align: left; width: 14%; border: 1px solid #dddddd;">Weight</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Codebook &amp; Attestation</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">3.0 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Unambiguous decision rules and boundary cases in <code>codebook.md</code>; exemplars drawn from labeled objects; pathway (A, B, or C) and &le; 2.0-hour timestamps complete in <code>attestation.md</code>.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>IAA &amp; Adjudication</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Correct Cohen's &kappa; with 95% bootstrap CI, percent agreement, and confusion matrix on the 20-object partner overlap (<code>overlap_ids.txt</code>), plus documented adjudication rules producing <code>gold_adjudicated.jsonl</code>.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Weak-Supervision Agreement</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Silver labeling on &ge; 1,000 chunks is sound, explicitly marked <code>source="silver"</code>, aggregated via weighted vote, and evaluated against gold labels with failure-mode analysis.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Retrieval-Augmented Classification</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">7.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Top-k (k &isin; {3, 5, 10}) exemplar retrieval P@k, Recall@k, and Macro-F1 (plus NIST WER/EER for ASR track) reported with 95% bootstrap CIs on <code>gold_adjudicated.jsonl</code> and fairly compared against the MP 7 baseline.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Cohort Convolution Analysis</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">6.0 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Smoothing <code>[0.25, 0.5, 0.25]</code> and first-difference <code>[-1, 1]</code> kernels applied along the ordered cohort axis with 95% bootstrap CIs (plus learned 1-D PyTorch convolutional kernel forecast comparison for CIS 731).</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Reproducibility, DevContainer Spec &amp; Row-Count Gate</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">3.0 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><code>gold_raw.*</code> passes the deterministic &le; 50-row check (&gt; 50 rows returns 0 for the assignment); <code>.devcontainer/devcontainer.json</code> and executed <code>.ipynb</code> reproduce all results on CPU under tag <code>mp9-submission</code>.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>GenAI Verification</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">1.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Includes the required <code>GenAI.pdf</code> audit log or explicitly states in <code>GenAI.pdf</code> that Generative AI was not used.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #ffeeba;" title="View All Assignments" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]"> <span style="font-size: 1.2em; margin-right: 8px;">📝</span> All HW </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Module" href="https://k-state.instructure.com/courses/201513/pages/module-08-and-09-model-and-evaluate" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-08-and-09-model-and-evaluate" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Module </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Phase" href="https://k-state.instructure.com/courses/201513/pages/phase-4-explore-and-model" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-4-explore-and-model" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Phase </a></div>
+    </div>
+</div>
