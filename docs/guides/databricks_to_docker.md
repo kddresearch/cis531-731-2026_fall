@@ -191,12 +191,17 @@ You can now access:
 3. Type and select **Dev Containers: Reopen in Container**.
 4. VS Code will attach to the `cis731-workspace` container. When you execute PySpark code connecting to `spark://spark-master:7077`, the heavy lifting is physically routed to `spark-worker-1` and `spark-worker-2`.
 
+#### Executable Benchmark Script - Project-Specific
+
+For the complete cross-validation benchmarking script referenced above, you can download, modify, and execute the accompanying [`evaluate_models.py`](./evaluate_models.py) directly within your DevContainer. Place this script in your project root alongside your `docker-compose.yml` and `data/` directory to run the distributed `joblib-spark` pipeline and track the resulting speedups in your local MLflow instance.
+
 **Step 5: Teardown**
 When finished, shut down the cluster and release system memory. The `-v` flag removes temporary network bridges, but your mapped `./data/` and `./mlflow_data/` volumes remain safely on your host drive.
 
 ```bash
 docker compose down
 ```
+---
 
 ### Addendum 1: Host Assumptions & Docker Desktop Resource Limits
 
