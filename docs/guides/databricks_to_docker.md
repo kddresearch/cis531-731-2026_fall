@@ -30,19 +30,19 @@ ENV PIP_NO_CACHE_DIR=1
 # The httpx version is explicitly pinned to resolve huggingface_hub networking errors.
 RUN pip install --upgrade pip && \
     pip install \
-    pyspark==3.5.1 \
-    pandas==2.2.1 \
+    pyspark==3.5.3 \
+    pandas==3.0.6 \
     scikit-learn==1.9.1 \
-    xgboost==2.0.3 \
+    xgboost==3.4.1 \
     joblib==1.3.2 \
-    joblibspark==0.5.3 \
-    mlflow==2.11.1 \
+    joblibspark==0.6.0 \
+    mlflow==3.18.0 \
     torch==2.2.1 \
-    transformers==4.38.2 \
-    sentence-transformers==2.5.1 \
-    faiss-cpu==1.8.0 \
-    httpx==0.27.0 \
-    ipykernel==6.29.3
+    transformers==5.15.0 \
+    sentence-transformers==6.0.0 \
+    faiss-cpu==1.16.0 \
+    httpx==0.28.1 \
+    ipykernel==7.3.0
 
 # 4. Create Non-Root User (Required for standard DevContainer permissions)
 ARG USERNAME=vscode
