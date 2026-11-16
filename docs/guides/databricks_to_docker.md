@@ -48,8 +48,8 @@ RUN pip install --upgrade pip && \
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
+RUN groupadd --gid $USER_GID$USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m$USERNAME -s /bin/bash \
     && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
@@ -81,43 +81,48 @@ services:
 
   # Local Spark Master Node
   spark-master:
-    image: bitnami/spark:3.5
+    image: apache/spark:3.5.3
     container_name: spark-master
-    environment:
-      - SPARK_MODE=master
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.master.Master
     ports:
       - "8080:8080" # Spark Master Web UI
       - "7077:7077" # Spark RPC Port
     volumes:
-      - ./data:/opt/bitnami/spark/data
+      - ./data:/opt/spark/data
 
   # Spark Worker 1
   spark-worker-1:
-    image: bitnami/spark:3.5
+    image: apache/spark:3.5.3
     container_name: spark-worker-1
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     environment:
-      - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
       - SPARK_WORKER_MEMORY=2G
       - SPARK_WORKER_CORES=1
     depends_on:
       - spark-master
     volumes:
-      - ./data:/opt/bitnami/spark/data
+      - ./data:/opt/spark/data
+    deploy:
+      resources:
+        limits:
+          memory: 2.5G # Hard cap Docker to prevent host OS freeze
 
   # Spark Worker 2
   spark-worker-2:
-    image: bitnami/spark:3.5
+    image: apache/spark:3.5.3
     container_name: spark-worker-2
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
     environment:
-      - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
       - SPARK_WORKER_MEMORY=2G
       - SPARK_WORKER_CORES=1
     depends_on:
       - spark-master
     volumes:
-      - ./data:/opt/bitnami/spark/data
+      - ./data:/opt/spark/data
+    deploy:
+      resources:
+        limits:
+          memory: 2.5G # Hard cap Docker to prevent host OS freeze
 
   # Local MLflow Tracking Server
   mlflow-server:
@@ -136,7 +141,7 @@ services:
 
 ## 3. DevContainer Configuration (`devcontainer.json`)
 
-To tell VS Code to use Docker Compose rather than building an isolated container, place a `.devcontainer/devcontainer.json` file in your repository:
+To tell VS Code to use Docker Compose rather than building an isolated container, place a `.devcontainer/devcontainer.json` file in your repository. This configuration explicitly includes the `runArgs` network bridging patch so VS Code can cleanly resolve the `spark-master` and `mlflow-server` hostnames across the Docker Compose network without namespace isolation issues.
 
 ```json
 {
@@ -144,6 +149,9 @@ To tell VS Code to use Docker Compose rather than building an isolated container
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "workspace",
     "workspaceFolder": "/workspace",
+    "runArgs": [
+        "--network=cis731_default"
+    ],
     "customizations": {
         "vscode": {
             "extensions": [
@@ -166,13 +174,13 @@ Because you are no longer using Databricks `/Volumes/`, you must create local di
 mkdir -p data/raw data/silver data/gold mlflow_data
 ```
 
-*Place your downloaded IEEE-CIS Kaggle CSV files inside `data/raw/`.*
+*Place your downloaded data files inside `data/raw/`.*
 
 **Step 2: Build and Start the Cluster**
-Run this from your repository root (where the `docker-compose.yml` lives) to build the updated `Dockerfile` and start all services in the background.
+Run this from your repository root (where the `docker-compose.yml` lives) to build the updated `Dockerfile` and start all services in the background. If you previously had containers running, use `--force-recreate` to ensure the new network settings and dependencies are applied.
 
 ```bash
-docker compose up -d --build
+docker compose up -d --build --force-recreate
 ```
 
 **Step 3: Verify Running Services**
@@ -196,23 +204,26 @@ You can now access:
 
 #### Executable Benchmark Script - Project-Specific
 
-For the complete cross-validation benchmarking script referenced above, you can download, modify, and execute the accompanying [`evaluate_models.py`](./evaluate_models.py) directly within your DevContainer. Place this script in your project root alongside your `docker-compose.yml` and `data/` directory to run the distributed `joblib-spark` pipeline and track the resulting speedups in your local MLflow instance.
+For the complete cross-validation benchmarking script, you can download, modify, and execute the accompanying [`evaluate_models.py`](https://www.google.com/search?q=./evaluate_models.py) directly within your DevContainer. Place this script in your project root alongside your `docker-compose.yml` and `data/` directory to run the distributed `joblib-spark` pipeline and track the resulting speedups in your local MLflow instance.
 
 **Step 5: Teardown**
 When finished, shut down the cluster and release system memory. The `-v` flag removes temporary network bridges, but your mapped `./data/` and `./mlflow_data/` volumes remain safely on your host drive.
 
 ```bash
 docker compose down
+
 ```
+
 ---
 
 ### Addendum 1: Host Assumptions & Docker Desktop Resource Limits
 
-This architecture is designed entirely for **local laptops**; it does not assume an AWS host. However, running a Workspace, a Spark Master, two Spark Workers (at 2GB RAM each), and an MLflow server concurrently requires significant local memory. 
+This architecture is designed entirely for **local laptops**; it does not assume an AWS host. However, running a Workspace, a Spark Master, two Spark Workers, and an MLflow server concurrently requires significant local memory.
 
-By default, Docker Desktop on macOS limits its underlying VM to 2GB or 4GB of RAM, which will cause the containers to OOM-kill immediately. 
+By default, Docker Desktop on macOS limits its underlying VM to 2GB or 4GB of RAM, which will cause the containers to OOM-kill immediately.
 
 **Required Docker Desktop Actions for Both OSes:**
+
 1. Open Docker Desktop -> **Settings** (Gear icon).
 2. Navigate to **Resources** (or Settings -> Advanced).
 3. **Memory Allocation:** Increase the memory limit to **at least 8 GB** (12 GB+ recommended).
@@ -226,6 +237,7 @@ By default, Docker Desktop on macOS limits its underlying VM to 2GB or 4GB of RA
 A "bare" WSL 2 instance (manually running `dockerd` via `systemctl` inside Ubuntu) works but creates severe friction for VS Code DevContainers, as the Windows-side VS Code struggles to automatically find the Unix Docker socket. The frictionless path is **Docker Desktop for Windows with the WSL 2 backend**.
 
 **Windows 11 Student Instructions:**
+
 1. Install Docker Desktop and ensure **Settings > General > "Use the WSL 2 based engine"** is checked.
 2. Under **Settings > Resources > WSL Integration**, toggle the switch ON for your specific Linux distro (e.g., `Ubuntu-24.04`).
 3. **CRITICAL PERFORMANCE PATCH:** Do **not** clone the Git repository into the Windows file system (`C:\Users\Name\project`). Docker volume mounts across the Windows/WSL boundary are catastrophically slow. Open your WSL 2 terminal and clone the repository directly into the native Linux file system (e.g., `~/projects/cis731-term-project`).
@@ -236,11 +248,12 @@ A "bare" WSL 2 instance (manually running `dockerd` via `systemctl` inside Ubunt
 ### Addendum 3: macOS Bridgework (Apple Silicon vs. Intel)
 
 **macOS Student Instructions:**
+
 1. Install Docker Desktop for Mac.
 2. Ensure you have completed the memory limit increase (Addendum 1).
 3. **Apple Silicon (M1/M2/M3) Patch:** The `bitnami/spark:3.5` image and `python:3.10-slim-bullseye` both natively support ARM64. However, some deep PyPI dependencies (like older versions of `xgboost` or `faiss-cpu`) occasionally fail to compile on ARM. If the student on macOS encounters `faiss-cpu` architecture build errors during the `docker compose build` step, they have two options:
-   * **Option A (Rosetta):** Go to Docker Desktop -> **Settings > Features in development** and enable **"Use Rosetta for x86/amd64 emulation on Apple Silicon"**. 
-   * **Option B (Compose Override):** Add `platform: linux/amd64` to the `workspace` service in the `docker-compose.yml` to force x86 emulation for the Python environment.
+* **Option A (Rosetta):** Go to Docker Desktop -> **Settings > Features in development** and enable **"Use Rosetta for x86/amd64 emulation on Apple Silicon"**.
+* **Option B (Compose Override):** Add `platform: linux/amd64` to the `workspace` service in the `docker-compose.yml` to force x86 emulation for the Python environment.
 
 ---
 
@@ -248,37 +261,8 @@ A "bare" WSL 2 instance (manually running `dockerd` via `systemctl` inside Ubunt
 
 For students who prefer working directly in an interactive Jupyter Lab or Jupyter Notebook environment inside their native Linux distro or WSL 2 instance—rather than using the VS Code DevContainer extension—Docker Compose makes it effortless to spin up a standalone Jupyter service that maps directly to your local file system.
 
-#### 1. Updating Your DevContainer to Include a Jupyter Host
+#### 1. Adding a Jupyter Service to `docker-compose.yml`
 
-Replace the entire contents of your `.devcontainer/devcontainer.json` with the following code. This explicitly includes the `runArgs` network bridging patch so that VS Code can cleanly resolve the `spark-master` and `mlflow-server` hostnames across the Docker Compose network without namespace isolation issues.
-
-```json
-{
-    "name": "CIS 731 OSEMN Pipeline",
-    "dockerComposeFile": ["../docker-compose.yml"],
-    "service": "workspace",
-    "workspaceFolder": "/workspace",
-    "runArgs": [
-        "--network=cis731_default"
-    ],
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-python.python",
-                "ms-toolsai.jupyter"
-            ]
-        }
-    }
-}
-```
-
-**Next Steps**
-
-1. Save out both your `Dockerfile` and `devcontainer.json`.
-2. Open the terminal and rebuild the container stack from scratch to apply the new dependencies and network configurations: `docker compose up -d --build --force-recreate`
-3. Re-attach VS Code using **Dev Containers: Reopen in Container**.
-
-#### 2. Adding a Jupyter Service to `docker-compose.yml`
 You can append an official Jupyter service to your existing `docker-compose.yml` so it shares the same Docker network and local data volumes (`./data/` and `./mlflow_data/`):
 
 ```yaml
@@ -298,19 +282,21 @@ You can append an official Jupyter service to your existing `docker-compose.yml`
       - mlflow-server
 ```
 
-#### 3. Launching and Accessing Jupyter
+#### 2. Launching and Accessing Jupyter
 
 1. In your WSL 2 or native Linux terminal, start the stack:
+
 ```bash
 docker compose up -d
 ```
+
 2. Open your host machine's browser (Windows or macOS) and navigate to:
 `http://localhost:8888/?token=cis731securetoken`
 3. Any notebooks you create or run inside Jupyter will be saved directly into your local Linux project directory, maintaining clean GitOps tracking. When connecting PySpark inside the notebook, point your `SparkSession` to `spark://spark-master:7077`.
 
-#### 4. Example Jupyter Notebook: Distributed Cross-Validation & MLflow Tracking (`evaluate_models.ipynb`)
+#### 3. Example Jupyter Notebook: Distributed Cross-Validation & MLflow Tracking (`evaluate_models.ipynb`)
 
-Below is the complete Jupyter notebook JSON structure wrapping the scikit-learn, `joblib-spark`, and MLflow benchmarking workflow. Save this as [`evaluate_models.ipynb`](evaluate_models.ipynb) in your repository root.
+Below is the complete Jupyter notebook JSON structure wrapping the scikit-learn, `joblib-spark`, and MLflow benchmarking workflow. Save this as [`evaluate_models.ipynb`](https://www.google.com/search?q=evaluate_models.ipynb) in your repository root.
 
 ```json
 {
@@ -477,16 +463,3 @@ Below is the complete Jupyter notebook JSON structure wrapping the scikit-learn,
  "nbformat_minor": 4
 }
 ```
-
----
-
-### Patch 1: `docker-compose.yml` Resource Binding
-
-If the laptops have limited RAM, the Spark workers in the original `docker-compose.yml` might try to steal resources from the workspace container. Add explicit Docker memory limits to the `docker-compose.yml` services to prevent the Spark workers from freezing the host OS:
-
-```yaml
-# Add this block to spark-worker-1 and spark-worker-2 in docker-compose.yml
-    deploy:
-      resources:
-        limits:
-          memory: 2.5G # Hard cap Docker to prevent host OS freeze
