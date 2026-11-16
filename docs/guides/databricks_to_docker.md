@@ -197,3 +197,52 @@ When finished, shut down the cluster and release system memory. The `-v` flag re
 ```bash
 docker compose down
 ```
+
+### Addendum 1: Host Assumptions & Docker Desktop Resource Limits
+
+This architecture is designed entirely for **local laptops**; it does not assume an AWS host. However, running a Workspace, a Spark Master, two Spark Workers (at 2GB RAM each), and an MLflow server concurrently requires significant local memory. 
+
+By default, Docker Desktop on macOS limits its underlying VM to 2GB or 4GB of RAM, which will cause the containers to OOM-kill immediately. 
+
+**Required Docker Desktop Actions for Both OSes:**
+1. Open Docker Desktop -> **Settings** (Gear icon).
+2. Navigate to **Resources** (or Settings -> Advanced).
+3. **Memory Allocation:** Increase the memory limit to **at least 8 GB** (12 GB+ recommended).
+4. **CPU Allocation:** Allocate at least 4-6 virtual CPUs.
+5. Apply and restart Docker Desktop.
+
+---
+
+### Addendum 2: Windows 11 & WSL 2 Bridgework
+
+A "bare" WSL 2 instance (manually running `dockerd` via `systemctl` inside Ubuntu) works but creates severe friction for VS Code DevContainers, as the Windows-side VS Code struggles to automatically find the Unix Docker socket. The frictionless path is **Docker Desktop for Windows with the WSL 2 backend**.
+
+**Windows 11 Student Instructions:**
+1. Install Docker Desktop and ensure **Settings > General > "Use the WSL 2 based engine"** is checked.
+2. Under **Settings > Resources > WSL Integration**, toggle the switch ON for your specific Linux distro (e.g., `Ubuntu-24.04`).
+3. **CRITICAL PERFORMANCE PATCH:** Do **not** clone the Git repository into the Windows file system (`C:\Users\Name\project`). Docker volume mounts across the Windows/WSL boundary are catastrophically slow. Open your WSL 2 terminal and clone the repository directly into the native Linux file system (e.g., `~/projects/cis731-term-project`).
+4. Launch VS Code from inside the WSL 2 terminal by typing `code .` in the project directory, then accept the prompt to "Reopen in Container".
+
+---
+
+### Addendum 3: macOS Bridgework (Apple Silicon vs. Intel)
+
+**macOS Student Instructions:**
+1. Install Docker Desktop for Mac.
+2. Ensure you have completed the memory limit increase (Addendum 1).
+3. **Apple Silicon (M1/M2/M3) Patch:** The `bitnami/spark:3.5` image and `python:3.10-slim-bullseye` both natively support ARM64. However, some deep PyPI dependencies (like older versions of `xgboost` or `faiss-cpu`) occasionally fail to compile on ARM. If the student on macOS encounters `faiss-cpu` architecture build errors during the `docker compose build` step, they have two options:
+   * **Option A (Rosetta):** Go to Docker Desktop -> **Settings > Features in development** and enable **"Use Rosetta for x86/amd64 emulation on Apple Silicon"**. 
+   * **Option B (Compose Override):** Add `platform: linux/amd64` to the `workspace` service in the `docker-compose.yml` to force x86 emulation for the Python environment.
+
+---
+
+### Patch 1: `docker-compose.yml` Resource Binding
+
+If the laptops have limited RAM, the Spark workers in the original `docker-compose.yml` might try to steal resources from the workspace container. Add explicit Docker memory limits to the `docker-compose.yml` services to prevent the Spark workers from freezing the host OS:
+
+```yaml
+# Add this block to spark-worker-1 and spark-worker-2 in docker-compose.yml
+    deploy:
+      resources:
+        limits:
+          memory: 2.5G # Hard cap Docker to prevent host OS freeze
