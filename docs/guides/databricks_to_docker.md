@@ -10,18 +10,18 @@ Update the `RUN pip install` block in your `Dockerfile` to include `pandas`, `sc
 # ==============================================================================
 # CIS 731: Distributed ML & RAG DevContainer (cuda_sklearn_rag)
 # ==============================================================================
-FROM python:3.10-slim-bullseye
+FROM python:3.10-slim-bookworm
 
 # 1. Install System Dependencies (Java for PySpark)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    openjdk-11-jre-headless \
+    openjdk-17-jre-headless \
     git \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
 # 2. Configure Environment Variables
-ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PYSPARK_PYTHON=python3
 ENV PIP_NO_CACHE_DIR=1
 
@@ -34,7 +34,7 @@ RUN pip install --upgrade pip && \
     pandas==3.0.6 \
     scikit-learn==1.9.1 \
     xgboost==3.4.1 \
-    joblib==1.3.2 \
+    joblib==1.5.3 \
     joblibspark==0.6.0 \
     mlflow==3.18.0 \
     torch==2.2.1 \
