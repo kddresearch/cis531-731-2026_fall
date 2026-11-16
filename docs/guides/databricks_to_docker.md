@@ -241,6 +241,214 @@ A "bare" WSL 2 instance (manually running `dockerd` via `systemctl` inside Ubunt
 
 ---
 
+### Addendum 4: Running an Interactive Jupyter Host in Native Linux / WSL 2
+
+For students who prefer working directly in an interactive Jupyter Lab or Jupyter Notebook environment inside their native Linux distro or WSL 2 instance—rather than using the VS Code DevContainer extension—Docker Compose makes it effortless to spin up a standalone Jupyter service that maps directly to your local file system.
+
+#### 1. Adding a Jupyter Service to `docker-compose.yml`
+You can append an official Jupyter service to your existing `docker-compose.yml` so it shares the same Docker network and local data volumes (`./data/` and `./mlflow_data/`):
+
+```yaml
+  jupyter-lab:
+    image: jupyter/pyspark-notebook:latest
+    container_name: cis731-jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=cis731securetoken
+    volumes:
+      - .:/home/jovyan/work
+    working_dir: /home/jovyan/work
+    depends_on:
+      - spark-master
+      - mlflow-server
+```
+
+#### 2. Launching and Accessing Jupyter
+
+1. In your WSL 2 or native Linux terminal, start the stack:
+```bash
+docker compose up -d
+```
+2. Open your host machine's browser (Windows or macOS) and navigate to:
+`http://localhost:8888/?token=cis731securetoken`
+3. Any notebooks you create or run inside Jupyter will be saved directly into your local Linux project directory, maintaining clean GitOps tracking. When connecting PySpark inside the notebook, point your `SparkSession` to `spark://spark-master:7077`.
+
+---
+
+### Example Jupyter Notebook: Distributed Cross-Validation & MLflow Tracking (`evaluate_models.ipynb`)
+
+Below is the complete Jupyter notebook JSON structure wrapping the scikit-learn, `joblib-spark`, and MLflow benchmarking workflow. Save this as `evaluate_models.ipynb` in your repository root.
+
+```json
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# CIS 731: Distributed Model Evaluation & MLflow Benchmarking\n",
+    "\n",
+    "**Objective:** Evaluate Logistic Regression (with Feature Selection) versus XGBoost at scale on the IEEE-CIS Fraud dataset using local multi-node Spark execution (`joblib-spark`) and MLflow tracking."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 1. Initialize Spark Session & MLflow Tracking"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import time\n",
+    "import mlflow\n",
+    "import joblib\n",
+    "from joblibspark import register_spark\n",
+    "from pyspark.sql import SparkSession\n",
+    "\n",
+    "# Initialize Spark Session connected to local standalone cluster\n",
+    "spark = SparkSession.builder \\\n",
+    "    .appName(\"IEEE-Fraud-CV-Benchmark-Notebook\") \\\n",
+    "    .master(\"spark://spark-master:7077\") \\\n",
+    "    .config(\"spark.executor.memory\", \"2g\") \\\n",
+    "    .getOrCreate()\n",
+    "\n",
+    "# Register the Spark backend for scikit-learn joblib parallelism\n",
+    "register_spark()\n",
+    "\n",
+    "# Connect to local MLflow tracking server\n",
+    "mlflow.set_tracking_uri(\"http://mlflow-server:5000\")\n",
+    "mlflow.set_experiment(\"Fraud_Detection_CV_Benchmark\")\n",
+    "print(\"Spark and MLflow successfully initialized.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 2. Load Data from Local Bronze Volume and Prepare Tensors"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "BRONZE = \"/opt/bitnami/spark/data/raw\"\n",
+    "\n",
+    "# Read training transactions\n",
+    "train_tx = spark.read.option(\"header\", True).csv(f\"{BRONZE}/train_transaction.csv\")\n",
+    "\n",
+    "# Bounded sample preparation for local cross-validation\n",
+    "pdf = train_tx.select(\"TransactionAmt\", \"card1\", \"C1\", \"D1\", \"isFraud\").dropna().limit(100000).toPandas()\n",
+    "X = pdf.drop(\"isFraud\", axis=1)\n",
+    "y = pdf[\"isFraud\"].astype(int)\n",
+    "\n",
+    "print(f\"Loaded feature matrix shape: {X.shape}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 3. Define Scikit-Learn Pipelines & Distributed CV Benchmark Function"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from sklearn.model_selection import cross_validate\n",
+    "from sklearn.linear_model import LogisticRegression\n",
+    "from sklearn.feature_selection import SelectKBest, f_classif\n",
+    "from sklearn.pipeline import Pipeline\n",
+    "from xgboost import XGBClassifier\n",
+    "\n",
+    "pipeline_lr = Pipeline([\n",
+    "    ('feature_selection', SelectKBest(score_func=f_classif, k=3)),\n",
+    "    ('classifier', LogisticRegression(max_iter=1000))\n",
+    "])\n",
+    "\n",
+    "pipeline_xgb = Pipeline([\n",
+    "    ('classifier', XGBClassifier(n_estimators=50, use_label_encoder=False, eval_metric='logloss'))\n",
+    "])\n",
+    "\n",
+    "def benchmark_cv(pipeline, model_name, n_workers):\n",
+    "    mlflow.sklearn.autolog()\n",
+    "    with mlflow.start_run(run_name=f\"{model_name}_{n_workers}_Workers\"):\n",
+    "        start_time = time.time()\n",
+    "        \n",
+    "        # Distribute cross-validation folds across Spark worker executors\n",
+    "        with joblib.parallel_backend('spark', n_jobs=n_workers):\n",
+    "            cv_results = cross_validate(\n",
+    "                pipeline, X, y, \n",
+    "                cv=5, \n",
+    "                scoring=['f1_macro', 'roc_auc'], \n",
+    "                n_jobs=n_workers\n",
+    "            )\n",
+    "            \n",
+    "        elapsed = time.time() - start_time\n",
+    "        mlflow.log_metric(\"cv_mean_f1_macro\", cv_results['test_f1_macro'].mean())\n",
+    "        mlflow.log_metric(\"execution_time_seconds\", elapsed)\n",
+    "        \n",
+    "        print(f\"[{model_name} | Workers: {n_workers}] Completed in {elapsed:.2f}s | Mean F1: {cv_results['test_f1_macro'].mean():.4f}\")\n",
+    "        return elapsed"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## 4. Execute Benchmark & Measure Speedup"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "t_lr_1 = benchmark_cv(pipeline_lr, \"LogisticRegression\", n_workers=1)\n",
+    "t_lr_2 = benchmark_cv(pipeline_lr, \"LogisticRegression\", n_workers=2)\n",
+    "print(f\"\\nLogistic Regression Speedup (1 vs 2 workers): {t_lr_1 / t_lr_2:.2f}x\\n\")\n",
+    "\n",
+    "t_xgb_1 = benchmark_cv(pipeline_xgb, \"XGBoost\", n_workers=1)\n",
+    "t_xgb_2 = benchmark_cv(pipeline_xgb, \"XGBoost\", n_workers=2)\n",
+    "print(f\"XGBoost Speedup (1 vs 2 workers): {t_xgb_1 / t_xgb_2:.2f}x\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
+```
+
+---
+
 ### Patch 1: `docker-compose.yml` Resource Binding
 
 If the laptops have limited RAM, the Spark workers in the original `docker-compose.yml` might try to steal resources from the workspace container. Add explicit Docker memory limits to the `docker-compose.yml` services to prevent the Spark workers from freezing the host OS:
