@@ -1,0 +1,179 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/phase-5-interpret-present-and-deploy" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/phase-5-interpret-present-and-deploy" data-api-returntype="Page">Phase 5: Interpret, Present &amp; Deploy</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/pages/module-10-interpret" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/module-10-interpret" data-api-returntype="Page">Module 10: Interpret</a> &raquo; <span style="color: #4b2e83;">MP 10</span></div>
+        <div><a style="text-decoration: none; color: #d64309;" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]">📝 All Assignments</a></div>
+    </div>
+    <div style="background-color: #fff8e1; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #ff9800; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #e65100;"><strong>🚨 CRITICAL SUBMISSION POLICY: Quota Killswitch, Evaluation Separation &amp; Fall Break</strong></h4>
+        <p style="margin-bottom: 8px; font-size: 0.95em;"><strong>CPU Baseline &amp; Quota Killswitch:</strong> All resampling-heavy analyses (paired bootstrap with <em>B</em> &ge; 10,000, 30-repeat permutation importance, and silver-pool subsampling curves) must run within your API/compute quota or on the pinned <strong>CPU DevContainer baseline</strong>. Quota exhaustion triggers automatic fallback to local CPU inference, never a deadline extension. The due date of <strong>Mon 30 Nov 2026</strong>) is shifted from Wed 25 Nov 2026 to prevent due date during Fall Break (22&ndash;29 Nov 2026); this is why<a title="[PS] Homework 11 of 12 (Problem Set): Ethics, Data Storytelling, &amp; Dashboards" href="https://k-state.instructure.com/courses/201513/assignments/2624967" data-course-type="assignments" data-published="true" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments/2624967" data-api-returntype="Assignment"> </a><strong><a title="[PS] Homework 11 of 12 (Problem Set): Ethics, Data Storytelling, &amp; Dashboards" href="https://k-state.instructure.com/courses/201513/assignments/2624967" data-course-type="assignments" data-published="true" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments/2624967" data-api-returntype="Assignment">PS 11</a> is still due Fri 04 Dec 2026</strong>.</p>
+        <p style="margin-bottom: 0; font-size: 0.95em;"><strong>Strict Source Separation:</strong> Graded evaluation (<code>compute_graded_metric</code>) must use your human-adjudicated <strong><a title="[MP] Homework 09 of 12 (Machine Problem): Retrieval-Augmented Classification &amp; Convolutions" href="https://k-state.instructure.com/courses/201513/assignments/2622326" data-course-type="assignments" data-published="true" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments/2622326" data-api-returntype="Assignment">MP 9</a> gold set</strong> (<code>gold_adjudicated.jsonl</code>, <em>n</em> &le; 50). Your 1,000-chunk weak-supervision silver pool (<code>source="silver"</code>) is strictly advisory (<code>grading_eligible=False</code>) and is used solely for stability and CI-width power analysis.</p>
+    </div>
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">MACHINE PROBLEM 10 &bull; INDIVIDUAL &bull; PHASE 5: INTERPRET</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">MP 10: Data Science Interpretability &amp; Metrics Scoring</h1>
+        <p style="margin: 0; font-size: 18px;">Metric Derivation, Permutation Importance, Calibration, and Statistically Supported System Comparison Under Small-<em>n</em> Constraints</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1; min-width: 150px;"><strong>📅 Assigned:</strong><br />Sat 07 Nov 2026</div>
+        <div style="flex: 1; min-width: 150px;"><strong>⏰ Due:</strong><br />Mon 30 Nov 2026, 11:59 PM CST</div>
+        <div style="flex: 1; min-width: 150px;"><strong>💯 Points:</strong><br />30 Points (Normalized)</div>
+        <div style="flex: 1; min-width: 150px;"><strong>📂 Submit:</strong><br />Canvas (<code>interpretability_report.pdf</code> + <code>GenAI.pdf</code>) &amp; Git Tag <code>mp10-submission</code></div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Required Readings &amp; Grounding Resources</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">1. Statistical Learning &amp; Multiple Testing</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>James et al. (ISLP, 2023), Chs. 4, 5 &amp; 13:</strong> Classification metrics, ROC/AUC, the bootstrap, Family-Wise Error Rate (FWER), and Benjamini&ndash;Hochberg False Discovery Rate (FDR) control.</li>
+                    <li><strong>Term Project Statistical Evaluation Guide:</strong> Paired bootstrap resampling, McNemar's test, Wilcoxon signed-rank, and small-<em>n</em> power analysis.</li>
+                </ul>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;"><a style="color: #d64309; text-decoration: none;" href="https://www.statlearning.com/" target="_blank" rel="noopener">📖 Access ISLP &rarr;</a> <a style="color: #d64309; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-evaluation" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-evaluation" data-api-returntype="Page">📊 Project Evaluation Appendix &rarr;</a></div>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">2. Calibration, Scoring &amp; GenAI Kit v3.3</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>scikit-learn Evaluation &amp; Calibration:</strong> Averaging strategies (<code>micro</code>, <code>macro</code>, <code>weighted</code>), custom scorers, reliability diagrams, temperature scaling, and isotonic regression.</li>
+                    <li><strong>NIST OpenASR 2020 Protocol (ASR Track):</strong> Reference transcript normalization and Word Error Rate (WER) alignment.</li>
+                    <li><strong>Generative AI Project Kit (v3.3):</strong> Approved TBox/ABox prompts and project-harmonization tollbooth rules.</li>
+                </ul>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;"><a style="color: #d64309; text-decoration: none;" href="https://scikit-learn.org/stable/modules/model_evaluation.html" target="_blank" rel="noopener">📘 sklearn Scoring &rarr;</a> <a style="color: #d64309; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">🤖 GenAI Kit v3.3 &rarr;</a></div>
+            </div>
+        </div>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Harmonizing Your Term Project to MP 10 via GenAI Kit v3.3</h2>
+        <p>MP 10 builds the reusable <code>evaluate(model, X, y)</code> scoring and interpretability harness that feeds directly into your <strong>PS 11</strong> dashboard and <strong>HW 12</strong> final report. Use <strong>GenAI Kit v3.3</strong> to map your specific <a style="color: #0d47a1;" href="https://k-state.instructure.com/courses/201513/pages/term-project-taxonomy" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-taxonomy" data-api-returntype="Page">3x5x5 Data Cube</a> project onto the generic MP 10 specifications:</p>
+        <div style="background-color: #f8f9fa; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #d1d9e0 #d1d9e0 #d1d9e0 #4b2e83; padding: 20px; border-radius: 6px; margin-bottom: 20px;">
+            <h4 style="margin-top: 0; color: #4b2e83;">How Your 3x5x5 Track Maps to MP 10 Deliverables</h4>
+            <ul style="padding-left: 20px; margin-bottom: 0; color: #333; font-size: 0.95em;">
+                <li style="margin-bottom: 8px;"><strong>VDB / Text / Structured / Spatial / Time-Series Projects:</strong> Evaluate your best MP 7 (fixed-demo / baseline classifier) vs. MP 9 (top-<em>k</em> RAG / domain model) systems on your adjudicated MP 9 gold set (<code>gold_adjudicated.jsonl</code>). Derive and test <code>micro</code>/<code>macro</code>/<code>weighted</code> F1, <code>P@k</code>, <code>Recall@k</code>, <code>MRR</code>, and <code>nDCG@k</code>; run permutation importance (&ge; 30 repeats) over your tabular/embedding/retrieval features and provide retrieval-based local explanations for &ge; 10 misclassified examples.</li>
+                <li style="margin-bottom: 8px;"><strong>ASR / Multimedia Audio Projects:</strong> In addition to classification/retrieval metrics, compute <strong>Word Error Rate ($\text{WER} = \frac{S+D+I}{N_{\text{ref}}}$)</strong> under explicit NIST OpenASR 2020 normalization rules against your MP 9 reference transcripts, comparing <strong>Whisper</strong> and <strong>AssemblyAI</strong> (or two acoustic/ASR configurations) on identical audio segments, and explain mathematically why $\text{WER} &gt; 100\%$ occurs when insertions $I$ are large.</li>
+                <li style="margin-bottom: 0;"><strong>Proactive Resolution (Skipped Upstream MP or Pending Feedback):</strong> If PS 8/MP 9 feedback is still pending or you skipped an upstream non-milestone MP, attach your submitted <code>PS 8</code> Interim Report (or <code>PS 4</code> Proposal) to GenAI Kit v3.3. Treat your submitted artifact as the working baseline and bridge any missing upstream input with the course-default evaluation slice while keeping your harness anchored to your project domain.</li>
+            </ul>
+        </div>
+        <details style="background-color: #272822; color: #f8f8f2; border-radius: 6px; padding: 15px 20px; margin-bottom: 20px; cursor: pointer; border: 1px solid #444444;">
+            <summary style="color: #a6e22e; font-family: Consolas, monospace; font-size: 0.95em;"><strong>🤖 Click to Expand: GenAI Kit v3.3 ABox System Prompt for MP 10 (Copy &amp; Paste into Your AI Workspace)</strong></summary>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #444; font-family: Consolas, monospace; font-size: 0.85em; line-height: 1.5; cursor: default;">[SYSTEM PROMPT &mdash; MP 10: INTERPRETABILITY &amp; METRICS SCORING]<br />Attach `mp10_interpretability_metrics.md` and your submitted `PS 8` / `MP 9` artifacts. (If MP 9 was skipped or PS 8 feedback is pending, proactively anchor to your submitted PS 8 report and the fallback reference evaluation set). Graded evaluation uses the adjudicated gold set; silver pool is advisory (`grading_eligible=False`).<br />*Toll:* [Paste confusion matrix, imbalance counterexample draft where Accuracy and Macro-F1 rank two models oppositely, and pre-registered family of &gt;=6 comparisons].<br />Verify hand derivations for micro/macro/weighted F1, P@k, Recall@k, MRR, nDCG@k (and NIST OpenASR 2020 WER if ASR track). State validation properties for `evaluate(model, X, y)` (metrics in [0,1]; confusion matrix sums to n) for the grader to check by hand or automatically. Audit my 10/15-bin ECE calibration, paired bootstrap (B&gt;=10,000) / McNemar test, Benjamini&ndash;Hochberg FDR control, and silver-pool CI-width vs. n power analysis.</div>
+        </details>
+    </div>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 1: Metrics &amp; Statistical Inference Theory</h3>
+        <p style="font-style: italic; color: #666;">(9.0 Points Total)</p>
+        <p>Establish the mathematical and statistical foundations for your evaluation harness before running automated comparisons.</p>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">1A. Metric Derivations &amp; Imbalance Counterexample (4.5 pts)</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 8px;"><strong>Classification &amp; Ranking Derivations:</strong> Derive by hand <code>micro-F1</code>, <code>macro-F1</code>, and <code>weighted-F1</code> from multi-class confusion matrices, alongside retrieval metrics <code>P@k</code>, <code>Recall@k</code>, <code>MRR</code>, and <code>nDCG@k</code> ($k \in \{3, 5, 10\}$). Verify each formula numerically on a worked example from your own confusion matrices.</li>
+                <li style="margin-bottom: 8px;"><strong>Imbalance Rank-Reversal Counterexample:</strong> Construct an explicit numeric counterexample showing two classifiers evaluated on an imbalanced class distribution where raw <strong>Accuracy</strong> and <strong>Macro-F1</strong> rank the two classifiers in opposite orders.</li>
+                <li style="margin-bottom: 0;"><strong>ASR Track Requirement:</strong> State the formal NIST OpenASR 2020 definition of Word Error Rate ($\text{WER} = \frac{S+D+I}{N_{\text{ref}}}$), specify your text-normalization steps, and prove with a concrete numeric example why $\text{WER}$ can exceed $100\%$.</li>
+            </ul>
+        </div>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">1B. Inference Design, Assumptions &amp; Pre-Registered BH Family (4.5 pts)</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 8px;"><strong>Paired Hypothesis Test Selection:</strong> State your formal null ($H_0$) and alternative ($H_1$) hypotheses comparing your two best systems (e.g., MP 9 top-<em>k</em> RAG classifier vs. MP 7 fixed-demonstration baseline, or Whisper vs. AssemblyAI on ASR). Justify your choice of <strong>paired bootstrap resampling ($B \ge 10,000$)</strong>, <strong>exact McNemar's test</strong> (when discordant counts $b+c &lt; 25$), or <strong>Wilcoxon signed-rank test</strong>, and state the distributional assumptions of each.</li>
+                <li style="margin-bottom: 0;"><strong>Pre-Registered Comparison Family ($m \ge 6$):</strong> Define your family of <strong>at least 6 hypothesis comparisons</strong> (e.g., across shot counts, retrieval depths $k \in \{3, 5, 10\}$, feature ablations, or cohort slices) <em>before</em> inspecting test outcomes, and specify the <strong>Benjamini&ndash;Hochberg (BH)</strong> step-up False Discovery Rate control procedure at $\alpha = 0.05$.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 2: Scoring Harness, Interpretability, Calibration &amp; Small-<em>n</em> Power Analysis</h3>
+        <p style="font-style: italic; color: #666;">(21.0 Points Total: 19.5 pts Technical + 1.5 pts GenAI Verification)</p>
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 8px; border: 1px solid #2196f3;">
+            <p style="margin-top: 0;"><strong>Objective:</strong> Implement a contract-enforced <code>harness/</code> package and execute global/local interpretability, probability calibration, BH-corrected paired significance testing, and silver-pool power analysis on the pinned CPU DevContainer.</p>
+            <ol style="padding-left: 20px; color: #444;">
+                <li style="margin-bottom: 10px;"><strong>Scoring Harness &amp; <code>deal</code> Contracts (6.0 pts):</strong> Implement <code>evaluate(model, X, y)</code> inside the <code>harness/</code> package with <code>deal</code> pre-/post-condition contracts verifying that bounded metrics lie in $[0, 1]$, probability rows sum to $1.0$ within $10^{-6}$, confusion-matrix entries sum to $n$, and graded vs. advisory (`grading_eligible=False`) flags are enforced. Include a passing <code>pytest</code> unit-test suite in <code>tests/</code>.</li>
+                <li style="margin-bottom: 10px;"><strong>Global &amp; Local Interpretability Analyses (4.5 pts):</strong> Run global <strong>permutation importance</strong> with at least <strong>30 repeats</strong> (reporting mean importance drop and 95% CIs) and linear-term contributions where applicable. Generate <strong>retrieval-based local explanations</strong> (nearest training/exemplar neighbors, similarity scores, and attribution analysis) for <strong>at least 10 misclassified examples</strong> from your gold set.</li>
+                <li style="margin-bottom: 10px;"><strong>Probability Calibration (3.0 pts):</strong> Plot reliability diagrams and compute <strong>Expected Calibration Error (ECE)</strong> under both <strong>10 bins and 15 bins</strong> before and after post-hoc calibration (temperature scaling or isotonic regression).</li>
+                <li style="margin-bottom: 10px;"><strong>Paired Statistical Comparison &amp; FDR Control (3.0 pts):</strong> Execute your paired comparison ($B \ge 10,000$ paired bootstrap or McNemar's test) reporting the point difference $\hat{\Delta}$, 95% CI, raw $p$-value, and Benjamini&ndash;Hochberg adjusted $q$-values across your pre-registered family of $\ge 6$ comparisons.</li>
+                <li style="margin-bottom: 10px;"><strong>Small-<em>n</em> Power, Stability &amp; Cohort Stratification (3.0 pts):</strong> Subsample your MP 9 weak-supervision silver pool (<code>source="silver"</code>, <code>grading_eligible=False</code>) across increasing sample sizes $n \in \{25, 50, 100, 250, 500, 1000\}$ to plot <strong>95% CI width vs. $n$</strong>. Report cohort-stratified metrics with uncertainty and explicitly state what minimum effect size $\delta$ an evaluation set of $n \le 50$ can and cannot statistically support.</li>
+                <li style="margin-bottom: 0;"><strong>GenAI Verification (1.5 pts):</strong> Include your complete <code>GenAI.pdf</code> audit log per GenAI Kit v3.3 (or a 1-page PDF stating <em>"No GenAI Used"</em>).</li>
+            </ol>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Simple Submission Checklist (What Goes Where)</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #dddddd;">
+                <h4 style="margin-top: 0; color: #4b2e83;">📤 1. Upload Directly to Canvas (2 PDFs Only)</h4>
+                <p style="font-size: 0.9em; color: #666; margin-top: 0;">Upload at the Canvas MP 10 Assignment portal before <strong>Wed 25 Nov 2026, 11:59 PM CST</strong>:</p>
+                <ol style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+                    <li style="margin-bottom: 8px;"><strong><code>interpretability_report.pdf</code> (&le; 4 pages):</strong> PDF rendering of your <code>interpretability_report.md</code> containing your clickable GitHub repo URL and <code>mp10-submission</code> tag link on Page 1, followed by all 6 required sections: (1) <em>Metric Derivations</em>, (2) <em>Harness and Contracts</em>, (3) <em>Interpretability Analyses</em>, (4) <em>Calibration and Statistical Comparison</em>, (5) <em>Power, Stability, and Cohort Stratification</em>, and (6) <em>GenAI Audit</em>.</li>
+                    <li style="margin-bottom: 0;"><strong><code>GenAI.pdf</code>:</strong> Complete prompt/response audit log per <a style="color: #0d47a1;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">GenAI Kit v3.3</a>, or a 1-page PDF stating <em>"No GenAI Used."</em></li>
+                </ol>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #dddddd;">
+                <h4 style="margin-top: 0; color: #4b2e83;">🏷️ 2. Commit to GitHub Under Tag <code>mp10-submission</code></h4>
+                <p style="font-size: 0.9em; color: #666; margin-top: 0;">Push and tag in your repository (shared with <code>@banazir</code>) before the deadline:</p>
+                <ul style="padding-left: 20px; margin-bottom: 0; font-size: 0.95em;">
+                    <li><code>interpretability_report.md</code> (or <code>report.md</code>, source Markdown, &le; 4 pages)</li>
+                    <li><code>harness/</code> (Python package exposing <code>evaluate(model, X, y)</code> with <code>deal</code> contracts)</li>
+                    <li><code>tests/</code> (automated <code>pytest</code> unit tests for metrics, contracts, and calibrators)</li>
+                    <li><code>notebooks/mp10_interpretability.ipynb</code> (executed <code>.ipynb</code> with saved figures and outputs)</li>
+                    <li><code>results.json</code> (structured metrics, 10/15-bin ECE, paired test CIs/<em>p</em>-values, BH table, silver CI-width curve)</li>
+                    <li><code>.devcontainer/devcontainer.json</code> and pinned <code>requirements.txt</code> / lockfile</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Scoring Rubric (30 Points Total)</h3>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0;">
+            <thead style="background-color: #f5f5f5;">
+                <tr>
+                    <th style="padding: 12px; text-align: left; width: 28%; border: 1px solid #dddddd;">Component</th>
+                    <th style="padding: 12px; text-align: left; width: 14%; border: 1px solid #dddddd;">Weight</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Metric Derivations &amp; Counterexample</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Correct hand derivations of micro/macro/weighted F1, P@k, Recall@k, MRR, nDCG@k (plus NIST WER &amp; &gt;100% proof for ASR track), verified numerically on your confusion matrices, plus a valid imbalance rank-reversal counterexample.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Inference Design &amp; Assumptions</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Paired statistical test choice justified; formal $H_0/H_1$ and distributional assumptions stated; family of $\ge 6$ comparisons defined prior to Benjamini&ndash;Hochberg FDR control.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Harness Correctness &amp; Contracts</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">6.0 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><code>evaluate(model, X, y)</code> in <code>harness/</code> computes metrics accurately, enforces <code>deal</code> contracts (bounds in $[0,1]$, confusion-matrix sum $= n$, graded vs. advisory separation), and passes all unit tests in <code>tests/</code>.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Interpretability Analyses</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Global permutation importance (&ge; 30 repeats with CIs) and local retrieval-based explanations for &ge; 10 misclassified gold examples are accurately computed and substantively interpreted.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Calibration Analysis</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">3.0 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Reliability diagrams and ECE under both 10 and 15 bins reported before and after temperature scaling or isotonic regression.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Statistical Comparison &amp; FDR Control</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">3.0 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Paired bootstrap ($B \ge 10,000$) or McNemar's test executed correctly with 95% CIs, raw $p$-values, and BH-adjusted $q$-values across all $\ge 6$ comparisons.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Power, Stability &amp; Cohort Stratification</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">3.0 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">CI-width vs. $n$ curve plotted on silver subsamples (`grading_eligible=False`); cohort-stratified metrics reported; resolution limits of $n \le 50$ quantified.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>GenAI Verification</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">1.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Includes the required <code>GenAI.pdf</code> audit log per GenAI Kit v3.3 or explicitly states in <code>GenAI.pdf</code> that Generative AI was not used.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="background-color: #eef2f5; padding: 20px 30px; border-top: 2px solid #b7a57a; text-align: center; font-size: 14px; line-height: 1.8; border-radius: 6px; margin-bottom: 25px;"><strong style="color: #4b2e83; display: block; margin-bottom: 5px;">CIS 531 / 731 Term Project Ecosystem</strong> <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page">Guidelines</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-taxonomy" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-taxonomy" data-api-returntype="Page">3x5x5 Taxonomy</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-sourcing-guide" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-sourcing-guide" data-api-returntype="Page">Data Sourcing Guide</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-evaluation" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-evaluation" data-api-returntype="Page">Statistical Evaluation Guide</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/term-project-grading-rubric" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-grading-rubric" data-api-returntype="Page">Grading Rubrics</a> &nbsp;|&nbsp; <a style="color: #4b2e83; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">GenAI Kit v3.3</a> &nbsp;|&nbsp; <a style="color: #d64309; text-decoration: none;" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]">Assignments Portal</a></div>
+    <div style="margin-top: 20px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #ffeeba;" title="View All Assignments" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]"> <span style="font-size: 1.2em; margin-right: 8px;">📝</span> All HW </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Module" href="https://k-state.instructure.com/courses/201513/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/modules" data-api-returntype="[Module]"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Module </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Term Project Hub" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Project Hub </a></div>
+    </div>
+</div>
