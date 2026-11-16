@@ -2,7 +2,7 @@
 File: term_project/scripts/fetch_term_project_corpus.py
 Course: CIS 531/731 - Fall 2026 (Term Project Infrastructure)
 Description: Programmatically fetches, extracts, and sanitizes the longitudinal 
-             project corpus (e.g., WWI poetry / aircheck audio archives) for 
+             project corpus (e.g., WWI poetry and aircheck audio archives) for 
              downstream VDB ingestion (MP 3, MP 7, MP 9).
 """
 
@@ -15,9 +15,10 @@ from pathlib import Path
 TERM_PROJECT_DIR = Path("term_project")
 CORPUS_OUTPUT_DIR = TERM_PROJECT_DIR / "data" / "raw_corpus"
 
-# Source archive manifest (LibriVox WWI Poetry / Aircheck corpus baseline)
+# Source archive manifest (LibriVox WWI Poetry Audiobook corpus baseline)
+# To be added: Broadcast aircheck corpus
 ARCHIVE_MANIFEST = {
-    "title": "WWI Poetry & Broadcast Aircheck Archive",
+    "title": "WWI Poetry Audiobook Archive",
     "zip_url": "https://archive.org/download/wwi_poetry_1407_librivox/wwi_poetry_1407_librivox_64kb_mp3.zip",
     "target_track": "wwipoem_51_owen_am_64kb.mp3" # Wilfred Owen - Anthem for Doomed Youth
 }
