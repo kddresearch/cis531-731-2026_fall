@@ -1,0 +1,166 @@
+<div style="font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; line-height: 1.6; color: #2d3b45;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; font-size: 0.9em; color: #666;">
+        <div><a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513">Home</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/modules" data-api-returntype="[Module]">Phase 3: Scrub &amp; Embed</a> &raquo; <a style="text-decoration: none; color: #666;" href="https://k-state.instructure.com/courses/201513/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/modules" data-api-returntype="[Module]">Module 06: GenAI &amp; LLMs (Few-Shot Trope/Genre Classification)</a> &raquo; <span style="color: #4b2e83;">MP 7</span></div>
+        <div><a style="text-decoration: none; color: #d64309;" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]">📝 All Assignments</a></div>
+    </div>
+    <div style="background-color: #e3f2fd; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #bbdefb #bbdefb #bbdefb #2196f3; padding: 15px; margin-bottom: 30px; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #0d47a1;"><strong>ℹ️ Critical Submission Policy: Evaluation Source Separation &amp; CPU Baseline</strong></h4>
+        <p style="margin-bottom: 10px; font-size: 0.95em;"><strong>Evaluation Source Separation:</strong> Graded metrics must be computed with <code>compute_graded_metric</code> against the instructor-provided evaluation set (<code>eval_mp7.jsonl</code>). Metrics on your own splits must use <code>compute_dev_metric</code> (<code>grading_eligible=False</code>) and are advisory only.</p>
+        <p style="margin-bottom: 0; font-size: 0.95em;"><strong>Environment &amp; Quota Constraints:</strong> Use an instruction-tune model small enough for CPU inference or a free-tier hosted API under the team quota killswitch ; record the exact model identifier and revision hash. All work must be solvable on the pinned CPU DevContainer; GPU access is optional and never required.</p>
+        <p style="margin-bottom: 0; font-size: 0.95em;"><strong>Note:</strong> The due date has been extended to <strong>Tue 03 Nov 2026</strong>; all subsequent assignment due dates remain unchanged.</p>
+    </div>
+    <div style="background: linear-gradient(135deg, #4b2e83 0%, #b7a57a 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 30px;"><span style="background-color: rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8em;">MACHINE PROBLEM 7 &middot; PHASE 3</span>
+        <h1 style="margin: 15px 0 5px 0; font-size: 28px;">MP 7: Few-Shot Trope/Genre Classification (GenAI)</h1>
+        <p style="margin: 0; font-size: 18px;">Prototype, kNN, and fixed-demonstration LLM classifiers compared under a controlled few-shot protocol</p>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e0e0e0;">
+        <div style="flex: 1; min-width: 150px;"><strong>📅 Assigned:</strong><br />Wed 21 Oct 2026</div>
+        <div style="flex: 1; min-width: 150px;"><strong>⏰ Due:</strong><br /><span style="text-decoration: line-through; color: #777;">Fri 30 Oct 2026</span><br /><strong style="color: #d32f2f;">Tue 10 Nov 2026, 11:59 PM CST</strong></div>
+        <div style="flex: 1; min-width: 150px;"><strong>💯 Points:</strong><br />30<br /><span style="font-size: 0.85em; color: #666;">👥 Individual</span></div>
+        <div style="flex: 1; min-width: 150px;"><strong>📂 Submit:</strong><br />Git tag <code>mp7-submission</code> + <code>report.md</code> (&le;3 pp), notebook, <code>predictions.jsonl</code>, <code>GenAI.pdf</code></div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h2 style="border-bottom: 2px solid #b7a57a; padding-bottom: 10px; color: #4b2e83;">Required Readings</h2>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">Speech and Language Processing (3rd ed. draft, Jurafsky &amp; Martin, 19 Aug 2026)</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>Chapters 6&ndash;8:</strong> Neural networks, large language models, in-context learning, and the transformer architecture.</li>
+                    <li><strong>Few-Shot Prompting Mechanics:</strong> Demonstration formatting, label verbalizers, and position bias in autoregressive LMs.</li>
+                </ul>
+                <a style="color: #d64309; text-decoration: none;" href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener">📖 Access Resource &rarr;</a>
+            </div>
+            <div style="flex: 1 1 0%; min-width: 300px; background-color: #eef2f5; padding: 20px; border-radius: 8px; border: 1px solid #d1d9e0;">
+                <h4 style="margin-top: 0; color: #4b2e83;">Hugging Face Transformers Documentation</h4>
+                <ul style="padding-left: 20px; margin-bottom: 10px; font-size: 0.95em;">
+                    <li><strong>&ldquo;Text Classification&rdquo; Task Guide:</strong> Tokenization, sequence-classification heads, the <code>Trainer</code> workflow, constrained decoding, and metric computation.</li>
+                </ul>
+                <a style="color: #d64309; text-decoration: none;" href="https://huggingface.co/docs/transformers/tasks/sequence_classification" target="_blank" rel="noopener">📘 Access Resource &rarr;</a>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: #fcfcfa; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #e0e0e0 #e0e0e0 #e0e0e0 #4b2e83; padding: 20px; border-radius: 4px; margin-bottom: 30px;">
+        <h3 style="margin-top: 0; color: #4b2e83;">1. Overview &amp; Pipeline Lineage</h3>
+        <p style="margin-bottom: 10px;">Build an embedding index from provenance-admitted chunks (FAISS <code>IndexFlatIP</code>) and compare three classifiers on the instructor-provided evaluation set: <strong>(i) embedding-prototype</strong>, <strong>(ii) kNN over the exemplar index</strong>, and <strong>(iii) few-shot LLM prompting with fixed, class-balanced demonstrations</strong>. Retrieval-conditioned demonstration selection is deferred to MP 9; calibration, significance testing, and error taxonomy are deferred to MP 10. Report <strong>macro-F1 with 95% bootstrap CIs only</strong>.</p>
+        <ul style="padding-left: 20px; color: #444; margin-bottom: 10px;">
+            <li><strong>VDB Track Label Space:</strong> 8&ndash;12 trope/genre labels from the ontology (<strong>CIS 531:</strong> instructor-provided unmodified schema; <strong>CIS 731:</strong> your custom PS 6 ontology).</li>
+            <li><strong>ASR Track Label Space:</strong> Drawn from the instructor-provided <code>asr_label_set.yaml</code>.</li>
+            <li><strong>Upstream Inputs:</strong> PS 6 schema and label space; MP 5 chunk records; MP 3 corpus.</li>
+            <li><strong>Downstream Consumers:</strong> MP 9 (reuses the <code>Classifier</code> interface, prompt harness, and exemplar index; the fixed-demonstration result is the baseline for retrieval-augmented comparison); MP 10 (best model is interpreted); PS 8 (preliminary baselines).</li>
+        </ul>
+    </div>
+    <details style="background-color: #fff8e1; border-width: 1px 1px 1px 5px; border-style: solid; border-color: #ffe0b2 #ffe0b2 #ffe0b2 #ff9800; border-radius: 6px; padding: 12px 20px; margin-bottom: 30px; cursor: pointer;">
+        <summary style="color: #e65100; font-size: 1.05em;">🤖 Initiating Your Draft: The 5-Stage Generative AI Kit Procedure &amp; MP 7 Tollbooth Prompt (Click to Expand)</summary>
+        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ffe0b2; color: #333; cursor: default;">
+            <p style="margin-top: 0;">Use the <a style="color: #d64309;" href="https://k-state.instructure.com/courses/201513/pages/generative-ai-kit" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/generative-ai-kit" data-api-returntype="Page">Generative AI Kit (v3.0)</a> to help structure your submission. Follow these five stages:</p>
+            <ol style="padding-left: 20px; margin-bottom: 15px;">
+                <li><strong>Protocol Lock:</strong> Commit <code>protocol.md</code> (label space, shot sweep <em>k</em> &isin; {0, 1, 3, 5, 8}, at least 5 seeds, bootstrap CI method) <em>before</em> generating any results.</li>
+                <li><strong>Prompt Template Synthesis:</strong> Draft the instruction, demonstration format, label verbalizers, constrained decoding, and output parser with the AI Kit; audit for label leakage and demonstration-position bias.</li>
+                <li><strong>Index and Baseline Build:</strong> Embed admitted chunks, build the FAISS <code>IndexFlatIP</code> index, and implement the prototype and kNN baselines.</li>
+                <li><strong>Sweep Execution:</strong> Run the shot sweep across seeds with quota logging; compute graded metrics only via <code>compute_graded_metric</code>.</li>
+                <li><strong>Results Audit:</strong> Re-derive each reported number from <code>predictions.jsonl</code>; reject any AI-generated analysis that cannot be reproduced.</li>
+            </ol>
+            <div style="background-color: #ffffff; border-width: 1px 1px 1px 4px; border-style: solid; border-color: #dddddd #dddddd #dddddd #4b2e83; padding: 12px; font-family: Consolas, monospace; font-size: 0.85em; white-space: pre-wrap;">[MP 7 TOLLBOOTH PROMPT] I am working on MP 7. I need to build the prompt template for few-shot in-context learning to classify my vector chunks. *Here is the Toll:* [Provide your specific 8-12 trope/genre label space or asr_label_set.yaml labels]. *Properties:* My chosen shot sweep k values are {0, 1, 3, 5, 8} across &gt;=5 seeds, and my instruction-tuned model identifier is [e.g., Qwen/Qwen2.5-1.5B-Instruct or meta-llama/Llama-3.2-3B-Instruct]. Do not write the Hugging Face pipeline code. Help me design the strict formatting constraints, verbalizers, and system instructions for the LLM prompt to ensure the output perfectly matches the label space without hallucinating labels. Suggest concrete controls for majority-label bias, demonstration-position bias (including permutation), and label leakage.</div>
+        </div>
+    </details>
+    <hr style="border-width: 1px 0px 0px; border-style: solid none none; border-color: #e0e0e0 currentcolor currentcolor; margin: 40px 0px;" />
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 1: Experimental Design &amp; Prompt Failure-Mode Controls</h3>
+        <p style="font-style: italic; color: #666;">(30 Points)</p>
+        <p>Before running your shot sweep, lock your experimental protocol and engineer your prompt harness against known in-context learning failure modes. Document both sections in <code>report.md</code> (&le;3 pages total).</p>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">A. Protocol and Label Space (15 Points)</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li>Commit <code>protocol.md</code> prior to generating experimental predictions and include its exact specification in <code>report.md</code>.</li>
+                <li>Explicitly define your 8&ndash;12 label space (VDB track: instructor ontology for CIS 531 or PS 6 custom ontology for CIS 731; ASR track: <code>asr_label_set.yaml</code>), your shot sweep <em>k</em> &isin; {0, 1, 3, 5, 8}, your random seed list (&ge;5 seeds), and your 95% bootstrap confidence interval procedure.</li>
+            </ul>
+        </div>
+        <div style="margin-bottom: 25px;">
+            <h4 style="color: #2d3b45; border-left: 4px solid #4b2e83; padding-left: 10px;">B. Prompt Specification and Failure-Mode Controls (15 Points)</h4>
+            <ul style="padding-left: 20px; color: #444;">
+                <li>Provide the exact prompt template, demonstration format, label verbalizers, constrained decoding rules, and output parser.</li>
+                <li>Analyze three specific failure modes&mdash;<strong>(1) majority-label bias</strong>, <strong>(2) demonstration-position bias</strong>, and <strong>(3) label leakage</strong>&mdash;and implement a concrete, verifiable control for each, explicitly including <strong>demonstration-order permutation</strong> across seeds/runs.</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Part 2: Classifier Implementation, Shot-Sweep Rigor &amp; Reproducibility</h3>
+        <p style="font-style: italic; color: #666;">(70 Points: 65 Points Technical Implementation + 5 Points GenAI Audit)</p>
+        <div style="background-color: #e3f2fd; padding: 20px; border-radius: 8px; border: 1px solid #2196f3;">
+            <p style="margin-top: 0;"><strong>Objective:</strong> Implement a unified 3-classifier benchmark over your FAISS <code>IndexFlatIP</code> index, enforce runtime contracts via <code>deal</code>, and evaluate macro-F1 across the shot sweep on the instructor-provided evaluation set.</p>
+            <ol style="padding-left: 20px; color: #444;">
+                <li><strong>Classifier Implementations &amp; Contracts (25 pts):</strong> Implement all three classifiers&mdash;(i) embedding-prototype, (ii) kNN over the FAISS <code>IndexFlatIP</code> exemplar index, and (iii) fixed-demonstration few-shot LLM&mdash;behind a single unified <code>Classifier</code> interface. Enforce <code>deal</code> post-conditions on <code>predict_proba</code>: all probabilities are non-negative, row sums equal <code>1.0</code> within <code>1e-6</code>, and all predicted labels belong strictly to the declared label space.</li>
+                <li><strong>Shot-Sweep Execution &amp; Statistical Reporting (25 pts):</strong> Execute the sweep for <em>k</em> &isin; {0, 1, 3, 5, 8} across at least 5 random seeds. Compute graded metrics exclusively via <code>compute_graded_metric</code> on the instructor evaluation set. Report <strong>macro-F1 (mean &plusmn; std over seeds and 95% bootstrap CI)</strong> per classifier and shot count, plus per-class precision and recall at the best configuration.</li>
+                <li><strong>Reproducibility &amp; Quota Log (15 pts):</strong> Record the pinned DevContainer environment, exact Hugging Face / API model identifier and commit/revision hash, total API token/request usage versus quota, and verification that the entire pipeline runs cleanly on the CPU baseline.</li>
+                <li><strong>GenAI Audit Verification (5 pts):</strong> Include your <code>GenAI.pdf</code> log documenting all prompts, tollbooth inputs, and raw outputs, or explicitly state <code>"No GenAI Used."</code></li>
+            </ol>
+            <p style="margin-bottom: 0;"><strong>Deliverable:</strong> Push Git tag <code>mp7-submission</code> containing <code>protocol.md</code>, <code>report.md</code> (at most 3 pages), your executed Jupyter notebook (<code>.ipynb</code>), <code>predictions.jsonl</code>, and <code>GenAI.pdf</code>, and submit your repository tag URL and PDF report on Canvas.</p>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: #4b2e83;">Scoring Rubric</h3>
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0;">
+            <thead style="background-color: #f5f5f5;">
+                <tr>
+                    <th style="padding: 12px; text-align: left; width: 28%; border: 1px solid #dddddd;">Component</th>
+                    <th style="padding: 12px; text-align: left; width: 12%; border: 1px solid #dddddd;">Raw Weight</th>
+                    <th style="padding: 12px; text-align: left; width: 12%; border: 1px solid #dddddd;">Norm (30)</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid #dddddd;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Protocol and Label Space</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">15 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><code>protocol.md</code> is complete (8&ndash;12 ontology/ASR labels, <em>k</em> &isin; {0,1,3,5,8}, &ge;5 seeds, bootstrap CI method) and committed prior to results generation.</td>
+                </tr>
+                <tr style="background-color: #fafafa;">
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Prompt Specification &amp; Failure Controls</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">15 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Prompt template, verbalizers, and parser are precise; concrete controls implemented for majority-label bias, demonstration-position bias (with permutation), and label leakage.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Classifier Implementation &amp; Contracts</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">25 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">7.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Prototype, kNN (FAISS <code>IndexFlatIP</code>), and few-shot LLM implemented behind one <code>Classifier</code> interface; <code>deal</code> contracts on <code>predict_proba</code> hold on all outputs.</td>
+                </tr>
+                <tr style="background-color: #fafafa;">
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Shot-Sweep Rigor &amp; Source Separation</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">25 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">7.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Macro-F1 (mean &plusmn; std over &ge;5 seeds and 95% bootstrap CIs) and best-config per-class P/R computed strictly via <code>compute_graded_metric</code> and reproducible from <code>predictions.jsonl</code>.</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>Reproducibility &amp; Quota Log</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">15 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">4.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Pinned or specified environment (model ID and revision hash), API quota log or reported usage, and verified CPU baseline execution.</td>
+                </tr>
+                <tr style="background-color: #fafafa;">
+                    <td style="padding: 12px; border: 1px solid #dddddd;"><strong>GenAI Verification</strong></td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">1.5 pts</td>
+                    <td style="padding: 12px; border: 1px solid #dddddd;">Includes complete <code>GenAI.pdf</code> audit log or explicit attestation that no Generative AI was used.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <details style="background-color: #f8f9fa; border-radius: 6px; padding: 12px 20px; margin-bottom: 30px; cursor: pointer; border: 1px solid #d1d9e0;">
+        <summary style="color: #4b2e83; font-size: 1.05em;">🔭 Downstream Assignment Specifications (PS 8, MP 9, MP 10, PS 11, HW 12 &mdash; Unchanged Due Dates)</summary>
+        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #e0e0e0; font-size: 0.92em; color: #333; cursor: default;">
+            <ul style="line-height: 1.7; margin-bottom: 0; padding-left: 20px;">
+                <li><strong>PS 8: Interim Report (Mandatory Milestone)</strong> &mdash; <em>Released:</em> Thu 29 Oct 2026 | <em>Due:</em> <strong>Sat 07 Nov 2026</strong> (30 pts, Team/Solo). Single PDF (&le;10 pp) + figure sources in <code>interim/</code> under tag <code>ps8-submission</code>: (1) Team &amp; Taxonomy Metadata + Integrity Attestation (2 pts), (2) Scope Delta &amp; Proposal Responses (4 pts), (3) Data Provenance &amp; Exploratory Baselines with &ge;3 figures including UMAP sensitivity sweep over <code>n_neighbors</code>/<code>min_dist</code> and MP 7 baseline (10 pts), (4) Architecture, Invariants &amp; <code>deal</code> Excerpts (5 pts), (5) Quantified Risk Register (&ge;5 risks) &amp; 50&ndash;200 Annotation Plan (5 pts), (6) GitHub Repo Link (2 pts), (7) <code>GenAI.pdf</code> (2 pts).</li>
+                <li><strong>MP 9: Retrieval-Augmented Classification &amp; Convolutions</strong> &mdash; <em>Released:</em> Sat 07 Nov 2026 | <em>Due:</em> <strong>Mon 16 Nov 2026</strong> (100 pts / 30 norm, Individual with partner overlap). Strict CI ceiling: <strong>at most 50 gold objects or 2 hours</strong> (<code>gold_raw.*</code> &gt; 50 rows fails CI with 0). Report Cohen's &kappa; + 95% CI on 20-object partner overlap (<code>overlap_ids.txt</code>), weak-supervision expansion (&ge;1,000 chunks marked <code>source=silver</code>), top-<em>k</em> exemplar RAG classification (<em>k</em> &isin; {3, 5, 10}) vs. MP 7 baseline, and cohort convolution (<code>[0.25, 0.5, 0.25]</code> smoothing and <code>[-1, 1]</code> first-difference kernels; <strong>CIS 731:</strong> learned 1-D PyTorch conv kernel) under tag <code>mp9-submission</code>.</li>
+                <li><strong>MP 10: Data Science Interpretability &amp; Metrics Scoring</strong> &mdash; <em>Released:</em> Mon 16 Nov 2026 | <em>Due:</em> <strong>Wed 25 Nov 2026</strong> (100 pts / 30 norm, Individual). Build <code>harness/</code> with <code>evaluate(model, X, y)</code> and <code>deal</code> contracts on adjudicated MP 9 gold set; derive micro/macro/weighted F1 (with imbalance counterexample), P@k, Recall@k, MRR, nDCG@k, and NIST OpenASR WER; global permutation importance (&ge;30 repeats) + local retrieval explanations for &ge;10 misclassified examples; ECE under 10 and 15 bins + post-hoc calibration; paired bootstrap (<em>B</em> &ge; 10,000) or McNemar's test with Benjamini&ndash;Hochberg FDR control across &ge;6 comparisons; CI-width vs. <em>n</em> on silver subsamples under tag <code>mp10-submission</code>.</li>
+                <li><strong>PS 11: Ethics, Data Storytelling, &amp; Dashboards</strong> &mdash; <em>Released:</em> Wed 25 Nov 2026 | <em>Due:</em> <strong>Fri 04 Dec 2026</strong> (100 pts / 30 norm, Individual). Ethics memo PDF (&le;4 pp) + 5-view Wilke storyboard + restart-and-run-all prototype dashboard + limitations panel under tag <code>ps11-submission</code>.</li>
+                <li><strong>HW 12: Final Project Deliverables (Mandatory Milestone)</strong> &mdash; <em>Released:</em> Sat 05 Dec 2026 | <em>Due:</em> <strong>Mon 14 Dec 2026</strong> (200 pts / 300 Substance + 30 Milestone, Team/Solo). <code>REPORT.pdf</code> (&le;12 pp) + digest-pinned MLflow reproducibility package (<code>make verify</code>, 50&ndash;200 gold range gate, serving path + PSI/KS drift runbook) under tag <code>hw12-final</code>.</li>
+            </ul>
+        </div>
+    </details>
+    <div style="margin-top: 30px;"><a style="display: block; width: auto; background-color: #f8f9fa; color: #444444; padding: 15px; text-align: center; text-decoration: none; border-radius: 8px; margin-bottom: 15px; font-size: 1.1em; border: 1px solid #cccccc;" href="https://k-state.instructure.com/courses/201513"> 🏠 Return to Course Home </a>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;"><a style="flex: 1 1 0%; max-width: 250px; background-color: #fff3cd; color: #856404; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #ffeeba;" title="View All Assignments" href="https://k-state.instructure.com/courses/201513/assignments" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/assignments" data-api-returntype="[Assignment]"> <span style="font-size: 1.2em; margin-right: 8px;">📝</span> All HW </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Up to Module" href="https://k-state.instructure.com/courses/201513/modules" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/modules" data-api-returntype="[Module]"> <span style="font-size: 1.2em; margin-right: 8px;">⬆️</span> Module </a> <a style="flex: 1 1 0%; max-width: 250px; background-color: #f0f0f0; color: #444444; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; padding: 10px; border: 1px solid #dddddd;" title="Term Project Guidelines" href="https://k-state.instructure.com/courses/201513/pages/term-project-guidelines" data-api-endpoint="https://k-state.instructure.com/api/v1/courses/201513/pages/term-project-guidelines" data-api-returntype="Page"> <span style="font-size: 1.2em; margin-right: 8px;">⏫</span> Project Hub </a></div>
+    </div>
+</div>
