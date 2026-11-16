@@ -8,15 +8,14 @@ Update the `RUN pip install` block in your `Dockerfile` to include `pandas`, `sc
 
 ```dockerfile
 # ==============================================================================
-# CIS 531/731: DevContainer Dockerfile (Updated for Distributed ML)
+# CIS 731: Distributed ML & RAG DevContainer (cuda_sklearn_rag)
 # ==============================================================================
 FROM python:3.10-slim-bullseye
 
-# 1. Install System Dependencies (Java for PySpark, FFmpeg for Whisper)
+# 1. Install System Dependencies (Java for PySpark)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     openjdk-11-jre-headless \
-    ffmpeg \
     git \
     sudo \
     && rm -rf /var/lib/apt/lists/*
@@ -27,27 +26,31 @@ ENV PYSPARK_PYTHON=python3
 ENV PIP_NO_CACHE_DIR=1
 
 # 3. Install Python Dependencies
+# Includes PySpark, Distributed ML (joblibspark), and RAG components (PyTorch, HF, FAISS)
+# The httpx version is explicitly pinned to resolve huggingface_hub networking errors.
 RUN pip install --upgrade pip && \
     pip install \
     pyspark==3.5.1 \
-    torch==2.2.1 \
-    transformers==4.38.2 \
-    openai-whisper==20231117 \
-    mlflow==2.11.1 \
-    faiss-cpu==1.8.0 \
     pandas==2.2.1 \
     scikit-learn==1.4.1 \
     xgboost==2.0.3 \
     joblib==1.3.2 \
-    joblibspark==0.5.3
+    joblibspark==0.5.3 \
+    mlflow==2.11.1 \
+    torch==2.2.1 \
+    transformers==4.38.2 \
+    sentence-transformers==2.5.1 \
+    faiss-cpu==1.8.0 \
+    httpx==0.27.0 \
+    ipykernel==6.29.3
 
-# 4. Create Non-Root User
+# 4. Create Non-Root User (Required for standard DevContainer permissions)
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-RUN groupadd --gid $USER_GID$USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m$USERNAME -s /bin/bash \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
+    && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
 USER $USERNAME
@@ -245,7 +248,37 @@ A "bare" WSL 2 instance (manually running `dockerd` via `systemctl` inside Ubunt
 
 For students who prefer working directly in an interactive Jupyter Lab or Jupyter Notebook environment inside their native Linux distro or WSL 2 instance—rather than using the VS Code DevContainer extension—Docker Compose makes it effortless to spin up a standalone Jupyter service that maps directly to your local file system.
 
-#### 1. Adding a Jupyter Service to `docker-compose.yml`
+#### 1. Updating Your DevContainer to Include a Jupyter Host
+
+Replace the entire contents of your `.devcontainer/devcontainer.json` with the following code. This explicitly includes the `runArgs` network bridging patch so that VS Code can cleanly resolve the `spark-master` and `mlflow-server` hostnames across the Docker Compose network without namespace isolation issues.
+
+```json
+{
+    "name": "CIS 731 OSEMN Pipeline",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "service": "workspace",
+    "workspaceFolder": "/workspace",
+    "runArgs": [
+        "--network=cis731_default"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    }
+}
+```
+
+**Next Steps**
+
+1. Save out both your `Dockerfile` and `devcontainer.json`.
+2. Open the terminal and rebuild the container stack from scratch to apply the new dependencies and network configurations: `docker compose up -d --build --force-recreate`
+3. Re-attach VS Code using **Dev Containers: Reopen in Container**.
+
+#### 2. Adding a Jupyter Service to `docker-compose.yml`
 You can append an official Jupyter service to your existing `docker-compose.yml` so it shares the same Docker network and local data volumes (`./data/` and `./mlflow_data/`):
 
 ```yaml
@@ -265,7 +298,7 @@ You can append an official Jupyter service to your existing `docker-compose.yml`
       - mlflow-server
 ```
 
-#### 2. Launching and Accessing Jupyter
+#### 3. Launching and Accessing Jupyter
 
 1. In your WSL 2 or native Linux terminal, start the stack:
 ```bash
@@ -275,9 +308,7 @@ docker compose up -d
 `http://localhost:8888/?token=cis731securetoken`
 3. Any notebooks you create or run inside Jupyter will be saved directly into your local Linux project directory, maintaining clean GitOps tracking. When connecting PySpark inside the notebook, point your `SparkSession` to `spark://spark-master:7077`.
 
----
-
-### Example Jupyter Notebook: Distributed Cross-Validation & MLflow Tracking (`evaluate_models.ipynb`)
+#### 4. Example Jupyter Notebook: Distributed Cross-Validation & MLflow Tracking (`evaluate_models.ipynb`)
 
 Below is the complete Jupyter notebook JSON structure wrapping the scikit-learn, `joblib-spark`, and MLflow benchmarking workflow. Save this as [`evaluate_models.ipynb`](evaluate_models.ipynb) in your repository root.
 
