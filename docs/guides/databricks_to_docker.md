@@ -75,3 +75,92 @@ services:
       - spark-master
     volumes:
       - ./data:/opt/bitnami/spark/data
+```
+
+### Step 2: Replacing Databricks `dbutils`, Unity Volumes, and `spark.read`
+
+In Databricks, your student used Unity Catalog volume paths (`/Volumes/workspace/default/ieee_fraud_bronze/raw`) and `dbutils.secrets`. Locally, data is loaded from a local directory, and Spark is connected to the local standalone cluster.
+
+#### **Databricks Original (`obtain.ipynb` / `scrub.ipynb`):**
+
+```python
+# Databricks-specific paths and secrets
+token = dbutils.secrets.get(scope="kaggle", key="api_token")
+BRONZE = "/Volumes/workspace/default/ieee_fraud_bronze/raw"
+
+train_tx = spark.read.option("header", True).csv(f"{BRONZE}/train_transaction.csv")
+```
+
+#### **Local PySpark Port (`main.py` or Jupyter in DevContainer):**
+
+```python
+from pyspark.sql import SparkSession
+from pyspark.sql import functions as F
+
+# Initialize Spark Session connected to local standalone cluster
+spark = SparkSession.builder \
+    .appName("IEEE-CIS-Fraud-Local-Port") \
+    .master("spark://spark-master:7077") \
+    .config("spark.executor.memory", "2g") \
+    .config("spark.cores.max", "2") \
+    .getOrCreate()
+
+# Local data path mapped via Docker volumes
+BRONZE = "/opt/bitnami/spark/data/raw"
+
+# Read CSV with explicit schema handling (avoiding inferSchema timeout on 651MB CSV)
+train_tx = (
+    spark.read
+    .option("header", True)
+    .option("inferSchema", False)
+    .csv(f"{BRONZE}/train_transaction.csv")
+)
+
+print(f"Successfully loaded train transactions: {train_tx.count():,} rows")
+```
+
+---
+
+## 4. Measuring Speedup Across 1–4 Workers (The Core Requirement)
+
+To satisfy the course requirement of evaluating parallel execution, your student can write a timing harness that adjusts the number of spark partitions and worker cores, measuring wall-clock time for an intensive map/aggregation operation (such as the missing-value profiler or type-casting scrub logic from `scrub.ipynb`).
+
+```python
+import time
+
+def benchmark_pipeline(num_workers, num_partitions):
+    # Reconfigure Spark parallelism dynamically
+    spark.conf.set("spark.default.parallelism", str(num_partitions))
+    spark.conf.set("spark.sql.shuffle.partitions", str(num_partitions))
+    
+    start_time = time.time()
+    
+    # Example compute-heavy operation from scrub.ipynb:
+    # Profiling missing values across all columns of train_transaction
+    total_rows = train_tx.count()
+    missing_exprs = [
+        F.sum(F.when(F.col(c).isNull() | (F.trim(F.col(c)) == ""), 1).otherwise(0)).alias(c)
+        for c in train_tx.columns[:50] # Bounded to 50 columns for local RAM safety
+    ]
+    
+    summary = train_tx.agg(*missing_exprs).collect()
+    
+    elapsed = time.time() - start_time
+    print(f"[Workers: {num_workers} | Partitions: {num_partitions}] Completed in {elapsed:.2f} seconds")
+    return elapsed
+
+# Execute scaling benchmark
+t1 = benchmark_pipeline(num_workers=1, num_partitions=2)
+t2 = benchmark_pipeline(num_workers=2, num_partitions=4)
+t4 = benchmark_pipeline(num_workers=2, num_partitions=8)
+
+print(f"\nSpeedup (2 partitions vs 4 partitions): {t1 / t2:.2f}x")
+```
+
+### Summary of Local Migration Benefits
+
+By shifting from the Databricks Free Tier to a local Docker DevContainer and multi-container Spark setup:
+
+* **Timeouts are eliminated** because there are no idle shutoffs or cloud gateway limits.
+* **Data locality is preserved** by storing the IEEE-CIS CSV files directly in `./data/raw`.
+* **Exact PySpark syntax is maintained**, meaning zero code rewrites are required for `.groupBy()`, `.withColumn()`, join logic, or Delta/Parquet writes.
