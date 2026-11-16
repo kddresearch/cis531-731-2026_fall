@@ -32,7 +32,7 @@ RUN pip install --upgrade pip && \
     pip install \
     pyspark==3.5.1 \
     pandas==2.2.1 \
-    scikit-learn==1.4.1 \
+    scikit-learn==1.9.1 \
     xgboost==2.0.3 \
     joblib==1.3.2 \
     joblibspark==0.5.3 \
