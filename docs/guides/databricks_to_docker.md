@@ -31,28 +31,28 @@ ENV PIP_NO_CACHE_DIR=1
 RUN pip install --upgrade pip && \
     pip install \
     pyspark==3.5.3 \
-    pandas==3.0.6 \
-    scikit-learn==1.9.1 \
+    pandas==3.0.0 \
+    scikit-learn==1.5.2 \
     xgboost==3.4.1 \
     joblib==1.5.3 \
     joblibspark==0.6.0 \
-    mlflow==3.18.0 \
+    mlflow==3.15.0 \
     torch==2.2.1 \
     transformers==5.15.0 \
     sentence-transformers==6.0.0 \
-    faiss-cpu==1.16.0 \
+    faiss-cpu==1.10.0 \
     httpx==0.28.1 \
     ipykernel==7.3.0
 
-# 4. Create Non-Root User (Required for standard DevContainer permissions)
+# 4. Create Non-Root User Safely (Bypasses existing GID/UID conflicts)
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-RUN groupadd --gid $USER_GID$USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m$USERNAME -s /bin/bash \
+RUN getent group $USER_GID || groupadd --gid $USER_GID $USERNAME \
+    && getent passwd $USER_UID || useradd --uid $USER_UID --gid $USER_GID -m $USERNAME -s /bin/bash \
     && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
-
+    
 USER $USERNAME
 WORKDIR /workspace
 ```
