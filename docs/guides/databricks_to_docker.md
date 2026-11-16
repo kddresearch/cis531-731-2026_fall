@@ -296,7 +296,7 @@ docker compose up -d
 
 #### 3. Example Jupyter Notebook: Distributed Cross-Validation & MLflow Tracking (`evaluate_models.ipynb`)
 
-Below is the complete Jupyter notebook JSON structure wrapping the scikit-learn, `joblib-spark`, and MLflow benchmarking workflow. Save this as [`evaluate_models.ipynb`](https://www.google.com/search?q=evaluate_models.ipynb) in your repository root.
+Below is the complete Jupyter notebook JSON structure wrapping the scikit-learn, `joblib-spark`, and MLflow benchmarking workflow. Save this as [`evaluate_models.ipynb`](./evaluate_models.ipynb) in your repository root.
 
 ```json
 {
