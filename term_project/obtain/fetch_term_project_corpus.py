@@ -12,12 +12,12 @@ import urllib.request
 from pathlib import Path
 
 # Target output directories anchored to the term project path
-TERM_PROJECT_DIR = Path("term_project")
+TERM_PROJECT_DIR = Path(".")
 CORPUS_OUTPUT_DIR = TERM_PROJECT_DIR / "data" / "raw_corpus"
 TEXT_CORPUS_DIR = CORPUS_OUTPUT_DIR / "texts"
 
 # Path to the course manifest table (adjust relative path as needed)
-MANIFEST_PATH = Path("docs/guides/lab03_poem_list.md")
+MANIFEST_PATH = Path("./lab03_poem_list.md")
 
 def initialize_term_project_dirs():
     TEXT_CORPUS_DIR.mkdir(parents=True, exist_ok=True)
